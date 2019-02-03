@@ -1,0 +1,243 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<div class="container-fluid no-gutters no-paddings">
+    <!-- <header *ngIf=!flag style="background-color:#fff;box-shadow: 2px 2px 2px rgba(0,0,0,0.2);z-index: 1;
+        position: relative;">
+        <div class="container no-paddings">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" routerLink="/home" routerLinkActive="activeClss">
+                    <img src="assets/images/eGAZE_logo.png" width="178px" height="47px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarNavDropdown" class="navbar-collapse collapse">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle dropdown-toggle-icon" href="" id="navbarDropdownMenuLinkServices" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                ABOUT US
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkServices">
+                                <a class="dropdown-item" routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
+                                <a class="dropdown-item" routerLink="/whyeGAZE" routerLinkActive="activeClss">Why eGAZE</a>
+                                <a class="dropdown-item" routerLink="/testimonials" routerLinkActive="activeClss">Testimonials</a>
+                                <a class="dropdown-item" routerLink="/blogs" routerLinkActive="activeClss">Blogs</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/contactus" routerLinkActive="activeClss">CONTACT US</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLinkServices" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                SERVICES
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkServices">
+                                <a class="dropdown-item" routerLink="/property-monitoring" routerLinkActive="activeClss">Property Monitoring</a>
+                                <a class="dropdown-item" routerLink="/package-description" routerLinkActive="activeClss">Packages</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                         <li class="nav-item dropdown" style="padding-right:0px;">
+                            <a class="nav-link dropdown-toggle" [ngClass]="'active'" [ngClass]="{'activeClass': activeColor}" href="#" id="navbarDropdownMenuLinkAccount"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MY ACCOUNT
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkAccount">
+                                <a class="dropdown-item" routerLink="/loginform" routerLinkActive="activeClss">Login / Register</a>
+                             </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <header *ngIf=flag style="background-color:#fff;box-shadow: 2px 2px 2px rgba(0,0,0,0.2);z-index: 1;position: relative;">
+       
+       <div class="container no-paddings">
+    
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <a class="navbar-brand" routerLink="/home" routerLinkActive="activeClss">
+                    <img src="assets/images/eGAZE_logo.png" width="178px" height="47px" />
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown1" aria-controls="navbarNavDropdown"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarNavDropdown1" class="navbar-collapse collapse">
+                    <ul class="navbar-nav mr-auto">
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle dropdown-toggle-icon" href="" id="navbarDropdownMenuLinkServices" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                ABOUT US
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkServices">
+                                <a class="dropdown-item" routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
+                                <a class="dropdown-item" routerLink="/whyeGAZE" routerLinkActive="activeClss">Why eGAZE</a>
+                                <a class="dropdown-item" routerLink="/testimonials" routerLinkActive="activeClss">Testimonials</a>
+                                <a class="dropdown-item" routerLink="/blogs" routerLinkActive="activeClss">Blogs</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/contactus" routerLinkActive="activeClss">CONTACT US</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLinkServices" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                SERVICES
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkServices">
+                                <a class="dropdown-item" routerLink="/property-monitoring" routerLinkActive="activeClss">Property Monitoring</a>
+                                <a class="dropdown-item" routerLink="/packages" routerLinkActive="activeClss">Packages</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+        
+                        <li class="nav-item dropdown" style="padding-right:0px;">
+                            <a style="color:#1275af;font-size:17px;margin-top:-4px;" class="nav-link dropdown-toggle" [ngClass]="'active'" [ngClass]="{'activeClass': activeColor}"
+                                href="#" id="navbarDropdownMenuLinkAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fa fa-user-circle" style="font-size:22px;"></i>
+                                <span style="font-size:16px;">{{user.email}}</span>
+                            </a>
+
+
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkAccount">
+                                <a *ngIf="this.user.role==='admin'" class="dropdown-item" routerLink="/admindashboard" routerLinkActive="activeClss">Dashboard</a>
+                                <a *ngIf="this.user.role==='customer'" class="dropdown-item" (click)="userdashboard()" style="cursor:pointer">Dashboard</a>
+                                <a *ngIf="this.user.role==='customer'" class="dropdown-item" routerLink="/profile" routerLinkActive="activeClss">Profile</a>
+                     
+                                <a class="dropdown-item" (click)="logout()" style="cursor:pointer">Logout</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+           
+
+
+        </nav>
+
+    </div>
+    </header> -->
+    <app-header></app-header>
+
+    <div class="container-fluid no-gutters no-paddings">
+        <router-outlet></router-outlet>
+    </div>
+<app-footer></app-footer>
+    <!-- <footer>
+        <div class="row no-gutters no-paddings footer-bg">
+            <div class="container" align="center">
+
+              
+
+                <div class="footer-menu-1" style="padding-top: 23px;">
+                    <p class="heading-location">About</p>
+                    <ul>
+                        <li>
+                            <a routerLink="/aboutus" routerLinkActive="activeClss">About Us</a>
+                        </li>
+                        <li>
+                            <a routerLink="/contactus" routerLinkActive="activeClss">Contact Us</a>
+                        </li>
+                        <li>
+                            <a routerLink="/testimonials" routerLinkActive="activeClss">Testimonials</a>
+                        </li>
+                        <li>
+                            <a routerLink="/egaze-services" routerLinkActive="activeClss">Services</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <div class="footer-menu-1" style="padding-top: 23px;">
+                    <p class="heading-location">Legals</p>
+                    <ul>
+                        <li>
+                            <a routerLink="/terms-conditions" routerLinkActive="activeClss">Terms &amp; Conditions</a>
+                        </li>
+                        <li>
+                            <a routerLink="/privacy-policy" routerLinkActive="activeClss">Privacy Policy</a>
+                        </li>
+                        <li>
+                            <a routerLink="/disclaimer" routerLinkActive="activeClss">Disclaimer</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <div class="footer-menu-1" style="padding-top: 23px;">
+                    <p class="heading-location">Other Information</p>
+                    <ul>
+                        <li>
+                            <a routerLink="/agent-registration" routerLinkActive="activeClss">Agent Registration</a>
+                        </li>
+
+                        <li>
+                            <a routerLink="/help" routerLinkActive="activeClss">Help</a>
+                        </li>
+                        <li>
+                            <a routerLink="/sitemap" routerLinkActive="activeClss">SiteMap</a>
+                        </li>
+                        <li>
+                            <a routerLink="/articles" routerLinkActive="activeClss">Articles</a>
+                        </li>
+
+                    </ul>
+                </div>
+
+
+
+                <div class="footer-menu-1" style="padding-top: 23px;">
+     
+                    <p class="heading-location">Connect</p>
+
+                    <section id="lab_social_icon_footer">
+                        <div>
+                            <div class="text-center center-block">
+                                <a href="https://www.facebook.com/egaze" target="_new">
+                                    <i id="social-fb" class="fa fa-facebook-square fa-3x social"></i>
+                                </a>
+                                <a href="https://twitter.com/egaze1" target="_new">
+                                    <i id="social-tw" class="fa fa-twitter-square fa-3x social"></i>
+                                </a>
+                                <a href="https://www.youtube.com/channel/UCXWgWp696nA1LiOG_nYr5oA?view_as=subscriber" target="_new">
+                                    <i id="social-gp" class="fa fa-youtube-square fa-3x social"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </section>
+
+
+
+
+                </div>
+
+
+
+
+
+
+            </div>
+        </div>
+        <div class="row no-gutters justify-content-center">
+            <div class="gradient-line"></div>
+        </div>
+        <div class="row no-gutters justify-content-center footer-copyright">
+            <p>&copy; 2018 eGAZE Property Monitoring. All Rights Reserved</p>
+        </div>
+    </footer> -->
+    <div *ngIf="showUparrow">
+    <a href="javascript:void()" (click)="smooth()" title="Scroll to top" class="backtotopstyle"></a>
+</div>
+</div>

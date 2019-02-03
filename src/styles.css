@@ -1,0 +1,544 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+@import 'intl-tel-input/build/css/intlTelInput.css';
+
+
+.pagination {
+  display: inline-flex !important;
+  padding-left: 0 !important;
+  margin: 20px 0 !important ;
+  border-radius: 4px !important;
+  list-style: none;
+}
+
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff;
+  background-color: #1275af;
+  border-color: #1275af;
+
+}
+
+.pull-right {
+  float: right !important;
+}
+.pagination > li {
+  display: inline !important;
+}
+.no-paddings{
+    padding-left:0px !important;
+    padding-right:0px !important;
+}
+.carousel-indicators li {
+background-color:#0069af;
+width:10px;
+height:10px;
+border-radius:50px;
+}
+.carousel-indicators .active{
+    background-color:#ff5f00;
+}
+/* .carousel-control-prev, .carousel-control-next{
+    display:none;
+} */
+/* .dropdown-menu{
+    margin: 0.99em 0 0;
+    border-top:0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border:0px;
+    box-shadow:1px 4px 5px rgba(0,0,0,0.3);
+} */
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(0, 0, 0, 0.8);
+}
+.dropdown:hover>.dropdown-menu {
+  display: block !important;
+  box-shadow:1px 4px 5px rgba(0,0,0,0.3);
+  border-top:0px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border:0px;
+}
+
+.dropdown>.dropdown-toggle:active {
+    pointer-events: none;
+}
+
+.dropdown-toggle::after{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 0.255em;
+    vertical-align: 0px !important;
+    border-top: 0px solid !important;
+    border-right: 0px solid transparent !important; 
+    border-bottom: 0px !important; 
+    border-left: 0px solid transparent !important; 
+    content:"\f107";
+    font-family: FontAwesome;
+}
+li.nav-item{
+    padding-right:20px;
+}
+.dropdown-item {
+   
+    font-weight: 400;
+    color: #0063ab;
+
+}
+.submit-btn{
+    background-color: #fd8236;
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px 15px;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 500;
+    border:0px;
+    cursor: pointer;
+    outline: 0;
+    outline-style: none;
+}
+.submit-btn:focus{
+    outline: 0;
+    }
+.modal-header{
+    padding: 10px 15px !important;
+}
+.modal-header > .modal-title{
+    font-size: 16px !important;
+}
+.modal-header > .modal-title > button.close{
+    padding-top: 0.2em;
+}
+button.glyphicon-remove::after {
+    content: "\f00d";
+    font-family: FontAwesome;
+    font-size:16px;
+    color:#ccc;
+}
+.modal-header .close {
+    padding: 0.8rem !important;
+    margin: -1rem -1rem -1rem auto;
+    outline: none;
+}
+/** **/
+
+
+@media (min-width: 576px)
+{
+.modal-dialog {
+    max-width: 80% !important;
+    margin: 1.75rem auto;
+}
+}
+
+.modal-dialog {
+    max-width: 80% !important;
+    margin: 1.75rem auto;
+}
+
+/*** spinner styles here ****/
+.loadingDiv{
+    text-align:center;
+    display:inline-block;
+    margin:0 auto;
+    width:150px;
+}
+.lds-div-roller {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-div-roller div {
+    animation: lds-div-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 32px 32px;
+  }
+  .lds-div-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #1275af;
+    margin: -3px 0 0 -3px;
+  }
+  .lds-div-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-div-roller div:nth-child(1):after {
+    top: 50px;
+    left: 50px;
+  }
+  .lds-div-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-div-roller div:nth-child(2):after {
+    top: 54px;
+    left: 45px;
+  }
+  .lds-div-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-div-roller div:nth-child(3):after {
+    top: 57px;
+    left: 39px;
+  }
+  .lds-div-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-div-roller div:nth-child(4):after {
+    top: 58px;
+    left: 32px;
+  }
+  .lds-div-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-div-roller div:nth-child(5):after {
+    top: 57px;
+    left: 25px;
+  }
+  .lds-div-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-div-roller div:nth-child(6):after {
+    top: 54px;
+    left: 19px;
+  }
+  .lds-div-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-div-roller div:nth-child(7):after {
+    top: 50px;
+    left: 14px;
+  }
+  .lds-div-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-div-roller div:nth-child(8):after {
+    top: 45px;
+    left: 10px;
+  }
+  @keyframes lds-div-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  app-modal-property {
+    /* modals are hidden by default */
+    display: none;
+}
+app-modal-property .modal {
+        /* modal container fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        /* z-index must be higher than .modal-background */
+        z-index: 3!important;
+        
+        /* enables scrolling for tall modals */
+        overflow: auto;
+        display: inline-block;
+    }
+    app-modal-property .modal .modal-body {
+            padding: 20px;
+            background: #fff;
+
+            /* margin exposes part of the modal background */
+            margin: 40px;
+            border-radius:5px;
+        }
+    
+
+        app-modal-property .modal-background {
+        /* modal background fixed across whole screen */
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        /* semi-transparent black  */
+        background-color: #000;
+        opacity: 0.75;
+        
+        /* z-index must be below .modal and above everything else  */
+        z-index: 2!important;
+    }
+
+
+body.modal-open {
+    /* body overflow is hidden to hide main scrollbar when modal window is open */
+    overflow: hidden;
+}
+
+/*** common styles ***/
+
+ .no-resize{
+  resize: none;
+ }
+ .error-message{
+   color:red;
+   font-size:12px;
+   text-align:center;
+ }
+ .seach-box{
+  background-color: #1275af;
+  padding: 10px 10px 5px 15px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+ }
+
+ .search-label{
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+ }
+ /** arrow up **/
+ .backtotopstyle {
+  background: url("../src/assets/images/up_arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+  height: 60px;
+  width: 66px;
+  outline: 0px !important;
+  outline-style: none !important;
+  border: none;
+  position: fixed;
+  z-index: 22;
+  display: block;
+  right: 20px;
+  bottom: 20px;
+  opacity: 0.5;
+}
+/**  arrow up  **/
+
+/** show/hide password **/
+
+.passwordInput{
+  position:relative;
+}
+.showHideText{
+  position: absolute;
+  right: 25px;
+  top: 1;
+  top: 6px;
+  cursor: pointer;
+}
+.showHideText i.fa{
+ font-size:18px;
+}
+
+
+.table-container-style{
+  padding: 10px 20px !important;
+  background-color: #fff;
+  margin: 10px 0px;
+  border-radius: 6px; 
+  width:100%;
+}
+.table-container-style thead{
+ /** background-color: #fdf8f5; **/
+ background-color:#fd9958;
+}
+
+.table-container-style thead th{
+  vertical-align: middle;
+  color: #1275af;
+  font-size:15px;
+  color:#fff!important;
+  font-weight: 500;
+}
+
+.table-container-style thead th:first-child{
+  width:35px!important;
+}
+
+.table-container-style .table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.04)!important;
+}
+
+.table-container-style .table-striped tbody tr:nth-of-type(even) {
+  background-color:#fff!important;
+}
+
+.table-container-style .table-bordered thead th, .table-bordered thead td {
+  border-bottom-width: 3px;
+  border-bottom-color: #30a2ec !important;
+}
+
+
+
+.table-container-style table td{
+  font-size: 14px;
+  min-width: 100px;
+  vertical-align: middle;
+  text-align: left;
+}
+.table-th-styles th{
+  vertical-align: bottom;
+  line-height: 18px;
+  font-size: 14px;
+  font-weight: 600;
+}
+.table-th-styles td.viewbtn{
+  cursor: pointer;
+}
+
+modal {
+  /* modals are hidden by default */
+  display: none;
+}
+modal .modal {
+      /* modal container fixed across whole screen */
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      /* z-index must be higher than .modal-background */
+      z-index: 2;
+      
+      /* enables scrolling for tall modals */
+      overflow: auto;
+      display: inline-block;
+  }
+  modal .modal .modal-body {
+          padding: 20px;
+          background: #fff;
+          /* margin exposes part of the modal background */
+          margin: 40px;
+          border-radius:6px;
+      }
+  modal .modal .modal-body label{
+      font-size:14px;
+  }
+
+  modal .modal .modal-body .form-group {
+      margin-bottom: 0.5rem;
+  }
+      modal .modal-background {
+      /* modal background fixed across whole screen */
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      /* semi-transparent black  */
+      background-color: #000;
+      opacity: 0.75;
+      
+      /* z-index must be below .modal and above everything else  */
+      z-index: 1;
+  }
+
+
+body.modal-open {
+  /* body overflow is hidden to hide main scrollbar when modal window is open */
+  overflow: hidden;
+}
+.closeIcon-style{
+  font-size:22px!important;
+  cursor: pointer !important;
+  color:#fd8236;
+  
+}
+.closeIcon-style:hover{
+  color:#fd8236;
+}
+
+.modal-heading{
+  border-bottom: 1px solid #f5f5f5;
+  padding: 0px;
+}
+.modal-heading p{
+  margin-bottom: 10px;font-size:16px;font-weight:400;color:#000;
+}
+
+.modal-heading{
+  border-bottom: 1px solid #f5f5f5;
+  padding: 0px;
+}
+.modal-heading p{
+  margin-bottom: 10px;font-size:16px;font-weight:400;color:#000;
+}
+
+/*** **/
+
+.tab-active-heading{
+  color: #1275af;
+  font-size: 20px;
+  padding-bottom: 5px!important;
+}
+.container-top-padding{
+  padding-top:138px !important;
+  min-height:100vh;
+}
+@media (max-width: 767px){
+  .container-top-padding{
+    padding-top:198px !important;
+  }
+  .leftside-menu{
+    min-height: 140px !important;
+}
+}
+/** active class **/
+/* .activeClss::after{
+      content: '';
+    display: block;
+    height: 5px;
+    background-color: #1672a5;
+} */
+.mandatory{
+  color:red;
+}
+.form-control{
+  padding: 2px 5px !important;
+}
+.form-control1 {
+  display: block;
+  width: 100%;
+  height: calc(2.25rem + 2px);
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #495057;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+
+.intl-tel-input .allow-dropdown{
+padding:0px !important;
+width:100% !important;
+}
+.isienot{
+  border-radius: 6px !important;
+  border: 1px solid #ccc !important;
+  padding: 6px 44px !important;
+  width:100% !important;
+}
+.intl-tel-input {
+  position: relative;
+  display: block!important;
+}

@@ -1,0 +1,416 @@
+<!-- <header *ngIf=!flag style="background-color:#fff;box-shadow: 2px 2px 2px rgba(0,0,0,0.2);z-index: 1;
+position: relative;">
+<div class="container no-paddings">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" routerLink="/home" routerLinkActive="activeClss">
+            <img src="assets/images/eGAZE_logo.png" width="178px" height="47px" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-icon" href="" id="navbarDropdownMenuLinkServices" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        ABOUT US
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkServices">
+                        <a class="dropdown-item" routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
+                        <a class="dropdown-item" routerLink="/whyeGAZE" routerLinkActive="activeClss">Why eGAZE</a>
+                        <a class="dropdown-item" routerLink="/testimonials" routerLinkActive="activeClss">Testimonials</a>
+                        <a class="dropdown-item" routerLink="/blogs" routerLinkActive="activeClss">Blogs</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contactus" routerLinkActive="activeClss">CONTACT US</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLinkServices" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        SERVICES
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkServices">
+                        <a class="dropdown-item" routerLink="/property-monitoring" routerLinkActive="activeClss">Property Monitoring</a>
+                        <a class="dropdown-item" routerLink="/package-description" routerLinkActive="activeClss">Packages</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+             
+                <li class="nav-item dropdown" style="padding-right:0px;">
+                    <a class="nav-link dropdown-toggle" [ngClass]="'active'" [ngClass]="{'activeClass': activeColor}" href="#" id="navbarDropdownMenuLinkAccount"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        MY ACCOUNT
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkAccount">
+                        <a class="dropdown-item" routerLink="/loginform" routerLinkActive="activeClss">Login / Register</a>
+                     </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</header>
+
+
+<header *ngIf=flag style="background-color:#fff;box-shadow: 2px 2px 2px rgba(0,0,0,0.2);z-index: 1;position: relative;">
+
+<div class="container no-paddings">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" routerLink="/home" routerLinkActive="activeClss">
+            <img src="assets/images/eGAZE_logo.png" width="178px" height="47px" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown1" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div id="navbarNavDropdown1" class="navbar-collapse collapse">
+            <ul class="navbar-nav mr-auto">
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle dropdown-toggle-icon" href="" id="navbarDropdownMenuLinkServices" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        ABOUT US
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkServices">
+                        <a class="dropdown-item" routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
+                        <a class="dropdown-item" routerLink="/whyeGAZE" routerLinkActive="activeClss">Why eGAZE</a>
+                        <a class="dropdown-item" routerLink="/testimonials" routerLinkActive="activeClss">Testimonials</a>
+                        <a class="dropdown-item" routerLink="/blogs" routerLinkActive="activeClss">Blogs</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contactus" routerLinkActive="activeClss">CONTACT US</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLinkServices" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        SERVICES
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkServices">
+                        <a class="dropdown-item" routerLink="/property-monitoring" routerLinkActive="activeClss">Property Monitoring</a>
+                        <a class="dropdown-item" routerLink="/packages" routerLinkActive="activeClss">Packages</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                  <li class="nav-item dropdown" style="padding-right:0px;">
+                    <a style="color:#1275af;font-size:17px;margin-top:-4px;" class="nav-link dropdown-toggle" [ngClass]="'active'" [ngClass]="{'activeClass': activeColor}"
+                        href="#" id="navbarDropdownMenuLinkAccount" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-user-circle" style="font-size:22px;"></i>
+                        <span style="font-size:16px;">{{user.email}}</span>
+                    </a>
+
+
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLinkAccount">
+                        <a *ngIf="this.user.role==='admin'" class="dropdown-item" routerLink="/admindashboard" routerLinkActive="activeClss">Dashboard</a>
+                        <a *ngIf="this.user.role==='customer'" class="dropdown-item" (click)="userdashboard()" style="cursor:pointer">Dashboard</a>
+                        <a *ngIf="this.user.role==='customer'" class="dropdown-item" routerLink="/profile" routerLinkActive="activeClss">Profile</a>
+             
+                        <a class="dropdown-item" (click)="logout()" style="cursor:pointer">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+   
+
+
+</nav>
+
+</div>
+</header> -->
+
+<div id="header" Class="launch-sticky-header" [ngClass]=" isScollDown ? 'affix' : 'affix-top' " data-spy="affix" data-offset-top="187"
+  data-offset-bottom="0">
+  <div class="top">
+    <div class="container">
+      <div class="logo">
+        <a  routerLink="/home" routerLinkActive="activeClss">
+          <img src="../../assets/images/eGAZE_logo1.png" alt="eGAZE" width="175">
+        </a>
+      </div>
+      <!-- <div class="social">
+        <ul>
+          <li>
+            <a href="https://www.youtube.com/channel/UCXWgWp696nA1LiOG_nYr5oA?view_as=subscriber" target="_blank">
+              <i class="fa fa-youtube-play" aria-hidden="true"></i>
+              <span class="sr-only">Youtube</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/egaze1" target="_blank">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              <span class="sr-only">Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.facebook.com/egaze" target="_blank">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <span class="sr-only">Facebook</span>
+            </a>
+          </li>
+
+        </ul>
+      </div> -->
+
+      <div class="logins">
+          <ul *ngIf="flag">
+            <li>
+              <a>{{user.email}}</a>
+            </li>
+            <li>
+              <a (click)="logout()" style="cursor:pointer">Logout</a>
+            </li>
+  
+          </ul>
+  
+          <ul *ngIf="!flag">
+            <li>
+              <a routerLink="/loginform" routerLinkActive="activeClss" class="login-style">Login</a>
+            </li>
+            <li>
+              <a routerLink="/registerform" routerLinkActive="activeClss" class="login-style">Registration</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="phone" style="font-size: 16px;">
+        
+            <a *ngIf="!mobile" href="tel: +917045942225" target="_blank">
+              <i class="fa fa-phone whatsapp-number" aria-hidden="true"></i> 
+              <i class="fa fa-whatsapp whatsapp-number" aria-hidden="true"></i>
+              (+91) 70459 42225
+            </a>
+            <a *ngIf="mobile" href="https://api.whatsapp.com/send?phone=+91-7045942225" target="_blank">
+              <i class="fa fa-phone whatsapp-number" aria-hidden="true"></i> (+91) 70459 42225
+            </a>
+        
+          </div>
+    </div>
+  </div>
+  <div class="nav">
+    <div class="container">
+      <div class="mobile-hide">
+        <div id="nav">
+          <ul>
+            <li>
+              <a routerLink="/home" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/home'">
+                <i class="fa fa-home top-menu-icons" aria-hidden="true"></i> Home
+</a>
+            </li>
+
+            <li>
+              <a [class.activeClassLink] = "currentURL=='/package-choose'">
+                <i class="fa fa-cogs top-menu-icons top-menu-icons"></i> 
+                Services</a>
+              <ul>
+          
+                <li>
+                  <a routerLink="/package-choose" routerLinkActive="activeClss">Packages</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- <li>
+              <a routerLink="/package-description" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/package-description'">Packages</a>
+            </li> -->
+            <!-- <li *ngIf="!flag">
+              <a [class.activeClassLink] = "currentURL=='/agent-registration'">Agents</a>
+              <ul>
+               <li>
+                  <a routerLink="/agent-registration" routerLinkActive="activeClss">Agent Registration</a>
+                </li>
+              </ul>
+            </li> -->
+            <li>
+              <a [class.activeClassLink] = "currentURL=='/abouteGAZE' || currentURL=='/whyeGAZE'">
+                <i class="fa fa-user top-menu-icons"></i> About</a>
+              <ul>
+                <li>
+                  <a routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
+                </li>
+                <li>
+                  <a routerLink="/whyeGAZE" routerLinkActive="activeClss">Why eGAZE</a>
+                </li>
+
+              </ul>
+            </li>
+
+            <li >
+              <a routerLink="/articles" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/articles'"><i class="fa fa-newspaper-o top-menu-icons"></i> Articles</a>
+            </li>
+            <li>
+              <a routerLink="/testimonials" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/testimonials'"><i class="fa fa-users top-menu-icons"></i> Testimonials</a>
+            </li>
+            <li >
+              <a routerLink="/contactus" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/contactus'"><i class="fa fa-phone top-menu-icons"></i> Contact</a>
+            </li>
+            <li >
+              <a routerLink="/help" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/help'"><i class="fa fa-question top-menu-icons"></i> Help</a>
+            </li>
+
+            <li >
+              <a [class.activeClassLink] = "currentURL=='/terms-conditions' || currentURL=='/privacy-policy'">  <!--|| currentURL==='/disclaimer' -->
+                <i class="fa fa-newspaper-o top-menu-icons"></i> Policies</a>
+              <ul>
+                <li>
+                  <a routerLink="/terms-conditions" routerLinkActive="activeClss" >Terms &amp; Conditions</a>
+                </li>
+                <li>
+                  <a routerLink="/privacy-policy" routerLinkActive="activeClss" >Privacy Policy</a>
+                </li>
+                <!-- <li>
+                  <a routerLink="/disclaimer" routerLinkActive="activeClss" >Disclaimer</a>
+                </li> -->
+
+              </ul>
+            </li>
+
+
+
+
+            <li *ngIf="!flag">
+              <a routerLink="/blog" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/blog'">
+                <i>
+                <img src="../../assets/images/blogger-icon.png" width="16px;" style="margin-top: -5px;"/>
+              </i> Blog</a>
+            </li>
+            <li *ngIf="flag">
+              <a *ngIf="this.user.role==='admin'" routerLink="/admindashboard" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/admindashboard'">Dashboard</a>
+              <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" [class.activeClassLink] = "currentURL=='/userdashboard'">Dashboard</a>
+              <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" [class.activeClassLink] = "currentURL=='/agentdashboard'">Dashboard</a>
+
+            </li>
+            <li *ngIf="flag">
+              <a *ngIf="this.user.role==='customer'" routerLink="/profile" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/profile'">Profile</a>
+              <a *ngIf="this.user.role==='agent'" routerLink="/agentprofile" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/profile'">Profile</a>
+
+
+             
+
+            </li>
+
+          </ul>
+        </div>
+      </div>
+      <a href="javascript:void(0)" class="launch-menu-button mobile-show" (click)="toggleShowDiv('divA')">
+        <i class="fa fa-bars" aria-hidden="true"></i> MENU
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div [@slideInOut]="animationState" [@slideOutIn]="animationState1" class="launch-menu sidebar" style="background-color: #0076a3">
+  <div class="launch-menu-close"  (click)="toggleShowDiv1('divA')">
+    <i class="fa fa-times close-icon" title="Close Menu"></i>
+  </div>
+
+  <div class="phone">
+      <a><img height="25px" src="../../assets/images/whatsapp.png" width="25px"></a><br>
+    <a *ngIf="!mobile" href="tel: +917045942225" target="_blank"><i class="fa fa-phone" aria-hidden="true"></i> (+91) 70459 42225</a>
+    <a *ngIf="mobile" href="https://api.whatsapp.com/send?phone=+91-7045942225" target="_blank"><i class="fa fa-phone" aria-hidden="true"></i> (+91) 70459 42225</a>
+  </div>
+  <div class="logins" *ngIf="flag" style="padding-left:20px;padding-bottom:10px;">
+    <a style="color:#1275af;font-size:18px;font-weight:400;">{{user.email}}</a>
+  </div>
+  <ul>
+    <li [class.activelink-mobile-menu-bg]="currentURL=='/home'">
+      <a routerLink="/home" routerLinkActive="activeClss"><i class="fa fa-home" aria-hidden="true"></i>
+      </a>
+    </li>
+
+    <li [class.activelink-mobile-menu-bg]="currentURL=='/package-description'">
+      <a>Services</a>
+      <ul>
+        <!-- <li [class.activelink-mobile-menu]="currentURL=='/property-monitoring'">
+          <a routerLink="/property-monitoring" routerLinkActive="activeClss" >Property Monitoring</a>
+        </li> -->
+        <li [class.activelink-mobile-menu]="currentURL=='/package-choose'">
+          <a routerLink="/package-choose" routerLinkActive="activeClss">Packages</a>
+        </li>
+      </ul>
+    </li>
+    <!-- <li [class.activelink-mobile-menu-bg]="currentURL=='/package-description'"> 
+      <a routerLink="/package-description" routerLinkActive="activeClss">Packages</a>
+    </li>  -->
+
+    <!-- <li *ngIf="!flag" [class.activelink-mobile-menu-bg]="currentURL=='/agent-registration'">
+      <a>Agents</a>
+      <ul>
+        <li [class.activelink-mobile-menu]="currentURL=='/agent-registration'">
+          <a routerLink="/agent-registration" routerLinkActive="activeClss">Agent Registration</a>
+        </li>
+      </ul>
+    </li> -->
+    <li [class.activelink-mobile-menu-bg]="currentURL=='/abouteGAZE' || currentURL=='/whyeGAZE'">
+      <a>About</a>
+      <ul>
+        <li [class.activelink-mobile-menu]="currentURL=='/abouteGAZE'">
+          <a routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
+        </li>
+        <li [class.activelink-mobile-menu]="currentURL=='/whyeGAZE'">
+          <a routerLink="/whyeGAZE" routerLinkActive="activeClss">Why eGAZE</a>
+        </li>
+
+      </ul>
+    </li>
+
+    <li [class.activelink-mobile-menu-bg]="currentURL=='/articles'">
+      <a routerLink="/articles" routerLinkActive="activeClss">Articles</a>
+    </li>
+    <li [class.activelink-mobile-menu-bg]="currentURL=='/testimonials'">
+      <a routerLink="/testimonials" routerLinkActive="activeClss">Testimonials</a>
+    </li>
+    <li [class.activelink-mobile-menu-bg]="currentURL=='/contactus'">
+      <a routerLink="/contactus" routerLinkActive="activeClss">Contact</a>
+    </li>
+    <li [class.activelink-mobile-menu-bg]="currentURL=='/help'">
+      <a routerLink="/help" routerLinkActive="activeClss">Help</a>
+    </li>
+
+     <li [class.activelink-mobile-menu-bg]="currentURL==='/terms-conditions' || currentURL==='/privacy-policy' "> <!--|| currentURL==='/disclaimer' -->
+      <a>Policies</a>
+      <ul>
+        <li [class.activelink-mobile-menu]="currentURL=='/terms-conditions'">
+          <a routerLink="/terms-conditions" routerLinkActive="activeClss">Terms &amp; Conditions</a>
+        </li>
+        <li [class.activelink-mobile-menu]="currentURL=='/privacy-policy'">
+          <a routerLink="/privacy-policy" routerLinkActive="activeClss">Privacy Policy</a>
+        </li>
+        <!-- <li [class.activelink-mobile-menu]="currentURL=='/disclaimer'">
+          <a routerLink="/disclaimer" routerLinkActive="activeClss">Disclaimer</a>
+        </li> -->
+
+      </ul>
+    </li>
+
+
+
+
+    <li *ngIf="!flag" [class.activelink-mobile-menu-bg]="currentURL=='/blog'">
+      <a routerLink="/blog" routerLinkActive="activeClss">Blog</a>
+    </li>
+    <li *ngIf="flag" [class.activelink-mobile-menu-bg]="currentURL=='/admindashboard' || currentURL=='/userdashboard' || currentURL=='/agentdashboard'">
+      <a *ngIf="this.user.role==='admin'" routerLink="/admindashboard" routerLinkActive="activeClss">Dashboard</a>
+      <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" style="cursor: pointer;" >Dashboard</a>
+      <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" routerLinkActive="activeClss" >Dashboard</a>
+
+    </li>
+    <li *ngIf="flag" [class.activelink-mobile-menu-bg]="currentURL=='/profile'">
+      <a *ngIf="this.user.role==='customer'" routerLink="/profile" routerLinkActive="activeClss">Profile</a>
+      <a *ngIf="this.user.role==='agent'" routerLink="/profile" routerLinkActive="activeClss">Profile</a>
+    </li>
+
+    <li *ngIf="flag" >
+      <a (click)="logout()" style="cursor:pointer">Logout</a>
+    </li>
+  </ul>
+</div>
+
+
+<div class="launch-menu-mask" *ngIf="bgColorchange" (click)="toggleShowDiv1('divA')"></div>
