@@ -39,12 +39,16 @@ background: url(/assets/images/menu_top_header.png) no-repeat;
 	#header .nav { text-align: center; line-height: 42px; }
 }
 @media (max-width: 767px){
-	#header { height: 193px; }
+	#header { height: 164px; }
 	#header .top { height: 152px; }
-	#header .phone { left: 15px; text-align: center; top: 5px; font-size: 20px; }
-	#header .logo { right: 15px; text-align: center; top: 66px; }
+	#header .phone { left: 25px; text-align: center; top: 5px; font-size: 20px; }
+	#header .logo { right: 15px; text-align: center; top: 72px; }
 	#header .logo img { max-height: 30px; }
-	#header .logins { left: 15px; text-align: center; top:31px; }
+	#header .logins { 
+		left: 52px;
+		text-align: center;
+		top: 42px;
+	}
 	#header .social { top: 110px; }
 	#header .nav {
 		text-align: center;
