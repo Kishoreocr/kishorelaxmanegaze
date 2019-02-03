@@ -8,7 +8,7 @@ import { text } from '../../../node_modules/@angular/core/src/render3/instructio
 import { Pwdvalidation } from '../pwdvalidation';
 import { EgazeService } from '../services/egaze.service';
 import { LoadingDivComponent } from '../loading-div/loading-div.component';
-import { interval } from 'rxjs/observable/interval';
+import { interval } from 'rxjs';
 import { ModalPropertyService } from '../services/modal-property.service';
 
 @Component({

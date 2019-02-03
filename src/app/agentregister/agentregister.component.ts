@@ -6,14 +6,14 @@ import { MessagemodalpopupComponent } from '../messagemodalpopup/messagemodalpop
 import { EgazeService } from '../services/egaze.service';
 import { LoadingDivComponent } from '../loading-div/loading-div.component';
 import { ModalPropertyService } from '../services/modal-property.service';
-import { interval } from 'rxjs/Observable/interval';
-
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-agentregister',
   templateUrl: './agentregister.component.html',
   styleUrls: ['./agentregister.component.css']
 })
+
 export class AgentregisterComponent implements OnInit {
 
   registerForm: FormGroup;
