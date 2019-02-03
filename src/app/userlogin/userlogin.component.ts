@@ -11,7 +11,7 @@ import { AppConstants } from '../services/constants';
 import { LoadingDivComponent } from '../loading-div/loading-div.component';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ModalPropertyService } from '../services/modal-property.service';
-import { interval } from 'rxjs/observable/interval';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-userlogin',

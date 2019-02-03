@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, ViewContainerRef ,ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { Router, ActivatedRoute, NavigationEnd } from "@angular/router";
 import { ModalDialogService } from 'ngx-modal-dialog';
@@ -7,6 +7,7 @@ import { EgazeService } from '../services/egaze.service';
 import { LoadingDivComponent } from '../loading-div/loading-div.component';
 import { ModalPropertyService } from '../services/modal-property.service';
 import { interval } from 'rxjs/observable/interval';
+import {ReCaptcha2Component} from 'ngx-captcha'
 
 @Component({
   selector: 'app-userregister',
@@ -42,6 +43,12 @@ export class UserregisterComponent implements OnInit {
   errorValidation: string;
   timerOn = true;
   resend:any=false;
+  siteKey = "6Lesto4UAAAAAKLdXIngWkCCJ3vouN4ZqngQERtp";
+  size: any = "normal";
+  lang: any = "en";
+  theme: any = "light";//Light
+  type: any = "image";
+  @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
 
   constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, modalService: ModalDialogService, viewRef: ViewContainerRef, private EgazeService: EgazeService, private ModalPropertyService: ModalPropertyService) {
 
@@ -83,6 +90,18 @@ isChartsName(event) {
   }
 }
 
+handleReset() {
+
+}
+handleExpire() {
+
+}
+handleSuccess(ev) {
+
+}
+handleLoad() {
+
+}
 
 
   pswdstrong(control: AbstractControl): any {
@@ -114,13 +133,14 @@ isChartsName(event) {
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.pattern(emailPattern)]],
       mobileNumber: ['', Validators.required],
-      zipCode: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])],
+      //zipCode: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])],
       password: ['', [Validators.required, Validators.minLength(4),this.pswdstrong]],
-      confirmPassword: ['', [Validators.required, Validators.minLength(4), this.passwordConfirming,this.pswdstrong,]],
+     // confirmPassword: ['', [Validators.required, Validators.minLength(4), this.passwordConfirming,this.pswdstrong,]],
       termsChecked: [false, Validators.required],
       country: [null],
       countryCode: [null],
-      type: [null]
+      type: [null],
+      recaptcha: ['', [Validators.required]]
     });
 
     this.registerForm.controls['registerType'].setValue("customer");

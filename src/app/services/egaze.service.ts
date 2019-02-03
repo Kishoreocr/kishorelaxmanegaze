@@ -5,9 +5,9 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class EgazeService {
   //DEV
- //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
+ private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
   //PROD
-  private baseUrl: string = 'https://www.egaze.in/egaze-api/';
+  //private baseUrl: string = 'https://www.egaze.in/egaze-api/';
   //private baseUrl: string = 'http://localhost:8080/egaze-api/';
   constructor(private http: HttpClient) { }
 
@@ -38,7 +38,7 @@ export class EgazeService {
         "lastName": userObject.lastName,
         "email": userObject.email,
         "mobile": userObject.mobileNumber,
-        "zip": userObject.zipCode,
+        "zip": "" ,
         "role": userObject.registerType,
         "password": userObject.password,
         "country": userObject.country,
@@ -53,7 +53,7 @@ export class EgazeService {
         "lastName": userObject.lastName,
         "email": userObject.email,
         "mobile": userObject.mobileNumber,
-        "zip": userObject.zipCode,
+        "zip": "",
         "role": userObject.registerType,
         "password": userObject.password,
         "country": userObject.country,

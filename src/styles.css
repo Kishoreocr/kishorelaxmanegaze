@@ -542,3 +542,11 @@ width:100% !important;
   position: relative;
   display: block!important;
 }
+.invalid-feedback1 {
+  /* display: none; */
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #ff7b7b !important;
+  font-weight: bold;
+}
