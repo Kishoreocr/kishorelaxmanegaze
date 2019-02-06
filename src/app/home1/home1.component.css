@@ -612,7 +612,7 @@ div .height-xl { height:35px; }
 
 /* Home Welcome
 ===================================================== */
-#home-welcome { text-align: center; }
+#home-welcome { text-align: center; background-color: #f6f4f5}
 #home-welcome .lead {font-size: 1.6em; font-weight: 400; }
 
 /* Home Info
@@ -1038,7 +1038,9 @@ div .height-xl { height:35px; }
 	}
 }
 #home-welcome p{
-line-height:30px!important;
+line-height:28px!important;
+text-align:left;
+color:#2a2a2a;
 }
 @media (max-width: 850px){
 #home-cta {
@@ -1059,6 +1061,7 @@ line-height:30px!important;
 	-ms-transform: translateY(-50%);
 	transform: translateY(-50%);
 	right:0px;
+	z-index:2;
   }
   
   .icon-bar a {
@@ -1126,3 +1129,38 @@ line-height:30px!important;
 	position: relative;
     top: -13px;
   }
+
+  .home-page-tile-style{
+	min-height: 175px;
+	margin-top: -30px;position:relative;z-index:1;
+	border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;color:#fff;padding:10px;
+  }
+  .home-page-tile-head{
+	color:#fff;text-align:center;font-size:22px;
+	text-transform: uppercase;
+  }
+  .head-underline{
+	width: 100px;
+    color: #fff;
+    height: 1px;
+    background-color: #fff;
+    text-align: center;
+    margin: 0px auto;
+    margin-top: -9px;margin-bottom: 5px;
+  }
+  .tile-2-bg{
+	  background-color: #00bce4;
+  }
+  .tile-3-bg{
+	background-color: #7d1636;
+}
+.tile-1-bg{
+	background-color: #005581;
+}
+.home-page-welcome{
+	color: #2a2a2a;
+    font-size: 34px;
+    font-weight: 500;
+	padding: 20px 0px;
+	text-align:center;
+}

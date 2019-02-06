@@ -1,3 +1,4 @@
+<div class="container-fluid no-gutters no-paddings container-bg inner-page-bg">
 <div class="container container-top-padding">
 
   <div class="row justify-content-md-center row no-gutters">
@@ -7,32 +8,41 @@
       <h4>Congratulations!.. You have successfully Registered</h4>
 
     </div>
-    <div class="col-md-6 col-lg-5 col-sm-12 userloginForm">
-      <h4>Login</h4>
-      <p>Please enter registered email and password with Us!</p>
+    <div class="col-md-5 col-lg-4 col-sm-12 userloginForm">
+      <div class="login-heading">Login</div>
+      <!-- <h4>Login</h4>
+      <p>Please enter registered email and password with Us!</p> -->
       <form [formGroup]="userloginForm" (ngSubmit)="saveUser(userloginForm)">
         <div class="form-group">
-          <label for="exampleInputEmail1">Email</label>
+          <!-- <label for="exampleInputEmail1">Email</label> -->
           <input [attr.disabled]="disabledField ? true : null" type="text" class="form-control" id="exampleInputEmail1"
-            aria-describedby="emailHelp" placeholder="Please Enter Email" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
+            aria-describedby="emailHelp" placeholder="Email" formControlName="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }">
           <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
             <div *ngIf="f.username.errors.required">Email is required</div>
             <div *ngIf="f.username.errors.pattern">Please enter valid email</div>
           </div>
 
+
+     
         </div>
 
 
         <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
+          <!-- <label for="exampleInputPassword1">Password</label> -->
           <div class="passwordInput">
             <input [attr.disabled]="disabledField ? true : null" [type]="showText ? 'text' : 'password' " class="form-control"
-              id="exampleInputPassword1" placeholder="Please Enter Password" formControlName="userpwd" [ngClass]="{ 'is-invalid': submitted && f.userpwd.errors }">
+              id="exampleInputPassword1" placeholder="Password" formControlName="userpwd" [ngClass]="{ 'is-invalid': submitted && f.userpwd.errors }">
             <div class="showHideText" (click)="showTextPwd(userloginForm)">
               <i class="fa fa-eye-slash" *ngIf="hideIconEye"></i>
               <i class="fa fa-eye" *ngIf="showIconEye" (mouseleave)="mouseoverpwd()"></i>
             </div>
-         
+            <div class="row">
+              <div class="link-style col-md-12  col-sm-12 align-self-end col-12" style="text-align: right;padding-bottom:5px;">
+                <a href="javascript:void()" (click)="forgotpwdmodal('forgotpwdmodal')">Forgot your password?</a>
+              </div>
+            </div>
+
+
             <div *ngIf="submitted && f.userpwd.errors" class="invalid-feedback">
               <div *ngIf="f.userpwd.errors.required">Password is required</div>
               <div *ngIf="f.userpwd.errors.minlength">Password must be at least 6 characters</div>
@@ -40,7 +50,7 @@
           </div>
 
         </div>
-        <div class="form-group" style="padding: 10px 0 0 40px">
+        <div class="form-group" style="margin: 0px auto; width: 303px;padding-bottom:10px;">
         <ngx-recaptcha2 #captchaElem 
         [siteKey]="siteKey"
         [size]="size"
@@ -59,26 +69,19 @@
         
       </div>
         </div>
-        <div class="row">
-          <div class="col-md-6 align-self-start col-sm-6 col-4" style="text-align: left;padding-right:0px;padding-bottom:10px;">
-            <a style="color: #fd8236" routerLink="/registerform" routerLinkActive="activeClss">New User?</a>
-          </div>
-
-          <div class="col-md-6  col-sm-6 align-self-end col-8" style="text-align: right;padding-bottom:10px;">
-            <a style="color: #fd8236" href="javascript:void()" (click)="forgotpwdmodal('forgotpwdmodal')">Forgot your password?</a>
-          </div>
-        </div>
+ 
 
         <div class="col" align="center">
           <!-- <button type="submit" class="btn btn-primary" [disabled]="!userloginForm.valid" >Submit</button> -->
-          <button type="submit" class="submit-btn">Login</button>
+          <button type="submit" class="login-btn">Login</button>
+          <div class="link-style"> <a routerLink="/registerform" routerLinkActive="activeClss">New User?</a></div>
         </div>
 
       </form>
-      <div class="row justify-content-md-center" *ngIf="invalidCredential !='' ">
+      <div class="row justify-content-md-center" *ngIf="invalidCredential">
         <p style="padding:10px;font-size:13px;color:#ff7b7b !important;font-weight: bold;">{{invalidCredential}}</p>
       </div>
-      <div class="row justify-content-md-center">
+      <div class="row justify-content-md-center" *ngIf="attemptloginMessage">
         <p style="padding:10px;font-size:13px;color:#ff7b7b !important;font-weight: bold;">{{attemptloginMessage}}</p>
       </div>
 
@@ -304,5 +307,6 @@
 
 
   </div>
+</div>
 </div>
 <app-loading-div *ngIf="isLoading"></app-loading-div>
