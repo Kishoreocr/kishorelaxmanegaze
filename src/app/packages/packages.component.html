@@ -1,13 +1,16 @@
 <div class="package-div-height">
-  <div class="container-fluid package-bg">
-    <div class="container container-top-padding">
+  <div class="container-fluid" style="background-color: #f6f4f5;">
+   
+    <div class="inner-page-bg" style="height:100%;">
 
-      <h4 class="package-page-heading">We Have a Package Plan That Fits You.
+
+      <h4 class="package-page-heading row justify-content-center d-block d-sm-none">We Have a Package Plan That Fits You.
         <br />
         <!-- <p style="font-size:14px;font-weight:200;word-spacing: 2px;padding:5px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p> -->
       </h4>
 
       <div class="row justify-content-center d-block d-sm-none">
+<div class="container">
 
         <div class="col-md-3 package-tile-style" style="background-color:#f3f2f2;">
           <div class="package-hding">
@@ -116,10 +119,15 @@
 
       </div>
 
+</div>
+
+
+
+
 
       <!-- display only at large screens  -->
 
-      <div class="row justify-content-center d-none d-sm-block">
+      <div class="row justify-content-center d-none d-sm-block" style="padding-top: 135px;">
 
         <!-- <div class="package-container">
 
@@ -184,6 +192,10 @@
       </div>
     </div> -->
 
+    <div class="package-bg">
+        <h4 class="package-page-heading row justify-content-center">We Have a Package Plan That Fits You.
+      </h4>
+
         <div class="tabs-style">
           <ul>
             <li [ngClass]="{'activeTab': monitoring === true}" class="activeTab" (click)="tabshow('monitoring')">Monitoring
@@ -191,25 +203,39 @@
             <li (click)="tabshow('additional')" [ngClass]="{'activeTab': additional === true}">Additional Services</li>
           </ul>
         </div>
-        <div class="container" style="margin:30px auto;text-align: center;">
+     
+     </div>
+     
+
+        <div class="container" style="margin:85px auto;text-align: center;">
 
           <div *ngIf="monitoring">
             <div class="box-layout1">
-              <h1 class="text-heading">SILVER </h1>
-              <div class="package-options">
+             
+              <!-- <h1 class="text-heading">SILVER </h1> -->
+            
+             
+              <div class="silver-box">SILVER
+
+                  <img src="../../assets/images/package_silver.png" width="30px;" style="position: absolute;
+                  top: 3px;
+                  right: 65px;"/>
+              </div>
+           
+              <div class="package-options" style="padding-left: 8px">
                 <ul>
                   <li>
-                    <i class="fa fa-check"></i>
+                  
                     we will validate the Encumbrance Certificate for your property and provide 3 physical inspection
                     reports during the duration of the project.
                   </li>
                   <li>
-                    <i class="fa fa-check"></i>
+               
                     This package lasts for 3 months from the date of activation and needs to be renewed in 3-month
                     intervals.
                   </li>
                   <li>
-                    <i class="fa fa-check"></i>
+                  
                     Covers 1 Property
                   </li>
                 </ul>
@@ -217,45 +243,60 @@
               <p class="price-tag">INR 4000 + 18% GST</p>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('QUATERLY',1,'custom-modal-package-choosen')">Buy
                 It</div>
-              <div *ngIf="!activeflag" class="orange-clr-btn" (click)="loginformFun()">Buy It</div>
+              <div *ngIf="!activeflag" (click)="loginformFun()">
+                  <img src="../../assets/images/buy_button1.png" width="100px"/>
+              </div>
             </div>
 
             <div class="box-middle-layout">
 
-              <div class="middle-head">Most Popular</div>
-              <h1 class="text-heading">GOLD</h1>
+              <div class="middle-head">
+                
+                Most Popular
+
+
+              <img src="../../assets/images/package_gold.png" width="30px;" style="position: absolute;
+              top: 3px;
+              right: 26px;"/>
+
+              </div>
+          
 
               <div class="package-options">
                 <ul>
                   <li>
-                    <i class="fa fa-check"></i>
+                   
                     In the Gold package, apart from validating your property's Encumbrance Certificate, we will
                     endeavor to validate all your property documents.
                   </li>
                   <li>
-                    <i class="fa fa-check"></i>
+                  
                     We will also provide 12 physical inspection reports during the duration of the project. </li>
                   <li>
-                    <i class="fa fa-check"></i>
+                  
                     This package lasts for 12 months from the date of activation and needs to be renewed annually.</li>
                   <li>
-                    <i class="fa fa-check"></i>Covers 1 Property &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                    Covers 1 Property &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
                 </ul>
               </div>
               <p class="price-tag">
-                <span style="text-decoration: line-through;color:red">INR 9000</span><br />INR 7500 (Special discounted
+                <span style="text-decoration: line-through;font-size: 14px;
+                font-weight: 500;color:red">INR 9000</span><br />INR 7500 (Special discounted
                 Rate) + 18% GST</p>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('YEARLY',2,'custom-modal-package-choosen')">Buy
                 It</div>
-              <div *ngIf="!activeflag" class="orange-clr-btn" (click)="loginformFun()">Buy It</div>
+              <div *ngIf="!activeflag" class="" (click)="loginformFun()">
+              <img src="../../assets/images/buy_button1.png" width="100px"/>
+              </div>
             </div>
 
             <div class="box-layout1">
-              <h1 class="text-heading">CUSTOM</h1>
-              <div class="package-options">
+              <!-- <h1 class="text-heading">CUSTOM</h1> -->
+              <div class="custom-box">CUSTOM</div>
+              <div class="package-options" style="padding-left: 18px;min-height: 288px;">
                 <ul>
                   <li>
-                    <i class="fa fa-check"></i>
+                   
                     If you feel your property needs a different monitoring,please click below for an individualized
                     package tailored to your unique requirements.
                   </li>
@@ -263,7 +304,9 @@
               </div>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('CUSTOM',3,'custom-modal-package-choosen')">Buy
                 It</div>
-              <div *ngIf="!activeflag" class="orange-clr-btn" (click)="loginformFun()">Buy It</div>
+              <div *ngIf="!activeflag" (click)="loginformFun()">
+                  <img src="../../assets/images/buy_button1.png" width="100px"/>
+              </div>
 
             </div>
           </div>
