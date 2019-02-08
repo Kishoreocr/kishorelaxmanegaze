@@ -163,7 +163,25 @@
 
             </div>
 
-
+            <div class="form-group" style="margin: 0px auto; width: 303px;padding-bottom:10px;">
+              <ngx-recaptcha2 #captchaElem 
+              [siteKey]="siteKey"
+              [size]="size"
+              [hl]="lang"
+              [theme]="theme"
+              [type]="type"
+              [useGlobalDomain]="false"
+              (reset)="handleReset()"
+              (expire)="handleExpire()"
+              (load)="handleLoad()"
+              (success)="handleSuccess($event)"
+              formControlName="recaptcha">
+            </ngx-recaptcha2>
+            <div *ngIf="submitted && f.recaptcha.errors" class="invalid-feedback1">
+              <div *ngIf="f.recaptcha.errors.required">Recaptcha is required</div>
+              
+            </div>
+              </div>
             <div class="col" align="center">
               <button type="submit" class="submit-contact-btn">Send Message</button>
             </div>

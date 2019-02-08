@@ -122,3 +122,10 @@ color: #e2e0e0;
     color:#fff;
     outline: 0px;
   }
+  .invalid-feedback1 {
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545 !important;
+    /* font-weight: bold; */
+  }
