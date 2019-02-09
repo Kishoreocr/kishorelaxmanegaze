@@ -142,3 +142,30 @@ color: #e2e0e0;
     color: #424242;
     text-decoration: none;
   }
+
+  .plus-style{
+    position: relative;
+    border: 1px solid #ccc;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    padding: 5px;
+    border-radius: 4px;
+    top: 6px;
+  }
+  .plus-style img{
+    max-width: 100%;
+    position: absolute;
+  }
+  .plus-style.activeImg{
+    background-image: url(../../assets/images/accordian_plus.png);
+    width:10px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .inactiveImg{
+    background-image: url(../../assets/images/accordian_minus.png);
+    width:10px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
