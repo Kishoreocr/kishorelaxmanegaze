@@ -301,15 +301,15 @@
     background-image: linear-gradient(#028fd9, #30b6fa)
 }
 .additional-style{
-    box-shadow: 0px 1px 8px rgba(0,0,0,0.1);
- display: inline-block;
- background-color: #fff;
- border: 1px solid #ccc;
- width: 50%;
- height: auto;
- margin: 0px auto;
- text-align: left;
- padding:20px;
+    box-shadow: 0px 0px 24px rgba(0,0,0,0.1);
+    display: inline-block;
+    background-color: #fff;
+    width: auto;
+    height: auto;
+    margin: 0px auto;
+    text-align: left;
+    padding: 20px;
+    border-radius: 20px;
 }
 .package-bg{
     background-image: url(/assets/images/package_bg1.png);
@@ -329,6 +329,22 @@
     font-weight: 600;
 }
 
+ul.additional-list{
+margin:0px;
+padding:0px 30px;
+}
+ul.additional-list li{
+    list-style: none;
+}
+
+ul.additional-list li::before{
+    content: "\2022";
+    color: #00bff3;
+    display: inline-block;
+    width: 9px;
+    margin-left: -1em;
+    font-size: 18px;
+}
 @media(max-width:600px){
 
 .package-page-heading{
