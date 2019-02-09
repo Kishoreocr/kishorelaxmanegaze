@@ -210,19 +210,19 @@
         <div class="container" style="margin:85px auto;text-align: center;">
 
           <div *ngIf="monitoring">
-            <div class="box-layout1">
+            <div  [ngClass]="spack === true  ? 'box-middle-layout' : 'box-layout1'">
              
               <!-- <h1 class="text-heading">SILVER </h1> -->
             
              
-              <div class="silver-box">SILVER
+              <div class="silver-box" (click)="spack=true;gpack=false;cpack=false;" style="cursor: pointer;">SILVER
 
                   <img src="../../assets/images/package_silver.png" width="30px;" style="position: absolute;
                   top: 3px;
                   right: 65px;"/>
               </div>
            
-              <div class="package-options" style="padding-left: 8px">
+              <div class="package-options" style="padding-left: 8px;cursor: pointer;" (click)="spack=true;gpack=false;cpack=false;">
                 <ul>
                   <li>
                   
@@ -248,21 +248,19 @@
               </div>
             </div>
 
-            <div class="box-middle-layout">
+            <div [ngClass]="gpack === true  ? 'box-middle-layout' : 'box-layout1'">
 
-              <div class="middle-head">
+              <div class="middle-head" (click)="spack=false;gpack=true;cpack=false;" style="cursor: pointer;">
                 
                 Most Popular
 
 
-              <img src="../../assets/images/package_gold.png" width="30px;" style="position: absolute;
-              top: 3px;
-              right: 26px;"/>
+              <img src="../../assets/images/package_gold.png" width="30px;" style="top: 3px;right: 26px;"/>
 
               </div>
           
 
-              <div class="package-options">
+              <div class="package-options"  (click)="spack=false;gpack=true;cpack=false;" style="cursor: pointer;">
                 <ul>
                   <li>
                    
@@ -290,10 +288,10 @@
               </div>
             </div>
 
-            <div class="box-layout1">
+            <div [ngClass]="cpack === true  ? 'box-middle-layout' : 'box-layout1'">
               <!-- <h1 class="text-heading">CUSTOM</h1> -->
-              <div class="custom-box">CUSTOM</div>
-              <div class="package-options" style="padding-left: 18px;min-height: 288px;">
+              <div class="custom-box"  (click)="spack=false;gpack=false;cpack=true;" style="cursor: pointer;">CUSTOM</div>
+              <div class="package-options" style="padding-left: 18px;min-height: 288px;cursor: pointer;"  (click)="spack=false;gpack=false;cpack=true;">
                 <ul>
                   <li>
                    

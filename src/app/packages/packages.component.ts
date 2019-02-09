@@ -25,6 +25,9 @@ export class PackagesComponent implements OnInit {
   selectedPlanId: any;
   monitoring:any;
   additional:any;
+  spack:any=false;
+  gpack:any=true;
+  cpack:any=false;
 
   constructor(private router: Router, modalService: ModalDialogService, viewRef: ViewContainerRef, private EgazeService: EgazeService, private ModalPropertyService: ModalPropertyService, private sessionstorageService: SessionstorageService) {
     this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");

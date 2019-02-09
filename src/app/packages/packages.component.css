@@ -220,7 +220,7 @@
     background-color: #fff;
     /* border: 1px solid #ccc; */
     width: 265px;
-    height: 395px;
+    height: 430px;
     padding: 0px 0px;
     border-radius: 20px;
   }
@@ -240,7 +240,7 @@
     display: inline-block;
     background-color: #fff;
     width: 260px;
-    height: 430px;
+    height: 465px;
   }
   .middle-head{
     font-size: 17px;
@@ -250,7 +250,7 @@
     border-top-right-radius: 20px;
     background: #e2c960;
     color: #fff;
-    padding: 15px 0px;
+    padding: 10px 0px;
     background-image: linear-gradient(#f1e274, #e2c960);
 }
 
