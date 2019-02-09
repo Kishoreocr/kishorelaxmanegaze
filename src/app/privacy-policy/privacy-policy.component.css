@@ -31,10 +31,44 @@ p.content-style b{
 }
 p.header-style {
     font-size: 18px;
-    font-weight: 500;
-
+    font-weight: 400;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0px;
+    color: #30b6fa;
 }
 
+/* p.header-style::after {
+    content: url('../../assets/images/accordian_minus.png' );
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 7px;
+    float:right;
+    border-radius: 15px;
+    margin-top: -2px;
+    cursor: pointer;
+
+} */
+p.header-style::after {
+    /* symbol for "collapsed" panels */
+    content: url('../../assets/images/accordian_plus.png');  
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 7px;
+    float:right;
+    border-radius: 15px;
+    margin-top: -2px;
+    cursor: pointer;
+    /* adjust as needed, taken from bootstrap.css */
+}
 ul{
     font-size: 14px;
     line-height: 18px;
@@ -43,4 +77,46 @@ ul{
 ul b{
     font-size: 16px;
     font-weight: 500;   
+}
+
+.inner-padding-1{
+    padding-top: 131px;
+padding-left: 0px;
+padding-right: 0px;
+}
+.contactus-bg{
+background: url(../../assets/images/contactus_bg.jpg) no-repeat center center;
+height: 170px;
+background-size: cover;
+text-align: center;
+padding-top: 35px;
+}
+
+@media(max-width:767px){
+    .contactus-bg{
+        padding-top: 54px;
+        }
+    .touch-text{
+            margin: 0px;
+            color: #fff;
+            font-size: 38px!important;
+            padding: 0px;
+            line-height: 43px!important;;
+            padding-top: 20px!important;;
+        }  
+}
+
+.touch-text{
+margin: 0px;
+color: #fff;
+font-size: 54px;
+padding: 0px;
+line-height:54px;
+}
+.getin-text{
+margin: 0px;
+font-size: 43px;
+padding: 0px;
+line-height:43px;
+color: #e2e0e0;
 }
