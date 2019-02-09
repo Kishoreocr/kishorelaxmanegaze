@@ -199,13 +199,17 @@ position: relative;">
           <ul>
             <li>
               <a routerLink="/home" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/home'">
-                <i class="fa fa-home top-menu-icons" aria-hidden="true"></i> Home
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_home.png" width="18px"/>
+                </i> Home
 </a>
             </li>
 
             <li>
               <a [class.activeClassLink] = "currentURL=='/package-choose'">
-                <i class="fa fa-cogs top-menu-icons top-menu-icons"></i> 
+                <i class="top-menu-icons">
+                <img src="../../assets/images/nav_services.png" width="18px"/>
+                </i>
                 Services</a>
               <ul>
           
@@ -228,8 +232,9 @@ position: relative;">
             </li> -->
             <li>
               <a [class.activeClassLink] = "currentURL=='/abouteGAZE' || currentURL=='/whyeGAZE'">
-                <i class="fa fa-user top-menu-icons"></i> About</a>
-              <ul>
+                <i class="fa fa-user top-menu-icons" style="top:0px;font-size:17px;"></i> About</a>
+               
+                <ul>
                 <li>
                   <a routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
                 </li>
@@ -241,21 +246,21 @@ position: relative;">
             </li>
 
             <li >
-              <a routerLink="/articles" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/articles'"><i class="fa fa-newspaper-o top-menu-icons"></i> Articles</a>
+              <a routerLink="/articles" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/articles'"><i class="top-menu-icons"><img src="../../assets/images/nav_articles.png" width="18px"/></i> Articles</a>
             </li>
             <li>
-              <a routerLink="/testimonials" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/testimonials'"><i class="fa fa-users top-menu-icons"></i> Testimonials</a>
+              <a routerLink="/testimonials" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/testimonials'"><i class="top-menu-icons"><img src="../../assets/images/nav_testimonals.png" width="18px"/></i> Testimonials</a>
             </li>
             <li >
-              <a routerLink="/contactus" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/contactus'"><i class="fa fa-phone top-menu-icons"></i> Contact</a>
+              <a routerLink="/contactus" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/contactus'"><i class="top-menu-icons"><img src="../../assets/images/nav_contact.png" width="18px"/></i> Contact</a>
             </li>
             <li >
-              <a routerLink="/help" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/help'"><i class="fa fa-question top-menu-icons"></i> Help</a>
+              <a routerLink="/help" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/help'"><i class="top-menu-icons"><img src="../../assets/images/nav_help.png" width="18px"></i> Help</a>
             </li>
 
             <li >
               <a [class.activeClassLink] = "currentURL=='/terms-conditions' || currentURL=='/privacy-policy'">  <!--|| currentURL==='/disclaimer' -->
-                <i class="fa fa-newspaper-o top-menu-icons"></i> Policies</a>
+                <i class="top-menu-icons"><img src="../../assets/images/nav_policies.png" width="18px"/></i> Policies</a>
               <ul>
                 <li>
                   <a routerLink="/terms-conditions" routerLinkActive="activeClss" >Terms &amp; Conditions</a>
