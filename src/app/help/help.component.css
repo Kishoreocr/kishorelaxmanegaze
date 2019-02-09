@@ -29,3 +29,112 @@ h4{
 ul li{
     font-size:14px;
 }
+
+
+.inner-padding-1{
+    padding-top: 131px;
+padding-left: 0px;
+padding-right: 0px;
+}
+.contactus-bg{
+background: url(../../assets/images/contactus_bg.jpg) no-repeat center center;
+height: 190px;
+background-size: cover;
+}
+
+.touch-text{
+    margin: 0px;
+    color: #fff;
+    font-size: 42px;
+    padding: 0px;
+    line-height: 54px;
+    font-weight: 500;
+}
+.getin-text{
+margin: 0px;
+font-size: 43px;
+padding: 0px;
+line-height:43px;
+color: #e2e0e0;
+}
+
+.inner-page-bg{
+    background: url(../../assets/images/inner_page_bg.png) no-repeat center bottom;
+    background-size:cover;
+    background-position:fixed;
+    background-color: #f6f4f5;
+  }
+
+  .contactus-container{
+    padding: 30px 2%;
+    background-color: #fff;
+    margin: 30px auto;
+    box-shadow: 0px -1px 15px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    display: inline-flex;
+    width:90%;
+  }
+
+  .faqs-container{
+    position: relative;
+    width: 400px;
+    display: inline-block;
+    background-color: #fff;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+  .faqs-1{
+      display: inline-block;
+  }
+  .support-btn{
+    background-color: #00bff3;
+    padding: 8px 11px;
+    color: #fff;
+    font-size: 14px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-right: -2px;
+    cursor: pointer;
+
+  }
+
+  .faqs-textbox{
+    border:0px;
+    width:100%;
+    outline: 0px;
+  }
+  .faqs-tag{
+    color: #fff;
+    font-size: 18px;
+    padding-top: 8px;
+  }
+  .panel-default-heading{
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 2px 10px;
+    border: 1px solid #b5b2b2;
+  }
+
+  .panel-default-heading h4 a{
+    font-size: 14px;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 2px 10px;
+  
+  }
+  .open-div{
+    padding: 10px;
+    background-color: #e3edfd;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #b5b2b2;
+    margin-top: -1px;
+  }
+  .open-div .panel-body{
+    color:#424242;
+    line-height: 20px;
+    font-size: 16px;
+    text-align: left;
+    padding-left: 10px;
+  }
