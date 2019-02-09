@@ -169,3 +169,36 @@ color: #e2e0e0;
     background-position: center;
     background-repeat: no-repeat;
   }
+  
+
+  .panel-heading .accordion-toggle:before {
+    float: left;        /* adjust as needed */
+    content: url('../../assets/images/accordian_minus.png' );
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #ccc;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border-radius: 4px;
+    top: 6px;
+    padding: 3px;
+
+}
+.panel-heading .accordion-toggle.collapsed:before {
+    /* symbol for "collapsed" panels */
+    content: url('../../assets/images/accordian_plus.png');  
+    border: 1px solid #ccc;
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    border-radius: 4px;
+    top: 6px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 5px;
+    /* adjust as needed, taken from bootstrap.css */
+}
+.accordion-toggle img {
+  width: 15px;
+}

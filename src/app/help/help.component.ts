@@ -15,7 +15,7 @@ export class HelpComponent implements OnInit {
   ngOnInit() {
   }
 
-  chaneIcon(item){
-     item.id = !item.id;
-  }
+  // chaneIcon(item){
+  //    item.id = !item.id;
+  // }
 }
