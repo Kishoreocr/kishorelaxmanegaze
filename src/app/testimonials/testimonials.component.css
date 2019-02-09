@@ -117,11 +117,11 @@ margin:10px 5px;vertical-align: top;}
 }
 #quote-carousel .carousel-control-prev {
     /* left: -60px; */
-    top:-530px;
+    top:-111px;
 }
 #quote-carousel .carousel-control-next {
     /* right: -60px; */
-    top:-530px;
+    top:-111px;
 }
 #quote-carousel .carousel-indicators {
     right: 20%;
