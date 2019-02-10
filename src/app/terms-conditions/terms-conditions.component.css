@@ -38,6 +38,20 @@ p.header-style {
     color: #30b6fa;
 }
 
+div.content-style b{
+    font-size: 16px;
+    font-weight: 500;
+
+}
+div.header-style {
+    font-size: 18px;
+    font-weight: 400;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0px;
+    color: #30b6fa;
+}
+
 /* p.header-style::after {
     content: url('../../assets/images/accordian_minus.png' );
     border: 1px solid #ccc;
@@ -70,9 +84,39 @@ p.header-style::after {
     /* adjust as needed, taken from bootstrap.css */
 }
 
+.panel-heading .accordion-toggle::after {
+    /* symbol for "collapsed" panels */
+    content: url('../../assets/images/accordian_minus.png');  
+    border: 1px solid #30b6fa;
+    width: 31px;
+    height: 29px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 5px;
+    float:right;
+    border-radius: 15px;
+    margin-top: -2px;
+    cursor: pointer;
+    /* adjust as needed, taken from bootstrap.css */
+}
 
-
-
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: url('../../assets/images/accordian_plus.png');  
+    border: 1px solid #30b6fa;
+    width: 31px;
+    height: 29px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 7px;
+    float:right;
+    border-radius: 15px;
+    margin-top: -2px;
+    cursor: pointer;
+    /* adjust as needed, taken from bootstrap.css */
+}
 
 .inner-padding-1{
     padding-top: 131px;

@@ -204,3 +204,10 @@ color: #e2e0e0;
 .accordion-toggle img {
   width: 15px;
 }
+.invalid-feedback {
+  /* display: none; */
+  width: 100%;
+  margin-top: 0.25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
