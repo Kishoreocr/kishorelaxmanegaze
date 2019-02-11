@@ -59,9 +59,8 @@ color: #e2e0e0;
 }
 
 .inner-page-bg{
-    background: url(../../assets/images/inner_page_bg.png) no-repeat center bottom;
+    background: url(../../assets/images/inner_page_bg.png) no-repeat center bottom fixed;
     background-size:cover;
-    background-position:fixed;
     background-color: #f6f4f5;
   }
 
@@ -136,7 +135,7 @@ color: #e2e0e0;
     line-height: 20px;
     font-size: 16px;
     text-align: left;
-    padding-left: 10px;
+    padding-left: 35px;
   }
   a {
     color: #424242;
@@ -182,7 +181,7 @@ color: #e2e0e0;
     display: inline-block;
     border-radius: 4px;
     top: 6px;
-    padding: 3px;
+    padding: 5px;
     margin-top: 5px;
 
 }
