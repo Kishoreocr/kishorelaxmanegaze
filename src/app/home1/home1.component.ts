@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { SlideInOutAnimation } from '../animations';
 import { SessionstorageService } from '../services/sessionstorage.service';
+declare var $ :any;
 
 @Component({
   selector: 'app-home1',
@@ -14,6 +15,8 @@ export class Home1Component implements OnInit {
   constructor(private _eref: ElementRef, private sessionstorageService: SessionstorageService) { }
   user: any;
   ngOnInit() {
+    $('#home-carousel').carousel('cycle')
+
     this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
 
   }
