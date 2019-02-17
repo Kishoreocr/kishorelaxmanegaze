@@ -22,6 +22,7 @@ p.content-style{
     line-height: 26px;
     word-wrap: nowrap;
     text-align: justify;
+    color: #1a1a1a !important;
 }
 .page-heading-1{
     font-size: 36px;

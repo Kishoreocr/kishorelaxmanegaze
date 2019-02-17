@@ -3,7 +3,9 @@
 @import "~font-awesome/css/font-awesome.css";
 @import 'intl-tel-input/build/css/intlTelInput.css';
 
-
+body, html{
+  font-family:Arial, Helvetica, sans-serif !important;
+}
 .pagination {
   display: inline-flex !important;
   padding-left: 0 !important;
@@ -549,3 +551,14 @@ width:100% !important;
   color: #ff7b7b !important;
   font-weight: bold;
 } */
+
+
+  /*** padding to container ***/
+
+  .need-padding{
+    padding: 0px 65px;
+  }
+  .no-padding{
+    padding-left: 0px;
+    padding-right: 0px;
+  }

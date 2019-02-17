@@ -129,7 +129,7 @@ position: relative;">
   <div class="top">
     <div class="container">
       <div class="logo">
-        <a  routerLink="/home" routerLinkActive="activeClss">
+        <a routerLink="/home" routerLinkActive="activeClss">
           <img src="../../assets/images/eGAZE_logo1.png" alt="eGAZE" width="175">
         </a>
       </div>
@@ -158,38 +158,38 @@ position: relative;">
       </div> -->
 
       <div class="logins">
-          <ul *ngIf="flag">
-            <li>
-              <a>{{user.email}}</a>
-            </li>
-            <li>
-              <a (click)="logout()" style="cursor:pointer">Logout</a>
-            </li>
-  
-          </ul>
-  
-          <ul *ngIf="!flag">
-            <li>
-              <a routerLink="/loginform" routerLinkActive="activeClss" class="login-style">Login</a>
-            </li>
-            <li>
-              <a routerLink="/registerform" routerLinkActive="activeClss" class="login-style">Registration</a>
-            </li>
-          </ul>
-        </div>
+        <ul *ngIf="flag">
+          <li>
+            <a>{{user.email}}</a>
+          </li>
+          <li>
+            <a (click)="logout()" style="cursor:pointer">Logout</a>
+          </li>
 
-        <div class="phone" style="font-size: 16px;">
-        
-            <a *ngIf="!mobile" href="tel: +917045942225" target="_blank">
-              <i class="fa fa-phone whatsapp-number" aria-hidden="true"></i> 
-              <i class="fa fa-whatsapp whatsapp-number" aria-hidden="true"></i>
-              (+91) 70459 42225
-            </a>
-            <a *ngIf="mobile" href="https://api.whatsapp.com/send?phone=+91-7045942225" target="_blank">
-              <i class="fa fa-phone whatsapp-number" aria-hidden="true"></i> (+91) 70459 42225
-            </a>
-        
-          </div>
+        </ul>
+
+        <ul *ngIf="!flag">
+          <li>
+            <a routerLink="/loginform" routerLinkActive="activeClss" class="login-style">Login</a>
+          </li>
+          <li>
+            <a routerLink="/registerform" routerLinkActive="activeClss" class="login-style">Registration</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="phone" style="font-size: 16px;">
+
+        <a *ngIf="!mobile" href="tel: +917045942225" target="_blank">
+          <i class="fa fa-phone whatsapp-number" aria-hidden="true"></i>
+          <i class="fa fa-whatsapp whatsapp-number" aria-hidden="true"></i>
+          (+91) 70459 42225
+        </a>
+        <a *ngIf="mobile" href="https://api.whatsapp.com/send?phone=+91-7045942225" target="_blank">
+          <i class="fa fa-phone whatsapp-number" aria-hidden="true"></i> (+91) 70459 42225
+        </a>
+
+      </div>
     </div>
   </div>
   <div class="nav">
@@ -198,21 +198,21 @@ position: relative;">
         <div id="nav">
           <ul>
             <li>
-              <a routerLink="/home" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/home'">
+              <a routerLink="/home" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/home'">
                 <i class="top-menu-icons">
-                  <img src="../../assets/images/nav_home.png" width="18px"/>
+                  <img src="../../assets/images/nav_home.png" width="18px" />
                 </i> Home
-</a>
+              </a>
             </li>
 
             <li>
-              <a [class.activeClassLink] = "currentURL=='/package-choose'">
+              <a [class.activeClassLink]="currentURL=='/package-choose'">
                 <i class="top-menu-icons">
-                <img src="../../assets/images/nav_services.png" width="18px"/>
+                  <img src="../../assets/images/nav_services.png" width="18px" />
                 </i>
                 Services</a>
               <ul>
-          
+
                 <li>
                   <a routerLink="/package-choose" routerLinkActive="activeClss">Packages</a>
                 </li>
@@ -231,10 +231,15 @@ position: relative;">
               </ul>
             </li> -->
             <li>
-              <a [class.activeClassLink] = "currentURL=='/abouteGAZE' || currentURL=='/whyeGAZE'">
-                <i class="fa fa-user top-menu-icons" style="top:0px;font-size:17px;"></i> About</a>
-               
-                <ul>
+              <a [class.activeClassLink]="currentURL=='/abouteGAZE' || currentURL=='/whyeGAZE'">
+
+
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_about.png" width="18px" />
+                </i>
+                About</a>
+
+              <ul>
                 <li>
                   <a routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
                 </li>
@@ -245,28 +250,43 @@ position: relative;">
               </ul>
             </li>
 
-            <li >
-              <a routerLink="/articles" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/articles'"><i class="top-menu-icons"><img src="../../assets/images/nav_articles.png" width="18px"/></i> Articles</a>
+            <li>
+              <a routerLink="/articles" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/articles'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_articles.png" width="18px" />
+                </i> Articles</a>
             </li>
             <li>
-              <a routerLink="/testimonials" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/testimonials'"><i class="top-menu-icons"><img src="../../assets/images/nav_testimonals.png" width="18px"/></i> Testimonials</a>
+              <a routerLink="/testimonials" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/testimonials'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_testimonals.png" width="18px" />
+                </i> Testimonials</a>
             </li>
-            <li >
-              <a routerLink="/contactus" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/contactus'"><i class="top-menu-icons"><img src="../../assets/images/nav_contact.png" width="18px"/></i> Contact</a>
+            <li>
+              <a routerLink="/contactus" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/contactus'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_contact.png" width="18px" />
+                </i> Contact</a>
             </li>
-            <li >
-              <a routerLink="/help" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/help'"><i class="top-menu-icons"><img src="../../assets/images/nav_help.png" width="18px"></i> Help</a>
+            <li>
+              <a routerLink="/help" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/help'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_help.png" width="18px">
+                </i> Help</a>
             </li>
 
-            <li >
-              <a [class.activeClassLink] = "currentURL=='/terms-conditions' || currentURL=='/privacy-policy'">  <!--|| currentURL==='/disclaimer' -->
-                <i class="top-menu-icons"><img src="../../assets/images/nav_policies.png" width="18px"/></i> Policies</a>
+            <li>
+              <a [class.activeClassLink]="currentURL=='/terms-conditions' || currentURL=='/privacy-policy'">
+                <!--|| currentURL==='/disclaimer' -->
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_policies.png" width="18px" />
+                </i> Policies</a>
               <ul>
                 <li>
-                  <a routerLink="/terms-conditions" routerLinkActive="activeClss" >Terms &amp; Conditions</a>
+                  <a routerLink="/terms-conditions" routerLinkActive="activeClss">Terms &amp; Conditions</a>
                 </li>
                 <li>
-                  <a routerLink="/privacy-policy" routerLinkActive="activeClss" >Privacy Policy</a>
+                  <a routerLink="/privacy-policy" routerLinkActive="activeClss">Privacy Policy</a>
                 </li>
                 <!-- <li>
                   <a routerLink="/disclaimer" routerLinkActive="activeClss" >Disclaimer</a>
@@ -279,23 +299,23 @@ position: relative;">
 
 
             <li *ngIf="!flag">
-              <a routerLink="/blog" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/blog'">
+              <a routerLink="/blog" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/blog'">
                 <i>
-                <img src="../../assets/images/blogger-icon.png" width="16px;" style="margin-top: -5px;"/>
-              </i> Blog</a>
+                  <img src="../../assets/images/blogger-icon.png" width="16px;" style="margin-top: -3px;" />
+                </i> Blog</a>
             </li>
             <li *ngIf="flag">
-              <a *ngIf="this.user.role==='admin'" routerLink="/admindashboard" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/admindashboard'">Dashboard</a>
-              <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" [class.activeClassLink] = "currentURL=='/userdashboard'">Dashboard</a>
-              <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" [class.activeClassLink] = "currentURL=='/agentdashboard'">Dashboard</a>
+              <a *ngIf="this.user.role==='admin'" routerLink="/admindashboard" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/admindashboard'">Dashboard</a>
+              <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" [class.activeClassLink]="currentURL=='/userdashboard'">Dashboard</a>
+              <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" [class.activeClassLink]="currentURL=='/agentdashboard'">Dashboard</a>
 
             </li>
             <li *ngIf="flag">
-              <a *ngIf="this.user.role==='customer'" routerLink="/profile" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/profile'">Profile</a>
-              <a *ngIf="this.user.role==='agent'" routerLink="/agentprofile" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/profile'">Profile</a>
+              <a *ngIf="this.user.role==='customer'" routerLink="/profile" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/profile'">Profile</a>
+              <a *ngIf="this.user.role==='agent'" routerLink="/agentprofile" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/profile'">Profile</a>
 
 
-             
+
 
             </li>
 
@@ -311,21 +331,27 @@ position: relative;">
 
 
 <div [@slideInOut]="animationState" [@slideOutIn]="animationState1" class="launch-menu sidebar" style="background-color: #0076a3">
-  <div class="launch-menu-close"  (click)="toggleShowDiv1('divA')">
+  <div class="launch-menu-close" (click)="toggleShowDiv1('divA')">
     <i class="fa fa-times close-icon" title="Close Menu"></i>
   </div>
 
   <div class="phone">
-      <a><img height="25px" src="../../assets/images/whatsapp.png" width="25px"></a><br>
-    <a *ngIf="!mobile" href="tel: +917045942225" target="_blank"><i class="fa fa-phone" aria-hidden="true"></i> (+91) 70459 42225</a>
-    <a *ngIf="mobile" href="https://api.whatsapp.com/send?phone=+91-7045942225" target="_blank"><i class="fa fa-phone" aria-hidden="true"></i> (+91) 70459 42225</a>
+    <a>
+      <img height="25px" src="../../assets/images/whatsapp.png" width="25px">
+    </a>
+    <br>
+    <a *ngIf="!mobile" href="tel: +917045942225" target="_blank">
+      <i class="fa fa-phone" aria-hidden="true"></i> (+91) 70459 42225</a>
+    <a *ngIf="mobile" href="https://api.whatsapp.com/send?phone=+91-7045942225" target="_blank">
+      <i class="fa fa-phone" aria-hidden="true"></i> (+91) 70459 42225</a>
   </div>
   <div class="logins" *ngIf="flag" style="padding-left:20px;padding-bottom:10px;">
     <a style="color:#1275af;font-size:18px;font-weight:400;">{{user.email}}</a>
   </div>
   <ul>
     <li [class.activelink-mobile-menu-bg]="currentURL=='/home'">
-      <a routerLink="/home" routerLinkActive="activeClss"><i class="fa fa-home" aria-hidden="true"></i>
+      <a routerLink="/home" routerLinkActive="activeClss">
+        <i class="fa fa-home" aria-hidden="true"></i>
       </a>
     </li>
 
@@ -378,7 +404,8 @@ position: relative;">
       <a routerLink="/help" routerLinkActive="activeClss">Help</a>
     </li>
 
-     <li [class.activelink-mobile-menu-bg]="currentURL==='/terms-conditions' || currentURL==='/privacy-policy' "> <!--|| currentURL==='/disclaimer' -->
+    <li [class.activelink-mobile-menu-bg]="currentURL==='/terms-conditions' || currentURL==='/privacy-policy' ">
+      <!--|| currentURL==='/disclaimer' -->
       <a>Policies</a>
       <ul>
         <li [class.activelink-mobile-menu]="currentURL=='/terms-conditions'">
@@ -402,8 +429,8 @@ position: relative;">
     </li>
     <li *ngIf="flag" [class.activelink-mobile-menu-bg]="currentURL=='/admindashboard' || currentURL=='/userdashboard' || currentURL=='/agentdashboard'">
       <a *ngIf="this.user.role==='admin'" routerLink="/admindashboard" routerLinkActive="activeClss">Dashboard</a>
-      <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" style="cursor: pointer;" >Dashboard</a>
-      <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" routerLinkActive="activeClss" >Dashboard</a>
+      <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" style="cursor: pointer;">Dashboard</a>
+      <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" routerLinkActive="activeClss">Dashboard</a>
 
     </li>
     <li *ngIf="flag" [class.activelink-mobile-menu-bg]="currentURL=='/profile'">
@@ -411,7 +438,7 @@ position: relative;">
       <a *ngIf="this.user.role==='agent'" routerLink="/profile" routerLinkActive="activeClss">Profile</a>
     </li>
 
-    <li *ngIf="flag" >
+    <li *ngIf="flag">
       <a (click)="logout()" style="cursor:pointer">Logout</a>
     </li>
   </ul>
