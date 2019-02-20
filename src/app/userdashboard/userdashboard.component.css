@@ -1,13 +1,15 @@
 
 .registeruserName{
-    padding:5px 10px;
-    width:100%;
-    /* background-color:#1275af; */
-    color:#fff;
-    padding:10px 10px;
+    width: 100%;
+    color: #fff;
+    padding: 35px 0px;
+    text-align: center;
+    border-bottom: 2px solid #005c7f;
 }
-.registeruserName > span{
-    font-size:15px;
+.registeruserName > div{
+    font-size: 18px;
+    color: #f1f1f1;
+    margin: 10px 0px;
 }
 .registeruserName > i.fa{
     font-size:25px;padding-right:5px;
@@ -16,8 +18,9 @@
     width:100%;
     padding:0px;
     min-height: 400px;
-    background-color:#1275af;
-
+}
+.icon-padding-right{
+    padding-right:10px;
 }
 .leftside-menu ul {
     margin:0px;
@@ -26,8 +29,8 @@
 
 .leftside-menu ul li{
   list-style: none;
-  padding:10px 15px;
-  border-bottom: 1px solid #fff;
+  padding:13px 15px;
+  border-bottom: 2px solid #005c7f;
  font-size:18px;
  color:#fff;
  font-weight: 400;
@@ -101,8 +104,9 @@ span.mandatory{
     color:red;
 }
 .activeTabdash{
-    background-color:#fff;
-    color:#1275af !important;
+    background-color: #1c414f;
+    color: #fff !important;
+    border-left: 5px solid #fff;
 }
 .right-content-bg{background-color:#f7fcff}
 .tabActions{
@@ -552,8 +556,11 @@ app-modal-property#forgotpwdmodal > .modal-background{
     font-size: 13px !important;
 }
 .profile-img{
-    border-radius: 50%;border: 1px solid #fff;
-    width:120px;
+    border-radius: 50%;
+    border: 5px solid #4eb7e9;
+    width: 100px;
+    background-color: #f6f5f5;
+    padding: 5px 0px;
 }
 @media(max-width:850px){
     .profile-img{
