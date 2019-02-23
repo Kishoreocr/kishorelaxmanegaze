@@ -219,10 +219,14 @@ caption {
     border-radius: 0px !important;
     width: 100% !important;}
 
-.userdashboardTab{margin:0px;padding:0px;padding-top:20px;}
+.userdashboardTab{
+margin:0px;padding:0px;padding-top:20px; width:80px;
+vertical-align: top;
+display:inline-block;
+margin-top:50px;
+}
 .userdashboardTab ul{
-    width:100%;
-    display:inline-block;
+   
     /** background-color: #f5f5f5; **/
     margin: 0px;
     padding: 0px;
@@ -230,16 +234,15 @@ caption {
 }
 .userdashboardTab ul li{
     list-style: none;
-    display:inline-block;
-    font-size:16px;
-    color:#000;
-    padding:6px 15px;
+    font-size: 16px;
+    color: #000;
+    padding: 6px 15px;
     cursor: pointer;
-    background-color:#e0dede;
-    border-top-left-radius: 13px;
-    border-top-right-radius: 13px;
+    /* background-color: #e0dede; */
+    /* border-top-left-radius: 13px; */
+    /* border-top-right-radius: 13px; */
     transition: all 0.5s ease;
-    margin-right:-1.5px;
+    /* margin: 10px; */
 }
 @media(max-width:420px){
     .userdashboardTab ul li{
@@ -249,9 +252,11 @@ caption {
 }
 
 .userdashboardTab ul li.active{
-    background-color:#1275af !important;
-    color:#fff;
-    box-shadow: 0px -2px 4px #808080;
+    background-color: #f1f5f8;
+    /* color: #fff; */
+    /* box-shadow: 0px -2px 4px #808080; */
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 
 }
 
@@ -445,8 +450,15 @@ body.modal-open {
 } */
 
 .property-tab-style{
-    background-color: #fbfbfb !important;padding:20px;
-    margin-bottom:20px;
+    background-color: #f6f6f6;
+    padding: 20px;
+    /* margin-bottom: 20px; */
+    width: 87%;
+    border-radius: 25px;
+    margin: 25px;
+    vertical-align: top;
+    display: inline-block;
+    margin-right: 0px;
 }
 .col-form-label{
     font-size:13px;
@@ -458,7 +470,11 @@ body.modal-open {
 }
 
 .form-group {
+    border-bottom: 1px solid #d1d1d1;
     margin-bottom: 0.5rem;
+    margin-left: 0px;
+    margin-right: 0px;
+
 }
 label{
     font-size:14px;
@@ -466,6 +482,8 @@ label{
 
 .font-bold-label{
     font-weight: 600;
+    line-height:9px;
+
 }
 
 /** **/
@@ -599,6 +617,6 @@ app-modal-property#forgotpwdmodal > .modal-background{
 }
 .btn-center-bottom{
     padding-top: 20px;
-    margin-bottom: -10px;
     text-align:center;
+    padding-bottom:10px;
 }

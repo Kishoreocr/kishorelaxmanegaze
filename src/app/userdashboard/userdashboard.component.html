@@ -100,16 +100,9 @@
 
                                         </div>
 
-                                        <div style="padding:20px;">
+                                        <div class="property-tab-style">
 
-                                            <div class='row userdashboardTab'>
-                                                <ul>
-                                                    <li [ngClass]="{'active': propertytabModal}" (click)="userdashTabs('PropertyDetailsTab')">Property Details
-                                                    </li>
-                                                    <li [ngClass]="{'active': documentstabModal}" (click)="userdashTabs('DocumentsTab')">Documents</li>
-                                                    <li [ngClass]="{'active': commentstabModal}" (click)="userdashTabs('CommentsTab')">Comments</li>
-                                                </ul>
-                                            </div>
+                                 
 
                                             <!-- <div style='position:absolute;right:20px;top:10px;'>
                                             <i class="fa fa-times closeIcon-style" aria-hidden="true" (click)="closeModal('custom-modal-11');"></i>
@@ -118,7 +111,7 @@
 
                                             <div *ngIf="propertytabModal && !documentstabModal && !commentstabModal">
 
-                                                <div class="property-tab-style">
+                                                <div class="">
                                                     <div class="row" *ngIf="property!=''">
                                                         <div class="col-md-4">
                                                             <div class="form-group row">
@@ -520,10 +513,25 @@
                                                 </div>
                                             </div>
 
+
+</div>
+<div class='userdashboardTab'>
+    <ul>
+        <li [ngClass]="{'active': propertytabModal}" (click)="userdashTabs('PropertyDetailsTab')">
+           <img src="../../assets/images/property_details_img.png" width="55px;"/>
+        </li>
+        <li [ngClass]="{'active': documentstabModal}" (click)="userdashTabs('DocumentsTab')">
+                <img src="../../assets/images/document_img.png" width="55px;"/>
+        </li>
+        <li [ngClass]="{'active': commentstabModal}" (click)="userdashTabs('CommentsTab')">
+                <img src="../../assets/images/comment_img.png" width="55px;"/>
+        </li>
+    </ul>
+</div>
                                             <div class='col btn-center-bottom'>
                                                 <button class="close-btn" (click)="closeModal('custom-modal-11');">Close</button>
                                             </div>
-                                        </div>
+                                        
 
 
 
@@ -827,6 +835,24 @@
                                             </div>
                                         </div>
                                     </div>
+
+
+
+
+                                    <div class="form-group row">
+                                        <label for="documentno" class="col-sm-4 col-form-label"></label>
+                                            
+                                    
+                                        <div class="col-sm-8">
+                                          
+                                        </div>
+                                    </div>
+
+
+
+
+
+
 
                                     <div class="col-md-10 offset-md-2" style='padding-top: 20px;padding-right: 0px !important;padding-bottom:20px;' align="right">
                                         <!-- <button type="submit" class="btn btn-primary" [disabled]="!userloginForm.valid" >Submit</button> -->
