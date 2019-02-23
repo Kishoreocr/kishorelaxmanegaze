@@ -11,23 +11,40 @@
 
       <div class="row justify-content-center d-block d-sm-none">
 <div class="container">
-
+    <!-- srinivas code start -->
+    <div class="col-sm-12">
+        <div class="row">
+         <h4>Validate Encumbrance Certificate</h4>
+         <p align="justify">
+           We validate the Encumbrance Certificate for your property and provide physical inspection reports during the duration of the project.
+         </p><br><br><br>
+         <h4>Validate/Updating all property documents</h4>
+         <p align="justify">
+             We validate all types of property documents for your property and provide physical inspection reports as well for the same.
+         </p>
+         <br><br><br>
+         <h4>Customized services</h4>
+         <p align="justify">
+             If there are services that are unique to your property, we can provide those services through a customized package. Our team representative will create a requirement document after talking to you and give you a reasonable estimate for the same.
+         </p>
+           </div>
+         </div><p>&nbsp;</p>
+           <h2>Packages<br><small>Choose from our Packages</small></h2><p>&nbsp;</p><p>&nbsp;</p>
+           <!-- srinivas code end -->
         <div class="col-md-3 package-tile-style" style="background-color:#f3f2f2;">
           <div class="package-hding">
-            SILVER
+            Silver
             <!-- <P>1-MONTH</P> -->
           </div>
           <div class="package-options">
               <ul>
                 <li>
                   <i class="fa fa-check"></i>
-                  we will validate the Encumbrance Certificate for your property and provide 3 physical inspection
-                  reports during the duration of the project.
+                  This includes validation of the Encumbrance Certificate for your property and providing 3 physical inspection reports during the duration of the project.
                 </li>
                 <li>
                   <i class="fa fa-check"></i>
-                  This package lasts for 3 months from the date of activation and needs to be renewed in 3-month
-                  intervals.
+                  This package lasts for 3 months from the date of activation and needs to be renewed in 3-month intervals.
                 </li>
                 <li>
                   <i class="fa fa-check"></i>
@@ -59,15 +76,14 @@
               <ul>
                 <li>
                   <i class="fa fa-check"></i>
-                  In the Gold package, apart from validating your property's Encumbrance Certificate, we will
-                  endeavor to validate all your property documents.
+                  In the Gold package, apart from validating your property's Encumbrance Certificate, we will endeavor to validate all your property documents.
                 </li>
                 <li>
                   <i class="fa fa-check"></i>
                   We will also provide 12 physical inspection reports during the duration of the project. </li>
                 <li>
                   <i class="fa fa-check"></i>
-                  This package lasts for 12 months from the date of activation and needs to be renewed annually.</li>
+                  This package lasts for 12 months from the date of activation and needs to be renewed annually.</li><br>
                 <li>
                   <i class="fa fa-check"></i>Covers 1 Property &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
             
@@ -91,7 +107,7 @@
         <div class="col-md-3 package-tile-style" style="background-color:#f3f2f2;">
 
           <div class="package-hding">
-            CUSTOM
+            Custom
             <!-- <P>CUSTOM</P> -->
           </div>
           <div class="package-options">
@@ -192,7 +208,7 @@
       </div>
     </div> -->
 
-    <div class="package-bg">
+    <div class="package-bg col-sm-12">
         <h4 class="package-page-heading row justify-content-center">We Have a Package Plan That Fits You.
       </h4>
 
@@ -206,16 +222,39 @@
      
      </div>
      
-
-        <div class="container" style="margin:85px auto;text-align: center;">
+    
+     
+        <div class="container" style="margin:45px auto;text-align: center;">
 
           <div *ngIf="monitoring">
+            <!-- srinivas code start -->
+              <div class="additional-style">
+            <div class="col-sm-12">
+                  <div class="row">
+                   <h4>Validate Encumbrance Certificate</h4>
+                   <p align="justify">
+                     We validate the Encumbrance Certificate for your property and provide physical inspection reports during the duration of the project.
+                   </p><br><br><br>
+                   <h4>Validate/Updating all property documents</h4>
+                   <p align="justify">
+                       We validate all types of property documents for your property and provide physical inspection reports as well for the same.
+                   </p>
+                   <br><br><br>
+                   <h4>Customized services</h4>
+                   <p align="justify">
+                       If there are services that are unique to your property, we can provide those services through a customized package. Our team representative will create a requirement document after talking to you and give you a reasonable estimate for the same.
+                   </p>
+                     </div>
+                   </div>
+                  </div><p>&nbsp;</p>
+                     <h2>Packages<br><small>Choose from our Packages</small></h2><p>&nbsp;</p><p>&nbsp;</p>
+                     <!-- srinivas code end -->
             <div  [ngClass]="spack === true  ? 'box-middle-layout' : 'box-layout1'">
              
               <!-- <h1 class="text-heading">SILVER </h1> -->
             
              
-              <div class="silver-box" (click)="spack=true;gpack=false;cpack=false;" style="cursor: pointer;">SILVER
+              <div class="silver-box" (click)="spack=true;gpack=false;cpack=false;" style="cursor: pointer;">Silver
 
                   <img src="../../assets/images/package_silver.png" width="30px;" style="position: absolute;
                   top: 3px;
@@ -226,14 +265,12 @@
                 <ul>
                   <li>
                   
-                    we will validate the Encumbrance Certificate for your property and provide 3 physical inspection
-                    reports during the duration of the project.
-                  </li>
+                      This includes validation of the Encumbrance Certificate for your property and providing 3 physical inspection reports during the duration of the project.
+                  </li><br>
                   <li>
                
-                    This package lasts for 3 months from the date of activation and needs to be renewed in 3-month
-                    intervals.
-                  </li>
+                      This package lasts for 3 months from the date of activation and needs to be renewed in 3-month intervals.
+                  </li><br>
                   <li>
                   
                     Covers 1 Property
@@ -244,7 +281,7 @@
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('QUATERLY',1,'custom-modal-package-choosen')">Buy
                 It</div>
               <div *ngIf="!activeflag" (click)="loginformFun()">
-                  <img src="../../assets/images/buy_button1.png" width="100px"/>
+                  <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
             </div>
 
@@ -264,13 +301,12 @@
                 <ul>
                   <li>
                    
-                    In the Gold package, apart from validating your property's Encumbrance Certificate, we will
-                    endeavor to validate all your property documents.
-                  </li>
+                      In the Gold package, apart from validating your property's Encumbrance Certificate, we will endeavor to validate all your property documents.
+                  </li><br>
                   <li>
                   
-                    We will also provide 12 physical inspection reports during the duration of the project. </li>
-                  <li>
+                      We will also provide 12 physical inspection reports during the duration of the project. </li>
+                  <li><br>
                   
                     This package lasts for 12 months from the date of activation and needs to be renewed annually.</li>
                   <li>
@@ -284,33 +320,32 @@
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('YEARLY',2,'custom-modal-package-choosen')">Buy
                 It</div>
               <div *ngIf="!activeflag" class="" (click)="loginformFun()">
-              <img src="../../assets/images/buy_button1.png" width="100px"/>
+              <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
             </div>
 
             <div [ngClass]="cpack === true  ? 'box-middle-layout' : 'box-layout1'">
               <!-- <h1 class="text-heading">CUSTOM</h1> -->
-              <div class="custom-box"  (click)="spack=false;gpack=false;cpack=true;" style="cursor: pointer;">CUSTOM</div>
+              <div class="custom-box"  (click)="spack=false;gpack=false;cpack=true;" style="cursor: pointer;">Custom</div>
               <div class="package-options" style="padding-left: 18px;min-height: 288px;cursor: pointer;"  (click)="spack=false;gpack=false;cpack=true;">
                 <ul>
                   <li>
                    
-                    If you feel your property needs a different monitoring,please click below for an individualized
-                    package tailored to your unique requirements.
-                  </li>
+                      If you feel your property needs a different monitoring or services unique to your property, please click below for an individualized package tailored to your requirements.
+                  </li><br>
                 </ul>
               </div>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('CUSTOM',3,'custom-modal-package-choosen')">Buy
                 It</div>
               <div *ngIf="!activeflag" (click)="loginformFun()">
-                  <img src="../../assets/images/buy_button1.png" width="100px"/>
+                  <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
 
             </div>
           </div>
 
 
-          <div *ngIf="additional" style="margin-top:-40px">
+          <div *ngIf="additional" style="margin-top:40px">
 
             <div class="row" align="center">
               <div class="additional-style">
@@ -320,30 +355,37 @@
                   <img src="../../assets/images/line-additional.png" width="100px"/>
                 </p>
 
-
-                <ul class="additional-list">
-                  <li>
-                    Legal Advice
-                  </li>
-                  <li>
-                    Document Verification
-                  </li>
-                  <li>
-                    Site/Land Services
-                  </li>
-                  <li>
-                    Name Change in Revenue
-                  </li>
-                  <li>
-                    Passbook Updates
-                  </li>
-                  <li>
-                    Land/Property Taxes
-                  </li>
-                  <li>
-                    Electricity Connections. etc.
-                  </li>
-                </ul>
+                <!-- srinivas code start -->
+              <div class="col-sm-12">
+                  <div class="row">
+                   <p>
+                     <span class="heading">Legal Advice</span><br>
+                     We have a team of legal experts in property and if you need it, we can provide legal consultation that works for you.
+                   </p><br><br>
+                   <p>
+                      <span class="heading">Document verification</span><br>
+                      If there are property documents that need to be verified, our team would be happy to do that for you.
+                    </p><br><br>
+                    <p>
+                        <span class="heading">Site/Land maintenance services</span><br>
+                        We monitor your property and identify needs such as maintenance of garden, parking lot, cleaning of exterior, outside lighting, checking fire-alarm systems or security systems etc on demand.
+                      </p><br><br>
+                      <p>
+                          <span class="heading">Name change in revenue records</span><br>
+                          If there’s a change in the name in Revenue document, we help you get the entire process done.
+                        </p><br><br>
+                        <p>
+                            <span class="heading">Passbook updates</span><br>
+                            On demand, we help you update our passbooks of accounts that are maintained in any Indian city.
+                          </p><br><br>
+                          <p>
+                              <span class="heading">Land/Property Taxes</span><br>
+                              If there are due taxes on your land or property, we help you get them paid in time.
+                            </p>
+                   
+                     </div>
+                   </div>
+                     <!-- srinivas code end -->
 
               </div>
             </div>

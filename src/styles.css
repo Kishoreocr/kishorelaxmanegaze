@@ -4,8 +4,48 @@
 @import 'intl-tel-input/build/css/intlTelInput.css';
 
 body, html{
-  font-family:Arial, Helvetica, sans-serif !important;
+  /*font-family:Arial, Helvetica, sans-serif !important;*/
+  font-family: 'open_sansregular';
 }
+
+/** font family start **/
+/* @font-face {
+  font-family: 'open_sansbold';
+  src: url('fonts/opensans-bold-webfont.woff2') format('woff2'),
+       url('fonts/opensans-bold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'open_sanslight';
+  src: url('fonts/opensans-light-webfont.woff2') format('woff2'),
+       url('fonts/opensans-light-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'open_sansregular';
+  src: url('fonts/opensans-regular-webfont.woff2') format('woff2'),
+       url('fonts/opensans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+@font-face {
+  font-family: 'open_sanssemibold';
+  src: url('fonts/opensans-semibold-webfont.woff2') format('woff2'),
+       url('fonts/opensans-semibold-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+
+} */
+/** font family css end **/
+
 .pagination {
   display: inline-flex !important;
   padding-left: 0 !important;
@@ -487,7 +527,7 @@ body.modal-open {
   padding-bottom: 5px!important;
 }
 .container-top-padding{
-  padding-top:133px !important;
+  padding-top:138px !important;
   min-height:100vh;
 }
 @media (max-width: 767px){
@@ -570,3 +610,4 @@ width:100% !important;
     padding-left: 0px;
     padding-right: 0px;
 }
+

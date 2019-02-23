@@ -72,10 +72,11 @@ background-size: contain !important;
 #nav > ul > li { position:relative; list-style:none; display:inline-block; padding: 0px 18px; }
 /* #nav > ul > li:first-child { margin: 0 25px 0 0; }
 #nav > ul > li:last-child { margin: 0 0 0 25px; } */
-#nav > ul > li > a {text-decoration: none; font-weight:600; cursor: pointer}
+/*#nav > ul > li > a {text-decoration: none; font-weight:600; cursor: pointer}*/
+#nav > ul > li > a {text-decoration: none; font-weight:400; cursor: pointer}
 #nav > ul > li > a, #nav > ul > li > a:link, #nav > ul > li > a:visited { display:inline-block; line-height:30px; color:#ffffff; }
 #nav > ul > li > a:hover, #nav > ul > li > a:active { color:#ffffff; }
-#nav > ul > li > ul { display:none; position:absolute; white-space:nowrap; z-index:575; text-align:left; padding:0; background-color:#000; top:42px; left:0px; }
+#nav > ul > li > ul { display:none; position:absolute; white-space:nowrap; z-index:575; text-align:left; padding:0; background-color:#000; top:42px;  }
 #nav > ul > li:hover > ul { display:block; }
 #nav > ul > li:hover:after { content: ''; display: block; height: 5px; background-color: #1672a5; }
 #nav > ul > li > ul > li, #nav > ul > li > ul > li a { height:30px; line-height:30px; display:block; padding:0 15px; text-decoration: none; }
@@ -107,7 +108,7 @@ background-size: contain !important;
 /* .launch-menu > ul > li:hover { background:#f8f8f8; } */
 .launch-menu > ul > li:first-child { border-top:solid 1px #bbb; }
 .launch-menu a { color:#fff; text-decoration: none;}
-.launch-menu > ul > li > ul > li:hover { background:#1275af;color:#fff; }
+.launch-menu > ul > li > ul > li:hover { background:#105279;color:#fff; }
 /* .launch-menu > ul > li > ul > li:hover a {
 	color:#fff;
 } */
@@ -493,7 +494,7 @@ filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org
     line-height: 26px;
     font-weight: 400; }
 .launch-menu ul li a { display:block; text-decoration:none!important;}
-.launch-menu .launch-menu-close { text-align:center; height:60px; line-height:57px; cursor:pointer; -webkit-transition-duration: 0.2s; -moz-transition-duration: 0.2s; transition-duration: 0.2s;  background-position:center center; background-repeat:no-repeat; }
+.launch-menu .launch-menu-close { text-align:right; height:60px; line-height:57px; cursor:pointer; -webkit-transition-duration: 0.2s; -moz-transition-duration: 0.2s; transition-duration: 0.2s;  background-position:center center; background-repeat:no-repeat;padding-right: 10px; }
 .launch-menu .launch-menu-close:hover { opacity:.7; }
 
 /* launch banner */
@@ -829,7 +830,7 @@ hr.light { border-top: 1px solid #ffffff; }
     line-height: 26px;
     font-weight: 400; }
 .launch-menu ul li a { display:block; }
-.launch-menu .launch-menu-close { text-align:center; height:60px; line-height:57px; cursor:pointer; -webkit-transition-duration: 0.2s; -moz-transition-duration: 0.2s; transition-duration: 0.2s;  background-position:center center; background-repeat:no-repeat; }
+.launch-menu .launch-menu-close { text-align:right; height:60px; line-height:57px; cursor:pointer; -webkit-transition-duration: 0.2s; -moz-transition-duration: 0.2s; transition-duration: 0.2s;  background-position:center center; background-repeat:no-repeat; }
 .launch-menu .launch-menu-close:hover { opacity:.7; }
 
 /* launch banner */
@@ -1075,4 +1076,20 @@ a.logo-style{
 	font-size: 16px;
 	top: -2px;
     position: relative;
+}
+
+/**************** sravan 21/02/19 **************/
+@media (min-width: 790px) and (max-width: 1024px){
+#nav > ul > li {
+    position: relative;
+    list-style: none;
+    display: inline-block;
+    padding: 0px 10px;
+}
+#nav > ul > li {
+    margin: 0 0px;
+}
+#nav > ul > li:last-child, #nav > ul > li:first-child {
+    margin: 0;
+}
 }

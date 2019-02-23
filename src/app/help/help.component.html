@@ -10,11 +10,11 @@
     <form [formGroup]="hForm" >
     <div class="faqs-container">
       <div class="faqs-1">
-        <img src="../../assets/images/magnifier.png" width="40px" style="margin-top: -3px" />
+        <img src="../../assets/images/magnifier.png" width="40px" class="search-icon" />
       </div>
       
 
-      <div class="faqs-1" style="width:234px">
+      <div class="faqs-1 col-6">
         <input class="faqs-textbox" (change)="datachange()" type="text" formControlName="searchkey" placeholder="How do we help?" />
       </div>
       <div class="faqs-1 support-btn" (click)="saveUser(hForm)">Request Support</div>
