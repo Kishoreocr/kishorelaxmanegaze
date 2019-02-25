@@ -49,19 +49,24 @@ border: 1px solid #a1d6f6;
     /* padding: 30px; */
     background-color: #fff;
     /* margin: 10px 0px; */
-    border-radius: 6px; 
+    border-radius: 10px; 
     width:100%;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    margin-top:80px;
+    position: relative;
+
 }
+
 .table-container-style thead{
    /** background-color: #fdf8f5; **/
-   background-color:#fd9958;
+   background-color:#fff;
+   color:#1d5b8a;
 }
 
 .table-container-style thead th{
     vertical-align: middle;
-    color: #1275af;
+    color: #1d5b8a!important;
     font-size:15px;
-    color:#fff!important;
     font-weight: 500;
 }
 
@@ -70,7 +75,7 @@ border: 1px solid #a1d6f6;
 }
 
 .table-container-style .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.04)!important;
+    background-color: #f5f8fb !important;
 }
 
 .table-container-style .table-striped tbody tr:nth-of-type(even) {
@@ -78,8 +83,8 @@ border: 1px solid #a1d6f6;
 }
 
 .table-container-style .table-bordered thead th, .table-bordered thead td {
-    border-bottom-width: 3px;
-    border-bottom-color: #30a2ec !important;
+    border-bottom-width: 0px;
+    border-bottom-color:none !important;
 }
 
 
@@ -200,6 +205,7 @@ padding:0px 10px;
 }
 .mainAlertcontainer{
     background-color:#fff;
+    padding-top:50px;
 }
 td.noAlerts{
     font-size:16px!important;;

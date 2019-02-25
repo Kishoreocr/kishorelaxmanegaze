@@ -1132,9 +1132,15 @@
             </div>
             <!---propety Tab -->
 
+         
+         
             <!-- Alerts tab -->
             <div *ngIf="!propertyTab && alertsTab && !transactionsTab && !profileTab" class="table-container-style">
-                <h5 class="tab-active-heading">Alerts</h5>
+                <span style="position: absolute;
+                top: -50px;"><img src="../../assets/images/alert-img-1.png" width="100px"/></span>
+                <span style="display: inline-block;
+                padding-left: 110px;"><h5 class="tab-active-heading">Alerts</h5></span>
+                
                 <div class='mainAlertcontainer table-responsive'>
                     <table class="table table-striped table-bordered table-hover" [mfData]="alerts" #mf="mfDataTable" [mfRowsOnPage]="5">
                         <thead>
@@ -1181,6 +1187,11 @@
 
             </div>
             <!-- Alerts tab -->
+
+
+
+
+
 
 
             <!-- transactions  tab -->
