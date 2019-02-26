@@ -79,9 +79,20 @@
 
             <!--Property Tab start here -->
             <div *ngIf="propertyTab && !alertsTab && !transactionsTab && !profileTab">
+
+
+
                 <div *ngIf="addProperty && !viewProperties">
 
                     <div class="table-container-style table-th-styles" style="position:relative">
+
+                        <div class="tab-img-1">
+                            <img src="../../assets/images/property-img-1.png" class="tabs-img" width="100px" />
+                        </div>
+                        <div class="tab-heading">
+                            <h5 class="tab-active-heading-1">Property</h5>
+                        </div>
+
                         <app-modal-property id="custom-modal-11">
                             <div class="modal">
 
@@ -328,15 +339,21 @@
 
                                                                 <td>
 
-                                                                    <i style="cursor: pointer" (click)="modalDeleteDocument('confirm-delete-document', doc.id)" class="fa fa-trash" aria-hidden="true"></i>
+                                                                    <i style="cursor: pointer" (click)="modalDeleteDocument('confirm-delete-document', doc.id)">
+                                                                        <img src="../../assets/images/delete-img-1.png" width="30px" class="action-icons-1" />
+                                                                    </i>
                                                                 </td>
 
                                                                 <td>
-                                                                    <i style="cursor: pointer" (click)="getDownloadUrl(doc.id)" class="fa fa-download" aria-hidden="true"></i>
+                                                                    <i style="cursor: pointer" (click)="getDownloadUrl(doc.id)">
+                                                                        <img src="../../assets/images/download-img-1.png" width="30px" class="action-icons-1" />
+                                                                    </i>
                                                                 </td>
                                                                 <td>
-                                                                    <a style="cursor: pointer;color: black" target="new" href={{viewur}}{{doc.id}}>
-                                                                        <i class="fa fa-eye" aria-hidden="true"> </i>
+                                                                    <a style="cursor: pointer;" target="new" href={{viewur}}{{doc.id}}>
+                                                                        <i>
+                                                                            <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
+                                                                        </i>
                                                                     </a>
 
                                                                 </td>
@@ -438,7 +455,19 @@
                                                                     <tr *ngFor="let comment of mf.data;let IndexId = index">
                                                                         <td *ngIf="comment.status ==='A'">
                                                                             <div class="commentbox-style-1">
-                                                                                <p class="comment-role">By {{comment.role}},</p>
+
+                                                                                <div class="row">
+                                                                                    <div class="col-md-6">
+                                                                                        <p class="comment-role">{{comment.role}}</p>
+                                                                                    </div>
+                                                                                    <div class="col-md-6" align="right">
+                                                                                        <span class="comment-hrs">On {{comment.addedDate | date: 'dd/MM/yyyy
+                                                                                            HH:mm:ss a'}}
+                                                                                        </span>
+                                                                                    </div>
+                                                                                </div>
+
+
                                                                                 <p class="comment-description" *ngIf="comment.severity!=='' ">
                                                                                     <b>Property Status</b> :
                                                                                     <span *ngIf="comment.severity==='nochanges' ">No Changes </span>
@@ -450,17 +479,20 @@
                                                                                 <p class="comment-description">
                                                                                     <b>Comment</b> : {{comment.description}}</p>
                                                                                 <span class="comment-reply-btn" *ngIf="comment.documentName!=null">
-                                                                                    <a style="cursor: pointer;color: #f9a069" target="new" href={{viewcommentur}}{{comment.id}}>
-                                                                                        <i class="fa fa-eye" aria-hidden="true"> </i>
+                                                                                    <a style="cursor: pointer;" target="new" href={{viewcommentur}}{{comment.id}}>
+                                                                                        <i>
+                                                                                            <img src="../../assets/images/view-data-img-1.png" width="20px" class="action-icons-1" />
+                                                                                        </i>
                                                                                     </a>
 
                                                                                 </span>
                                                                                 <span class="comment-reply-btn" *ngIf="comment.documentName!=null">
-                                                                                    <i style="cursor: pointer" (click)="getporpertyCommentdocDownloadUrl(comment.id)" class="fa fa-download" aria-hidden="true"></i>
+                                                                                    <i style="cursor: pointer" (click)="getporpertyCommentdocDownloadUrl(comment.id)">
+                                                                                        <img src="../../assets/images/download-img-1.png" width="20px" class="action-icons-1" />
+
+                                                                                    </i>
                                                                                 </span>
-                                                                                <span class="comment-hrs">On {{comment.addedDate | date: 'dd/MM/yyyy
-                                                                                    HH:mm:ss a'}}
-                                                                                </span>
+
                                                                             </div>
                                                                         </td>
                                                                     </tr>
@@ -528,25 +560,48 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                <mfDefaultSorter by="propertyCode">Property Code</mfDefaultSorter>
+                                                <mfDefaultSorter by="propertyCode">Property Code
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <th>
-                                                <mfDefaultSorter by="propertyType">Property Type</mfDefaultSorter>
+                                                <mfDefaultSorter by="propertyType">Property Type
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <th>
-                                                <mfDefaultSorter by="propertyHolderName">Property Holder Name</mfDefaultSorter>
+                                                <mfDefaultSorter by="propertyHolderName">Property Holder Name
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <th>
-                                                <mfDefaultSorter by="relationship">Relationship</mfDefaultSorter>
+                                                <mfDefaultSorter by="relationship">Relationship
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <!-- <th>
                                                             <mfDefaultSorter by="doorNo">Door Number</mfDefaultSorter>
                                                         </th> -->
                                             <th>
-                                                <mfDefaultSorter by="status">Status</mfDefaultSorter>
+                                                <mfDefaultSorter by="status">Status
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <th class='text-center'>
                                                 Action
+                                                <span class="sorrt-icon-1">
+                                                    <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                </span>
                                             </th>
                                         </tr>
                                     </thead>
@@ -584,11 +639,11 @@
                             </div>
 
 
-                            <div class="mainAlertcontainer  table-responsive ">
+                            <div class="mainAlertcontainer  table-responsive" style="padding-top:20px;">
 
                                 <div class="row verticalTab ng-star-inserted">
                                     <div class="col-md-8">
-                                        <h5 class="tab-active-heading">Properties:</h5>
+                                        <h5 class="tab-active-heading"></h5>
                                     </div>
                                     <div align="right" class="col-md-4">
                                         <div class="propertyheading" (click)="propertyFun()">
@@ -605,25 +660,48 @@
                                     <thead>
                                         <tr>
                                             <th>
-                                                <mfDefaultSorter by="propertyCode">Property Code</mfDefaultSorter>
+                                                <mfDefaultSorter by="propertyCode">Property Code
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <th>
-                                                <mfDefaultSorter by="propertyType">Property Type</mfDefaultSorter>
+                                                <mfDefaultSorter by="propertyType">Property Type
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <th>
-                                                <mfDefaultSorter by="propertyHolderName">Property Holder Name</mfDefaultSorter>
+                                                <mfDefaultSorter by="propertyHolderName">Property Holder Name
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <th>
-                                                <mfDefaultSorter by="relationship">Relationship</mfDefaultSorter>
+                                                <mfDefaultSorter by="relationship">Relationship
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <!-- <th>
                                                     <mfDefaultSorter by="doorNo">Door Number</mfDefaultSorter>
                                                 </th> -->
                                             <th>
-                                                <mfDefaultSorter by="status">Status</mfDefaultSorter>
+                                                <mfDefaultSorter by="status">Status
+                                                    <span class="sorrt-icon-1">
+                                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                    </span>
+                                                </mfDefaultSorter>
                                             </th>
                                             <th class='text-center'>
                                                 Action
+                                                <span class="sorrt-icon-1">
+                                                    <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                                </span>
                                             </th>
                                         </tr>
                                     </thead>
@@ -643,7 +721,13 @@
                                             </td>
                                             <td class="viewbtn text-center">
                                                 <!-- <i class="fa fa-eye" (click)="viewPropertyFun()"></i> -->
-                                                <i class="fa fa-eye" (click)="openModal('custom-modal-11',property,false)"></i>
+                                                <i (click)="openModal('custom-modal-11',property,false)">
+
+                                                    <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
+
+                                                </i>
+
+
                                                 <!-- <span *ngIf="propertyUpdatesids.indexOf(property.id) > -1"> **</span> -->
 
 
@@ -659,8 +743,9 @@
                                     </tfoot>
                                 </table>
                             </div>
-                            <P>Note: For additional packages, Please contact support
-                                <a style="color: #fd8236" href="mailto:support@egaze.in" target="_blank">support@egaze.in</a>
+                            <P>
+                                <span style="color:#1d5b8a">Note: </span>For additional packages, Please contact support
+                                <a style="color: #fe7585" href="mailto:support@egaze.in" target="_blank">support@egaze.in</a>
                             </P>
                         </div>
                     </div>
@@ -1117,23 +1202,10 @@
                                     <button type="button" class="upload-btn" (click)="fileSelectionEvent()">Upload</button>
 
                                 </div>
-
-
-
                             </form>
-
                         </div>
 
-
-
-
-
                     </div>
-
-
-
-
-
                 </div>
             </div>
             <!---propety Tab -->
@@ -1142,14 +1214,12 @@
 
             <!-- Alerts tab -->
             <div *ngIf="!propertyTab && alertsTab && !transactionsTab && !profileTab" class="table-container-style">
-                <span style="position: absolute;
-                top: -50px;">
-                    <img src="../../assets/images/alert-img-1.png" width="100px" />
-                </span>
-                <span style="display: inline-block;
-                padding-left: 110px;">
-                    <h5 class="tab-active-heading">Alerts</h5>
-                </span>
+                <div class="tab-img-1">
+                    <img src="../../assets/images/alert-img-1.png" class="tabs-img" width="100px" />
+                </div>
+                <div class="tab-heading">
+                    <h5 class="tab-active-heading-1">Alerts</h5>
+                </div>
 
                 <div class='mainAlertcontainer table-responsive'>
                     <table class="table table-striped table-bordered table-hover" [mfData]="alerts" #mf="mfDataTable" [mfRowsOnPage]="5">
@@ -1206,7 +1276,16 @@
 
             <!-- transactions  tab -->
             <div *ngIf="!propertyTab && !alertsTab && transactionsTab && !profileTab" class="table-container-style">
-                <h5 class="tab-active-heading">Transactions</h5>
+
+                <div class="tab-img-1">
+                    <img src="../../assets/images/transaction-img-1.png" class="tabs-img" width="100px" />
+                </div>
+                <div class="tab-heading">
+                    <h5 class="tab-active-heading-1">Transactions</h5>
+                </div>
+
+
+
                 <div class='mainAlertcontainer table-responsive'>
                     <table class="table table-striped table-bordered table-hover">
                         <!-- <caption>List of Transactions</caption> -->
