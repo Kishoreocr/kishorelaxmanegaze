@@ -225,11 +225,15 @@ caption {
 
 
 .container-bg-style{
-    padding: 30px !important;
-    background-color: #fbfbfb !important;
-    margin: 0px 0px 20px !important;
+    padding: 5px !important;
+    background-color: #f6f6f6 !important;
+    /* margin: 0px 0px 20px !important; */
     border-radius: 0px !important;
-    width: 100% !important;}
+    /* width: 100% !important; */
+    box-shadow: none;
+    margin-top:0px;
+
+}
 
 .userdashboardTab{
 margin:0px;padding:0px;padding-top:20px; width:80px;
@@ -412,8 +416,8 @@ body.modal-open {
 }
 
 .upload-container-style{
-    background-color:#fff;
-    padding: 15px 30px;
+    /* background-color:#fff; */
+    /* padding: 15px 30px; */
     font-weight: 500;
     color: #1275af;
 }
