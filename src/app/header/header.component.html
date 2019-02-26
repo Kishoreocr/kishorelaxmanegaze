@@ -275,7 +275,7 @@ position: relative;">
                 </i> Help</a>
             </li>
 
-            <li>
+            <li *ngIf="!flag">
               <a [class.activeClassLink]="currentURL=='/terms-conditions' || currentURL=='/privacy-policy'">
                 <!--|| currentURL==='/disclaimer' -->
                 <i class="top-menu-icons">

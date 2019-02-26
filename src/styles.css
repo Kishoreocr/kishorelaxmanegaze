@@ -9,7 +9,7 @@ body, html{
 }
 
 /** font family start **/
-/* @font-face {
+@font-face {
   font-family: 'open_sansbold';
   src: url('fonts/opensans-bold-webfont.woff2') format('woff2'),
        url('fonts/opensans-bold-webfont.woff') format('woff');
@@ -43,7 +43,7 @@ body, html{
   font-weight: normal;
   font-style: normal;
 
-} */
+}
 /** font family css end **/
 
 .pagination {

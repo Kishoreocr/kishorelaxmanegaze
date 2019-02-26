@@ -45,7 +45,7 @@ padding-left: 0px;
 padding-right: 0px;
 }
 .contactus-bg{
-background: url(../../assets/images/contactus_bg.jpg) no-repeat center center;
+background: url(../../assets/images/contactus_bg.png) no-repeat center center;
 height: 170px;
 background-size: cover;
 text-align: center;
@@ -59,23 +59,34 @@ padding-top: 35px;
 }
 
 .touch-text{
-margin: 0px;
-color: #fff;
-font-size: 54px;
-padding: 0px;
-line-height:54px;
+    margin: 0px;
+    color: #444444;
+    font-size: 64px;
+    padding: 0px;
+    line-height: 73px;
+    background: #f6f4f5;
+    display: inline;
+    padding: 0 15px;
 }
 .getin-text{
-margin: 0px;
+/*margin: 0px;
 font-size: 43px;
 padding: 0px;
 line-height:43px;
-color: #e2e0e0;
+color: #7c7a7b;*/
+margin: 0px;
+font-size: 43px;
+padding: 0px;
+line-height: 43px;
+color: #7c7a7b;
+background: #f6f4f5;
+display: inline;
+padding: 0 15px;
 }
 
 .inner-page-bg{
     background: url(../../assets/images/inner_page_bg.png) no-repeat center bottom;
-    background-size:cover;
+    /*background-size:cover;*/
     background-position:fixed;
     background-color: #f6f4f5;
   }

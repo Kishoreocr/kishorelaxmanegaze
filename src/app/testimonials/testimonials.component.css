@@ -243,7 +243,7 @@ font-weight: 500;
 
 .inner-page-bg{
     background: url(../../assets/images/inner_page_bg.png) no-repeat center bottom;
-    background-size:cover;
+    /*background-size:cover;*/
     background-position:fixed;
     background-color: #fff;
   }
@@ -255,9 +255,6 @@ font-weight: 500;
 }
 
 /** srinivas css start **/
-.additional-style {
-    box-shadow: 0px 0px 24px rgba(0,0,0,0.1);    
-    background-color: #fff;    
-    padding: 20px;
-    border-radius: 20px;
+.padd {
+    padding:0 30px;
 }
