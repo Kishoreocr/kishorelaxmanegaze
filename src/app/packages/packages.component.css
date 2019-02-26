@@ -456,3 +456,6 @@ h4.package-page-heading.row.justify-content-center:after {
         height: 575px;
     }
 }
+.buyit{
+    cursor: pointer;
+}

@@ -244,7 +244,7 @@
               <p class="price-tag">INR 4000 + 18% GST</p>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('QUATERLY',1,'custom-modal-package-choosen')">Buy
                 It</div>
-              <div *ngIf="!activeflag" (click)="loginformFun()">
+              <div *ngIf="!activeflag" (click)="loginformFun()" class="buyit">
                   <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
             </div>
@@ -283,7 +283,7 @@
                 Rate) + 18% GST</p>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('YEARLY',2,'custom-modal-package-choosen')">Buy
                 It</div>
-              <div *ngIf="!activeflag" class="" (click)="loginformFun()">
+              <div *ngIf="!activeflag" class="buyit" (click)="loginformFun()">
               <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
             </div>
@@ -301,7 +301,7 @@
               </div>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('CUSTOM',3,'custom-modal-package-choosen')">Buy
                 It</div>
-              <div *ngIf="!activeflag" (click)="loginformFun()">
+              <div *ngIf="!activeflag" (click)="loginformFun()" class="buyit">
                   <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
 
