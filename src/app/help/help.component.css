@@ -60,7 +60,7 @@ color: #e2e0e0;
 
 .inner-page-bg{
     background: url(../../assets/images/inner_page_bg.png) no-repeat center bottom fixed;
-    background-size:cover;
+    /*background-size:cover;*/
     background-color: #f6f4f5;
   }
 
@@ -93,7 +93,8 @@ color: #e2e0e0;
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
     /*margin-right: -2px;*/
-    margin-right: -12px; 
+    /*margin-right: -12px; */
+    margin-right: -20px;
     cursor: pointer;
 
   }
@@ -215,6 +216,6 @@ color: #e2e0e0;
 /** srinivas css start **/
 
 .search-icon {
-  margin-left:-10px !important;
+  margin-left:-14px !important;
   
 }

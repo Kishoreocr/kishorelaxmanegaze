@@ -46,10 +46,11 @@ padding-right: 0px;
 }
 .contactus-bg{
 background: url(../../assets/images/contactus_bg.png) no-repeat center center;
-height: 170px;
+/*height: 170px;*/
 background-size: cover;
 text-align: center;
-padding-top: 35px;
+/*padding-top: 35px;*/
+padding-top: 25px;
 }
 
 @media(max-width:767px){
@@ -61,7 +62,7 @@ padding-top: 35px;
 .touch-text{
     margin: 0px;
     color: #444444;
-    font-size: 64px;
+    font-size: 54px;
     padding: 0px;
     line-height: 73px;
     background: #f6f4f5;
@@ -75,7 +76,7 @@ padding: 0px;
 line-height:43px;
 color: #7c7a7b;*/
 margin: 0px;
-font-size: 43px;
+font-size: 38px;
 padding: 0px;
 line-height: 43px;
 color: #7c7a7b;
@@ -92,9 +93,11 @@ padding: 0 15px;
   }
 
   .contactus-container{
-    padding: 30px 2%;
+    /*padding: 30px 2%;*/
+    padding: 15px 2%;
     background-color: #fff;
-    margin: 30px auto;
+    /*margin: 30px auto;*/
+    margin: 10px auto;
     box-shadow: 0px -1px 15px rgba(0,0,0,0.1);
     border-radius: 5px;
     display: inline-flex;

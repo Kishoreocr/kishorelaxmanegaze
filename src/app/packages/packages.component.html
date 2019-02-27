@@ -9,12 +9,10 @@
         <!-- <p style="font-size:14px;font-weight:200;word-spacing: 2px;padding:5px;">Lorem Ipsum is simply dummy text of the printing and typesetting industry</p> -->
       </h4>
 
-      <div class="row justify-content-center d-block d-sm-none">
+      <div class="row justify-content-center below">
 <div class="container">
-    <!-- srinivas code start -->
-    
-           <!-- srinivas code end -->
-        <div class="col-md-3 package-tile-style" style="background-color:#f3f2f2;">
+   
+        <div class="col-md-3 package-tile-style" style="background-color:#f3f2f2; margin-bottom:25px;">
           <div class="package-hding">
             Silver
             <!-- <P>1-MONTH</P> -->
@@ -45,11 +43,11 @@
               It</span>
           </div>
           <div align="center" *ngIf="!activeflag">
-            <span style="margin-top:20px;" class="orange-clr-btn" (click)="loginformFun()">Buy It</span>
+            <span style="margin-top:20px;" class="orange-clr-btn" (click)="loginformFun()">Buy It</span><br><br>
           </div>
         </div>
 
-        <div class="col-md-3 package-tile-style" style="background-color:#f3f2f2;">
+        <div class="col-md-3 package-tile-style" style="background-color:#f3f2f2; margin-bottom:25px;">
 
           <div class="package-hding">
             GOLD
@@ -66,7 +64,7 @@
                   We will also provide 12 physical inspection reports during the duration of the project. </li>
                 <li>
                   <i class="fa fa-check"></i>
-                  This package lasts for 12 months from the date of activation and needs to be renewed annually.</li><br>
+                  This package lasts for 12 months from the date of activation and needs to be renewed annually.</li>
                 <li>
                   <i class="fa fa-check"></i>Covers 1 Property &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
             
@@ -78,7 +76,7 @@
 
           <div align="center" *ngIf="activeflag">
             <span style="margin-top:20px;" class="orange-clr-btn" (click)="packageFun('YEARLY',2,'custom-modal-package-choosen')">Buy
-              It</span>
+              It</span><br>
           </div>
           <div align="center" *ngIf="!activeflag">
             <span style="margin-top:20px;" class="orange-clr-btn" (click)="loginformFun()">Buy It</span>
@@ -87,7 +85,7 @@
 
         </div>
 
-        <div class="col-md-3 package-tile-style" style="background-color:#f3f2f2;">
+        <div class="col-md-3 package-tile-style" style="background-color:#f3f2f2;  margin-bottom:25px;">
 
           <div class="package-hding">
             Custom
@@ -108,10 +106,10 @@
 
           <div align="center" *ngIf="activeflag">
             <div style="margin-top:20px;" class="orange-clr-btn" (click)="packageFun('CUSTOM',3,'custom-modal-package-choosen')">Buy
-              It</div>
+              It</div><br><br>
           </div>
           <div align="center" *ngIf="!activeflag">
-            <div style="margin-top:20px;" class="orange-clr-btn" (click)="loginformFun()">Buy It</div>
+            <div style="margin-top:20px;" class="orange-clr-btn" (click)="loginformFun()">Buy It</div><br><br>
           </div>
 
         </div>
@@ -126,7 +124,7 @@
 
       <!-- display only at large screens  -->
 
-      <div class="row justify-content-center d-none d-sm-block" style="padding-top: 133px;">
+      <div class="row justify-content-center above" style="padding-top: 133px;">
 
         <!-- <div class="package-container">
 
@@ -234,7 +232,7 @@
                   <li>
                
                       This package lasts for 3 months from the date of activation and needs to be renewed in 3-month intervals.
-                  </li><br>
+                  </li>
                   <li>
                   
                     Covers 1 Property
@@ -244,7 +242,7 @@
               <p class="price-tag">INR 4000 + 18% GST</p>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('QUATERLY',1,'custom-modal-package-choosen')">Buy
                 It</div>
-              <div *ngIf="!activeflag" (click)="loginformFun()" class="buyit">
+              <div *ngIf="!activeflag" (click)="loginformFun()">
                   <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
             </div>
@@ -283,7 +281,7 @@
                 Rate) + 18% GST</p>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('YEARLY',2,'custom-modal-package-choosen')">Buy
                 It</div>
-              <div *ngIf="!activeflag" class="buyit" (click)="loginformFun()">
+              <div *ngIf="!activeflag" class="" (click)="loginformFun()">
               <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
             </div>
@@ -301,7 +299,7 @@
               </div>
               <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('CUSTOM',3,'custom-modal-package-choosen')">Buy
                 It</div>
-              <div *ngIf="!activeflag" (click)="loginformFun()" class="buyit">
+              <div *ngIf="!activeflag" (click)="loginformFun()">
                   <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
 
@@ -321,29 +319,29 @@
 
                 <!-- srinivas code start -->
               <div class="col-sm-12">
-                  <div class="row">
+                  <div class="">
                    <p>
-                     <span class="heading">Legal Advice</span><br>
+                     <span class="dot"></span><span class="heading">Legal Advice</span><br>
                      We have a team of legal experts in property and if you need it, we can provide legal consultation that works for you.
-                   </p><br><br>
+                   </p><br>
                    <p>
-                      <span class="heading">Document verification</span><br>
+                    <span class="dot"></span><span class="heading">Document verification</span><br>
                       If there are property documents that need to be verified, our team would be happy to do that for you.
-                    </p><br><br>
+                    </p><br>
                     <p>
-                        <span class="heading">Site/Land maintenance services</span><br>
+                      <span class="dot"></span><span class="heading">Site/Land maintenance services</span><br>
                         We monitor your property and identify needs such as maintenance of garden, parking lot, cleaning of exterior, outside lighting, checking fire-alarm systems or security systems etc on demand.
-                      </p><br><br>
+                      </p><br>
                       <p>
-                          <span class="heading">Name change in revenue records</span><br>
+                        <span class="dot"></span><span class="heading">Name change in revenue records</span><br>
                           If there’s a change in the name in Revenue document, we help you get the entire process done.
-                        </p><br><br>
+                        </p><br>
                         <p>
-                            <span class="heading">Passbook updates</span><br>
+                          <span class="dot"></span><span class="heading">Passbook updates</span><br>
                             On demand, we help you update our passbooks of accounts that are maintained in any Indian city.
-                          </p><br><br>
+                          </p><br>
                           <p>
-                              <span class="heading">Land/Property Taxes</span><br>
+                            <span class="dot"></span><span class="heading">Land/Property Taxes</span><br>
                               If there are due taxes on your land or property, we help you get them paid in time.
                             </p>
                    

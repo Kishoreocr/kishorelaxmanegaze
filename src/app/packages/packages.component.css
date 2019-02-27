@@ -221,9 +221,10 @@
     background-color: #fff;
     /* border: 1px solid #ccc; */
     /*width: 265px;*/
-    width: 33%;
+    /*width: 33%;*/
+    width: 28%;
     /*height: 430px;*/
-    height: 425px;
+    height: 505px;
     padding: 0px 0px;
     border-radius: 20px;
   }
@@ -244,9 +245,11 @@
     display: inline-block;
     background-color: #fff;
     /*width: 260px;*/
-    width: 33%;
+    /*width: 33%;*/
+    width: 28%;
     /*height: 465px;*/
-    height: 470px;
+    /*height: 470px;*/
+    height: 530px;
   }
   .box-middle-layout ul li{
     font-size:16px;
@@ -426,6 +429,7 @@ h4.package-page-heading.row.justify-content-center:after {
     width: 180px;
     height: 4px;
     bottom: -4px;
+    left:45%;
 }
 .package-page-heading {
     position: relative;
@@ -441,21 +445,50 @@ h4.package-page-heading.row.justify-content-center:after {
 
 @media (min-width: 992px) and (max-width: 1200px) {
     .box-middle-layout{
-        height: 530px;
+        /*height: 530px;*/
+        height: 590px;
     }
     .box-layout1 {
-        height: 440px;
+        height: 530px;
+    }
+    .buyit-butt{
+        margin-top: 68px;
     }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
     .box-middle-layout{
-        height: 620px;
+        /*height: 620px;*/
+        height: 790px;
     }
     .box-layout1 {
-        height: 575px;
+        height: 730px;
     }
 }
-.buyit{
-    cursor: pointer;
+
+@media (max-width: 768px) {
+    .below {
+        display: block;
+        padding-top: 200px;
+    }
+    .above {
+        display: none;
+    }
+}
+@media (min-width: 769px) {
+    .below {
+        display: none;
+    }
+    .above {
+        display: block;
+    }
+}
+.dot {
+    background: #229cf2;
+    border-radius:50%;
+    width: 8px;
+    height: 8px;
+    margin-right:10px;
+    display: inline-block;
+    vertical-align: super;
 }

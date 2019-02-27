@@ -12,3 +12,16 @@ h4 {
 p {
     text-align: justify;
 }
+.additional-style  {
+    box-shadow: 0 0 24px rgba(0,0,0,.1);
+    background-color: #fff;
+    padding: 0px 40px 10px 40px;
+    border-radius: 20px;
+}
+
+.additional-style h4 {
+    color:#19a2e9;
+}
+.additional-style h3 {
+    color:#066b92 !important;
+}
