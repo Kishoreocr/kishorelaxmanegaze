@@ -1,10 +1,15 @@
-.propertyheading{background-color:#fff;text-align:center;padding:5px 15px;color:#1275af;font-size:16px;
-    border-radius: 3px;display:inline-block;cursor: pointer;
-    margin: 4px 4px 10px 4px;
-    /* -moz-box-shadow: 0px 0px 1px #1275af;
-    -webkit-box-shadow: 0px 0px 1px #1275af;
-    box-shadow: 0px 0px 1px #1275af; */
-    border: 1px solid #a1d6f6;
+.propertyheading{
+    background-color: #ff787f;
+    text-align: center;
+    padding: 4px 10px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 20px;
+    display: inline-block;
+    cursor: pointer;
+    margin: 0px 0px 15px 11px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.4);
+    border:1px solid #fff;
     }
   @media(max-width: 600px){
     .propertyheading{
@@ -24,9 +29,9 @@
     .table-container-style{
         padding: 30px;
         background-color: #fff;
-        margin: 10px 0px;
-        border-radius: 6px; 
-        width:100%;
+        margin: 30px 10px 10px 10px;
+        border-radius: 6px;
+        width: 100%;
     }
     span.mandatory{
         color:red;
@@ -37,4 +42,105 @@
 .justify-content-center{
     margin-top: 30px !important;
 }
-   
+.inner-padding-1{
+    padding-top: 131px;
+padding-left: 0px;
+padding-right: 0px;
+}
+
+
+
+.contactus-bg{
+    background: url(../../assets/images/contactus_bg.png) no-repeat center center;
+    /*height: 170px;*/
+    background-size: cover;
+    text-align: center;
+    /*padding-top: 35px;*/
+    padding-top: 150px;
+    }
+    
+    @media(max-width:767px){
+        .contactus-bg{
+            padding-top: 54px;
+            }
+    }
+    
+    .touch-text{
+        margin: 0px;
+        color: #444444;
+        font-size: 40px;
+        padding: 0px;
+        line-height: 65px;
+        background: #f6f4f5;
+        display: inline-block;
+        position: absolute;
+        top: 170px;
+        margin: 0 auto;
+        width: 315px;
+        left: 39%;
+        font-weight: 600;
+    }
+ 
+    
+.inner-page-bg{
+    background: url(../../assets/images/inner_page_bg.png) no-repeat center bottom;
+    /*background-size:cover;*/
+    background-position:fixed;
+    background-color: #f6f4f5;
+  }
+
+
+  .profile-container-1{
+    padding: 5px 0%;
+    background-color: #fff;
+    margin: 10px auto;
+    box-shadow: 0px -1px 15px rgba(0,0,0,0.1);
+    border-radius: 5px;
+    display: inline-flex;
+    width: 60%;
+  }
+
+  .select-box{
+    background-color: #028fd9;
+    background-image: linear-gradient(#028fd9, #30b6fa);
+    color:#fff;
+    outline: 0px;
+  }
+
+
+  .submit-save-btn{
+
+    background-color: #91b931;
+    background-image: linear-gradient(#92b33b, #8eaf53);
+    color: #fff;
+    border-radius: 16px;
+    padding: 4px 45px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 0px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    margin: 10px 0px;
+  }
+
+  .edit-btn{
+    font-size: 12px;
+    font-weight: 200;
+    border-radius: 50px;
+    background-color: #fff;
+    padding: 5px;
+    color: #000;
+  }
+
+  .change-btn{
+    font-size: 12px;
+    font-weight: 200;
+    border-radius: 50px;
+    background-color: #fff;
+    padding: 5px;
+    color: #000;
+  }
+  .propertyheading .bg-tab-profile{
+      background-color:#959595!important;
+  }
