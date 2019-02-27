@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { EgazeService } from '../../services/egaze.service';
+import { SessionstorageService } from '../../services/sessionstorage.service';
+
 @Component({
   selector: 'app-custom-packages',
   templateUrl: './custom-packages.component.html',
@@ -15,11 +17,13 @@ export class CustomPackagesComponent implements OnInit {
   customPlanUsers: any;
   status = false;
   customPlanUserRecords: any = [];
-  constructor(private fb: FormBuilder, private EgazeService: EgazeService) {
+  user:any;
+  constructor(private fb: FormBuilder, private EgazeService: EgazeService,private sessionstorageService: SessionstorageService) {
 
     this.getCustomPlanUsers();
 
     this.getCustomPlanUserRecords();
+    this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
 
   }
 
@@ -57,7 +61,7 @@ export class CustomPackagesComponent implements OnInit {
     this.status = false;
     if (this.customPackagesForm.valid) {
       this.isLoading = true;
-      this.EgazeService.createCustomPackage(this.customPackagesForm.value).subscribe(message => {
+      this.EgazeService.createCustomPackage(this.customPackagesForm.value,this.user.loginId).subscribe(message => {
         this.isLoading = false;
         this.status = true;
         this.customPackagesForm.controls['customerCustom'].setValue("");

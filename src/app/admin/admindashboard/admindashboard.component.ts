@@ -632,11 +632,11 @@ export class AdmindashboardComponent implements OnInit {
 
   commentFun(description) {
     this.submitted = true;
-    //alert(this.sfile)
+    //alert(this.user.loginId)
 
     if (this.commentForm.valid) {
       this.isLoaderdiv = true;
-      this.EgazeService.savePropertyComments(this.propertyId, "0", this.loginId, 'Admin1', description.value.commentfield, description.value.typeofProperty, this.sfile).subscribe(result => {
+      this.EgazeService.savePropertyComments(this.propertyId, "0", this.user.loginId, 'Admin1', description.value.commentfield, description.value.typeofProperty, this.sfile).subscribe(result => {
         this.isLoaderdiv = false;
 
         this.commentsmsg = result;

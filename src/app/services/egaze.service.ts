@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class EgazeService {
   //DEV
- private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
+ //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
   //PROD
-  //private baseUrl: string = 'https://egaze.in/egaze-api/';
-  //private baseUrl: string = 'http://localhost:8080/egaze-api/';
+  //private baseUrl: string = 'https://www.egaze.in/egaze-api/';
+  private baseUrl: string = 'http://localhost:8080/egaze-api/';
   constructor(private http: HttpClient) { }
 
   loginFun(loginForm) {
@@ -204,15 +204,17 @@ export class EgazeService {
     // if admin then user id is zero.
     if (role === 'Admin1') {
       formdata.append('userId', "0");
+      formdata.append('role', "Admin");
     } else {
       formdata.append('userId', userId);
+      formdata.append('role', role);
     }
     if (role === 'Customer') {
       formdata.append('agentId', "0");
     } else {
       formdata.append('agentId', agentId);
     }
-    formdata.append('role', role);
+    
     formdata.append('description', description);
 //alert(formdata)
     return this.http.post(this.baseUrl + "uploadFile/propertydocs/agent", formdata);
@@ -305,7 +307,7 @@ export class EgazeService {
     return this.http.get(this.baseUrl + "customplan/user/details")
 
   }
-  createCustomPackage(requestData) {
+  createCustomPackage(requestData,adminid) {
     let c = requestData.customerCustom;
     let cc = c.split('##');
     var data = {
@@ -314,7 +316,8 @@ export class EgazeService {
       "price": requestData.price,
       "propertyLimit": requestData.packageLimit,
       "propertyPeriod": requestData.packagePeriod,
-      "description": requestData.descriptionCustom
+      "description": requestData.descriptionCustom,
+      "adminId":adminid
 
     }
     //alert(JSON.stringify(data));
@@ -327,13 +330,14 @@ export class EgazeService {
   getAllContactUsRequests() {
     return this.http.get(this.baseUrl + "getall/contactus")
   }
-  updatecontactus(requestData, freq,email) {
+  updatecontactus(requestData, freq,email,adminId) {
     var data = {
       "id": freq.id,
       "status": requestData.status,
       "description": requestData.description,
       "type": freq.type,
-      "email":email
+      "email":email,
+      "adminId":adminId
     }
     //alert(JSON.stringify(data));
 

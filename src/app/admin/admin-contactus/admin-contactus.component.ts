@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EgazeService } from '../../services/egaze.service';
 import { ModalService } from '../../admin/service/modal.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import { SessionstorageService } from '../../services/sessionstorage.service';
 
 
 @Component({
@@ -16,8 +17,11 @@ export class AdminContactusComponent implements OnInit {
   
   frequest:any;
   feedbackForm: FormGroup;
-  constructor(private egazeService: EgazeService,private modalService: ModalService,private formBuilder:FormBuilder) {
+  user:any;
+  constructor(private sessionstorageService: SessionstorageService,private egazeService: EgazeService,private modalService: ModalService,private formBuilder:FormBuilder) {
     this.getAllContactUsRequests();
+    this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
+
    }
 
   ngOnInit() {
@@ -62,7 +66,7 @@ export class AdminContactusComponent implements OnInit {
     if (this.feedbackForm.valid) {
       this.isLoading = true;
       //alert(JSON.stringify(this.feedbackForm))
-      this.egazeService.updatecontactus(this.feedbackForm.value,this.frequest,this.email).subscribe(result => {
+      this.egazeService.updatecontactus(this.feedbackForm.value,this.frequest,this.email,this.user.loginId).subscribe(result => {
         //this.requests = result;
         this.isLoading = false;
 

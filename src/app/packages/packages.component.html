@@ -116,6 +116,37 @@
 
       </div>
 
+      <div class="container">
+        <div class="below-add-ser-bg">
+        <h4 style="text-align: center;">Additional Services</h4>
+        <p style="text-align: center;"> Please <a _ngcontent-c4="" routerlink="/contactus" routerlinkactive="activeClss" style="color:#00bff3;" href="/contactus">Contact US</a> for additional services:<br _ngcontent-c4=""><img _ngcontent-c4="" src="../../assets/images/line-additional.png" width="100px"></p>
+        <span class="dot"></span><strong>Legal Advice</strong><br>
+        <p>
+          We have a team of legal experts in property and if you need it, we can provide legal consultation that works for you.
+        </p> 
+        <span class="dot"></span><strong>Document verification</strong><br>
+        <p>
+            If there are property documents that need to be verified, our team would be happy to do that for you.
+        </p>
+        <span class="dot"></span><strong>Site/Land maintenance services</strong><br>
+        <p>
+            We monitor your property and identify needs such as maintenance of garden, parking lot, cleaning of exterior, outside lighting, checking fire-alarm systems or security systems etc on demand.
+        </p>
+        <span class="dot"></span><strong>Name change in revenue records</strong><br>
+        <p>
+            If there’s a change in the name in Revenue document, we help you get the entire process done.
+        </p>
+        <span class="dot"></span><strong>Passbook updates</strong><br>
+        <p>
+            On demand, we help you update our passbooks of accounts that are maintained in any Indian city.
+        </p>
+        <span class="dot"></span><strong>Land/Property Taxes</strong><br>
+        <p>
+            If there are due taxes on your land or property, we help you get them paid in time.
+        </p>
+      </div>
+      </div>
+
 </div>
 
 
@@ -240,9 +271,9 @@
                 </ul>
               </div>
               <p class="price-tag">INR 4000 + 18% GST</p>
-              <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('QUATERLY',1,'custom-modal-package-choosen')">Buy
-                It</div>
-              <div *ngIf="!activeflag" (click)="loginformFun()">
+              <div *ngIf="activeflag"  (click)="packageFun('QUATERLY',1,'custom-modal-package-choosen')">
+                  <img src="../../assets/images/buy_button1.png" width="150"/></div>
+              <div *ngIf="!activeflag"  (click)="loginformFun()">
                   <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
             </div>
@@ -279,8 +310,8 @@
                 <span style="text-decoration: line-through;font-size: 14px;
                 font-weight: 500;color:red">INR 9000</span><br />INR 7500 (Special discounted
                 Rate) + 18% GST</p>
-              <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('YEARLY',2,'custom-modal-package-choosen')">Buy
-                It</div>
+              <div *ngIf="activeflag"  (click)="packageFun('YEARLY',2,'custom-modal-package-choosen')">
+                  <img src="../../assets/images/buy_button1.png" width="150"/></div>
               <div *ngIf="!activeflag" class="" (click)="loginformFun()">
               <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
@@ -297,8 +328,8 @@
                   </li><br>
                 </ul>
               </div>
-              <div *ngIf="activeflag" class="orange-clr-btn" (click)="packageFun('CUSTOM',3,'custom-modal-package-choosen')">Buy
-                It</div>
+              <div *ngIf="activeflag"  (click)="packageFun('CUSTOM',3,'custom-modal-package-choosen')">
+                  <img src="../../assets/images/buy_button1.png" width="150"/></div>
               <div *ngIf="!activeflag" (click)="loginformFun()">
                   <img src="../../assets/images/buy_button1.png" width="150"/>
               </div>
@@ -309,7 +340,7 @@
 
           <div *ngIf="additional" style="margin-top:40px">
 
-            <div class="row" align="center">
+            <div class="row need-padding" align="center">
               <div class="additional-style">
                 <p style="text-align: center;">
                   Please <a routerLink="/contactus" routerlinkactive="activeClss" style="color:#00bff3;">Contact US</a>

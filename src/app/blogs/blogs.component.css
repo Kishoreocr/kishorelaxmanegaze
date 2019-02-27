@@ -25,3 +25,6 @@ p {
 .additional-style h3 {
     color:#066b92 !important;
 }
+.need-padding {
+    padding: 20px 55px;
+}

@@ -153,12 +153,12 @@ ul.areas li { width:20%; list-style:none; float:left; padding:.3em 1em .3em 0; f
 
 /* Home Banner
 ================================================== */
-#home-banner { position:relative; height:900px;  }
+#home-banner { position:relative; /*height:900px;*/ height:450px; }
 #home-banner .container { position: relative; }
 #home-banner  .prompt { 
 	/*margin-top: 530px; */
 	/*margin-top: 590px;*/
-	margin-top: 55%;
+	margin-top: 45%;
 	color: #ffffff; 
 	font-weight: 300; 
 	padding: 12px 12px; 
@@ -169,11 +169,14 @@ ul.areas li { width:20%; list-style:none; float:left; padding:.3em 1em .3em 0; f
 }
 #home-banner  .prompt  .btn { width: 100%; margin-top: 15px; font-size: 18px; font-weight: 300; }
 @media (max-width: 1199px){
-	#home-banner  .prompt  { margin-top: 530px; font-size: 30px; }
+	#home-banner  .prompt  { /*margin-top: 530px;*/  margin-top: 415px;font-size: 30px; }
 }
 @media (max-width: 991px){
-	#home-banner  { height: 629px; }
-	#home-banner  .prompt  { margin-top: 300px; text-align: center;  }
+	#home-banner  { /*height: 629px;*/  height: 550px;  }
+	#home-banner  .prompt  { /*margin-top: 300px;*/ margin-top: 390px; text-align: center;  }
+	.top {
+		margin-top: -49px;
+	}
 }
 @media (max-width: 767px){
 #home-banner .prompt {
@@ -187,14 +190,21 @@ ul.areas li { width:20%; list-style:none; float:left; padding:.3em 1em .3em 0; f
 ================================================== */
 #home-carousel { height: 100%; width: 100%; position: absolute; }
 #home-carousel .carousel-inner { height: 100%; width: 100%; }
-#home-carousel .carousel-inner .item { height: 100%; background-position: center center; background-repeat: no-repeat; background-size: cover; background-attachment: fixed; }
-#home-carousel .carousel-inner .item.banner1 { background-image: url('/assets/images/home_slider_1.jpg'); }
+#home-carousel .carousel-inner .item { height: 100%; background-position: center center; background-repeat: no-repeat; /*background-size: cover; background-attachment: fixed;*/ }
+/*#home-carousel .carousel-inner .item.banner1 { background-image: url('/assets/images/home_slider_1.jpg'); }
 #home-carousel .carousel-inner .item.banner2 { background-image: url('/assets/images/home_slider_2.jpg'); }
 #home-carousel .carousel-inner .item.banner3 { background-image: url('/assets/images/home_slider_3.jpg'); }
 #home-carousel .carousel-inner .item.banner4 { background-image: url('/assets/images/home_slider_4.jpg'); }
 #home-carousel .carousel-inner .item.banner5 { background-image: url('/assets/images/home_slider_5.jpg'); }
 #home-carousel .carousel-inner .item.banner6 { background-image: url('/assets/images/home_slider_6.jpg'); }
-#home-carousel .carousel-inner .item.banner7 { background-image: url('/assets/images/home_slider_7.jpg'); }
+#home-carousel .carousel-inner .item.banner7 { background-image: url('/assets/images/home_slider_7.jpg'); }*/
+
+
+#home-carousel .carousel-inner .item.banner2 { background-image: url('/assets/images/home_slider_2_small.jpg'); }
+#home-carousel .carousel-inner .item.banner3 { background-image: url('/assets/images/home_slider_3_small.jpg'); }
+#home-carousel .carousel-inner .item.banner5 { background-image: url('/assets/images/home_slider_5_small.jpg'); }
+#home-carousel .carousel-inner .item.banner6 { background-image: url('/assets/images/home_slider_6_small.jpg'); }
+#home-carousel .carousel-inner .item.banner7 { background-image: url('/assets/images/home_slider_7_small.jpg'); }
 
 
 /* Home CTA
@@ -1026,8 +1036,8 @@ div .height-xl { height:35px; }
 @media (max-width: 679px){
 	.slider-text-style{
 		width: 100%;
-		line-height: 26px;
-		font-size: 18px;
+		line-height: 24px;
+		font-size: 11px;
 		margin-top: -9px;
 		padding-bottom:10px;
 	}
@@ -1253,3 +1263,43 @@ div#home-info .col-md-4 .home-page-tile-head {
     padding: 0 15px !important;
 }
 }
+
+/* Srinivas css code start **/
+
+@media (min-width: 992px) {
+	#home-carousel .carousel-inner {
+		margin-top:128px;
+	}
+}
+
+@media (min-width: 851px) and (max-width: 1200px) {
+#home-carousel .carousel-inner .item.banner2 { background-image: url('/assets/images/home_slider_2_small1.jpg'); }
+#home-carousel .carousel-inner .item.banner3 { background-image: url('/assets/images/home_slider_3_small1.jpg'); }
+#home-carousel .carousel-inner .item.banner5 { background-image: url('/assets/images/home_slider_5_small1.jpg'); }
+#home-carousel .carousel-inner .item.banner6 { background-image: url('/assets/images/home_slider_6_small.jpg'); }
+#home-carousel .carousel-inner .item.banner7 { background-image: url('/assets/images/home_slider_7_small1.jpg'); }
+}
+@media (min-width: 320px) and (max-width: 850px) {
+	#home-carousel .carousel-inner .item.banner2 { background-image: url('/assets/images/home_slider_2_small2.jpg'); }
+	#home-carousel .carousel-inner .item.banner3 { background-image: url('/assets/images/home_slider_3_small2.jpg'); }
+	#home-carousel .carousel-inner .item.banner5 { background-image: url('/assets/images/home_slider_5_small2.jpg'); }
+	#home-carousel .carousel-inner .item.banner6 { background-image: url('/assets/images/home_slider_6_small.jpg'); }
+	#home-carousel .carousel-inner .item.banner7 { background-image: url('/assets/images/home_slider_7_small2.jpg'); }
+}
+
+@media (max-width: 849px) {
+
+#home-banner  .prompt { 
+
+	margin-top: 410px;
+	
+}
+}
+@media (min-width: 990px) {
+
+	.top { 
+	
+		margin-top: 128px;
+		
+	}
+	}

@@ -164,3 +164,15 @@ color: #e2e0e0;
     cursor: default;
     color:#007bff;
 }
+
+/** srinivas css code start */
+
+.need-padding {
+    padding: 30px 55px;
+}
+.additional-style  {
+    box-shadow: 0 0 24px rgba(0,0,0,.1);
+    background-color: #fff;
+    padding: 20px 15px;
+    border-radius: 20px;
+}

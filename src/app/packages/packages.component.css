@@ -466,10 +466,19 @@ h4.package-page-heading.row.justify-content-center:after {
     }
 }
 
-@media (max-width: 768px) {
+@media (min-width: 576px) and (max-width: 768px) {
     .below {
         display: block;
         padding-top: 200px;
+    }
+    .dot {
+        background: #229cf2;
+        border-radius: 50%;
+        width: 8px;
+        height: 8px;
+        margin-right: 10px;
+        display: inline-block;
+        /*vertical-align: super;*/
     }
     .above {
         display: none;
@@ -491,4 +500,17 @@ h4.package-page-heading.row.justify-content-center:after {
     margin-right:10px;
     display: inline-block;
     vertical-align: super;
+}
+div > img {
+    cursor: pointer;
+}
+
+.below-add-ser-bg {
+    border-radius:10px;
+    background-color:#fff;
+    box-shadow: 0px 2px 9px rgba(0,0,0,0.2);
+    padding:25px;
+}
+.need-padding {
+    padding: 20px 55px;
 }
