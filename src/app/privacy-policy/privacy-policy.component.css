@@ -176,3 +176,22 @@ color: #e2e0e0;
     padding: 20px 15px;
     border-radius: 20px;
 }
+.panel-group ul  {
+    list-style: none;
+}
+.panel-group ul li p  {
+    margin-top:8px;
+}
+.panel-group ul li b {
+    font-weight: bold;
+    margin-top:10px;
+}
+.dot{
+    background: #229cf2;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin-right: 10px;
+    display: inline-block;
+    
+}

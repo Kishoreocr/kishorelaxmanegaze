@@ -465,12 +465,21 @@ h4.package-page-heading.row.justify-content-center:after {
         height: 730px;
     }
 }
-
-@media (min-width: 576px) and (max-width: 768px) {
+@media (max-width: 575px) {
+    .below {
+       
+        padding-top: 0px !important;
+    }
+    h4.package-page-heading.row.justify-content-center:after {
+        content: none;
+    }
+}
+@media (min-width: 320px) and (max-width: 768px) {
     .below {
         display: block;
         padding-top: 200px;
     }
+    
     .dot {
         background: #229cf2;
         border-radius: 50%;
