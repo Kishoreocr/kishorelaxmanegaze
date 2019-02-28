@@ -305,7 +305,7 @@
 
                                             <div *ngIf="!propertytabModal && documentstabModal && !commentstabModal" class="col table-container-style container-bg-style">
 
-                                                <h6>Documents</h6>
+                                                <h6 class="comment-head-style">Documents</h6>
                                                 <span *ngIf="propertydocs.length === 0">No Documents available</span>
 
                                                 <div class="table-responsive">
@@ -398,13 +398,15 @@
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <form [formGroup]="commentForm" (ngSubmit)="commentFun(commentForm)">
-                                                            <h6>Add Comment</h6>
+                                                            <h6 class="comment-head-style" style="padding-top: 25px;
+                                                            padding-bottom: 5px;">Add Comment</h6>
                                                             <div class="form-group" style="border-bottom: 0px solid #d1d1d1;">
-                                                                <div class="col-sm-12 no-padding">
-                                                                    <label for="exampleFormControlTextarea1">Comments
+                                                                <!-- <div class="col-sm-12 no-padding">
+                                                                    <label for="exampleFormControlTextarea1"
+                                                                    >Comments
                                                                         <span class="mandatory">*</span>
                                                                     </label>
-                                                                </div>
+                                                                </div> -->
                                                                 <div class="col-sm-10 no-padding">
                                                                     <textarea class="form-control" placeholder="Comments" style="resize:none;text-align:left;" id="exampleFormControlTextarea1"
                                                                         rows="3" formControlName="commentfield" class="form-control"
@@ -447,7 +449,7 @@
 
                                                     <div class="col-md-6">
                                                         <div class="col comment-heading">
-                                                            <h6>Property Comments</h6>
+                                                            <h6 class="comment-head-style">Property Comments</h6>
                                                         </div>
                                                         <div class='col comments-style scrolling-comment'>
                                                             <table class="col-sm-12" [mfData]="comments" #mf="mfDataTable" [mfRowsOnPage]="5">
@@ -457,43 +459,95 @@
                                                                             <div class="commentbox-style-1">
 
                                                                                 <div class="row">
-                                                                                    <div class="col-md-6">
-                                                                                        <p class="comment-role">{{comment.role}}</p>
+
+                                                                                    <div class="col-md-2">
+                                                                                        <img src="../../assets/images/profile_commit_icon_1.png"
+                                                                                        width="50px"/>
                                                                                     </div>
-                                                                                    <div class="col-md-6" align="right">
-                                                                                        <span class="comment-hrs">On {{comment.addedDate | date: 'dd/MM/yyyy
-                                                                                            HH:mm:ss a'}}
+
+                                                                                    <div class="col-md-10">
+
+                                                                                        <div class="row">
+                                                                                            <div class="col-md-5">
+                                                                                                <p class="comment-role">{{comment.role}}</p>
+                                                                                            </div>
+                                                                                            <div class="col-md-7" align="right">
+                                                                                                <span class="comment-hrs">On {{comment.addedDate |
+                                                                                                    date: 'dd/MM/yyyy HH:mm:ss
+                                                                                                    a'}}
+                                                                                                </span>
+                                                                                            </div>
+                                                                                        </div>
+
+
+                                                                                        <p class="comment-description" *ngIf="comment.severity!=='' ">
+                                                                                            <b>Property Status</b> :
+                                                                                            <span *ngIf="comment.severity==='nochanges' ">No Changes </span>
+                                                                                            <span *ngIf="comment.severity==='roadexpansion' ">Road Expansion</span>
+                                                                                            <span *ngIf="comment.severity==='Encroachment' ">Encroachment</span>
+                                                                                            <span *ngIf="comment.severity==='Illegalcontract' ">Illegal contract</span>
+                                                                                            <span *ngIf="comment.severity==='Others' ">Others</span>
+                                                                                        </p>
+
+
+                                                                                        <p class="comment-description">
+
+                                                                                            <b></b>{{comment.description}}</p>
+
+                                                                                        <span class="comment-reply-btn" *ngIf="comment.documentName!=null">
+                                                                                            <a style="cursor: pointer;" target="new" href={{viewcommentur}}{{comment.id}}>
+                                                                                                <i>
+                                                                                                    <img src="../../assets/images/view-data-img-1.png" width="20px" class="action-icons-1" />
+                                                                                                </i>
+                                                                                            </a>
+
                                                                                         </span>
+                                                                                        <span class="comment-reply-btn" *ngIf="comment.documentName!=null">
+                                                                                            <i style="cursor: pointer" (click)="getporpertyCommentdocDownloadUrl(comment.id)">
+                                                                                                <img src="../../assets/images/download-img-1.png" width="20px" class="action-icons-1" />
+
+                                                                                            </i>
+                                                                                        </span>
+
+                                                                                        <span class="comment-reply-btn" *ngIf="comment.documentName!=null">
+                                                                                            <i style="cursor: pointer" (click)="getporpertyCommentdocDownloadUrl(comment.id)">
+                                                                                                <img src="../../assets/images/attached_img_1.png" width="18px" />
+
+                                                                                            </i>
+                                                                                        </span>
+
+
                                                                                     </div>
+
+
+
+
+
+
+
+
                                                                                 </div>
 
 
-                                                                                <p class="comment-description" *ngIf="comment.severity!=='' ">
-                                                                                    <b>Property Status</b> :
-                                                                                    <span *ngIf="comment.severity==='nochanges' ">No Changes </span>
-                                                                                    <span *ngIf="comment.severity==='roadexpansion' ">Road Expansion</span>
-                                                                                    <span *ngIf="comment.severity==='Encroachment' ">Encroachment</span>
-                                                                                    <span *ngIf="comment.severity==='Illegalcontract' ">Illegal contract</span>
-                                                                                    <span *ngIf="comment.severity==='Others' ">Others</span>
-                                                                                </p>
-                                                                                <p class="comment-description">
-                                                                                    <b>Comment</b> : {{comment.description}}</p>
-                                                                                <span class="comment-reply-btn" *ngIf="comment.documentName!=null">
-                                                                                    <a style="cursor: pointer;" target="new" href={{viewcommentur}}{{comment.id}}>
-                                                                                        <i>
-                                                                                            <img src="../../assets/images/view-data-img-1.png" width="20px" class="action-icons-1" />
-                                                                                        </i>
-                                                                                    </a>
 
-                                                                                </span>
-                                                                                <span class="comment-reply-btn" *ngIf="comment.documentName!=null">
-                                                                                    <i style="cursor: pointer" (click)="getporpertyCommentdocDownloadUrl(comment.id)">
-                                                                                        <img src="../../assets/images/download-img-1.png" width="20px" class="action-icons-1" />
 
-                                                                                    </i>
-                                                                                </span>
+
+
+
+
+
+
+
+
 
                                                                             </div>
+
+
+
+
+
+
+
                                                                         </td>
                                                                     </tr>
                                                                 </tbody>
@@ -621,7 +675,10 @@
                                             </td>
                                             <td class="viewbtn text-center">
                                                 <!-- <i class="fa fa-eye" (click)="viewPropertyFun()"></i> -->
-                                                <i class="fa fa-eye" (click)="openModal('custom-modal-11',property,true)"></i>
+                                                <i (click)="openModal('custom-modal-11',property,true)">
+
+                                                    <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
+                                                </i>
                                                 <!-- <span *ngIf="propertyUpdatesids.indexOf(property.id) > -1"> **</span> -->
 
 
@@ -784,7 +841,7 @@
 
 
 
-                                <div *ngIf="firstFormStep" class="col-md-7" style="font-size: 13px;">
+                                <div *ngIf="firstFormStep" class="col-md-7 no-padding" style="font-size: 13px;">
 
 
                                     <div class="form-group row">
@@ -1230,13 +1287,26 @@
                                 </th> -->
 
                                 <th style="width:25px;">
-                                    <mfDefaultSorter by="subject">Subject</mfDefaultSorter>
+                                    <mfDefaultSorter by="subject">Subject
+
+                                        <span class="sorrt-icon-1">
+                                            <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                        </span>
+                                    </mfDefaultSorter>
                                 </th>
                                 <th style="width:25px;">
-                                    <mfDefaultSorter by="description">Description</mfDefaultSorter>
+                                    <mfDefaultSorter by="description">Description
+                                        <span class="sorrt-icon-1">
+                                            <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                        </span>
+                                    </mfDefaultSorter>
                                 </th>
                                 <th style="width:25px;">
-                                    <mfDefaultSorter by="addedDate">Date</mfDefaultSorter>
+                                    <mfDefaultSorter by="addedDate">Date
+                                        <span class="sorrt-icon-1">
+                                            <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                        </span>
+                                    </mfDefaultSorter>
                                 </th>
 
                             </tr>
@@ -1291,12 +1361,42 @@
                         <!-- <caption>List of Transactions</caption> -->
                         <thead>
                             <tr>
-                                <th style="width:150px !important">Package Name</th>
-                                <th>Start Date</th>
-                                <th>Expiry Date</th>
-                                <th>Properties Limit</th>
-                                <th>No of Properties Used</th>
-                                <th>Status</th>
+                                <th style="width:150px !important">Package Name
+
+                                    <span class="sorrt-icon-1">
+                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                    </span>
+                                </th>
+                                <th>Start Date
+
+                                    <span class="sorrt-icon-1">
+                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                    </span>
+                                </th>
+                                <th>Expiry Date
+
+                                    <span class="sorrt-icon-1">
+                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                    </span>
+                                </th>
+                                <th>Properties Limit
+
+                                    <span class="sorrt-icon-1">
+                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                    </span>
+                                </th>
+                                <th>No of Properties Used
+
+                                    <span class="sorrt-icon-1">
+                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                    </span>
+                                </th>
+                                <th>Status
+
+                                    <span class="sorrt-icon-1">
+                                        <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
+                                    </span>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>

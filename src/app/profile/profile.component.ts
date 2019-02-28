@@ -207,7 +207,7 @@ this.updateuserProfilestatus="";
       }
       console.log('this.updateProfile', JSON.stringify(this.updateuserProfile));
     }, error => {
-
+      this.isLoading=false;
     });
 
   }
