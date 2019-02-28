@@ -589,54 +589,14 @@ export class AdmindashboardComponent implements OnInit {
       this.commentForm.controls['commentfile'].setValue("");
     }
   }
-  //formdata: FormData = new FormData();
-  files:File[] =[];
  
-  multiplefileSelectionEventcomments(event: any) {
-    //const reader = new FileReader();
-    //const [file] = event.target.files;
-    // alert(event.target.files)
-    // if (event.target.files && event.target.files.length) {
-    //   this.sfile = file;
-    // } 
-
-    for(var i=0; i<event.target.files.length;i++){
-
-      console.log(this.files)
-
-    if (event.target.files[i] != null) {
-      const file = event.target.files[i];
-      //alert(file.type)
-      if (file.type === "application/pdf" || file.type.match("image")) {
-        if (file.size <= 4194304) {
-         // reader.readAsDataURL(file);
-          //this.isLoading = true;
-          this.files.push(file);
-        } else {
-          alert("Please choose < 4MB Documents")
-          this.commentForm.controls['commentfile'].setValue("");
-        }
-      } else {
-        alert("Please choose images/pdf")
-        this.commentForm.controls['commentfile'].setValue("");
-
-      }
-    }
-   } 
-  //  else {
-  //     alert("Please choose the file");
-  //     this.commentForm.controls['commentfile'].setValue("");
-  //   }
-  }
-
-
   commentFun(description) {
     this.submitted = true;
     //alert(this.user.loginId)
 
     if (this.commentForm.valid) {
       this.isLoaderdiv = true;
-      this.EgazeService.savePropertyComments(this.propertyId, "0", this.user.loginId, 'Admin1', description.value.commentfield, description.value.typeofProperty, this.sfile).subscribe(result => {
+      this.EgazeService.savePropertyComments(this.propertyId, "0", this.user.loginId, 'Admin', description.value.commentfield, description.value.typeofProperty, this.sfile).subscribe(result => {
         this.isLoaderdiv = false;
 
         this.commentsmsg = result;

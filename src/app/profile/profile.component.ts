@@ -39,8 +39,10 @@ export class ProfileComponent implements OnInit {
   showText2: boolean;
   showIconEye2: boolean = false;
   hideIconEye2: boolean = false;
-
-
+  edit:any='edit1';
+  change1:any;
+  change:any='change1';
+  edit1:any;
   constructor(private formBuilder: FormBuilder, private EgazeService: EgazeService, private sessionstorageService: SessionstorageService ) {
     // this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
     //debugger;

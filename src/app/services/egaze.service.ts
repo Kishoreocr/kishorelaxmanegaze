@@ -5,10 +5,10 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class EgazeService {
   //DEV
- //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
+ private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
   //PROD
   //private baseUrl: string = 'https://www.egaze.in/egaze-api/';
-  private baseUrl: string = 'http://localhost:8080/egaze-api/';
+  //private baseUrl: string = 'http://localhost:8080/egaze-api/';
   constructor(private http: HttpClient) { }
 
   loginFun(loginForm) {
@@ -202,19 +202,19 @@ export class EgazeService {
     // }
     formdata.append('file', file);
     // if admin then user id is zero.
-    if (role === 'Admin1') {
+    if (role === 'Admin') {
       formdata.append('userId', "0");
-      formdata.append('role', "Admin");
     } else {
       formdata.append('userId', userId);
-      formdata.append('role', role);
     }
+
     if (role === 'Customer') {
       formdata.append('agentId', "0");
     } else {
       formdata.append('agentId', agentId);
     }
-    
+    formdata.append('role', role);
+
     formdata.append('description', description);
 //alert(formdata)
     return this.http.post(this.baseUrl + "uploadFile/propertydocs/agent", formdata);
