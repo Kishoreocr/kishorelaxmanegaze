@@ -257,6 +257,47 @@ margin-top:50px;
     transition: all 0.5s ease;
     margin-bottom:10px;
 }
+
+
+
+
+/***** mobile tabs ***********/
+
+.userdashboardTab-mobile{
+    margin: 0px auto;
+    padding: 0px;
+    padding-top: 20px;
+    width: 275px;
+    vertical-align: top;
+    /* display: inline-block; */
+    margin-top: 0px;
+    text-align: center;
+    }
+    .userdashboardTab-mobile ul{
+       
+        /** background-color: #f5f5f5; **/
+        margin: 0px;
+        padding: 0px;
+        border-bottom: 0px solid #f5f5f5;
+    }
+    .userdashboardTab-mobile ul li{
+        list-style: none;
+        font-size: 16px;
+        color: #000;
+        padding: 6px 15px;
+        cursor: pointer;
+        transition: all 0.5s ease;
+        margin-bottom:10px;
+        display: inline-block;
+    }
+
+/********* *********/
+
+
+
+
+
+
 @media(max-width:420px){
     .userdashboardTab ul li{
         font-size:11px;
@@ -670,6 +711,11 @@ img.tab-modal{
 .userdashboardTab ul li.active > img.tab-modal{
     background-color: #27aff4;
 }
+
+.userdashboardTab-mobile ul li.active > img.tab-modal{
+    background-color: #27aff4;
+}
+
 .submit-btn-1{
     color: #fff;
     border-radius: 30px;
@@ -716,4 +762,25 @@ img.tab-modal{
 .container-top-padding {
     padding-top: 129px!important;
     min-height: 100vh;
+}
+
+
+.display-modal-tab{
+    display:none;
+}
+.display-modal-tab-vertical{
+    display:inline-block;
+}
+@media(max-width:1100px){
+    .display-modal-tab{
+        display:block;
+    }
+    .display-modal-tab-vertical{
+        display:none;
+    }
+}
+@media(min-width:1101px){
+    .display-modal-tab-vertical{
+        display:inline-block;
+    }
 }

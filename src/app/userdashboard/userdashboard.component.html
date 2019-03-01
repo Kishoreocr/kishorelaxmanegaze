@@ -111,9 +111,22 @@
 
                                         </div>
 
+
+                                        <div class='display-modal-tab userdashboardTab-mobile'>
+                                            <ul>
+                                                <li [ngClass]="{'active': propertytabModal}" (click)="userdashTabs('PropertyDetailsTab')">
+                                                    <img src="../../assets/images/property_details_img.png" class="tab-modal">
+                                                </li>
+                                                <li [ngClass]="{'active': documentstabModal}" (click)="userdashTabs('DocumentsTab')">
+                                                    <img src="../../assets/images/document_img.png" class="tab-modal">
+                                                </li>
+                                                <li [ngClass]="{'active': commentstabModal}" (click)="userdashTabs('CommentsTab')">
+                                                    <img src="../../assets/images/comment_img.png" class="tab-modal">
+                                                </li>
+                                            </ul>
+                                        </div>
+
                                         <div class="property-tab-style">
-
-
 
                                             <!-- <div style='position:absolute;right:20px;top:10px;'>
                                             <i class="fa fa-times closeIcon-style" aria-hidden="true" (click)="closeModal('custom-modal-11');"></i>
@@ -566,8 +579,15 @@
                                             </div>
 
 
+
+
+
+
+
+                                            
+
                                         </div>
-                                        <div class='userdashboardTab'>
+                                        <div class='display-modal-tab-vertical userdashboardTab'>
                                             <ul>
                                                 <li [ngClass]="{'active': propertytabModal}" (click)="userdashTabs('PropertyDetailsTab')">
                                                     <img src="../../assets/images/property_details_img.png" class="tab-modal">
