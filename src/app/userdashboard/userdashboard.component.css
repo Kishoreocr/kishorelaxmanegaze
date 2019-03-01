@@ -1,4 +1,3 @@
-
 .registeruserName{
     width: 100%;
     color: #fff;
@@ -457,7 +456,7 @@ body.modal-open {
     border-top-right-radius: 20px;
 }
 .modal-heading p{
-    font-size:18px;font-weight:400;color:#fff!important;margin-top: -30px!important;
+    font-size:18px;font-weight:600;color:#fff!important;margin-top: -30px!important;
 }
 .commentbox-style{
     /** background-color: #fbfbfb !important; **/
@@ -545,7 +544,8 @@ label{
     top: 9px;
 }
 .btn-bottom-style{
-    padding:20px;text-align:center
+    padding:0px 0px 15px;
+    text-align:center
 }
 
 .submit-btn-upgrade{

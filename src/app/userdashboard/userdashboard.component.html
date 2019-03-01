@@ -1721,15 +1721,26 @@
             <div class="row justify-content-md-center justify-content-sm-center no-gutters">
                 <div class="modal-body col-md-5 col-sm-8" style="padding:0px;">
 
-                    <div class='col modal-heading'>
+                    <!-- <div class='col modal-heading'>
                         <p>Property Limit
                         </p>
+                    </div> -->
+
+                    <div class='col modal-heading' style="position: relative;">
+                        <div class="modal-icon-style">
+                            <img src="../../assets/images/inner_home_icon.png" width="60px" />
+                        </div>
+                        <p>Property Limit
+                        </p>
+
                     </div>
+
+
                     <app-loading-div *ngIf="isLoading"></app-loading-div>
 
-                    <div class="close-icon-style">
+                    <!-- <div class="close-icon-style">
                         <i class="fa fa-times closeIcon-style" aria-hidden="true" (click)="closeModal('custom-modal-property-limit');"></i>
-                    </div>
+                    </div> -->
                     <div *ngIf="upgradePlanmessage && !upgradePlanprocess">
                         <div class="col content-style">
                             <p>
@@ -1737,8 +1748,8 @@
                             </p>
                         </div>
                         <div class='col btn-bottom-style'>
-                            <button class="submit-btn-upgrade" (click)="upgrade();">Upgrade</button>
-                            <button class="submit-btn" (click)="closeModal('custom-modal-property-limit');">Cancel</button>
+                            <button class="submit-btn-upgrade close-btn" (click)="upgrade();">Upgrade</button>
+                            <button class="close-btn" (click)="closeModal('custom-modal-property-limit');">Cancel</button>
                         </div>
 
                     </div>
@@ -1756,14 +1767,14 @@
                             </div>
                             <div class="col content-style" *ngIf="upgraderequestsucc===''">
 
-                                <div class="form-group">
-                                    <label for="exampleFormControlTextarea1"> Provide Upgrade Plan Details(like Property limit)</label>
+                                <div class="form-group col-md-12">
+                                    <label for="exampleFormControlTextarea1">Provide Upgrade Plan Details (like Property limit)</label>
 
-                                    <textarea class="form-control no-resize" id="exampleFormControlTextarea1" rows="3" placeholder="Enter Upgrade plan details"
+                                    <textarea class="form-control no-resize" id="exampleFormControlTextarea1" rows="4" placeholder="Enter Upgrade Plan Details"
                                         formControlName="plandetailsField" [ngClass]="{ 'is-invalid': submitted && ugplan.plandetailsField.errors }"></textarea>
 
                                     <div *ngIf="submitted && ugplan.plandetailsField.errors" class="invalid-feedback">
-                                        <div *ngIf="ugplan.plandetailsField.errors.required"> Upgrade Plan Details is required
+                                        <div *ngIf="ugplan.plandetailsField.errors.required">Upgrade Plan Details is required
                                         </div>
 
                                     </div>
@@ -1771,7 +1782,7 @@
                             </div>
 
                             <div class='col btn-bottom-style' *ngIf="upgraderequestsucc===''">
-                                <button type='submit' class="submit-btn">Submit</button>
+                                <button type='submit' class="close-btn">Submit</button>
                                 <!-- <button class="submit-btn" (click)="closeModal('custom-modal-property-limit');">Cancel</button> -->
                             </div>
                             <div class='col' align='center' *ngIf="errorMsg.length > 0 && errorMsg !=''">
