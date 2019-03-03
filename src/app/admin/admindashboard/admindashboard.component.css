@@ -24,9 +24,9 @@
 .leftside-menu ul li{
   list-style: none;
   padding:10px 15px;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 2px solid #005c7f;
  font-size:18px;
- color:#1275af;
+ color:#fff;
  font-weight: 400;
  cursor: pointer;
 }
@@ -38,23 +38,29 @@ border: 1px solid #a1d6f6;
 
 
 .table-container-style{
-    padding: 30px;
+    /* padding: 30px; */
     background-color: #fff;
-    margin: 10px 0px;
-    border-radius: 6px; 
+    /* margin: 10px 0px; */
+    border-radius: 10px; 
     width:100%;
+    box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
+    margin-top:80px;
+    position: relative;
+
 }
+
 .table-container-style thead{
    /** background-color: #fdf8f5; **/
-   background-color:#fd9958;
+   background-color:#fff;
+   color:#1d5b8a;
 }
 
 .table-container-style thead th{
     vertical-align: middle;
-    color: #1275af;
+    color: #1d5b8a!important;
     font-size:15px;
-    color:#fff!important;
     font-weight: 500;
+    position: relative;
 }
 
 .table-container-style thead th:first-child{
@@ -62,7 +68,7 @@ border: 1px solid #a1d6f6;
 }
 
 .table-container-style .table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.04)!important;
+    background-color: #f5f8fb !important;
 }
 
 .table-container-style .table-striped tbody tr:nth-of-type(even) {
@@ -70,8 +76,8 @@ border: 1px solid #a1d6f6;
 }
 
 .table-container-style .table-bordered thead th, .table-bordered thead td {
-    border-bottom-width: 3px;
-    border-bottom-color: #30a2ec !important;
+    border-bottom-width: 0px;
+    border-bottom-color:none !important;
 }
 
 
@@ -96,9 +102,14 @@ span.mandatory{
     color:red;
 }
 .activeTabdash{
-    background-color:#f7fcff;
+    background-color: #1c414f;
+    color: #fff !important;
+    border-left: 5px solid #fff;
 }
-.right-content-bg{background-color:#f7fcff}
+.right-content-bg{
+    background-color: #f6f5f5;
+    margin-top: -8px;
+}
 .tabActions{
     min-height:48px;padding:0px;text-align:center;
     /** background-color:#9ad5ff; **/
@@ -535,4 +546,41 @@ modal .modal.confirmDocumentDelete{
 
     .fa-eye{
         cursor: pointer;
+    }
+    .container-top-padding-1 {
+        padding-top: 133px !important;
+        min-height: 100vh;
+    }
+    .tab-active-heading{
+        color: #474747!important;
+        font-size: 18px!important;
+        font-weight: 600;
+        padding-bottom: 10px!important;
+    }
+
+
+    .seach-box {
+        background-color: #fff!important;
+        padding: 10px 10px 5px 0px!important;
+        border-top-left-radius: 0px;
+        border-top-right-radius: 0px;
+    }
+    .search-btn{
+        background-color: #3cb7f7;
+        background-image: linear-gradient(#028fd9, #328cb9);
+        border-radius: 5px;
+        color: #fff;
+        padding: 5px 15px;
+        margin-right: 10px;
+        outline: 0px;
+    }
+
+    .clear-btn{
+        background-color: #3cb7f7;
+        background-image: linear-gradient(#028fd9, #328cb9);
+        border-radius: 5px;
+        color: #fff;
+        padding: 5px 15px;
+        margin-right: 10px;
+        outline: 0px;
     }

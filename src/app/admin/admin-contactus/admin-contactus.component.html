@@ -38,7 +38,10 @@
           </td>
           <td>{{user.addedDate| date :'dd/MM/yyyy'}}</td>
           <td style='text-align:center; cursor: pointer;'>
-            <i class="fa fa-eye" (click)="openModal('custom-modal-feedback',user)"></i>
+            <i (click)="openModal('custom-modal-feedback',user)">
+              <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
+                                                                    
+            </i>
           </td>
 
         </tr>

@@ -1,7 +1,7 @@
 <!-- row justify-content-md-center no-gutters -->
-<div class="row no-gutters container-top-padding">
+<div class="row no-gutters container-top-padding-1">
 
-    <div class="col-md-2" style="background-color:#cce8fc;padding:0px;">
+    <div class="col-md-2" style="background-color:#022a39;padding:0px;margin-top: -6PX;">
         <!-- <div class="registeruserName">
           <i class="fa fa-user-circle"></i>
           <span>Kiran</span>
@@ -59,8 +59,8 @@
             <div *ngIf="propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab">
                 <div id="custom-modal-1" *ngIf="custdetailstabs" style="background-color: #fff;padding: 15px;border-radius: 6px;">
 
-                    <button type="button" class="btn mb-2" (click)="custback()">
-                        Back</button>
+                    <button type="button" class="btn mb-2 clear-btn" (click)="custback()">
+                        << Back</button>
                     <div class='row userdashboardTab'>
                         <ul>
                             <li [ngClass]="{'active': customerdetailstabModal}" (click)="userdashTabs('CustomerDetailsTab')">Customer
@@ -236,7 +236,11 @@
                                                 <span *ngIf="property.status==='A'"> Approved</span>
                                             </td>
                                             <td class="viewbtn text-center">
-                                                <i class="fa fa-eye" (click)="openModal('custom-modal-33', property)"></i>
+                                                <i (click)="openModal('custom-modal-33', property)">
+
+                                                    <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
+                                                                    
+                                                </i>
 
                                             </td>
                                         </tr>
@@ -281,9 +285,9 @@
                                 <input type="date" class="form-control" formControlName="searchTextcustdate2" id="searchTextcustdate2"
                                     placeholder="Search..">
                             </div>
-                            <button type="submit" class="btn mb-2" (click)="filterItemcust()">Search</button>
-                            &nbsp; &nbsp;
-                            <button type="submit" class="btn mb-2" (click)="custClear()">Clear</button>
+                            <button type="submit" class="btn mb-2 search-btn" (click)="filterItemcust()">Search</button>
+                    
+                            <button type="submit" class="btn mb-2 clear-btn" (click)="custClear()">Clear</button>
                         </form>
                     </div>
                     <div class="table-responsive">
@@ -317,7 +321,10 @@
                                     <td>{{customer.mobileNo}}</td>
                                     <td>{{customer.addedDate| date:'dd/MM/yyyy'}}</td>
                                     <td style='text-align:center'>
-                                        <i class="fa fa-eye" (click)="custdetails(customer)"></i>
+                                        <i (click)="custdetails(customer)">
+                                            <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
+                                         
+                                        </i>
                                     </td>
                                 </tr>
                             </tbody>
@@ -1082,9 +1089,9 @@
                                 <input type="date" class="form-control" formControlName="searchTextdate2" id="searchTextdate2"
                                     placeholder="Search..">
                             </div>
-                            <button type="submit" class="btn mb-2" (click)="filterItem()">Search</button>
-                            &nbsp; &nbsp;
-                            <button type="submit" class="btn mb-2" (click)="propClear()">Clear</button>
+                            <button type="submit" class="btn mb-2 search-btn" (click)="filterItem()">Search</button>
+                
+                            <button type="submit" class="btn mb-2 clear-btn" (click)="propClear()">Clear</button>
                         </form>
                     </div>
 
@@ -1143,7 +1150,12 @@
                                     </td>
                                     <td class="viewbtn text-center">
                                         <!-- <i class="fa fa-eye" (click)="viewPropertyFun()"></i> -->
-                                        <i class="fa fa-eye" (click)="openModal('custom-modal-33', property)"></i>
+                                        <i (click)="openModal('custom-modal-33', property)">
+
+                                            <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
+                                                   
+                                            
+                                        </i>
 
                                     </td>
                                 </tr>
