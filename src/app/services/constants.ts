@@ -22,7 +22,7 @@ export class AppConstants {
 
     //PROD
    //public static get paymentActionurl(): string { return "https://secure.payu.in/_payment";}
-    //public static get paymentSurl(): string { return "https://www.egaze.in/egaze-api/payment/payment-response"; }
-    //public static get paymentFurl(): string { return "https://www.egaze.in/egaze-api/payment/payment-response"; }
+   //public static get paymentSurl(): string { return "https://egaze.in/egaze-api/payment/payment-response"; }
+  //public static get paymentFurl(): string { return "https://egaze.in/egaze-api/payment/payment-response"; }
 
 }

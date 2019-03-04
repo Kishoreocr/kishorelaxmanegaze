@@ -4,12 +4,15 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EgazeService {
+  private baseUrl: string = '';
   //DEV
- private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
+ //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
   //PROD
-  //private baseUrl: string = 'https://www.egaze.in/egaze-api/';
+   //private baseUrl: string = 'https://egaze.in/egaze-api/';
   //private baseUrl: string = 'http://localhost:8080/egaze-api/';
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.baseUrl=document.location.href.substr(0,document.location.href.lastIndexOf("/"))+"/egaze-api/";
+   }
 
   loginFun(loginForm) {
     debugger;
@@ -25,8 +28,8 @@ export class EgazeService {
     return this.http.get(requestURL);
   }
 
-  getOTP(emialId, mobi) {
-    let requestURL = this.baseUrl + 'otp/reg/' + emialId + '/' + mobi;
+  getOTP(emialId, mobi,code) {
+    let requestURL = this.baseUrl + 'otp/reg/' + emialId + '/' + mobi+'/'+code;
     return this.http.get(requestURL, { responseType: 'text' });
   }
 
@@ -43,6 +46,7 @@ export class EgazeService {
         "password": userObject.password,
         "country": userObject.country,
         "countryCode": userObject.countryCode,
+        "mCode": userObject.mCode,
         "type": userObject.type,
         "description": userObject.briefDescription
       };
@@ -58,11 +62,12 @@ export class EgazeService {
         "password": userObject.password,
         "country": userObject.country,
         "countryCode": userObject.countryCode,
+        "mCode": userObject.mCode,
         "type": userObject.type
       };
 
     }
-    //alert(JSON.stringify(payloadRequestData))
+   // alert(JSON.stringify(payloadRequestData))
     return this.http.post(this.baseUrl + 'signup', payloadRequestData);
   }
 
@@ -111,6 +116,7 @@ export class EgazeService {
     return this.http.get(this.baseUrl + 'customerpackages/' + id);
   }
   getPackages() {
+   // alert(this.baseUrl)
     return this.http.get(this.baseUrl + 'packages');
   }
 
@@ -380,8 +386,8 @@ export class EgazeService {
     }
     return this.http.post(this.baseUrl + 'update/user/status ', data, { responseType: 'text' });
   }
-  getSigninOTP(emialId, mobi) {
-    let requestURL = this.baseUrl + 'otp/signin/' + emialId + '/' + mobi;
+  getSigninOTP(emialId, mobi,code) {
+    let requestURL = this.baseUrl + 'otp/signin/' + emialId + '/' + mobi+'/'+code;
     return this.http.get(requestURL);
   }
 

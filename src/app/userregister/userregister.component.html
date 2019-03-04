@@ -69,7 +69,7 @@
                             (hasError)="hasError($event)" (ng2TelOutput)="getNumber($event)" (intlTelInputObject)="telInputObject($event)"
                             (countryChange)="onCountryChange($event)" placeholder="Mobile Number" (keypress)="isNumberKey($event)"
                             pattern="[0-9]*" class="form-control1" [ngClass]="{ 'is-invalid': submitted && !mobileNumbererror }"
-                            maxlength="12" />
+                            maxlength="10" />
                         <div *ngIf="submitted && !mobileNumbererror" style="color:#ff7b7b;font-size: 80%;font-weight: bold">
                             <!-- <div *ngIf="f.mobileNumber.errors.required">Mobile Number is required</div> -->
                             <div *ngIf="!mobileNumbererror">Please Enter a valid mobile number </div>

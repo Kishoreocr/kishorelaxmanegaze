@@ -44,7 +44,7 @@ border: 1px solid #a1d6f6;
     border-radius: 10px; 
     width:100%;
     box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-    margin-top:80px;
+    /* margin-top:80px; */
     position: relative;
 
 }
@@ -548,7 +548,7 @@ modal .modal.confirmDocumentDelete{
         cursor: pointer;
     }
     .container-top-padding-1 {
-        padding-top: 133px !important;
+        padding-top: 129px !important;
         min-height: 100vh;
     }
     .tab-active-heading{
@@ -584,3 +584,11 @@ modal .modal.confirmDocumentDelete{
         margin-right: 10px;
         outline: 0px;
     }
+    @media (max-width: 767px){
+        .container-top-padding-1{
+          padding-top:173px !important;
+        }
+        .leftside-menu{
+          min-height: 140px !important;
+      }
+      }

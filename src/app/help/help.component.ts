@@ -30,7 +30,9 @@ export class HelpComponent implements OnInit {
   showIcon: any;
   hForm: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder) { 
+    //alert(document.location.href.substr(0,document.location.href.lastIndexOf("/")))
+  }
 
   ngOnInit() {
     this.hForm = this.fb.group({

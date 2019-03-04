@@ -440,7 +440,7 @@ export class UserloginComponent implements OnInit {
 
   resendotp() {
     this.isLoading = true;
-    this.EgazeService.getSigninOTP(this.user1.email, this.user1.mobile).subscribe(result => {
+    this.EgazeService.getSigninOTP(this.user1.email, this.user1.mobile,this.user1.mCode).subscribe(result => {
       this.isLoading = false;
       this.updateOTP = result;
       this.resend = false;

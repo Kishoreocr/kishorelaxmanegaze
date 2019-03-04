@@ -139,6 +139,7 @@ handleLoad() {
       termsChecked: [false, Validators.required],
       country: [null],
       countryCode: [null],
+      mCode: [null],
       type: [null],
       recaptcha: ['', [Validators.required]]
     });
@@ -147,6 +148,7 @@ handleLoad() {
    // this.registerForm.controls['termsChecked'].setValue("true");
     this.registerForm.controls['country'].setValue("India");
     this.registerForm.controls['countryCode'].setValue("in");
+    this.registerForm.controls['mCode'].setValue("+91");
     this.route.queryParamMap.subscribe(params => {
       if (params.get('type') === 'free') {
         this.registerForm.controls['type'].setValue("Free");
@@ -183,20 +185,23 @@ handleLoad() {
     obj.intlTelInput('setCountry', 'in');
   }
   onCountryChange(obj) {
-    //alert(JSON.stringify(obj))
+   // alert(JSON.stringify(obj))
     if (obj != null) {
       var name = obj.name;
       var v = name.split('(')
+      //alert(v[0]+"--"+obj.iso2)
       this.registerForm.controls['country'].setValue(v[0]);
       this.registerForm.controls['countryCode'].setValue(obj.iso2);
-
+      this.registerForm.controls['mCode'].setValue("+"+obj.dialCode);
     } else {
       this.registerForm.controls['country'].setValue("India");
       this.registerForm.controls['countryCode'].setValue("in");
+      this.registerForm.controls['mCode'].setValue("+91");
     }
 
   }
   getNumber(obj) {
+   // alert(obj)
     this.registerForm.controls['mobileNumber'].setValue(obj);
 
   }
@@ -238,7 +243,7 @@ handleLoad() {
             // sessionStorage.setItem("formData", JSON.stringify(this.registerForm.value));
             //alert("ee")
             //alert(formData.value.email+"=="+formData.value.mobileNumber)
-            this.EgazeService.getOTP(formData.value.email, formData.value.mobileNumber).subscribe(otp => {
+            this.EgazeService.getOTP(formData.value.email, formData.value.mobileNumber,formData.value.mCode).subscribe(otp => {
               this.isLoading = false;
               this.otpValue = otp;
               this.registerModal('registermodal');
@@ -394,7 +399,7 @@ handleLoad() {
   }
   resendotp(){
     this.isLoading = true;
-          this.EgazeService.getOTP(this.registerForm.value.email, this.registerForm.value.mobileNumber).subscribe(result => {
+          this.EgazeService.getOTP(this.registerForm.value.email, this.registerForm.value.mobileNumber, this.registerForm.value.mCode).subscribe(result => {
             this.isLoading = false;
             this.otpValue = result;
             this.resend=false;
