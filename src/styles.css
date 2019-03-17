@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.css";
+@import "../src/assets/css/bootstrap.css";
 @import "~font-awesome/css/font-awesome.css";
 @import 'intl-tel-input/build/css/intlTelInput.css';
 
@@ -431,7 +431,7 @@ body.modal-open {
 }
 
 .table-container-style thead th:first-child{
-  width:35px!important;
+  /*width:35px!important;*/
 }
 
 .table-container-style .table-striped tbody tr:nth-of-type(odd) {

@@ -4,8 +4,9 @@
     <div class="col">
 
       <div class="col-md-6 offset-md-3 payment-details-bg">
-          <div>
-              <h5 class="tab-active-heading">Payment Details : </h5>
+          <div class="row">
+              <div class="col-sm-8"><h5 class="tab-active-heading">Payment Details : </h5></div>
+			  <div style="text-align: right;" class="col-sm-4"><a routerLink="/package-choose" routerLinkActive="activeClss"><img src="../../assets/images/icon_edit.png" width="25px"/></a></div>
             </div>
         <div class="form-group row">
           <div class="col-sm-2 col-2 col-form-label font-bold-label">Name</div>
@@ -69,7 +70,7 @@
         <textarea name="salt" id="salt" rows="2" cols="2" hidden [(ngModel)]="payuform.salt"></textarea>
         <textarea name="amount" id="amount" rows="2" cols="2" hidden [(ngModel)]="payuform.amount"></textarea>
         
-        <div class="row">
+        <div class="form-group row">
           <!--
           <div *ngIf="disablePaymentButton" class="col-sm-12 col-form-label" align="center">
              <button *ngIf="disablePaymentButton" type="button" class="submit-btn" (click)="confirmPayment()" style="background-color: #5edc5c;border-radius: 1px;text-transform: unset;">Confirm</button>
@@ -79,11 +80,11 @@
           </div> 
         -->
 
-          <div *ngIf="disablePaymentButton" class="payment-edit-layout">
-            <div style="text-align: right;padding: 5px 0px;"><a routerLink="/package-choose" routerLinkActive="activeClss"><img src="../../assets/images/icon_edit.png" width="25px"/></a></div>
-              <button *ngIf="disablePaymentButton" type="button" class="submit-btn" (click)="confirmPayment()" style="background-color: #5edc5c;border-radius: 1px;text-transform: unset;">Confirm</button>
+          <div *ngIf="disablePaymentButton" class="">
+            
+              <button *ngIf="disablePaymentButton" type="button" class="submit-btn-upgrade close-btn" (click)="confirmPayment()" style="background-color: #5edc5c;border-radius: 1px;text-transform: unset;">Confirm</button>
               <a routerLink="/package-choose" routerLinkActive="activeClss">
-               <button  type="button" class="submit-btn" style="border-radius: 1px;text-transform: unset;">Cancel</button>     
+               <button  type="button" class="submit-btn-upgrade close-btn" style="border-radius: 1px;text-transform: unset;">Cancel</button>     
              </a>
            </div> 
  
@@ -95,7 +96,7 @@
            
             <div class="col-md-12">
             <!-- For Domestic :-->
-            <button *ngIf="!disablePaymentButton" type="submit" class="submit-btn" style="background-color: #5edc5c;border-radius: 1px;text-transform: unset;">PayUMoney</button>
+            <button *ngIf="!disablePaymentButton" type="submit" class="submit-btn-upgrade close-btn" style="background-color: #5edc5c;border-radius: 1px;text-transform: unset;">PayUMoney</button>
            
 
             <!-- <div class="col-md-4">
@@ -103,7 +104,7 @@
            </div> -->
 
             <a routerLink="/package-choose" routerLinkActive="activeClss">
-            <button  type="button" class="submit-btn" style="border-radius: 1px;text-transform: unset;">Cancel</button>     
+            <button  type="button" class="submit-btn-upgrade close-btn" style="border-radius: 1px;text-transform: unset;">Cancel</button>     
           </a>
         </div>
          

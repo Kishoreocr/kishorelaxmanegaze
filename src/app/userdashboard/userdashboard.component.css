@@ -77,7 +77,7 @@ background-color: #028fd9;
 }
 
 .table-container-style thead th:first-child{
-    width:35px!important;
+    /*width:35px!important;*/
 }
 
 .table-container-style .table-striped tbody tr:nth-of-type(odd) {
@@ -783,4 +783,9 @@ img.tab-modal{
     .display-modal-tab-vertical{
         display:inline-block;
     }
+}
+
+/** srinivas css start **/
+.text-nowrap {
+	white-space: inherit !important;
 }

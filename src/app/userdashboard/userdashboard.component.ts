@@ -242,7 +242,7 @@ export class UserdashboardComponent implements OnInit {
     this.upgraderequestsucc = '';
     if (this.propertyCount != null) {
       var data = JSON.stringify(this.propertyCount);
-      // alert(data)
+      //alert(data)
       if (parseInt(this.propertyCount.propertiesLimit) == parseInt(this.propertyCount.propertiesUSed)) {
 
         // this.addProperty = !this.addProperty;
@@ -434,8 +434,9 @@ export class UserdashboardComponent implements OnInit {
             if (element) element.scrollIntoView({ behavior: 'smooth', block: 'start' })
             this.propertyId = JSON.stringify(result['id']);
             //alert(this.propertyId)
-            this.propertyStatus = "Property added Successfully.Please click on 'View Properties' button to view your propery.";
+            this.propertyStatus = "Property added Successfully.Please click on 'View Properties' button to view your property.";
             this.propertyForm.reset();
+            this.propertyForm.value.state = ""
             this.submitted = false;
             this.propertiesShow();
             this.getPropertiesCount();
@@ -443,7 +444,9 @@ export class UserdashboardComponent implements OnInit {
 
             // this.propertyDocuments = true;
             this.propertyDetails = true;
-
+            this.firstFormStep = true;
+            this.secondFormStep = false;
+            this.thirdFormStep = false;
           }
         },
         error => {

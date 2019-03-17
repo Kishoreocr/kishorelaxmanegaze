@@ -211,12 +211,12 @@ handleLoad() {
   }
   onSubmit(formData) {
     debugger;
-    //alert(this.registerForm.get('countryCode').value)
+    //alert(this.mobileNumbererror)
     this.submitted = true;
     //console.log(JSON.stringify(this.registerForm))
     // stop here if form is invalid
 
-    if (this.registerForm.invalid) {
+    if (this.registerForm.invalid ) {
       if (!formData.value.termsChecked)
       this.termsCheckederrors = "Please accept Terms and Conditions";
     else
@@ -227,7 +227,11 @@ handleLoad() {
         this.termsCheckederrors = "Please accept Terms and Conditions";
       else
         this.termsCheckederrors = "";
+    }else if (!this.mobileNumbererror){
+      return;
+
     }
+
     else {
       this.termsCheckederrors = "";
       this.isLoading = true;

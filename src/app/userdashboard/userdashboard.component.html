@@ -19,7 +19,7 @@
 
                     <i class="fa fa-home icon-padding-right"></i> Properties
                 </li>
-                <li title="System Generation Alerts" [ngClass]="{'activeTabdash': alertsTab}" (click)="userdashTabs('Alerts')">
+                <li title="System Generated Alerts" [ngClass]="{'activeTabdash': alertsTab}" (click)="userdashTabs('Alerts')">
 
                     <i class="fa fa-bell icon-padding-right"></i> Alerts
                 </li>
@@ -444,7 +444,7 @@
                                                                 <div class="col-sm-12 no-padding">
                                                                     <label for="exampleFormControlSelect1">
                                                                         Upload Document
-                                                                        <span class="mandatory">*</span>
+                                                                        <!-- <span class="mandatory">*</span> -->
                                                                     </label>
                                                                 </div>
                                                                 <div class="col-sm-10 no-padding">
@@ -528,7 +528,7 @@
 
                                                                                             </i>
                                                                                         </span>
-
+                                                                                            {{comment.documentName}}
 
                                                                                     </div>
 
@@ -861,7 +861,7 @@
 
 
 
-                                <div *ngIf="firstFormStep" class="col-md-7 no-padding" style="font-size: 13px;">
+                                <div *ngIf="firstFormStep" class="col-md-8 no-padding" style="font-size: 13px;">
 
 
                                     <div class="form-group row">
@@ -1188,9 +1188,9 @@
                                         </label>
                                         <div class="col-sm-8">
                                             <input type="text" formControlName="zip" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }" id="zipFormControlInput"
-                                                placeholder="Pleaes Enter zip Code" maxlength="10">
+                                                placeholder="Please Enter zip Code" maxlength="10">
                                             <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
-                                                <div *ngIf="f.zip.errors.required">zipCode is required</div>
+                                                <div *ngIf="f.zip.errors.required">zip Code is required</div>
                                                 <div *ngIf="f.zip.errors.minlength">Please enter a valid zip code with a minimum of 4 and maximum 10 alphanumeric</div>
 
                                             </div>
@@ -1206,7 +1206,7 @@
                                 </div>
 
 
-                                <div class="col-md-5" style="padding-right: 0px !important;">
+                                <div class="col-md-4" style="padding-right: 0px !important;">
                                     <img src="../../assets/images/add_property.jpg" class="img-fluid" style="height:94% !important" />
 
                                 </div>
@@ -1802,8 +1802,8 @@
                             </div>
 
                             <div class='col btn-bottom-style' *ngIf="upgraderequestsucc===''">
-                                <button type='submit' class="close-btn">Submit</button>
-                                <!-- <button class="submit-btn" (click)="closeModal('custom-modal-property-limit');">Cancel</button> -->
+                                <button type='submit' class="submit-btn-upgrade close-btn">Submit</button>
+                                <button class="close-btn" (click)="closeModal('custom-modal-property-limit');">Cancel</button>
                             </div>
                             <div class='col' align='center' *ngIf="errorMsg.length > 0 && errorMsg !=''">
                                 <p class='error-message'>{{errorMsg}}</p>

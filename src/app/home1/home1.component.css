@@ -1291,7 +1291,8 @@ div#home-info .col-md-4 .home-page-tile-head {
 
 #home-banner  .prompt { 
 
-	margin-top: 410px;
+	/*margin-top: 410px;*/
+	margin-top: 385px;
 	
 }
 }

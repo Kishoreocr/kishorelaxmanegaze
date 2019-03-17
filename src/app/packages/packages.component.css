@@ -21,7 +21,7 @@
 .package-options{
 /* background-color:#f7faff; */
     width:100%;
-    min-height:240px;
+    min-height:215px;
     /* padding:10px; */
     text-align: justify !important;
     padding: 0px 8px;
@@ -48,7 +48,7 @@
     padding-right: 5px;
 }
 .package-tile-style{
-    min-height:360px;
+    min-height:385px;
     margin:10px;
     padding:0px;
     box-shadow: 0px 2px 9px rgba(0,0,0,0.2);
@@ -56,7 +56,7 @@
     vertical-align: top;
 }
 .package-tile-style:nth-child(2){
-    min-height:380px!important;
+    min-height:385px!important;
     vertical-align: top;
     margin-top:-10px;
     margin-bottom:-10px;
@@ -249,7 +249,7 @@
     width: 28%;
     /*height: 465px;*/
     /*height: 470px;*/
-    height: 530px;
+    height: 540px;
   }
   .box-middle-layout ul li{
     font-size:16px;
@@ -362,12 +362,25 @@ ul.additional-list li::before{
     margin-left: -1em;
     font-size: 18px;
 }
-@media(max-width:600px){
+@media(max-width:768px){
 
 .package-page-heading{
     text-align: center;
     padding: 50px 10px 30px 10px;
     color: #000;
+}
+
+@media(max-width:768px){
+
+    .package-tile-style{
+       width: 100% !important;
+    }
+}
+
+ .tile-heading{
+    color: #333 !important;
+    font-weight:300;
+    text-decoration: underline;
 }
 .package-bg{
     background-image: none;
@@ -446,7 +459,7 @@ h4.package-page-heading.row.justify-content-center:after {
 @media (min-width: 992px) and (max-width: 1200px) {
     .box-middle-layout{
         /*height: 530px;*/
-        height: 590px;
+        height: 605px;
     }
     .box-layout1 {
         height: 530px;
@@ -459,7 +472,7 @@ h4.package-page-heading.row.justify-content-center:after {
 @media (min-width: 768px) and (max-width: 991px) {
     .box-middle-layout{
         /*height: 620px;*/
-        height: 790px;
+        height: 805px;
     }
     .box-layout1 {
         height: 730px;
@@ -468,16 +481,17 @@ h4.package-page-heading.row.justify-content-center:after {
 @media (max-width: 575px) {
     .below {
        
-        padding-top: 0px !important;
+        padding-top: 150px;
     }
-    h4.package-page-heading.row.justify-content-center:after {
+    
+    .package-page-heading.row.justify-content-center:after {
         content: none;
     }
 }
 @media (min-width: 320px) and (max-width: 768px) {
     .below {
         display: block;
-        padding-top: 200px;
+        padding-top: 150px;
     }
     
     .dot {
@@ -522,4 +536,24 @@ div > img {
 }
 .need-padding {
     padding: 20px 55px;
+}
+
+
+.close-btn {
+    color: #fff;
+    border-radius: 30px;
+    padding: 5px 45px;
+    font-size: 14px;
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+    background-color: #028fd9;
+    background-image: linear-gradient(#028fd9,#30b6fa);
+    font-weight: 600;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.2);
+}
+
+.submit-btn-upgrade {
+    border-radius: 30px !important;
+    margin-right: 10px;
 }

@@ -70,9 +70,6 @@ background-size: contain !important;
 #nav { font-size: 18px; font-weight: 600; line-height: 42px; text-align: center;  }
 #nav > ul { padding: 0; margin: 0;  }
 #nav > ul > li { position:relative; list-style:none; display:inline-block; padding: 0px 18px; }
-/* #nav > ul > li:first-child { margin: 0 25px 0 0; }
-#nav > ul > li:last-child { margin: 0 0 0 25px; } */
-/*#nav > ul > li > a {text-decoration: none; font-weight:600; cursor: pointer}*/
 #nav > ul > li > a {text-decoration: none; font-weight:400; cursor: pointer}
 #nav > ul > li > a, #nav > ul > li > a:link, #nav > ul > li > a:visited { display:inline-block; line-height:30px; color:#ffffff; }
 #nav > ul > li > a:hover, #nav > ul > li > a:active { color:#ffffff; }
@@ -93,6 +90,28 @@ background-size: contain !important;
 	#nav { text-align: center; }
 }
 
+#nav1 { font-size: 18px; font-weight: 600; line-height: 42px; text-align: center;  }
+#nav1 > ul { padding: 0; margin: 0;  }
+#nav1 > ul > li { position:relative; list-style:none; display:inline-block; padding: 0px 10px; }
+#nav1 > ul > li > a {text-decoration: none; font-weight:400; cursor: pointer}
+#nav1 > ul > li > a, #nav > ul > li > a:link, #nav > ul > li > a:visited { display:inline-block; line-height:30px; color:#ffffff; }
+#nav1 > ul > li > a:hover, #nav > ul > li > a:active { color:#ffffff; }
+#nav1 > ul > li > ul { display:none; position:absolute; white-space:nowrap; z-index:575; text-align:left; padding:0; background-color:#000; top:42px;  }
+#nav1 > ul > li:hover > ul { display:block; }
+#nav1 > ul > li:hover:after { content: ''; display: block; height: 5px; background-color: #1672a5; }
+#nav1 > ul > li > ul > li, #nav > ul > li > ul > li a { height:30px; line-height:30px; display:block; padding:0 15px; text-decoration: none; }
+#nav1 > ul > li > ul > li > a { font-size:14px; color:#fff; padding:0; }
+#nav1 > ul > li > ul > li:hover { background-color:#1672a5; }
+
+.activeClassLink:after{ content: ''; display: block; height: 5px; background-color: #1672a5; margin-top:5px; }
+@media (max-width: 1199px){
+	#nav1 > ul > li { margin: 0 15px; }
+	#nav1 > ul > li:first-child { margin: 0 15px 0 0; }
+	#nav1 > ul > li:last-child { margin: 0 0 0 15px; }
+}
+@media (max-width: 991px){
+	#nav1 { text-align: center; }
+}
 
 @media (max-width: 767px){
 #home-cta .cta .title {

@@ -133,30 +133,7 @@ position: relative;">
           <img src="../../assets/images/eGAZE_logo1.png" alt="eGAZE" width="175">
         </a>
       </div>
-      <!-- <div class="social">
-        <ul>
-          <li>
-            <a href="https://www.youtube.com/channel/UCXWgWp696nA1LiOG_nYr5oA?view_as=subscriber" target="_blank">
-              <i class="fa fa-youtube-play" aria-hidden="true"></i>
-              <span class="sr-only">Youtube</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://twitter.com/egaze1" target="_blank">
-              <i class="fa fa-twitter" aria-hidden="true"></i>
-              <span class="sr-only">Twitter</span>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.facebook.com/egaze" target="_blank">
-              <i class="fa fa-facebook" aria-hidden="true"></i>
-              <span class="sr-only">Facebook</span>
-            </a>
-          </li>
-
-        </ul>
-      </div> -->
-
+     
       <div class="logins">
         <ul *ngIf="flag">
           <li>
@@ -193,9 +170,9 @@ position: relative;">
     </div>
   </div>
   <div class="nav">
-    <div class="container">
+    <div class="container-fluid">
       <div class="mobile-hide">
-        <div id="nav">
+        <div id="nav" *ngIf="!flag">
           <ul>
             <li>
               <a routerLink="/home" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/home'">
@@ -219,17 +196,6 @@ position: relative;">
               </ul>
             </li>
 
-            <!-- <li>
-              <a routerLink="/package-description" routerLinkActive="activeClss" [class.activeClassLink] = "currentURL=='/package-description'">Packages</a>
-            </li> -->
-            <!-- <li *ngIf="!flag">
-              <a [class.activeClassLink] = "currentURL=='/agent-registration'">Agents</a>
-              <ul>
-               <li>
-                  <a routerLink="/agent-registration" routerLinkActive="activeClss">Agent Registration</a>
-                </li>
-              </ul>
-            </li> -->
             <li>
               <a [class.activeClassLink]="currentURL=='/abouteGAZE' || currentURL=='/whyeGAZE'">
 
@@ -275,9 +241,8 @@ position: relative;">
                 </i> Help</a>
             </li>
 
-            <li *ngIf="!flag">
+            <li >
               <a [class.activeClassLink]="currentURL=='/terms-conditions' || currentURL=='/privacy-policy'">
-                <!--|| currentURL==='/disclaimer' -->
                 <i class="top-menu-icons">
                   <img src="../../assets/images/nav_policies.png" width="18px" />
                 </i> Policies</a>
@@ -288,31 +253,124 @@ position: relative;">
                 <li>
                   <a routerLink="/privacy-policy" routerLinkActive="activeClss">Privacy Policy</a>
                 </li>
-                <!-- <li>
-                  <a routerLink="/disclaimer" routerLinkActive="activeClss" >Disclaimer</a>
-                </li> -->
-
               </ul>
             </li>
 
 
 
 
-            <li *ngIf="!flag">
+            <li >
               <a routerLink="/blog" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/blog'">
                 <i>
                   <img src="../../assets/images/blogger-icon.png" width="16px;" style="margin-top: -3px;" />
                 </i> Blog</a>
             </li>
-            <li *ngIf="flag">
-              <a *ngIf="this.user.role==='admin'" routerLink="/admindashboard" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/admindashboard'">Dashboard</a>
-              <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" [class.activeClassLink]="currentURL=='/userdashboard'">Dashboard</a>
-              <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" [class.activeClassLink]="currentURL=='/agentdashboard'">Dashboard</a>
+           
+          </ul>
+        </div>
+
+        <div id="nav1" *ngIf="flag">
+          <ul>
+            <li>
+              <a routerLink="/home" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/home'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_home.png" width="18px" />
+                </i> Home
+              </a>
+            </li>
+
+            <li>
+              <a [class.activeClassLink]="currentURL=='/package-choose'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_services.png" width="18px" />
+                </i>
+                Services</a>
+              <ul>
+
+                <li>
+                  <a routerLink="/package-choose" routerLinkActive="activeClss">Packages</a>
+                </li>
+              </ul>
+            </li>
+
+            <li>
+              <a [class.activeClassLink]="currentURL=='/abouteGAZE' || currentURL=='/whyeGAZE'">
+
+
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_about.png" width="18px" />
+                </i>
+                About</a>
+
+              <ul>
+                <li>
+                  <a routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
+                </li>
+                <li>
+                  <a routerLink="/whyeGAZE" routerLinkActive="activeClss">Why eGAZE</a>
+                </li>
+
+              </ul>
+            </li>
+
+            <li>
+              <a routerLink="/articles" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/articles'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_articles.png" width="18px" />
+                </i> Articles</a>
+            </li>
+            <li>
+              <a routerLink="/testimonials" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/testimonials'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_testimonals.png" width="18px" />
+                </i> Testimonials</a>
+            </li>
+            <li>
+              <a routerLink="/contactus" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/contactus'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_contact.png" width="18px" />
+                </i> Contact</a>
+            </li>
+            <li>
+              <a routerLink="/help" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/help'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_help.png" width="18px">
+                </i> Help</a>
+            </li>
+
+            <li >
+              <a [class.activeClassLink]="currentURL=='/terms-conditions' || currentURL=='/privacy-policy'">
+                <i class="top-menu-icons">
+                  <img src="../../assets/images/nav_policies.png" width="18px" />
+                </i> Policies</a>
+              <ul>
+                <li>
+                  <a routerLink="/terms-conditions" routerLinkActive="activeClss">Terms &amp; Conditions</a>
+                </li>
+                <li>
+                  <a routerLink="/privacy-policy" routerLinkActive="activeClss">Privacy Policy</a>
+                </li>
+              </ul>
+            </li>
+
+
+
+
+            <li >
+              <a routerLink="/blog" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/blog'">
+                <i>
+                  <img src="../../assets/images/blogger-icon.png" width="16px;" style="margin-top: -3px;" />
+                </i> Blog</a>
+            </li>
+            <li >
+              <a *ngIf="this.user.role==='admin'" routerLink="/admindashboard" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/admindashboard'"><i _ngcontent-c1="" class="ng-tns-c1-0"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/dashboard.png" style="margin-top: -3px;" width="16px;"></i> Dashboard</a>
+              <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" [class.activeClassLink]="currentURL=='/userdashboard'"><i _ngcontent-c1="" class="ng-tns-c1-0"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/dashboard.png" style="margin-top: -3px;" width="16px;"></i> Dashboard</a>
+              <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" [class.activeClassLink]="currentURL=='/agentdashboard'"><i _ngcontent-c1="" class="ng-tns-c1-0"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/dashboard.png" style="margin-top: -3px;" width="16px;"></i> Dashboard</a>
 
             </li>
-            <li *ngIf="flag">
-              <a *ngIf="this.user.role==='customer'" routerLink="/profile" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/profile'">Profile</a>
-              <a *ngIf="this.user.role==='agent'" routerLink="/agentprofile" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/profile'">Profile</a>
+            <li >
+              <a *ngIf="this.user.role==='customer'" routerLink="/profile" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/profile'"><i _ngcontent-c1="" class="ng-tns-c1-0"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/profile.png" style="margin-top: -3px;" width="16px;"></i> Profile</a>
+              <a *ngIf="this.user.role==='agent'" routerLink="/agentprofile" routerLinkActive="activeClss" [class.activeClassLink]="currentURL=='/profile'"><i _ngcontent-c1="" class="ng-tns-c1-0"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/profile.png" style="margin-top: -3px;" width="16px;"></i> Profile</a>
 
 
 
@@ -321,6 +379,7 @@ position: relative;">
 
           </ul>
         </div>
+
       </div>
       <a href="javascript:void(0)" class="launch-menu-button mobile-show" (click)="toggleShowDiv('divA')">
         <i class="fa fa-bars" aria-hidden="true"></i> MENU
@@ -356,7 +415,7 @@ position: relative;">
     </li>
 
     <li [class.activelink-mobile-menu-bg]="currentURL=='/package-description'">
-      <a>Services</a>
+      <a><i _ngcontent-c1="" class="top-menu-icons"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/nav_services.png" width="18px"></i> Services</a>
       <ul>
         <!-- <li [class.activelink-mobile-menu]="currentURL=='/property-monitoring'">
           <a routerLink="/property-monitoring" routerLinkActive="activeClss" >Property Monitoring</a>
@@ -379,7 +438,7 @@ position: relative;">
       </ul>
     </li> -->
     <li [class.activelink-mobile-menu-bg]="currentURL=='/abouteGAZE' || currentURL=='/whyeGAZE'">
-      <a>About</a>
+      <a><i _ngcontent-c1="" class="top-menu-icons"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/nav_about.png" width="18px"></i> About</a>
       <ul>
         <li [class.activelink-mobile-menu]="currentURL=='/abouteGAZE'">
           <a routerLink="/abouteGAZE" routerLinkActive="activeClss">About eGAZE</a>
@@ -392,21 +451,21 @@ position: relative;">
     </li>
 
     <li [class.activelink-mobile-menu-bg]="currentURL=='/articles'">
-      <a routerLink="/articles" routerLinkActive="activeClss">Articles</a>
+      <a routerLink="/articles" routerLinkActive="activeClss"><i _ngcontent-c1="" class="top-menu-icons"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/nav_articles.png" width="18px"></i> Articles</a>
     </li>
     <li [class.activelink-mobile-menu-bg]="currentURL=='/testimonials'">
-      <a routerLink="/testimonials" routerLinkActive="activeClss">Testimonials</a>
+      <a routerLink="/testimonials" routerLinkActive="activeClss"><i _ngcontent-c1="" class="top-menu-icons"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/nav_testimonals.png" width="18px"></i> Testimonials</a>
     </li>
     <li [class.activelink-mobile-menu-bg]="currentURL=='/contactus'">
-      <a routerLink="/contactus" routerLinkActive="activeClss">Contact</a>
+      <a routerLink="/contactus" routerLinkActive="activeClss"><i _ngcontent-c1="" class="top-menu-icons"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/nav_contact.png" width="18px"></i> Contact</a>
     </li>
     <li [class.activelink-mobile-menu-bg]="currentURL=='/help'">
-      <a routerLink="/help" routerLinkActive="activeClss">Help</a>
+      <a routerLink="/help" routerLinkActive="activeClss"><i _ngcontent-c1="" class="top-menu-icons"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/nav_help.png" width="18px"></i> Help</a>
     </li>
 
     <li [class.activelink-mobile-menu-bg]="currentURL==='/terms-conditions' || currentURL==='/privacy-policy' ">
       <!--|| currentURL==='/disclaimer' -->
-      <a>Policies</a>
+      <a><i _ngcontent-c1="" class="top-menu-icons"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/nav_policies.png" width="18px"></i> Policies</a>
       <ul>
         <li [class.activelink-mobile-menu]="currentURL=='/terms-conditions'">
           <a routerLink="/terms-conditions" routerLinkActive="activeClss">Terms &amp; Conditions</a>
@@ -425,12 +484,12 @@ position: relative;">
 
 
     <li *ngIf="!flag" [class.activelink-mobile-menu-bg]="currentURL=='/blog'">
-      <a routerLink="/blog" routerLinkActive="activeClss">Blog</a>
+      <a routerLink="/blog" routerLinkActive="activeClss"><i _ngcontent-c1="" class="ng-tns-c1-0"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/blogger-icon.png" style="margin-top: -3px;" width="16px;"></i> Blog</a>
     </li>
     <li *ngIf="flag" [class.activelink-mobile-menu-bg]="currentURL=='/admindashboard' || currentURL=='/userdashboard' || currentURL=='/agentdashboard'">
-      <a *ngIf="this.user.role==='admin'" routerLink="/admindashboard" routerLinkActive="activeClss">Dashboard</a>
-      <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" style="cursor: pointer;">Dashboard</a>
-      <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" routerLinkActive="activeClss">Dashboard</a>
+      <a *ngIf="this.user.role==='admin'" routerLink="/admindashboard" routerLinkActive="activeClss"><i _ngcontent-c1="" class="ng-tns-c1-0"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/dashboard.png" style="margin-top: -3px;" width="16px;"></i> Dashboard</a>
+      <a *ngIf="this.user.role==='customer'" routerLink="/userdashboard" style="cursor: pointer;"><i _ngcontent-c1="" class="ng-tns-c1-0"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/dashboard.png" style="margin-top: -3px;" width="16px;"></i> Dashboard</a>
+      <a *ngIf="this.user.role==='agent'" routerLink="/agentdashboard" routerLinkActive="activeClss"><i _ngcontent-c1="" class="ng-tns-c1-0"><img _ngcontent-c1="" class="ng-tns-c1-0" src="../../assets/images/dashboard.png" style="margin-top: -3px;" width="16px;"></i> Dashboard</a>
 
     </li>
     <li *ngIf="flag" [class.activelink-mobile-menu-bg]="currentURL=='/profile'">

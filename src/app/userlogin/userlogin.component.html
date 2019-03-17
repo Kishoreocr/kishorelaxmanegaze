@@ -43,7 +43,7 @@
             </div>
 
 
-            <div *ngIf="submitted && f.userpwd.errors" class="invalid-feedback">
+            <div *ngIf="submitted && f.userpwd.errors" class="invalid-feedback" style="margin-top: -25px;margin-bottom: 25px;">
               <div *ngIf="f.userpwd.errors.required">Password is required</div>
               <div *ngIf="f.userpwd.errors.minlength">Password must be at least 6 characters</div>
             </div>

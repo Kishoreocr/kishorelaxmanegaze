@@ -38,3 +38,23 @@
     top: 15px;
     right: 20px;
 }
+
+/*srinivas css start **/
+.close-btn {
+    color: #fff;
+    border-radius: 30px;
+    padding: 5px 45px;
+    font-size: 14px;
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+    background-color: #028fd9;
+    background-image: linear-gradient(#028fd9,#30b6fa);
+    font-weight: 600;
+    box-shadow: 1px 2px 5px rgba(0,0,0,.2);
+}
+
+.submit-btn-upgrade {
+    border-radius: 30px !important;
+    margin-right: 10px;
+}
