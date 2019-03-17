@@ -1,0 +1,181 @@
+.container-style{
+    padding: 20px;
+    background-color: #fffbfb;
+    border-radius: 6px;
+    width: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+    min-height:400px;
+}
+.heading-style-1{
+    background: #1275af;
+    padding: 10px;
+    color: #fff;
+    text-shadow: 1px 2px #000;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 4px;
+    margin-bottom: 30px;
+}
+p.content-style{
+    font-size: 15px;
+    line-height: 22px;
+    word-wrap: nowrap;
+    text-align: justify;
+}
+
+p.content-style b{
+    font-size: 16px;
+    font-weight: 500;
+
+}
+p.header-style {
+    font-size: 18px;
+    font-weight: 400;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 5px 0px;
+    color: #30b6fa;
+}
+
+div.content-style b{
+    font-size: 16px;
+    font-weight: 500;
+
+}
+div.header-style {
+    font-size: 18px;
+    font-weight: 400;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #f5efef;
+    padding: 5px 0px;
+    color: #30b6fa;
+}
+
+/* p.header-style::after {
+    content: url('../../assets/images/accordian_minus.png' );
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 7px;
+    float:right;
+    border-radius: 15px;
+    margin-top: -2px;
+    cursor: pointer;
+
+} */
+p.header-style::after {
+    /* symbol for "collapsed" panels */
+    content: url('../../assets/images/accordian_plus.png');  
+    border: 1px solid #ccc;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 7px;
+    float:right;
+    border-radius: 15px;
+    margin-top: -2px;
+    cursor: pointer;
+    /* adjust as needed, taken from bootstrap.css */
+}
+
+.panel-heading .accordion-toggle::after {
+    /* symbol for "collapsed" panels */
+    content: url('../../assets/images/minus_icon_1.png');  
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 5px;
+    float:right;
+    border-radius: 15px;
+    margin-top: 0px;
+    cursor: pointer;
+    /* adjust as needed, taken from bootstrap.css */
+}
+
+.panel-heading .accordion-toggle.collapsed:after {
+    /* symbol for "collapsed" panels */
+    content: url('../../assets/images/plus_icon_1.png');  
+    width: 25px;
+    height: 25px;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-left: 7px;
+    float:right;
+    border-radius: 15px;
+    margin-top: 0px;
+    cursor: pointer;
+    /* adjust as needed, taken from bootstrap.css */
+}
+
+.inner-padding-1{
+    padding-top: 131px;
+padding-left: 0px;
+padding-right: 0px;
+}
+.contactus-bg{
+background: url(../../assets/images/contactus_bg.jpg) no-repeat center center;
+height: 170px;
+background-size: cover;
+text-align: center;
+padding-top: 35px;
+}
+
+@media(max-width:767px){
+    .contactus-bg{
+        padding-top: 54px;
+        }
+    .touch-text{
+            margin: 0px;
+            color: #fff;
+            font-size: 38px!important;
+            padding: 0px;
+            line-height: 43px!important;;
+            padding-top: 20px!important;;
+        }
+}
+
+.touch-text{
+margin: 0px;
+color: #fff;
+font-size: 54px;
+padding: 0px;
+line-height:54px;
+}
+.getin-text{
+margin: 0px;
+font-size: 43px;
+padding: 0px;
+line-height:43px;
+color: #e2e0e0;
+}
+
+.panel-title a{
+    text-decoration: none;
+    cursor: default;
+}
+.panel-title a:hover{
+    text-decoration: none;
+    cursor: default;
+    color:#007bff;
+}
+
+/** srinivas css code start */
+
+.need-padding {
+    padding: 30px 55px;
+}
+.additional-style  {
+    box-shadow: 0 0 24px rgba(0,0,0,.1);
+    background-color: #fff;
+    padding: 20px 15px;
+    border-radius: 20px;
+}
