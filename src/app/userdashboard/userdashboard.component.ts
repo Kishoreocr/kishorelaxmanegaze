@@ -92,9 +92,9 @@ export class UserdashboardComponent implements OnInit {
     this.secondFormStep = false;
     this.thirdFormStep = false;
   }
-
+  ismobile:any;
   ngOnInit() {
-
+    this.ismobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
     var emailPattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     //this.propertyForm.controls['typeofProperty'] = 'Residential';
