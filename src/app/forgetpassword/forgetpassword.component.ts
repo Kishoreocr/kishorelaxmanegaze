@@ -184,7 +184,7 @@ export class ForgetpasswordComponent implements OnInit, IModalDialog {
 
       this.EgazeService.existingUserFun(userId.value.emailidForget).subscribe(result => {
         this.isLoaderdiv = false;
-        if (result) {
+        if (result==='SUCCESS') {
           this.isLoaderdiv = true;
 
           this.EgazeService.forgotuserpwd(userId.value.emailidForget).subscribe(result => {

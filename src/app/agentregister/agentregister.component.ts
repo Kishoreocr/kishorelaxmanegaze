@@ -192,8 +192,7 @@ export class AgentregisterComponent implements OnInit {
       this.isLoading = true;
       this.EgazeService.existingUserFun(formData.value.email).subscribe(
         result => {
-          // alert(result)
-          if (result) {
+          if (result==='SUCCESS') {
             this.isLoading = false;
             this.existsUser = "This email address already exists.";
           }

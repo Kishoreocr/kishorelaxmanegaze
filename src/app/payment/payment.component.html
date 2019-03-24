@@ -91,7 +91,7 @@
 
                      
          
-          <div *ngIf="!disablePaymentButton" class="row" style="margin-left: 0px;">
+          <div *ngIf="!disablePaymentButton" class="col-md-12" style="margin-left: 0px;">
             <div class="col-md-12"><h5 class="tab-active-heading">For Domestic :</h5></div> 
            
             <div class="col-md-12">
@@ -99,9 +99,7 @@
             <button *ngIf="!disablePaymentButton" type="submit" class="submit-btn-upgrade close-btn" style="background-color: #5edc5c;border-radius: 1px;text-transform: unset;">PayUMoney</button>
            
 
-            <!-- <div class="col-md-4">
-             For International : <ngx-paypal [config]="payPalConfig"></ngx-paypal>
-           </div> -->
+            
 
             <a routerLink="/package-choose" routerLinkActive="activeClss">
             <button  type="button" class="submit-btn-upgrade close-btn" style="border-radius: 1px;text-transform: unset;">Cancel</button>     
@@ -109,7 +107,13 @@
         </div>
          
         </div>
-        
+        <!-- <div *ngIf="!disablePaymentButton" class="col-md-12" style="margin-left: 0px;">
+          <div class="col-md-12"><h5 class="tab-active-heading">For International :</h5></div> 
+         
+        <div class="col-md-12">
+          <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+        </div>
+        </div> -->
           </div>
 
         

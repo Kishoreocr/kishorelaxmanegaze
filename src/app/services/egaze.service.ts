@@ -9,7 +9,7 @@ export class EgazeService {
  //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
   //PROD
    //private baseUrl: string = 'https://egaze.in/egaze-api/';
-  //private baseUrl: string = 'http://localhost:8080/egaze-api/';
+ // private baseUrl: string = 'http://localhost:8080/egaze-api/';
   constructor(private http: HttpClient) {
     this.baseUrl=document.location.href.substr(0,document.location.href.lastIndexOf("/"))+"/egaze-api/";
    }
@@ -25,7 +25,7 @@ export class EgazeService {
 
   existingUserFun(userId) {
     let requestURL = this.baseUrl + 'validate/' + userId;
-    return this.http.get(requestURL);
+    return this.http.get(requestURL, { responseType: 'text' });
   }
 
   getOTP(emialId, mobi,code) {

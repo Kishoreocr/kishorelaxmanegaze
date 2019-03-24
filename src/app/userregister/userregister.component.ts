@@ -237,8 +237,7 @@ handleLoad() {
       this.isLoading = true;
       this.EgazeService.existingUserFun(formData.value.email).subscribe(
         result => {
-          //alert(result)
-          if (result) {
+          if (result==='SUCCESS') {
             this.isLoading = false;
             this.existsUser = "This email address already exists.";
           }
@@ -328,12 +327,16 @@ handleLoad() {
       //this.otpForm.value.otp = "";
       this.EgazeService.registerFun(this.registerForm.value).subscribe(result => {
         this.isLoading = false;
-        if (result) {
+        var out=JSON.parse(JSON.stringify(result));
+        if (out.message==='SUCCESS') {
           // sessionStorage.removeItem("formData");
           // sessionStorage.setItem("regsuc","success");
           this.closeModal('registermodal');
           this.router.navigateByUrl('/loginform?data=success');
 
+        }else if (out.message==='MEMBEREXISTS') {
+          this.isLoading = false;
+          this.existsUser = "This email address already exists.";
         }
       },
         error => {

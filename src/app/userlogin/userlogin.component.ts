@@ -460,7 +460,8 @@ export class UserloginComponent implements OnInit {
 
       this.EgazeService.existingUserFun(userId.value.emailidForget).subscribe(result => {
         this.isLoading = false;
-        if (result) {
+       if (result==='SUCCESS') {
+   
           this.isLoading = true;
 
           this.EgazeService.forgotuserpwd(userId.value.emailidForget).subscribe(result => {

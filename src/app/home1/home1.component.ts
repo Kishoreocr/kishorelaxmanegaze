@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, ElementRef } from '@angular/core';
 import { SlideInOutAnimation } from '../animations';
 import { SessionstorageService } from '../services/sessionstorage.service';
+import * as CryptoJS from 'crypto-js';
 declare var $ :any;
 
 @Component({
@@ -18,7 +19,24 @@ export class Home1Component implements OnInit {
     $('#home-carousel').carousel('cycle')
 
     this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
+    // const key = CryptoJS.enc.Utf8.parse('7061737323313233');
+    // const iv = CryptoJS.enc.Utf8.parse('7061737323313233');
+    // const encrypted = CryptoJS.AES.encrypt('Kishore am sudipta', key, {
+    //   keySize: 16,
+    //   iv: iv,
+    //   mode: CryptoJS.mode.ECB,
+    //   padding: CryptoJS.pad.Pkcs7
+    // });
+    // console.log('encrypted :' + encrypted);
 
+    // const decrypted = CryptoJS.AES.decrypt(encrypted, key, {
+    //   keySize: 16,
+    //   iv: iv,
+    //   mode: CryptoJS.mode.ECB,
+    //   padding: CryptoJS.pad.Pkcs7
+    // });
+    // console.log('decrypt :' + decrypted.toString(CryptoJS.enc.Utf8));
+    
   }
 
   bgColorchange = false;

@@ -19,17 +19,17 @@ export class PaymentComponent implements OnInit {
   package: any;
   isLoading: boolean = false;
   public payPalConfig?: PayPalConfig;
-
+  amt:any;
   constructor(private route: ActivatedRoute, private EgazeService: EgazeService, private sessionstorageService: SessionstorageService) {
 
   }
   pres: any;
 
   ngOnInit() {
-    this.initConfig();
+   // this.initConfig();
 
     this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
-    console.log(this.user);
+    console.log("user=" + JSON.stringify(this.user));
     this.route.queryParamMap.subscribe(params => {
       if (params.get('package')) {
         this.package = params.get('package');
@@ -42,8 +42,8 @@ export class PaymentComponent implements OnInit {
 
       this.pres = data;
       this.payuform.productinfo = this.pres.packageName;
-      this.payuform.amount = parseInt(this.pres.price)+ (parseInt(this.pres.price) * 18/100) ;
-      
+      this.payuform.amount = parseInt(this.pres.price) + (parseInt(this.pres.price) * 18 / 100);
+this.amt=this.payuform.amount;
       //this.payuform.amount = 1;
       this.payuform.packageId = this.pres.id;
     });
@@ -88,30 +88,35 @@ export class PaymentComponent implements OnInit {
       error => {
 
       });
+    
+     
+    //this.initConfig();
   }
-  private initConfig(): void {
-    this.payPalConfig = new PayPalConfig(PayPalIntegrationType.ClientSideREST, PayPalEnvironment.Sandbox, {
+  initConfig() {
+    this.payuform.amount=1;
+    this.payPalConfig = new PayPalConfig(PayPalIntegrationType.ClientSideREST, PayPalEnvironment.Production, {
       commit: true,
       client: {
-        sandbox: 'ATDBazd-7r4sYy2MjJQeIjjZIY9KV04PlTax_nRXoBKIns2t0QvF1JwF2AIlmpGs8K4v_t1DJwjTiR_i',
+       // sandbox: 'ATDBazd-7r4sYy2MjJQeIjjZIY9KV04PlTax_nRXoBKIns2t0QvF1JwF2AIlmpGs8K4v_t1DJwjTiR_i',
+        production: 'Aa9yS2ZZBaO_seaVnVxV1axVGOoYSVRpbJ1Orc6jVoW_vf3-yzXRxXcIR58LudVv0y7FxFnKXuvm924F'
       },
       button: {
         label: 'paypal',
       },
       onPaymentComplete: (data, actions) => {
-        console.log('OnPaymentComplete'+JSON.stringify(data));
+        console.log('OnPaymentComplete' + JSON.stringify(data));
       },
       onCancel: (data, actions) => {
-        console.log('OnCancel');
+        console.log('OnCancel'+ JSON.stringify(data));
       },
       onError: (err) => {
-        console.log('OnError'+err);
+        console.log('OnError' + err);
       },
       transactions: [
         {
           amount: {
-            total: 1,
-            currency: 'USD',
+            total: this.payuform.amount,
+            currency: 'INR',
             // details: {
             //   subtotal: 30.00,
             //   tax: 0.07,
@@ -126,28 +131,28 @@ export class PaymentComponent implements OnInit {
             items: [
               {
                 name: 'Package',
-                description: 'Package',
+                description: this.payuform.productinfo,
                 quantity: 1,
-                price: 1,
-               // tax: 0.01,
+                price:this.payuform.amount ,
+                // tax: 0.01,
                 sku: '1',
-                currency: 'USD'
+                currency: 'INR'
               }],
             shipping_address: {
-              recipient_name: 'Brian Robinson',
-              line1: '4th Floor',
-              line2: 'Unit #34',
-              city: 'San Jose',
-              country_code: 'US',
-              postal_code: '95131',
-              phone: '9703047975',
-              state: 'CA'
+              recipient_name: this.payuform.firstname,
+              line1: 'egaze',
+              line2: 'egaze',
+              city: 'Hyd',
+              country_code: 'in'.toUpperCase(),
+              postal_code: '000',
+              phone: this.payuform.phone,
+              state: 'egaze'
             },
           },
         }
       ],
       note_to_payer: 'Contact us if you have troubles processing payment'
     });
-  }
+ }
 
 }

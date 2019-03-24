@@ -84,7 +84,7 @@
 
                 <div *ngIf="addProperty && !viewProperties">
 
-                    <div class="table-container-style table-th-styles" style="position:relative">
+                    <div class="table-container-style table-th-styles" style="position:relative" *ngIf="!customdiv">
 
                         <div class="tab-img-1">
                             <img src="../../assets/images/property-img-1.png" class="tabs-img" width="100px" />
@@ -615,7 +615,7 @@
                         </app-modal-property>
 
 
-                        <div *ngIf="!customdiv">
+                        <div >
 
                             <div class="mainAlertcontainer  table-responsive " *ngIf='propertyUpdates.length != 0'>
                                 <div class="row verticalTab ng-star-inserted">
@@ -1320,7 +1320,7 @@
                                             <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
                                         </span>
                                     </mfDefaultSorter>
-                                    <mfDefaultSorter by="description" *ngIf="ismobile"> Des<br>cription
+                                    <mfDefaultSorter by="description" *ngIf="ismobile"><span style="font-size:13px;"> Description</span>
                                         <span class="sorrt-icon-1">
                                             <img src="../../assets/images/sort_icon_img1.png" width="10px;" />
                                         </span>
