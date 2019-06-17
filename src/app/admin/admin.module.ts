@@ -19,6 +19,11 @@ import {DataTableModule} from "angular-6-datatable";
 import { AdminContactusComponent } from './admin-contactus/admin-contactus.component';
 import {RoleAuthenticationService as RoleGuard } from '../services/role-authentication';
 import { PropertyAssignmentComponent } from './property-assignment/property-assignment.component';
+import { CorporateadminComponent } from './corporateadmin/corporateadmin.component';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { Ng2TelInputModule } from 'ng2-tel-input';
+import { CorporateuserComponent } from './corporateuser/corporateuser.component';
+
 
 const appRoutes: Routes = [
   { path: 'adminlogin', component: LoginComponent },
@@ -33,10 +38,10 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(appRoutes, { enableTracing: true }),DataTableModule
+    RouterModule.forRoot(appRoutes, { enableTracing: true }),DataTableModule,NgxCaptchaModule,Ng2TelInputModule
 
   ],
-  declarations: [LoginComponent, AdmindashboardComponent, ModalComponent, PropertyApprovalComponent, AgentApprovalComponent, PaymentApprovalComponent, CustomPackagesComponent, PropertyCommentsComponent, PortalFeedbackComponent, LoadingDivComponent1Component, AdminContactusComponent, PropertyAssignmentComponent],
+  declarations: [LoginComponent, AdmindashboardComponent, ModalComponent, PropertyApprovalComponent, AgentApprovalComponent, PaymentApprovalComponent, CustomPackagesComponent, PropertyCommentsComponent, PortalFeedbackComponent, LoadingDivComponent1Component, AdminContactusComponent, PropertyAssignmentComponent, CorporateadminComponent, CorporateuserComponent],
   providers: [ModalService,RoleGuard]
 
 })

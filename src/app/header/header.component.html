@@ -144,15 +144,35 @@ position: relative;">
           </li>
 
         </ul>
-
-        <ul *ngIf="!flag">
-          <li>
-            <a routerLink="/loginform" routerLinkActive="activeClss" class="login-style">Login</a>
+<!-- srinivas code start -->		  
+<div *ngIf="!flag">		  
+	<div class="login-hover">
+		<a routerLink="/loginform" routerLinkActive="activeClss" class="login-style login-btn">Login</a><br>
+		<div class="login-hover-buttons" onmouseover="document.bgColor='greem'">
+			<button class="btn"> <a routerLink="/loginform" routerLinkActive="activeClss">Personal Login</a></button><button class="btn">Corporate Login</button>
+		</div>	
+	</div>
+	
+	<div class="reg-hover">
+		<a routerLink="/registerform" routerLinkActive="activeClss" class="login-style">Registration</a><br>
+		<div class="reg-hover-buttons" onmouseover="document.bgColor='greem'">
+      <button class="btn"><a routerLink="/registerform" routerLinkActive="activeClss" >Personal </a></button>
+      <button class="btn"><a routerLink="/cregister" routerLinkActive="activeClss" >Corporate </a></button>
+		</div>
+	</div>
+    </div>
+<!-- srinivas code end -->
+		  
+        <!--<ul *ngIf="!flag" class="">
+          <li class="normal">
+            <a routerLink="/loginform" routerLinkActive="activeClss" class="login-style login-btn">Login</a>
           </li>
+			
           <li>
             <a routerLink="/registerform" routerLinkActive="activeClss" class="login-style">Registration</a>
           </li>
-        </ul>
+        </ul>-->
+		  
       </div>
 
       <div class="phone" style="font-size: 16px;">

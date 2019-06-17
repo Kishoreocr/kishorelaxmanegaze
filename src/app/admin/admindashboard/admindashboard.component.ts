@@ -74,6 +74,8 @@ export class AdmindashboardComponent implements OnInit {
   propertydocs: any;
   documentId: any;
   feedbackTab = false;
+  corporateadminTab=false;
+  corporateuserTab=false;
   propertyAssignmentTab = false;
   searchGrp: FormGroup;
   searchGrpcust: FormGroup;
@@ -175,6 +177,8 @@ export class AdmindashboardComponent implements OnInit {
         this.profileTab = false;
         this.adminalertTab = false;
         this.feedbackTab = false;
+        this.corporateadminTab=false;
+        this.corporateuserTab=false;
         this.propertyAssignmentTab = false;
         this.searchGrp.controls['searchType'].setValue("propertyHolderName");
         this.searchGrp.controls['searchText'].setValue("");
@@ -189,6 +193,8 @@ export class AdmindashboardComponent implements OnInit {
         this.profileTab = false;
         this.getPropertyDetails();
         this.feedbackTab = false;
+        this.corporateadminTab=false;
+        this.corporateuserTab=false;
         this.propertyAssignmentTab = false;
         this.searchGrpcust.controls['searchTypecust'].setValue("firstName");
         this.searchGrpcust.controls['searchTextcust'].setValue("");
@@ -203,6 +209,8 @@ export class AdmindashboardComponent implements OnInit {
         this.adminalertTab = false;
         this.profileTab = false;
         this.feedbackTab = false;
+        this.corporateadminTab=false;
+        this.corporateuserTab=false;
         this.propertyAssignmentTab = false;
         this.custlist = true;
         this.custdetailstabs = false;
@@ -216,6 +224,8 @@ export class AdmindashboardComponent implements OnInit {
         this.updateuserProfilestatus = "";
         this.isEditDisabled = false;
         this.feedbackTab = false;
+        this.corporateadminTab=false;
+        this.corporateuserTab=false;
         this.propertyAssignmentTab = false;
         this.custlist = true;
         this.custdetailstabs = false;
@@ -227,6 +237,8 @@ export class AdmindashboardComponent implements OnInit {
         this.adminalertTab = true;
         this.profileTab = false;
         this.feedbackTab = false;
+        this.corporateadminTab=false;
+        this.corporateuserTab=false;
         this.propertyAssignmentTab = false;
         this.getAlerts();
         this.custlist = true;
@@ -239,9 +251,39 @@ export class AdmindashboardComponent implements OnInit {
         this.adminalertTab = false;
         this.profileTab = false;
         this.feedbackTab = true;
+        this.corporateadminTab=false;
+        this.corporateuserTab=false;
         this.propertyAssignmentTab = false;
         this.custlist = true;
         this.custdetailstabs = false;
+        //this.getAlerts();
+        break;
+      case 'corporateadmin':
+        this.propertyTab = false;
+        this.alertsTab = false;
+        this.transactionsTab = false;
+        this.adminalertTab = false;
+        this.profileTab = false;
+        this.feedbackTab = false;
+        this.propertyAssignmentTab = false;
+        this.custlist = true;
+        this.custdetailstabs = false;
+        this.corporateadminTab=true;
+        this.corporateuserTab=false;
+        //this.getAlerts();
+        break;
+      case 'corporateuser':
+        this.propertyTab = false;
+        this.alertsTab = false;
+        this.transactionsTab = false;
+        this.adminalertTab = false;
+        this.profileTab = false;
+        this.feedbackTab = false;
+        this.propertyAssignmentTab = false;
+        this.custlist = true;
+        this.custdetailstabs = false;
+        this.corporateadminTab=false;
+        this.corporateuserTab=true;
         //this.getAlerts();
         break;
       case 'propertyAssignment':
@@ -543,6 +585,8 @@ export class AdmindashboardComponent implements OnInit {
     this.profileTab = false;
     this.adminalertTab = false;
     this.feedbackTab = false;
+    this.corporateadminTab=false;
+    this.corporateuserTab=false;
     this.propertyAssignmentTab = false;
     this.customerdetailstabModal = true;
     this.customerpackagestabModal = false;

@@ -1,0 +1,105 @@
+<div class="container-fluid no-gutters no-paddings container-bg inner-page-bg">
+  <div class="container container-top-padding">
+        <div class="alert alert-success" id="destination" *ngIf="flag">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>Successfully sent your request to Admin.Admin will contact you soon!!</strong>
+              </div>
+      <div class="row" *ngIf="!flag">
+            
+          <div class="col-md-4 offset-md-5 userregisterForm">
+                
+                  <div class="login-heading">New Corporate User</div>
+              <!-- <h4>Sign Up</h4>
+          <p>Please fill in this form to create an account!</p> -->
+
+              <form [formGroup]="registerForm" novalidate (ngSubmit)="onSubmit(registerForm)">
+                  <div class="form-group">
+                      <!-- <label class="radio-inline" style="margin-right:6px;">
+                          <input type="radio" formControlName="registerType" value="customer" > Customer
+                        </label> -->
+                      <!-- <label class="radio-inline">
+                          <input type="radio" formControlName="registerType" value="agent"> Agent
+                        </label> -->
+                  </div>
+                
+                  <div class="form-group">
+                 
+                    <input type="text" formControlName="firstName" class="form-control" placeholder="Name" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+                    minlength="2" maxlength="30" (keypress)="isChartsName($event)" />
+                   
+                    <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                        <div *ngIf="f.firstName.errors.required"> Name is required</div>
+                        <div *ngIf="f.firstName.errors.minlength"> Name should be minimum 2 characters</div>
+                    </div>
+                </div>
+                  <div class="form-group">
+                 
+                      <input type="text" formControlName="email" class="form-control" placeholder="Email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                          maxlength="50" />
+                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                          <div *ngIf="f.email.errors.required">Email is required</div>
+                          <div *ngIf="f.email.errors.pattern">Please enter a valid email</div>
+                      </div>
+                      <div *ngIf="existsUser && existsUser.length > 0">
+                          <div style="color:red">{{existsUser}}</div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <!-- <label>Mobile Number
+                      <span class="mandatory">*</span>
+                  </label> -->
+                      <input type="text" ng2TelInput [ngClass]="{ 'isie': isie, 'isienot': !isie }" [ng2TelInputOptions]="{initialCountry: 'in'}"
+                          (hasError)="hasError($event)" (ng2TelOutput)="getNumber($event)" (intlTelInputObject)="telInputObject($event)"
+                          (countryChange)="onCountryChange($event)" placeholder="Mobile Number" (keypress)="isNumberKey($event)"
+                          pattern="[0-9]*" class="form-control1" [ngClass]="{ 'is-invalid': submitted && !mobileNumbererror }"
+                          maxlength="10" />
+                      <div *ngIf="submitted && !mobileNumbererror" style="color:#ff7b7b;font-size: 80%;font-weight: bold">
+                          <!-- <div *ngIf="f.mobileNumber.errors.required">Mobile Number is required</div> -->
+                          <div *ngIf="!mobileNumbererror">Please Enter a valid mobile number </div>
+                          <!-- <div *ngIf="f.mobileNumber.errors.pattern">Mobile numberr should be only numbers</div> -->
+
+                      </div>
+                  </div>
+
+                 
+                  <div class="form-group">
+                  
+                    <textarea formControlName="briefDescription" placeholder="Please Enter Brief Description of Yourself" id="exampleFormControlTextarea1" rows="3" class="form-control no-resize"
+                      [ngClass]="{ 'is-invalid': submitted && f.briefDescription.errors }" maxlength="500"></textarea>
+                    <div *ngIf="submitted && f.briefDescription.errors" class="invalid-feedback">
+                      <div *ngIf="f.briefDescription.errors.required">Brief Description is required</div>
+                      <div *ngIf="f.briefDescription.errors.minlength">Please enter description with minimum 6 and maximum 500 characters</div>
+                                </div>
+                  </div>
+                  <div class="form-group" style="margin: 0px auto; width: 303px;padding-bottom:10px;">
+                          <ngx-recaptcha2 #captchaElem 
+                          [siteKey]="siteKey"
+                          [size]="size"
+                          [hl]="lang"
+                          [theme]="theme"
+                          [type]="type"
+                          [useGlobalDomain]="false"
+                          (reset)="handleReset()"
+                          (expire)="handleExpire()"
+                          (load)="handleLoad()"
+                          (success)="handleSuccess($event)"
+                          formControlName="recaptcha">
+                        </ngx-recaptcha2>
+                        <div *ngIf="submitted && f.recaptcha.errors" class="invalid-feedback1">
+                          <div *ngIf="f.recaptcha.errors.required">Recaptcha is required</div>
+                          
+                        </div>
+                          </div>
+
+
+                  <div class="form-group" align="center" style="margin-top:15px;">
+                      <button [disabled]="loading" class="login-btn">Sign Up</button>
+                  </div>
+              </form>
+          </div>
+
+      </div>
+  </div>
+</div>
+<app-loading-div *ngIf="isLoading"></app-loading-div>
+

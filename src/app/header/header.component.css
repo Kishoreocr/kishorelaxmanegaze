@@ -1112,3 +1112,64 @@ a.logo-style{
     margin: 0;
 }
 }
+
+/** login/reg button hover css start **/
+	.login-hover {
+      cursor:default;
+      color:#000;
+      text-decoration:none;	
+	  list-style: none;
+	  float: left;
+		clear: both;
+		text-align: right;
+		padding-right:20px;
+		  
+    }
+	.btn {
+     background-color: #f1f1f1;
+    background-image: linear-gradient(#f1f1f1,#fff);
+    color: #2ab1f6!important;
+    border-radius: 16px;
+    /* padding: 10px; */
+    font-size: 13px;
+    font-weight: 500;
+    border: 0;
+    cursor: pointer;
+    outline: 0;
+    box-shadow: 0 1px 10px rgba(0,0,0,.2);
+    margin-top: 10px;
+    margin-right: 4px;
+	  }
+	 
+  .login-hover-buttons {
+      display:none !important;
+	  position: sticky;
+	  z-index: 1030;
+	  margin-right: -125px !important;	  
+    }    
+    .login-hover:hover  .login-hover-buttons {     	
+	  display:inline-block !important;
+		    }
+
+.reg-hover {
+      cursor:default;
+      color:#000;
+      text-decoration:none;	
+	  list-style: none;
+	  float: left;
+		
+		text-align: right;
+		padding-right:20px;
+		  
+    }
+  .reg-hover-buttons {
+      display: none !important;
+    position: fixed;
+    z-index: 1030;
+    margin-left: -150px !important;	  
+    }    
+    .reg-hover:hover  .reg-hover-buttons {     	
+	  display:inline-block !important;
+		    }
+
+/** login/reg button hover css end **/

@@ -4,14 +4,14 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EgazeService {
-  private baseUrl: string = '';
+  //private baseUrl: string = '';
   //DEV
  //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
   //PROD
    //private baseUrl: string = 'https://egaze.in/egaze-api/';
- // private baseUrl: string = 'http://localhost:8080/egaze-api/';
+ private baseUrl: string = 'http://localhost:8080/egaze-api/';
   constructor(private http: HttpClient) {
-    this.baseUrl=document.location.href.substr(0,document.location.href.lastIndexOf("/"))+"/egaze-api/";
+  //this.baseUrl=document.location.href.substr(0,document.location.href.lastIndexOf("/"))+"/egaze-api/";
    }
 
   loginFun(loginForm) {
@@ -437,5 +437,15 @@ export class EgazeService {
   getAgentProperentties(agentId) {
     return this.http.get(this.baseUrl + 'assigned/properties/'+agentId);
   }
-  
+  corporateUserRequest(requestData) {
+    var data = {
+      "email": requestData.email,
+      "firstName": requestData.firstName,
+      "description": requestData.briefDescription,
+      "mobile": requestData.mobileNumber
+
+    }
+    //alert(JSON.stringify(data))
+    return this.http.post(this.baseUrl + 'visitor/coporate/creation', data);
+  }
 }

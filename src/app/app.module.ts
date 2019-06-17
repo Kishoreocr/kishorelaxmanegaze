@@ -59,6 +59,7 @@ import { PaymentResponseComponent } from './payment-response/payment-response.co
 import { NgxPayPalModule } from 'ngx-paypal';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
+import { CorporateregisterComponent } from './corporateregister/corporateregister.component';
 
 const appRoutes: Routes = [
   // { path: 'home', component: HomeComponent },
@@ -121,6 +122,7 @@ const appRoutes: Routes = [
     }
   },
   { path:'refund-policy', component: RefundPolicyComponent},
+  { path:'cregister', component: CorporateregisterComponent},
   { path: 'unauthorized', component: PagenotfoundComponent },
   { path: '**', component: PagenotfoundComponent }
 ];
@@ -166,7 +168,8 @@ const appRoutes: Routes = [
     AgentdashboardComponent,
     PaymentComponent,
     PaymentResponseComponent,
-    RefundPolicyComponent
+    RefundPolicyComponent,
+    CorporateregisterComponent
 
   ],
   entryComponents: [

@@ -234,24 +234,12 @@ export class UserloginComponent implements OnInit {
   saveUser(userloginForm) {
     if (this.userloginForm.valid) {
       this.isLoading = true;
-      this.EgazeService.loginFun(userloginForm).subscribe(message => {
-        //alert(message);
+      this.EgazeService.loginFun(userloginForm).subscribe(msg => {
         this.isLoading = false;
-        if (message === null) {
-          this.invalidCredential = "Invalid Credentials";
-          if (this.loginAttemptcount == 0 && this.userloginForm.value.username && this.userloginForm.value.userpwd) {
-            this.attemptloginMessage = 'Your account has been locked, Please wait for some time..';
-          }
-          else if (this.userloginForm.value.username && this.userloginForm.value.userpwd) {
-            this.loginAttemptcount = this.loginAttemptcount - 1;
-            this.attemptloginMessage = 'Only ' + this.loginAttemptcount + ' Login Attempts Available, Please enter valid Username and Password.';
-            if (this.loginAttemptcount == 0) {
-              this.disabledField = true;
-            }
-          }
-        }
-        else {
-          this.user = JSON.stringify(message);
+        var out=JSON.parse(JSON.stringify(msg));
+        
+         if(out!==null && out.message === 'USER') {
+          this.user = JSON.stringify(msg);
           this.user1 = JSON.parse(this.user + "");
 
           if (this.user1.role === 'admin') {
@@ -273,8 +261,19 @@ export class UserloginComponent implements OnInit {
 
           }
 
-        }//end of else
-
+        } else {
+          this.invalidCredential = "Invalid Credentials";
+          if (this.loginAttemptcount == 0 && this.userloginForm.value.username && this.userloginForm.value.userpwd) {
+            this.attemptloginMessage = 'Your account has been locked, Please wait for some time..';
+          }
+          else if (this.userloginForm.value.username && this.userloginForm.value.userpwd) {
+            this.loginAttemptcount = this.loginAttemptcount - 1;
+            this.attemptloginMessage = 'Only ' + this.loginAttemptcount + ' Login Attempts Available, Please enter valid Username and Password.';
+            if (this.loginAttemptcount == 0) {
+              this.disabledField = true;
+            }
+          }
+        }  //end of else
       }, error => {
         this.isLoading = false;
         this.invalidCredential = 'Server error has occurred, Please try later.'

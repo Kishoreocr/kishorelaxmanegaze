@@ -45,6 +45,12 @@
 
 
                 </li>
+                <li title='Portal feedback' [ngClass]="{'activeTabdash': corporateadminTab}" (click)="userdashTabs('corporateadmin')">
+                    <i class="fa fa-user"></i> Corporate Admin
+              </li>
+              <li title='Portal feedback' [ngClass]="{'activeTabdash': corporateuserTab}" (click)="userdashTabs('corporateuser')">
+                <i class="fa fa-user"></i> Corporate User
+          </li>
 
             </ul>
         </div>
@@ -56,7 +62,7 @@
         <div class="col" style="padding-bottom:7px;">
             <!--Property Tab start here -->
 
-            <div *ngIf="propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab">
+            <div *ngIf="propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab && !corporateadminTab && !corporateuserTab" >
                 <div id="custom-modal-1" *ngIf="custdetailstabs" style="background-color: #fff;padding: 15px;border-radius: 6px;">
 
                     <button type="button" class="btn mb-2 clear-btn" (click)="custback()">
@@ -1010,7 +1016,7 @@
                 <app-loading-div-component1 *ngIf="isLoaderdiv"></app-loading-div-component1>
             </modal>
 
-            <div *ngIf="!propertyTab && alertsTab && !transactionsTab && !profileTab  && !feedbackTab">
+            <div *ngIf="!propertyTab && alertsTab && !transactionsTab && !profileTab  && !feedbackTab && !corporateadminTab  && !corporateuserTab">
 
 
                 <!-- confirm modal for delete action-->
@@ -1179,23 +1185,28 @@
 
         </div>
 
-        <div *ngIf="!propertyTab && !alertsTab && transactionsTab && !profileTab && !feedbackTab">
+        <div *ngIf="!propertyTab && !alertsTab && transactionsTab && !profileTab && !feedbackTab && !corporateadminTab  && !corporateuserTab">
             <app-agent-approval> </app-agent-approval>
         </div>
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab && feedbackTab">
+        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab && feedbackTab  && !corporateadminTab  && !corporateuserTab">
             <app-admin-contactus> </app-admin-contactus>
         </div>
+        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab  && corporateadminTab  && !corporateuserTab">
+            <app-corporateadmin></app-corporateadmin>
+        </div>
+        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab  && !corporateadminTab && corporateuserTab">
+            <app-corporateuser></app-corporateuser>
+        </div>
 
-
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && profileTab  && !feedbackTab">
+        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && profileTab  && !feedbackTab  && !corporateadminTab  && !corporateuserTab">
             <app-custom-packages></app-custom-packages>
         </div>
         <!--start Property Assignment  -->
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab && propertyAssignmentTab">
+        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab && propertyAssignmentTab && !corporateadminTab  && !corporateuserTab">
             <app-property-assignment></app-property-assignment>
         </div>
         <!--  End Property Assignment  -->
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab && adminalertTab  && !feedbackTab">
+        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab && adminalertTab  && !feedbackTab && !corporateadminTab  && !corporateuserTab">
 
             <div class="table-container-style table-th-styles table-responsive">
                 <div class="container-bg-style">
