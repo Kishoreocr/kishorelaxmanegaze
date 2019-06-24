@@ -7,6 +7,9 @@ export class AppConstants {
 
     public static get AdminloginURL(): string { return "/admindashboard"; }
 
+    public static get CorporateAdminloginURL(): string { return "/cadmindashboard"; }
+    public static get CorporateUserloginURL(): string { return "/cuserdashboard"; }
+
     public static get AgentloginURL(): string { return "/agentdashboard" }
 
     public static get paymentKey(): string { return "8IJWsyEj"; }

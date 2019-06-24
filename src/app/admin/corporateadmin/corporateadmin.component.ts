@@ -34,7 +34,7 @@ export class CorporateadminComponent implements OnInit {
   showText1: boolean;
   showIconEye1: boolean = false;
   hideIconEye1: boolean = false;
-
+  flag=false;
   isie: any = false;
   otpForm: FormGroup;
   otpValue: any;
@@ -136,7 +136,7 @@ handleLoad() {
       //zipCode: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])],
       password: ['', [Validators.required, Validators.minLength(4),this.pswdstrong]],
      // confirmPassword: ['', [Validators.required, Validators.minLength(4), this.passwordConfirming,this.pswdstrong,]],
-      termsChecked: [false, Validators.required],
+     // termsChecked: [false, Validators.required],
       country: [null],
       countryCode: [null],
       mCode: [null],
@@ -144,7 +144,7 @@ handleLoad() {
       recaptcha: ['', [Validators.required]]
     });
 
-    this.registerForm.controls['registerType'].setValue("customer");
+    this.registerForm.controls['registerType'].setValue("corporateadmin");
    // this.registerForm.controls['termsChecked'].setValue("true");
     this.registerForm.controls['country'].setValue("India");
     this.registerForm.controls['countryCode'].setValue("in");
@@ -216,24 +216,8 @@ handleLoad() {
     //console.log(JSON.stringify(this.registerForm))
     // stop here if form is invalid
 
-    if (this.registerForm.invalid ) {
-      if (!formData.value.termsChecked)
-      this.termsCheckederrors = "Please accept Terms and Conditions";
-    else
-      this.termsCheckederrors = "";
-      return;
-    } else if (!formData.value.termsChecked) {
-      if (!formData.value.termsChecked)
-        this.termsCheckederrors = "Please accept Terms and Conditions";
-      else
-        this.termsCheckederrors = "";
-    }else if (!this.mobileNumbererror){
-      return;
-
-    }
-
-    else {
-      this.termsCheckederrors = "";
+    if (!this.registerForm.invalid ) {
+     
       this.isLoading = true;
       this.EgazeService.existingUserFun(formData.value.email).subscribe(
         result => {
@@ -242,13 +226,24 @@ handleLoad() {
             this.existsUser = "This email address already exists.";
           }
           else {
-            this.isLoading = false;
-            // sessionStorage.setItem("formData", JSON.stringify(this.registerForm.value));
-            alert("created")
-            //alert(formData.value.email+"=="+formData.value.mobileNumber)
-
-
-            //this.openNewDialog(formData);
+            this.EgazeService.registerFun(this.registerForm.value).subscribe(result => {
+              this.isLoading = false;
+              var out=JSON.parse(JSON.stringify(result));
+              if (out.message==='SUCCESS') {
+                // sessionStorage.removeItem("formData");
+                // sessionStorage.setItem("regsuc","success");
+                this.flag=true;
+              
+              }else if (out.message==='MEMBEREXISTS') {
+                this.isLoading = false;
+                this.existsUser = "This email address already exists.";
+              }
+            },
+              error => {
+                this.isLoading = false;
+                console.log(error);
+              }
+            );
           }
         }
 
@@ -307,42 +302,6 @@ handleLoad() {
   }
 
 
-  OTPSave() {
-    this.submitted1 = true;
-    this.isLoading = true;
-    this.errorMessage='';
-    if (parseInt(this.otpForm.value.otp) === parseInt(this.otpValue)) {
-     // debugger;
-      //this.otpForm.value.otp = "";
-      this.EgazeService.registerFun(this.registerForm.value).subscribe(result => {
-        this.isLoading = false;
-        var out=JSON.parse(JSON.stringify(result));
-        if (out.message==='SUCCESS') {
-          // sessionStorage.removeItem("formData");
-          // sessionStorage.setItem("regsuc","success");
-          //this.closeModal('registermodal');
-          this.router.navigateByUrl('/loginform?data=success');
-
-        }else if (out.message==='MEMBEREXISTS') {
-          this.isLoading = false;
-          this.existsUser = "This email address already exists.";
-        }
-      },
-        error => {
-          this.isLoading = false;
-          console.log(error);
-        }
-      );
-    }
-    else if (this.otpForm.value.otp) {
-      this.isLoading = false;
-      this.errorMessage = "Invalid OTP."
-    }
-    else {
-      this.isLoading = false;
-      this.errorValidation = "OTP is required"
-    }
-  }
-
+  
 }
 

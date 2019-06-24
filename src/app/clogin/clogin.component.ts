@@ -14,11 +14,11 @@ import { ModalPropertyService } from '../services/modal-property.service';
 import { interval } from 'rxjs';
 
 @Component({
-  selector: 'app-userlogin',
-  templateUrl: './userlogin.component.html',
-  styleUrls: ['./userlogin.component.css']
+  selector: 'app-clogin',
+  templateUrl: './clogin.component.html',
+  styleUrls: ['./clogin.component.css']
 })
-export class UserloginComponent implements OnInit {
+export class CloginComponent implements OnInit {
   userLoginObj: Userdata = {
     username: '',
     userpwd: '',
@@ -242,25 +242,16 @@ export class UserloginComponent implements OnInit {
           this.user = JSON.stringify(msg);
           this.user1 = JSON.parse(this.user + "");
 
-          if (this.user1.role === 'admin') {
+          if (this.user1.role === 'corporateadmin') {
             this.sessionstorageService.setUserDetails(this.user);
-            window.location.href = AppConstants.AdminloginURL;
-          } else if (this.user1.role === 'agent' && this.user1.status === 'P') {
-            this.invalidCredential = "Your account is not approved.Please contact Admin."
-          }else if (this.user1.role === 'corporateuser' || this.user1.role === 'corporateadmin') {
-            this.invalidCredential = "Please login personal accounts!!";
+           // alert("ss")
+            window.location.href = AppConstants.CorporateAdminloginURL;
+          } else if (this.user1.role === 'corporateuser' ) {
+            this.sessionstorageService.setUserDetails(this.user);
+            window.location.href = AppConstants.CorporateUserloginURL;
           }
           else {
-
-            this.sessionstorageService.setUserDetails(this.user);
-            // this.EgazeService.getSigninOTP(this.user1.email, this.user1.mobile).subscribe(result => {
-            //   this.timer(300);
-            //   this.forgotpwdmodal('signinotpmodal');
-            //   this.updateOTP = result;
-            //   }, error => {
-            // });
-            this.redirect();
-
+            this.invalidCredential = "Please login corporate account!!";
           }
 
         } else {

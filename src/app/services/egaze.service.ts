@@ -4,14 +4,14 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EgazeService {
-  //private baseUrl: string = '';
+  private baseUrl: string = '';
   //DEV
  //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
   //PROD
    //private baseUrl: string = 'https://egaze.in/egaze-api/';
- private baseUrl: string = 'http://localhost:8080/egaze-api/';
+ //private baseUrl: string = 'http://localhost:8080/egaze-api/';
   constructor(private http: HttpClient) {
-  //this.baseUrl=document.location.href.substr(0,document.location.href.lastIndexOf("/"))+"/egaze-api/";
+  this.baseUrl=document.location.href.substr(0,document.location.href.lastIndexOf("/"))+"/egaze-api/";
    }
 
   loginFun(loginForm) {
@@ -51,7 +51,24 @@ export class EgazeService {
         "description": userObject.briefDescription
       };
 
-    } else {
+    } else if (userObject.registerType === 'corporateadmin' || userObject.registerType === 'corporateuser') {
+      payloadRequestData = {
+        "firstName": userObject.firstName,
+        "lastName": userObject.lastName,
+        "email": userObject.email,
+        "mobile": userObject.mobileNumber,
+        "zip": "" ,
+        "role": userObject.registerType,
+        "password": userObject.password,
+        "country": userObject.country,
+        "countryCode": userObject.countryCode,
+        "mCode": userObject.mCode,
+        "type": "",
+        "description": "",
+        "company":userObject.companyName
+      };
+
+    }else {
       payloadRequestData = {
         "firstName": userObject.firstName,
         "lastName": userObject.lastName,
@@ -447,5 +464,8 @@ export class EgazeService {
     }
     //alert(JSON.stringify(data))
     return this.http.post(this.baseUrl + 'visitor/coporate/creation', data);
+  }
+  getCompanies() {
+    return this.http.get(this.baseUrl + "companies");
   }
 }

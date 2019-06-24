@@ -23,7 +23,7 @@ export class RoleAuthenticationService implements CanActivate {
     // }
     this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
 
-    //alert(expectedRoleArray)
+    //alert(expectedRoleArray+ "    "+this.user.role)
     if (this.user!=null && this.user.role == expectedRoleArray) {
       //console.log("User permitted to access the route");
       return true;

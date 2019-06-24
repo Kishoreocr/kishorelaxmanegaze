@@ -60,6 +60,10 @@ import { NgxPayPalModule } from 'ngx-paypal';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { RefundPolicyComponent } from './refund-policy/refund-policy.component';
 import { CorporateregisterComponent } from './corporateregister/corporateregister.component';
+import { CloginComponent } from './clogin/clogin.component';
+import { CadmindashboardComponent } from './cadmindashboard/cadmindashboard.component';
+import { CuserdashboardComponent } from './cuserdashboard/cuserdashboard.component';
+import { CorporateuserComponent } from './admin/corporateuser/corporateuser.component';
 
 const appRoutes: Routes = [
   // { path: 'home', component: HomeComponent },
@@ -83,6 +87,7 @@ const appRoutes: Routes = [
 
 
   { path: 'loginform', component: UserloginComponent },
+  { path: 'clogin', component: CloginComponent },
   { path: 'registerform', component: UserregisterComponent },
   {
     path: '',
@@ -93,6 +98,18 @@ const appRoutes: Routes = [
     path: 'userdashboard', component: UserdashboardComponent, canActivate: [RoleGuard],
     data: {
       expectedRole: 'customer'
+    }
+  },
+  {
+    path: 'cuserdashboard', component: CuserdashboardComponent, canActivate: [RoleGuard],
+    data: {
+      expectedRole: 'corporateuser'
+    }
+  },
+  {
+    path: 'cadmindashboard', component: CadmindashboardComponent, canActivate: [RoleGuard],
+    data: {
+      expectedRole: 'corporateadmin'
     }
   },
   { path: 'success-register', component: SuccessregsiterComponent },
@@ -169,7 +186,10 @@ const appRoutes: Routes = [
     PaymentComponent,
     PaymentResponseComponent,
     RefundPolicyComponent,
-    CorporateregisterComponent
+    CorporateregisterComponent,
+    CloginComponent,
+    CadmindashboardComponent,
+    CuserdashboardComponent
 
   ],
   entryComponents: [
@@ -188,7 +208,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,NgxPayPalModule,NgxCaptchaModule
   ],
   exports: [
-    LoadingDivComponent
+    LoadingDivComponent,CorporateuserComponent
 
   ],
   // ,{ 

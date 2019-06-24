@@ -42,7 +42,8 @@ const appRoutes: Routes = [
 
   ],
   declarations: [LoginComponent, AdmindashboardComponent, ModalComponent, PropertyApprovalComponent, AgentApprovalComponent, PaymentApprovalComponent, CustomPackagesComponent, PropertyCommentsComponent, PortalFeedbackComponent, LoadingDivComponent1Component, AdminContactusComponent, PropertyAssignmentComponent, CorporateadminComponent, CorporateuserComponent],
-  providers: [ModalService,RoleGuard]
+  providers: [ModalService,RoleGuard],
+  exports:[CorporateuserComponent]
 
 })
 export class AdminModule { }

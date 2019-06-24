@@ -5,7 +5,8 @@ import { ModalDialogService } from 'ngx-modal-dialog';
 import { EgazeService } from '../../services/egaze.service';
 import { LoadingDivComponent } from '../../loading-div/loading-div.component';
 import { interval } from 'rxjs/observable/interval';
-import {ReCaptcha2Component} from 'ngx-captcha'
+import {ReCaptcha2Component} from 'ngx-captcha';
+import { SessionstorageService } from '../../services/sessionstorage.service';
 
 @Component({
   selector: 'app-corporateuser',
@@ -47,10 +48,14 @@ export class CorporateuserComponent implements OnInit {
   lang: any = "en";
   theme: any = "light";//Light
   type: any = "image";
+  flag=false;
+  companies:any = [];
   @ViewChild('captchaElem') captchaElem: ReCaptcha2Component;
+user:any;
 
-  constructor(private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, modalService: ModalDialogService, viewRef: ViewContainerRef, private EgazeService: EgazeService) {
+  constructor(private sessionstorageService: SessionstorageService,private route: ActivatedRoute, private formBuilder: FormBuilder, private router: Router, modalService: ModalDialogService, viewRef: ViewContainerRef, private EgazeService: EgazeService) {
 
+    this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
     this.modalService = modalService;
     this.viewRef = viewRef;
 
@@ -128,7 +133,7 @@ handleLoad() {
 
     this.registerForm = this.formBuilder.group({
       registerType: [],
-      companyName:['', [Validators.required, Validators.minLength(2)]],
+      companyName:['', [Validators.required]],
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.pattern(emailPattern)]],
@@ -136,7 +141,7 @@ handleLoad() {
       //zipCode: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])],
       password: ['', [Validators.required, Validators.minLength(4),this.pswdstrong]],
      // confirmPassword: ['', [Validators.required, Validators.minLength(4), this.passwordConfirming,this.pswdstrong,]],
-      termsChecked: [false, Validators.required],
+      //termsChecked: [false, Validators.required],
       country: [null],
       countryCode: [null],
       mCode: [null],
@@ -144,7 +149,7 @@ handleLoad() {
       recaptcha: ['', [Validators.required]]
     });
 
-    this.registerForm.controls['registerType'].setValue("customer");
+    this.registerForm.controls['registerType'].setValue("corporateuser");
    // this.registerForm.controls['termsChecked'].setValue("true");
     this.registerForm.controls['country'].setValue("India");
     this.registerForm.controls['countryCode'].setValue("in");
@@ -156,9 +161,16 @@ handleLoad() {
         this.registerForm.controls['type'].setValue("Normal");
       }
     });
-    this.otpForm = this.formBuilder.group({
-      otp: ['', Validators.required]
-    });
+   // alert(JSON.stringify(this.user))
+    if(this.user.role==='corporateadmin'){
+      this.companies=[{"code":this.user.companyCode,"name":this.user.company}]
+    }else{
+    this.EgazeService.getCompanies().subscribe(result => {
+      this.companies=[];
+      this.companies=result;
+    }
+    );
+  }
   }
   //  firstname(){
   //    if(!this.registerForm.get('firstName').valid){
@@ -216,24 +228,7 @@ handleLoad() {
     //console.log(JSON.stringify(this.registerForm))
     // stop here if form is invalid
 
-    if (this.registerForm.invalid ) {
-      if (!formData.value.termsChecked)
-      this.termsCheckederrors = "Please accept Terms and Conditions";
-    else
-      this.termsCheckederrors = "";
-      return;
-    } else if (!formData.value.termsChecked) {
-      if (!formData.value.termsChecked)
-        this.termsCheckederrors = "Please accept Terms and Conditions";
-      else
-        this.termsCheckederrors = "";
-    }else if (!this.mobileNumbererror){
-      return;
-
-    }
-
-    else {
-      this.termsCheckederrors = "";
+    if (!this.registerForm.invalid ) {
       this.isLoading = true;
       this.EgazeService.existingUserFun(formData.value.email).subscribe(
         result => {
@@ -242,13 +237,25 @@ handleLoad() {
             this.existsUser = "This email address already exists.";
           }
           else {
-            this.isLoading = false;
-            // sessionStorage.setItem("formData", JSON.stringify(this.registerForm.value));
-            alert("created")
-            //alert(formData.value.email+"=="+formData.value.mobileNumber)
-
-
-            //this.openNewDialog(formData);
+           //alert(JSON.stringify(this.registerForm.value))
+            this.EgazeService.registerFun(this.registerForm.value).subscribe(result => {
+              this.isLoading = false;
+              var out=JSON.parse(JSON.stringify(result));
+              if (out.message==='SUCCESS') {
+                // sessionStorage.removeItem("formData");
+                // sessionStorage.setItem("regsuc","success");
+                this.flag=true;
+              
+              }else if (out.message==='MEMBEREXISTS') {
+                this.isLoading = false;
+                this.existsUser = "This email address already exists.";
+              }
+            },
+              error => {
+                this.isLoading = false;
+                console.log(error);
+              }
+            );
           }
         }
 
