@@ -64,6 +64,7 @@ import { CloginComponent } from './clogin/clogin.component';
 import { CadmindashboardComponent } from './cadmindashboard/cadmindashboard.component';
 import { CuserdashboardComponent } from './cuserdashboard/cuserdashboard.component';
 import { CorporateuserComponent } from './admin/corporateuser/corporateuser.component';
+import { CorporatepropertyComponent } from './admin/corporateproperty/corporateproperty.component';
 
 const appRoutes: Routes = [
   // { path: 'home', component: HomeComponent },
@@ -190,7 +191,6 @@ const appRoutes: Routes = [
     CloginComponent,
     CadmindashboardComponent,
     CuserdashboardComponent
-
   ],
   entryComponents: [
     MessagemodalpopupComponent,
@@ -208,7 +208,7 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,NgxPayPalModule,NgxCaptchaModule
   ],
   exports: [
-    LoadingDivComponent,CorporateuserComponent
+    LoadingDivComponent,CorporateuserComponent,CorporatepropertyComponent
 
   ],
   // ,{ 

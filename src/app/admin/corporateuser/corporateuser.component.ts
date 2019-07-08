@@ -163,7 +163,7 @@ handleLoad() {
     });
    // alert(JSON.stringify(this.user))
     if(this.user.role==='corporateadmin'){
-      this.companies=[{"code":this.user.companyCode,"name":this.user.company}]
+      this.registerForm.controls['companyName'].setValue(this.user.companyCode);
     }else{
     this.EgazeService.getCompanies().subscribe(result => {
       this.companies=[];
@@ -227,7 +227,7 @@ handleLoad() {
     this.submitted = true;
     //console.log(JSON.stringify(this.registerForm))
     // stop here if form is invalid
-
+   // alert(JSON.stringify(this.registerForm.value))
     if (!this.registerForm.invalid ) {
       this.isLoading = true;
       this.EgazeService.existingUserFun(formData.value.email).subscribe(

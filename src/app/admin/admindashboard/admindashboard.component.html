@@ -8,29 +8,35 @@
       </div> -->
         <div class="leftside-menu">
             <ul>
-                <li title='customer details' [ngClass]="{'activeTabdash': propertyTab}" (click)="userdashTabs('Properties')">
+                <li title='customer details' [ngClass]="{'activeTabdash': propertyTab}"
+                    (click)="userdashTabs('Properties')">
 
                     <i class="fa fa-home"></i> Customer Details
                 </li>
-                <li title='Property details and approval' [ngClass]="{'activeTabdash': alertsTab}" (click)="userdashTabs('Alerts')">
+                <li title='Property details and approval' [ngClass]="{'activeTabdash': alertsTab}"
+                    (click)="userdashTabs('Alerts')">
 
                     <i class="fa fa-bell"></i> Property Approval
                 </li>
-                <li title='Agent approval' [ngClass]="{'activeTabdash': transactionsTab}" (click)="userdashTabs('Transactions')">
+                <li title='Agent approval' [ngClass]="{'activeTabdash': transactionsTab}"
+                    (click)="userdashTabs('Transactions')">
 
                     <i class="fa fa-credit-card"></i> Agent Approval
                 </li>
 
-                <li title='System generation alerts' [ngClass]="{'activeTabdash': profileTab}" (click)="userdashTabs('Profile')">
+                <li title='System generation alerts' [ngClass]="{'activeTabdash': profileTab}"
+                    (click)="userdashTabs('Profile')">
 
                     <i class="fa fa-user"></i> Custom packages
                 </li>
 
-                <li title='Custom packages for customers' [ngClass]="{'activeTabdash': adminalertTab}" (click)="userdashTabs('adminalert')">
+                <li title='Custom packages for customers' [ngClass]="{'activeTabdash': adminalertTab}"
+                    (click)="userdashTabs('adminalert')">
                     <!-- <li [ngClass]="{'activeTabdash': profileTab}"> -->
                     <i class="fa fa-user"></i> Alerts
                 </li>
-                <li title='Property Assignment to Agent' [ngClass]="{'activeTabdash': propertyAssignmentTab}" (click)="userdashTabs('propertyAssignment')">
+                <li title='Property Assignment to Agent' [ngClass]="{'activeTabdash': propertyAssignmentTab}"
+                    (click)="userdashTabs('propertyAssignment')">
 
                     <i class="fa fa-user"></i> Property Assignment
                 </li>
@@ -39,18 +45,25 @@
                     <i class="fa fa-user"></i> Property comments
 
                 </li> -->
-                <li title='Portal feedback' [ngClass]="{'activeTabdash': feedbackTab}" (click)="userdashTabs('feedback')">
+                <li title='Portal feedback' [ngClass]="{'activeTabdash': feedbackTab}"
+                    (click)="userdashTabs('feedback')">
                     <!-- <li [ngClass]="{'activeTabdash': profileTab}"> -->
                     <i class="fa fa-user"></i> Portal feedback
 
 
                 </li>
-                <li title='Portal feedback' [ngClass]="{'activeTabdash': corporateadminTab}" (click)="userdashTabs('corporateadmin')">
+                <li title='Portal feedback' [ngClass]="{'activeTabdash': corporateadminTab}"
+                    (click)="userdashTabs('corporateadmin')">
                     <i class="fa fa-user"></i> Corporate Admin
-              </li>
-              <li title='Portal feedback' [ngClass]="{'activeTabdash': corporateuserTab}" (click)="userdashTabs('corporateuser')">
-                <i class="fa fa-user"></i> Corporate User
-          </li>
+                </li>
+                <li title='Portal feedback' [ngClass]="{'activeTabdash': corporateuserTab}"
+                    (click)="userdashTabs('corporateuser')">
+                    <i class="fa fa-user"></i> Corporate User
+                </li>
+                <li title='Portal feedback' [ngClass]="{'activeTabdash': corporatepropertyTab}"
+                    (click)="userdashTabs('corporateproperty')">
+                    <i class="fa fa-user"></i> Corporate Property Assignment
+                </li>
 
             </ul>
         </div>
@@ -62,1185 +75,294 @@
         <div class="col" style="padding-bottom:7px;">
             <!--Property Tab start here -->
 
-            <div *ngIf="propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab && !corporateadminTab && !corporateuserTab" >
-                <div id="custom-modal-1" *ngIf="custdetailstabs" style="background-color: #fff;padding: 15px;border-radius: 6px;">
+            <div
+                *ngIf="propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab && !corporateadminTab && !corporateuserTab && !corporatepropertyTab">
+                <div id="custom-modal-1" *ngIf="custdetailstabs"
+                    style="background-color: #fff;padding: 15px;border-radius: 6px;">
 
                     <button type="button" class="btn mb-2 clear-btn" (click)="custback()">
-                        << Back</button>
-                    <div class='row userdashboardTab'>
-                        <ul>
-                            <li [ngClass]="{'active': customerdetailstabModal}" (click)="userdashTabs('CustomerDetailsTab')">Customer
-                                Details
-                            </li>
-                            <li [ngClass]="{'active': customerpackagestabModal}" (click)="userdashTabs('CustomerPackagesTab')">Packages</li>
-                            <li [ngClass]="{'active': customerpropertiestabModal}" (click)="userdashTabs('CustomerPropertiesTab')">Properties</li>
-                        </ul>
-                    </div>
+                        << Back</button> <div class='row userdashboardTab'>
+                            <ul>
+                                <li [ngClass]="{'active': customerdetailstabModal}"
+                                    (click)="userdashTabs('CustomerDetailsTab')">Customer
+                                    Details
+                                </li>
+                                <li [ngClass]="{'active': customerpackagestabModal}"
+                                    (click)="userdashTabs('CustomerPackagesTab')">Packages</li>
+                                <li [ngClass]="{'active': customerpropertiestabModal}"
+                                    (click)="userdashTabs('CustomerPropertiesTab')">Properties</li>
+                            </ul>
+                </div>
 
 
-                    <div *ngIf="customerdetailstabModal && !customerpackagestabModal && !customerpropertiestabModal">
+                <div *ngIf="customerdetailstabModal && !customerpackagestabModal && !customerpropertiestabModal">
 
-                        <div class="property-tab-style">
+                    <div class="property-tab-style">
 
-                            <h5 class="tab-active-heading">Customer Details</h5>
+                        <h5 class="tab-active-heading">Customer Details</h5>
 
-                            <div class="row" *ngIf="customer!=''" style="padding:20px;">
-                                <div class="col-md-6 col-">
-                                    <div class="form-group row">
-                                        <div class="col-sm-5 col-form-label font-bold-label">Name:</div>
-                                        <div class="col-sm-7 col-form-label">
-                                            {{customer.firstName}} {{customer.lastName}}
-                                        </div>
+                        <div class="row" *ngIf="customer!=''" style="padding:20px;">
+                            <div class="col-md-6 col-">
+                                <div class="form-group row">
+                                    <div class="col-sm-5 col-form-label font-bold-label">Name:</div>
+                                    <div class="col-sm-7 col-form-label">
+                                        {{customer.firstName}} {{customer.lastName}}
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-5 col-form-label font-bold-label">Email:</div>
-                                        <div class="col-sm-7 col-form-label">
-                                            {{customer.email}}
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-5 col-form-label font-bold-label">Email:</div>
+                                    <div class="col-sm-7 col-form-label">
+                                        {{customer.email}}
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-5 col-form-label font-bold-label">Mobile Number:</div>
-                                        <div class="col-sm-7 col-form-label">
-                                            {{customer.mobileNo}}
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-5 col-form-label font-bold-label">Mobile Number:</div>
+                                    <div class="col-sm-7 col-form-label">
+                                        {{customer.mobileNo}}
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-5 col-form-label font-bold-label">Address Line1:</div>
-                                        <div class="col-sm-7 col-form-label">
-                                            {{customer.address1}}
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-5 col-form-label font-bold-label">Address Line1:</div>
+                                    <div class="col-sm-7 col-form-label">
+                                        {{customer.address1}}
                                     </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-5 col-form-label font-bold-label">Address Line2:</div>
-                                        <div class="col-sm-7 col-form-label">
-                                            {{customer.address2}}
-                                        </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-5 col-form-label font-bold-label">Address Line2:</div>
+                                    <div class="col-sm-7 col-form-label">
+                                        {{customer.address2}}
                                     </div>
-
                                 </div>
 
-                                <div class="col-md-6">
-                                    <!-- <div class="form-group row">
+                            </div>
+
+                            <div class="col-md-6">
+                                <!-- <div class="form-group row">
                                             <div class="col-sm-5 col-form-label font-bold-label">Address Line3:</div>
                                             <div class="col-sm-7 col-form-label">
                                                 {{customer.address3}}
                                             </div>
                                         </div> -->
-                                    <div class="form-group row">
-                                        <div class="col-sm-5 col-form-label font-bold-label">City:</div>
-                                        <div class="col-sm-7 col-form-label">
-                                            {{customer.city}}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-sm-5 col-form-label font-bold-label">State:</div>
-                                        <div class="col-sm-7 col-form-label">
-                                            {{customer.state}}
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group row">
-                                        <div class="col-sm-5 col-form-label font-bold-label">Country:</div>
-                                        <div class="col-sm-7 col-form-label">
-                                            {{customer.country}}
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <div class="col-sm-5 col-form-label font-bold-label">Zip:</div>
-                                        <div class="col-sm-7 col-form-label">
-                                            {{customer.zip}}
-                                        </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-5 col-form-label font-bold-label">City:</div>
+                                    <div class="col-sm-7 col-form-label">
+                                        {{customer.city}}
                                     </div>
                                 </div>
 
+                                <div class="form-group row">
+                                    <div class="col-sm-5 col-form-label font-bold-label">State:</div>
+                                    <div class="col-sm-7 col-form-label">
+                                        {{customer.state}}
+                                    </div>
+                                </div>
 
+                                <div class="form-group row">
+                                    <div class="col-sm-5 col-form-label font-bold-label">Country:</div>
+                                    <div class="col-sm-7 col-form-label">
+                                        {{customer.country}}
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-5 col-form-label font-bold-label">Zip:</div>
+                                    <div class="col-sm-7 col-form-label">
+                                        {{customer.zip}}
+                                    </div>
+                                </div>
                             </div>
 
 
                         </div>
 
-                    </div>
-                    <div *ngIf="!customerdetailstabModal && customerpackagestabModal && !customerpropertiestabModal">
 
-                        <div class="property-tab-style table-container-style">
-                            <h5 class="tab-active-heading">Packages</h5>
-                            <div class='mainAlertcontainer table-responsive'>
-                                <table class="table table-striped table-bordered table-hover">
-                                    <!-- <caption>List of Transactions</caption> -->
-                                    <thead>
-                                        <tr>
-                                            <th>Package Name</th>
-                                            <th>Start Date</th>
-                                            <th>Expiry Date</th>
-                                            <th>Properties Limit</th>
-                                            <th>No of Properties Used</th>
-                                            <th>Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let transaction of custtransactions; let i = index">
-                                            <td>{{transaction.packageName}}</td>
-                                            <td>{{transaction.purchaseDate | date: 'dd/MM/yyyy'}}</td>
-                                            <td>{{transaction.expiryDate | date: 'dd/MM/yyyy'}}</td>
-                                            <td>{{transaction.propertiesLimit}}</td>
-                                            <td>{{transaction.propertiesUSed}}</td>
-                                            <td>{{transaction.status}}</td>
-                                        </tr>
-
-                                        <tr *ngIf='custtransactions.length == 0'>
-                                            <td colspan="6">No Transactions Found</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
                     </div>
 
-                    <div *ngIf="!customerdetailstabModal && !customerpackagestabModal && customerpropertiestabModal">
-
-                        <div class="property-tab-style table-container-style">
-                            <h5 class="tab-active-heading">Customer Properties</h5>
-                            <div class="mainAlertcontainer  table-responsive ">
-                                <div *ngIf='userproperties.length == 0'>No Properties.</div>
-
-                                <table *ngIf='userproperties.length != 0' class="table table-striped table-bordered table-hover"
-                                    [mfData]="userproperties" #mf="mfDataTable" [mfRowsOnPage]="5">
-                                    <thead>
-                                        <tr>
-                                            <th>
-                                                <mfDefaultSorter by="propertyType">Property Type</mfDefaultSorter>
-                                            </th>
-                                            <th>
-                                                <mfDefaultSorter by="propertyHolderName">Property Holder Name</mfDefaultSorter>
-                                            </th>
-                                            <th>
-                                                <mfDefaultSorter by="relationship">Relationship</mfDefaultSorter>
-                                            </th>
-                                            <th>
-                                                <mfDefaultSorter by="documentNo">Document Number</mfDefaultSorter>
-                                            </th>
-                                            <th>
-                                                <mfDefaultSorter by="status">Status</mfDefaultSorter>
-                                            </th>
-                                            <th class='text-center'>
-                                                Action
-                                            </th>
-                                        </tr>
-                                    </thead>
-
-                                    <tbody>
-                                        <tr *ngFor="let property of mf.data; let IndexId = index">
-                                            <td>{{property.propertyType}}</td>
-                                            <td>{{property.propertyHolderName}}</td>
-                                            <td>{{property.relationship}}</td>
-
-                                            <td>{{property.documentNo}} </td>
-                                            <td>
-                                                <span *ngIf="property.status==='P'">Pending Approval</span>
-                                                <span *ngIf="property.status==='A'"> Approved</span>
-                                            </td>
-                                            <td class="viewbtn text-center">
-                                                <i (click)="openModal('custom-modal-33', property)">
-
-                                                    <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
-                                                                    
-                                                </i>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <td colspan="6" style="border:0px !important;padding:0px;">
-                                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-                                            </td>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
-                <div class="table-container-style table-th-styles" *ngIf="custlist">
+                <div *ngIf="!customerdetailstabModal && customerpackagestabModal && !customerpropertiestabModal">
 
-                    <h5 class="tab-active-heading">Customer Details</h5>
-                    <div class="col-sm-12 seach-box">
+                    <div class="property-tab-style table-container-style">
+                        <h5 class="tab-active-heading">Packages</h5>
+                        <div class='mainAlertcontainer table-responsive'>
+                            <table class="table table-striped table-bordered table-hover">
+                                <!-- <caption>List of Transactions</caption> -->
+                                <thead>
+                                    <tr>
+                                        <th>Package Name</th>
+                                        <th>Start Date</th>
+                                        <th>Expiry Date</th>
+                                        <th>Properties Limit</th>
+                                        <th>No of Properties Used</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let transaction of custtransactions; let i = index">
+                                        <td>{{transaction.packageName}}</td>
+                                        <td>{{transaction.purchaseDate | date: 'dd/MM/yyyy'}}</td>
+                                        <td>{{transaction.expiryDate | date: 'dd/MM/yyyy'}}</td>
+                                        <td>{{transaction.propertiesLimit}}</td>
+                                        <td>{{transaction.propertiesUSed}}</td>
+                                        <td>{{transaction.status}}</td>
+                                    </tr>
 
-                        <form class="form-inline" [formGroup]="searchGrpcust">
-                            <div class="form-group mb-2">
-                                <select class="form-control" formControlName="searchTypecust" name="searchTypecust"
-                                    (ngModelChange)="getSearchTypecust($event)">
-                                    <option value="firstName">Name</option>
-                                    <option value="state">State</option>
-                                    <option value="city">City</option>
-                                    <option value="email">Email</option>
-                                    <option value="mobileNo">MobileNo</option>
-                                    <option value="daterange">Date Range</option>
-                                </select>
-                            </div>
-                            <div class="form-group mx-sm-3 mb-2" *ngIf="!daterangecust">
-                                <input type="text" class="form-control" formControlName="searchTextcust" id="searchTextcust"
-                                    placeholder="Search..">
-                            </div>
-                            <div class="form-group mx-sm-3 mb-2" *ngIf="daterangecust">
-                                <input type="date" class="form-control" formControlName="searchTextcustdate1" id="searchTextcustdate1"
-                                    placeholder="Search.."> &nbsp;&nbsp;
-                                <input type="date" class="form-control" formControlName="searchTextcustdate2" id="searchTextcustdate2"
-                                    placeholder="Search..">
-                            </div>
-                            <button type="submit" class="btn mb-2 search-btn" (click)="filterItemcust()">Search</button>
-                    
-                            <button type="submit" class="btn mb-2 clear-btn" (click)="custClear()">Clear</button>
-                        </form>
-                    </div>
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered" [mfData]="customers" #mf="mfDataTable"
-                            [mfRowsOnPage]="5">
+                                    <tr *ngIf='custtransactions.length == 0'>
+                                        <td colspan="6">No Transactions Found</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
 
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <mfDefaultSorter by="firstName"> Name</mfDefaultSorter>
-                                    </th>
-                                    <th>
-                                        <mfDefaultSorter by="email">Email</mfDefaultSorter>
-                                    </th>
-                                    <th>
-                                        <mfDefaultSorter by="mobileNo">Mobile Number</mfDefaultSorter>
-                                    </th>
-                                    <th>
-                                        <mfDefaultSorter by="addedDate">Added Date</mfDefaultSorter>
-                                    </th>
-                                    <th class='text-center'>Action
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-
-                                <tr *ngFor="let customer of mf.data; let index = index">
-                                    <td>{{customer.firstName}} {{customer.lastName}}</td>
-                                    <td>{{customer.email}}</td>
-                                    <td>{{customer.mobileNo}}</td>
-                                    <td>{{customer.addedDate| date:'dd/MM/yyyy'}}</td>
-                                    <td style='text-align:center'>
-                                        <i (click)="custdetails(customer)">
-                                            <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
-                                         
-                                        </i>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="6" style="border:0px !important;padding:0px;">
-                                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
                     </div>
                 </div>
 
+                <div *ngIf="!customerdetailstabModal && !customerpackagestabModal && customerpropertiestabModal">
 
+                    <div class="property-tab-style table-container-style">
+                        <h5 class="tab-active-heading">Customer Properties</h5>
+                        <div class="mainAlertcontainer  table-responsive ">
+                            <div *ngIf='userproperties.length == 0'>No Properties.</div>
+
+                            <table *ngIf='userproperties.length != 0'
+                                class="table table-striped table-bordered table-hover" [mfData]="userproperties"
+                                #mf="mfDataTable" [mfRowsOnPage]="5">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <mfDefaultSorter by="propertyType">Property Type</mfDefaultSorter>
+                                        </th>
+                                        <th>
+                                            <mfDefaultSorter by="propertyHolderName">Property Holder Name
+                                            </mfDefaultSorter>
+                                        </th>
+                                        <th>
+                                            <mfDefaultSorter by="relationship">Relationship</mfDefaultSorter>
+                                        </th>
+                                        <th>
+                                            <mfDefaultSorter by="documentNo">Document Number</mfDefaultSorter>
+                                        </th>
+                                        <th>
+                                            <mfDefaultSorter by="status">Status</mfDefaultSorter>
+                                        </th>
+                                        <th class='text-center'>
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    <tr *ngFor="let property of mf.data; let IndexId = index">
+                                        <td>{{property.propertyType}}</td>
+                                        <td>{{property.propertyHolderName}}</td>
+                                        <td>{{property.relationship}}</td>
+
+                                        <td>{{property.documentNo}} </td>
+                                        <td>
+                                            <span *ngIf="property.status==='P'">Pending Approval</span>
+                                            <span *ngIf="property.status==='A'"> Approved</span>
+                                        </td>
+                                        <td class="viewbtn text-center">
+                                            <i (click)="openModal('custom-modal-33', property)">
+
+                                                <img src="../../assets/images/view-data-img-1.png" width="30px;"
+                                                    class="action-icons-1" />
+
+                                            </i>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6" style="border:0px !important;padding:0px;">
+                                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-
-            <!-- <app-property-approval [propertyData]="propertyApproval"></app-property-approval> -->
-
-            <modal id="custom-modal-33">
-                <div class="modal">
-
-                    <div class="row justify-content-md-center no-gutters">
-                        <div class="modal-body col-md-8" style="padding:0px;">
-
-
-                            <div class='col modal-heading'>
-                                <p style="padding:10px 20px;margin:0px;">Property View:
-                                </p>
-                            </div>
-
-                            <div style='position:absolute;right:20px;top:10px;'>
-                                <i class="fa fa-times closeIcon-style" aria-hidden="true" (click)="closeModal('custom-modal-33');"></i>
-                            </div>
-
-
-                            <div style='padding: 10px 20px 20px 20px;'>
-                                <div class='row userdashboardTab'>
-                                    <ul>
-                                        <li [ngClass]="{'active': propertytabModal}" (click)="userdashTabs('PropertyDetailsTab')">Property
-                                            Details
-                                        </li>
-                                        <li [ngClass]="{'active': documentstabModal}" (click)="userdashTabs('DocumentsTab')">Documents</li>
-                                        <li [ngClass]="{'active': commentstabModal}" (click)="userdashTabs('CommentsTab')">Comments</li>
-                                    </ul>
-                                </div>
-
-
-                                <div *ngIf="propertytabModal && !documentstabModal && !commentstabModal">
-
-                                    <div class="property-tab-style">
-
-                                        <div class='col' align='center' style='padding-bottom:10px;'>
-                                            <div class="propertyheading" (click)="approve('A')" *ngIf="propertystatus==='P'">
-                                                Approve
-                                            </div>
-                                            <div class="propertyheading" (click)="approve('P')" *ngIf="propertystatus!=='P'">
-                                                Revert
-                                            </div>
-                                            <div class="propertyheading" (click)="profileeditFun()">
-                                                <i class="fa fa-edit" style="font-size:13px;font-weight: 200"></i>
-                                                Edit
-                                            </div>
-                                        </div>
-                                        <div class="alert alert-success" id="propertyDestination" *ngIf="updateuserProfilestatus!=''">
-                                            <a href="#" class="close" data-dismiss="alert">&times;</a>
-                                            <strong>{{updateuserProfilestatus}}</strong>
-                                        </div>
-                                        <form [formGroup]="propertyForm1" (ngSubmit)="updatepropertyFun(propertyForm1)">
-                                            <div class="row">
-                                                <div class="col-md-4">
-
-                                                    <div class="form-group">
-                                                        <label for="exampleFormControlSelect1">Type of Property
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input type="text" *ngIf="!isEditDisabled" [readonly]="!isEditDisabled"
-                                                            formControlName="propertyType" class="form-control"
-                                                            [ngClass]="{ 'is-invalid': submitted && f.propertyType.errors }"
-                                                            id="propertyType">
-
-                                                        <select *ngIf="isEditDisabled" class="form-control"
-                                                            formControlName="propertyType" (ngModelChange)="getType($event)"
-                                                            [ngClass]="{ 'is-invalid': submitted && f.propertyType.errors }">
-                                                            <option value="" [selected]="selected">Select any Property
-                                                            </option>
-                                                            <option value="Residential">Residential</option>
-                                                            <option value="Commercial">Commercial</option>
-                                                            <option value="Land">Land/Plots/Agricultural</option>
-                                                            <option value="Industrial">Industrial</option>
-                                                        </select>
-                                                        <div *ngIf="submitted && f.propertyType.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.propertyType.errors.required">Type of
-                                                                Property is required</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="titleHolder">Title Holder
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="propertyHolderName"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.propertyHolderName.errors }"
-                                                            id="titleHolderFormControlInput" placeholder="Enter Title Holder"
-                                                            maxlength="50" (keypress)="isCharts($event)" />
-                                                        <div *ngIf="submitted && f.propertyHolderName.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.propertyHolderName.errors.required">Title
-                                                                Holder is required</div>
-                                                            <div *ngIf="f.propertyHolderName.errors.minlength">Please
-                                                                enter valid Title Holder with minimum of 2 and maximum
-                                                                50 characters</div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="relationship">Relationship to customer
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input type="text" *ngIf="!isEditDisabled" [readonly]="!isEditDisabled"
-                                                            formControlName="relationship" class="form-control"
-                                                            [ngClass]="{ 'is-invalid': submitted && f.relationship.errors }"
-                                                            id="relationship" placeholder="Enter Relationship to customer">
-
-                                                        <select *ngIf="isEditDisabled" class="form-control"
-                                                            formControlName="relationship" class="form-control"
-                                                            [ngClass]="{ 'is-invalid': submitted && f.relationship.errors }">
-                                                            <option value="" [selected]="selected">Select Relationship</option>
-                                                            <option value="Self">Self</option>
-                                                            <option value="Spouse">Spouse</option>
-                                                            <option value="Parents">Parents</option>
-                                                            <option value="Children">Children</option>
-                                                        </select>
-                                                        <div *ngIf="submitted && f.relationship.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.relationship.errors.required">Relationship to
-                                                                customer is required</div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="doorNo">Survey No/Dr No
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="doorNo"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.doorNo.errors }"
-                                                            id="doorNo" placeholder="Enter Survey No/Dr No" maxlength="150">
-                                                        <div *ngIf="submitted && f.doorNo.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.doorNo.errors.required">Survey No/Dr No is
-                                                                required</div>
-                                                            <div *ngIf="f.doorNo.errors.minlength">Please enter valid
-                                                                Survey No/Do NO with minimum 6 and maximum
-                                                                150characters
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-
-
-                                                    <div class="form-group">
-                                                        <label for="extentOfProperty">Extent of Property
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="extentOfProperty"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.extentOfProperty.errors }"
-                                                            id="extentOfProperty" placeholder="Enter Extent of Property"
-                                                            maxlength="150">
-                                                        <div *ngIf="submitted && f.extentOfProperty.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.extentOfProperty.errors.required">Extent of
-                                                                Property is required</div>
-                                                        </div>
-                                                    </div>
-
-
-                                                    <!-- <div class="form-group" style="margin-bottom:1px;">
-                                                            <label for="boundaries" style="margin-bottom:1px;">Boundaries
-                                                            </label>
-                                                        </div> -->
-                                                    <div class="form-group">
-                                                        <label for="documentno">Document No.
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="documentNo"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.documentNo.errors }"
-                                                            id="documentNoFormControlInput" placeholder="Enter document no."
-                                                            maxlength="30">
-                                                        <div *ngIf="submitted && f.documentNo.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.documentNo.errors.required">Document No. is
-                                                                required</div>
-                                                        </div>
-                                                    </div>
-
-
-                                                </div>
-
-
-
-
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="subRegisterOffice">Sub Register Office
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="subRegisterOffice"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.subRegisterOffice.errors }"
-                                                            id="subRegisterOfficeFormControlInput" placeholder="Enter Sub Register Office"
-                                                            minlength="6" maxlength="150">
-                                                        <div *ngIf="submitted && f.subRegisterOffice.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.subRegisterOffice.errors.required">Sub
-                                                                Register Office is required
-                                                            </div>
-                                                            <div *ngIf="f.subRegisterOffice.errors.minlength">
-                                                                Please enter valid Sub Register Office with minimum 6
-                                                                and maximum 150 characters
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="boundaries">Boundaries - North
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="boundariesNorth"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.boundariesNorth.errors }"
-                                                            id="boundariesNorth" placeholder="Enter North" maxlength="50">
-                                                        <div *ngIf="submitted && f.boundariesNorth.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.boundariesNorth.errors.required">Boundaries
-                                                                is required</div>
-                                                            <div *ngIf="f.boundariesNorth.errors.minlength">
-                                                                Please enter valid Boundaries - North with minimum 3
-                                                                and maximum 50 characters
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="boundaries">Boundaries - South
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="boundariesSouth"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.boundariesSouth.errors }"
-                                                            id="boundariesSouth" placeholder="Enter South" maxlength="50">
-                                                        <div *ngIf="submitted && f.boundariesSouth.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.boundariesSouth.errors.required">Boundaries
-                                                                is required</div>
-                                                            <div *ngIf="f.boundariesNorth.errors.minlength">
-                                                                Please enter valid Boundaries - South with minimum 3
-                                                                and maximum 50 characters
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="boundaries">Boundaries - East
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="boundariesEast"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.boundariesEast.errors }"
-                                                            id="boundariesEast" placeholder="Enter East" maxlength="50">
-                                                        <div *ngIf="submitted && f.boundariesEast.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.boundariesEast.errors.required">Boundaries is
-                                                                required</div>
-                                                            <div *ngIf="f.boundariesNorth.errors.minlength">
-                                                                Please enter valid Boundaries - East with minimum 3 and
-                                                                maximum 50 characters
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="boundaries">Boundaries - West
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="boundariesWest"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.boundariesWest.errors }"
-                                                            id="boundariesWest" placeholder="Enter West" maxlength="50">
-                                                        <div *ngIf="submitted && f.boundariesWest.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.boundariesWest.errors.required">Boundaries is
-                                                                required</div>
-                                                            <div *ngIf="f.boundariesNorth.errors.minlength">
-                                                                Please enter valid Boundaries - West with minimum 3 and
-                                                                maximum 50 characters
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
-
-
-                                                </div>
-
-
-
-
-                                                <div class="col-md-4">
-
-                                                    <div class="form-group">
-                                                        <label for="address1">Address 1
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="address1"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address1.errors }"
-                                                            id="address1FormControlInput" placeholder="Enter Address 1"
-                                                            maxlength="150">
-                                                        <div *ngIf="submitted && f.address1.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.address1.errors.required">Address 1 is
-                                                                required
-                                                            </div>
-                                                            <div *ngIf="f.address1.errors.minlength">Please enter valid
-                                                                address1 with minimum of 6 and maximum 150
-                                                                characters
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="address2">Address 2
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="address2"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.address2.errors }"
-                                                            id="address1FormControlInput" placeholder="Enter Address 2"
-                                                            maxlength="150">
-                                                        <div *ngIf="submitted && f.address2.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.address2.errors.required">Address 2 is
-                                                                required
-                                                            </div>
-                                                            <div *ngIf="f.address2.errors.minlength">Please enter valid
-                                                                address2 with minimum of 6 and maximum 150
-                                                                characters
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="state">State
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-
-                                                        <input type="text" *ngIf="!isEditDisabled" [readonly]="!isEditDisabled"
-                                                            formControlName="state" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.state.errors }"
-                                                            id="stateFormControlInput" placeholder="Enter State">
-
-                                                        <select *ngIf="isEditDisabled" class="form-control"
-                                                            formControlName="state" (ngModelChange)="getstate($event)"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
-                                                            <option value="" [selected]="selected">Select State</option>
-                                                            <option value="AndhraPradesh">Andhrapradesh</option>
-                                                            <option value="Karnataka">Karnataka</option>
-                                                            <option value="Telangana">Telangana</option>
-                                                        </select>
-
-                                                        <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.state.errors.required">State is required
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="district">District
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-
-                                                        <input type="text" *ngIf="!isEditDisabled" [readonly]="!isEditDisabled"
-                                                            formControlName="district" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.district.errors }"
-                                                            id="districtFormControlInput" placeholder="Enter District">
-
-                                                        <select *ngIf="isEditDisabled" class="form-control"
-                                                            formControlName="district" (ngModelChange)="getdistrict($event)"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.district.errors }">
-                                                            <option value="" [selected]="selected">Select District</option>
-                                                            <option value="{{dist.district}}" *ngFor="let dist of districts">{{dist.district}}</option>
-                                                        </select>
-                                                        <div *ngIf="submitted && f.district.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.district.errors.required">District is
-                                                                required
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="mandal">Mandal
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-
-                                                        <input *ngIf="!isEditDisabled" type="text" [readonly]="!isEditDisabled"
-                                                            formControlName="mandal" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mandal.errors }"
-                                                            id="mandalFormControlInput" placeholder="Enter Mandal">
-
-                                                        <select *ngIf="isEditDisabled" class="form-control"
-                                                            formControlName="mandal" (ngModelChange)="getmandal($event)"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.mandal.errors }">
-                                                            <option value="" [selected]="selected">Select Mandal</option>
-                                                            <option value="{{dist.mandal}}" *ngFor="let dist of mandals">{{dist.mandal}}</option>
-                                                        </select>
-                                                        <div *ngIf="submitted && f.mandal.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.mandal.errors.required">Mandal is required
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="city">Village/City
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input *ngIf="!isEditDisabled" type="text" [readonly]="!isEditDisabled"
-                                                            formControlName="city" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
-                                                            id="city" placeholder="Enter City">
-
-                                                        <select *ngIf="isEditDisabled" class="form-control"
-                                                            formControlName="city" (ngModelChange)="getvillage($event)"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
-                                                            <option value="" [selected]="selected">Select Village</option>
-                                                            <option value="{{dist.village}}" *ngFor="let dist of villages">{{dist.village}}</option>
-                                                        </select>
-                                                        <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.city.errors.required">Village/City is
-                                                                required
-                                                            </div>
-                                                        </div>
-
-                                                    </div>
-
-
-
-                                                    <div class="form-group">
-                                                        <label for="zip">zip Code
-                                                            <span class="mandatory">*</span>
-                                                        </label>
-                                                        <input type="text" [readonly]="!isEditDisabled" formControlName="zip"
-                                                            class="form-control" [ngClass]="{ 'is-invalid': submitted && f.zip.errors }"
-                                                            id="zipFormControlInput" placeholder="Enter zipCode"
-                                                            maxlength="10">
-                                                        <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
-                                                            <div *ngIf="f.zip.errors.required">zipCode is required
-                                                            </div>
-                                                            <div *ngIf="f.zip.errors.minlength">Please enter a valid
-                                                                zip code with a minimum of 4 and maximum
-                                                                10 alphanumeric</div>
-
-                                                        </div>
-                                                    </div>
-
-
-
-
-                                                </div>
-                                            </div>
-
-                                            <div class='col' align='center'>
-                                                <label>
-                                                    <!-- <button type="submit" class="btn btn-primary" [disabled]="!userloginForm.valid" >Submit</button> -->
-                                                    <button type="submit" class="submit-btn" [class.disabled-btn]="!isEditDisabled">Update</button>
-                                                </label>
-
-                                                <label>
-                                                    <button class="submit-btn" (click)="closeModal('custom-modal-33');">Close</button>
-                                                </label>
-                                            </div>
-                                        </form>
-
-                                    </div>
-
-                                </div>
-
-
-
-
-                                <div *ngIf="!propertytabModal && documentstabModal && !commentstabModal">
-                                    <div class="property-tab-style table-container-style">
-
-                                        <div>
-
-                                            <table *ngIf="propertydocs.length>0" class="table table-striped table-bordered"
-                                                [mfData]="propertydocs" #mf="mfDataTable" [mfRowsOnPage]="5">
-
-                                                <thead>
-                                                    <tr>
-                                                        <th>
-                                                            <mfDefaultSorter by="documentName">Document Name</mfDefaultSorter>
-                                                        </th>
-                                                        <th>
-                                                            <mfDefaultSorter by="addedDate">Uploaded Date</mfDefaultSorter>
-                                                        </th>
-                                                        <th>Remove
-                                                        </th>
-                                                        <th>Download
-                                                        </th> <th>View
-                                                            </th>
-                                                    </tr>
-                                                </thead>
-
-                                                <tbody>
-
-                                                    <tr *ngFor="let doc of mf.data; let index = index">
-                                                        <td>{{doc.documentName}}</td>
-                                                        <td>{{doc.addedDate}}</td>
-
-                                                        <td style='text-align:center'>
-
-                                                            <i style="cursor: pointer" (click)="modalDeleteDocument('confirm-delete-document', doc.id)"
-                                                                class="fa fa-trash" aria-hidden="true"></i>
-                                                        </td>
-
-                                                        <td style='text-align:center'>
-
-                                                            <i style="cursor: pointer" (click)="getDownloadUrl(doc.id)"
-                                                                class="fa fa-download" aria-hidden="true"></i>
-
-                                                        </td>
-                                                        <td style='text-align:center'>
-                                                                <a style="cursor: pointer;color: black"  target="new" href={{viewur}}{{doc.id}}>
-                                                                <i class="fa fa-eye" aria-hidden="true"> </i></a>
-                                                               
-                                                            </td>
-                                                    </tr>
-                                                </tbody>
-                                                <tfoot>
-                                                    <tr>
-                                                        <td colspan="4" style="border:0px !important;padding:0px;">
-                                                            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-                                                        </td>
-                                                    </tr>
-                                                </tfoot>
-                                            </table>
-                                        </div>
-                                        <div class='col upload-container-style' *ngIf="propertydocs.length <= 15">
-
-                                            <form [formGroup]="documentGrp">
-                                                <div class="row">
-                                                    <label for="Upload your documents">Upload Property Documents:
-                                                    </label>
-                                                </div>
-
-                                                <div class="form-inline" style="margin-bottom:4px;">
-                                                    <div class="form-group uploadfile-style">
-                                                        <input type="file" name="file" formControlName="file" title="Browse Document"
-                                                            class="form-control-file" (change)="importfile($event)">
-                                                    </div>
-                                                    <button type="button" class="upload-btn" (click)="fileSelectionEvent()">Upload</button>
-
-                                                </div>
-
-
-
-                                            </form>
-
-                                        </div>
-
-                                    </div>
-
-
-                                </div>
-                                <div *ngIf="!propertytabModal && !documentstabModal && commentstabModal">
-
-                                    <div class="col property-tab-style">
-                                        <form [formGroup]="commentForm" (ngSubmit)="commentFun(commentForm)">
-                                                <!-- enctype="multipart/form-data" -->
-
-
-                                            <h6>Add Comment</h6>
-                                            <div class="form-group row">
-
-                                                <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Current
-                                                    Status
-                                                    <span class="mandatory">*</span>
-                                                </label>
-                                                <div class="col-sm-5">
-                                                    <select class="form-control" formControlName="typeofProperty"
-                                                        (ngModelChange)="getType($event)" class="form-control">
-
-                                                        <option value="nochanges">No Changes</option>
-                                                        <option value="roadexpansion">Road Expansion</option>
-
-                                                        <option value="Encroachment">Encroachment</option>
-                                                        <option value="Illegalcontract">Illegal contract</option>
-                                                        <option value="Others">Others</option>
-                                                    </select>
-                                                </div>
-
-                                            </div>
-
-
-
-                                            <div class="form-group row">
-                                                <label for="exampleFormControlTextarea1" class="col-sm-2 col-form-label">Comments
-                                                    <span class="mandatory">*</span>
-                                                </label>
-                                                <div class="col-sm-5">
-                                                    <textarea class="form-control" style="resize:none;text-align:left;"
-                                                        id="exampleFormControlTextarea1" rows="3" formControlName="commentfield"
-                                                        class="form-control" [ngClass]="{ 'is-invalid': submitted && c.commentfield.errors }"
-                                                        maxlength="500">
-                                                        </textarea>
-
-
-                                                    <div *ngIf="submitted && c.commentfield.errors" class="invalid-feedback">
-                                                        <div *ngIf="c.commentfield.errors.required">Comment is required
-                                                        </div>
-                                                        <div *ngIf="c.commentfield.errors.minlength">Please enter
-                                                            comments with minimum 3 and maximum 500 characters
-                                                        </div>
-
-                                                        <div style="position:absolute;right:15px;bottom:0px;font-size: 14px;color:#ccc">{{c.commentfield.value
-                                                            ? c.commentfield.value.length : 0}}/500</div>
-
-                                                    </div>
-
-                                                    <div *ngIf="c.commentfield.errors===null || !submitted" style="position:absolute;right:15px;bottom:-25px;font-size: 14px;color:#ccc">{{c.commentfield.value
-                                                        ? c.commentfield.value.length : 0}}/500</div>
-
-
-                                                </div>
-
-                                            </div>
-                                            <div class="form-group row">
-
-                                                <label for="exampleFormControlSelect1" class="col-sm-2 col-form-label">Upload
-                                                    Document
-
-                                                </label>
-                                                <div class="col-sm-4">
-                                                    <div class="form-group uploadfile-style">
-                                                        <input type="file" name="commentfile" formControlName="commentfile"
-                                                           title="Browse Document" class="form-control-file" (change)="fileSelectionEventcomments($event)" > <!-- multiple="multiple" -->
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-
-
-                                            <div class="col" align="center" style="margin-top:20px;">
-                                                <button type="submit" class="submit-btn">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <div class="col comment-heading">
-                                        <h6>Property Comments</h6>
-                                    </div>
-                                    <div class='col comments-style scrolling-comment'>
-                                        <table class="col-sm-12" [mfData]="comments" #mf="mfDataTable" [mfRowsOnPage]="5">
-                                            <tbody>
-                                                <tr *ngFor="let comment of mf.data;let IndexId = index">
-                                                    <td>
-                                                        <div class="commentbox-style-1">
-                                                            <p class="comment-role">By {{comment.role}},</p>
-                                                            <p class="comment-description" *ngIf="comment.severity!=='' "><b>Property Status</b> : 
-                                                                <span *ngIf="comment.severity==='nochanges' ">No Changes </span>
-                                                                <span *ngIf="comment.severity==='roadexpansion' ">Road Expansion</span>
-                                                                <span *ngIf="comment.severity==='Encroachment' ">Encroachment</span>
-                                                                <span *ngIf="comment.severity==='Illegalcontract' ">Illegal contract</span>
-                                                                <span *ngIf="comment.severity==='Others' ">Others</span>
-                                                            </p>
-                                                            <p class="comment-description"><b>Comment</b> :{{comment.description}}</p>
-                                                            <span class="comment-reply-btn" *ngIf="comment.documentName!=null">
-                                                                    <a style="cursor: pointer;color: #f9a069"  target="new" href={{viewcommentur}}{{comment.id}}>
-                                                                            <i class="fa fa-eye" aria-hidden="true"> </i></a>
-                                                             
-                                                            </span>
-                                                            <span class="comment-reply-btn">
-                                                                <i style="cursor: pointer" *ngIf="comment.documentName!==null"
-                                                                    (click)="getporpertyCommentdocDownloadUrl(comment.id)"
-                                                                    class="fa fa-download" aria-hidden="true"></i>
-                                                            </span>
-                                                            <span class="comment-hrs">On {{comment.addedDate | date:
-                                                                'dd/MM/yyyy HH:mm:ss a'}}</span>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            </tbody>
-                                            <tfoot>
-                                                <tr>
-                                                    <td colspan="1" style="border:0px !important;padding:0px;">
-                                                        <mfBootstrapPaginator></mfBootstrapPaginator>
-                                                    </td>
-                                                </tr>
-                                            </tfoot>
-                                        </table>
-                                    </div>
-
-
-
-
-
-
-                                </div>
-                            </div>
+            <div class="table-container-style table-th-styles" *ngIf="custlist">
+
+                <h5 class="tab-active-heading">Customer Details</h5>
+                <div class="col-sm-12 seach-box">
+
+                    <form class="form-inline" [formGroup]="searchGrpcust">
+                        <div class="form-group mb-2">
+                            <select class="form-control" formControlName="searchTypecust" name="searchTypecust"
+                                (ngModelChange)="getSearchTypecust($event)">
+                                <option value="firstName">Name</option>
+                                <option value="state">State</option>
+                                <option value="city">City</option>
+                                <option value="email">Email</option>
+                                <option value="mobileNo">MobileNo</option>
+                                <option value="daterange">Date Range</option>
+                            </select>
                         </div>
-                    </div>
-                </div>
-
-                <div class="modal-background"></div>
-                <app-loading-div-component1 *ngIf="isLoaderdiv"></app-loading-div-component1>
-            </modal>
-
-            <div *ngIf="!propertyTab && alertsTab && !transactionsTab && !profileTab  && !feedbackTab && !corporateadminTab  && !corporateuserTab">
-
-
-                <!-- confirm modal for delete action-->
-                <modal id="confirm-delete-document">
-                    <div class="modal confirmDocumentDelete">
-                        <div class="row justify-content-md-center justify-content-sm-center no-gutters">
-                            <div class="modal-body col-md-5 col-sm-8" style="padding:0px;">
-
-                                <div class='col modal-heading'>
-                                    <p class="padding-heading-modal">Confirm?
-                                    </p>
-                                </div>
-                                <!-- <app-loading-div *ngIf="isLoading"></app-loading-div> -->
-
-                                <div class="close-icon-style">
-                                    <i class="fa fa-times closeIcon-style" aria-hidden="true" (click)="closeModal('confirm-delete-document');"></i>
-                                </div>
-                                <div>
-                                    <div class="col content-style">
-                                        <p>
-                                            Are you sure to delete this Document?
-                                        </p>
-                                    </div>
-                                    <div class='col btn-bottom-style'>
-                                        <button class="submit-btn-delete" (click)="deldocFun();">Delete</button>
-                                        <button class="submit-btn" (click)="closeModal('confirm-delete-document');">Cancel</button>
-                                    </div>
-
-                                </div>
-
-                            </div>
+                        <div class="form-group mx-sm-3 mb-2" *ngIf="!daterangecust">
+                            <input type="text" class="form-control" formControlName="searchTextcust" id="searchTextcust"
+                                placeholder="Search..">
                         </div>
-                    </div>
-                    <div class="modal-background"></div>
-                    <app-loading-div-component1 *ngIf="isLoading"></app-loading-div-component1>
-                </modal>
+                        <div class="form-group mx-sm-3 mb-2" *ngIf="daterangecust">
+                            <input type="date" class="form-control" formControlName="searchTextcustdate1"
+                                id="searchTextcustdate1" placeholder="Search.."> &nbsp;&nbsp;
+                            <input type="date" class="form-control" formControlName="searchTextcustdate2"
+                                id="searchTextcustdate2" placeholder="Search..">
+                        </div>
+                        <button type="submit" class="btn mb-2 search-btn" (click)="filterItemcust()">Search</button>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                <div class="table-container-style table-th-styles">
-                    <h5 class="tab-active-heading">Propert Approval</h5>
-                    <div class="col-sm-12 seach-box">
-
-                        <form class="form-inline" [formGroup]="searchGrp">
-                            <div class="form-group mb-2">
-                                <select class="form-control" formControlName="searchType" name="searchType"
-                                    (ngModelChange)="getSearchType1($event)">
-                                    <option value="propertyHolderName">Name</option>
-                                    <option value="state">State</option>
-                                    <option value="city">City</option>
-                                    <option value="documentNo">Document No</option>
-                                    <option value="district">District</option>
-                                    <option value="daterange">Date Range</option>
-                                    <option value="propertycode">Property Code</option>
-                                </select>
-                            </div>
-                            <div class="form-group mx-sm-3 mb-2" *ngIf="!daterange">
-                                <input type="text" class="form-control" formControlName="searchText" id="searchText"
-                                    placeholder="Search..">
-                            </div>
-                            <div class="form-group mx-sm-3 mb-2" *ngIf="daterange">
-                                <input type="date" class="form-control" formControlName="searchTextdate1" id="searchTextdate1"
-                                    placeholder="Search.."> &nbsp;&nbsp;
-                                <input type="date" class="form-control" formControlName="searchTextdate2" id="searchTextdate2"
-                                    placeholder="Search..">
-                            </div>
-                            <button type="submit" class="btn mb-2 search-btn" (click)="filterItem()">Search</button>
-                
-                            <button type="submit" class="btn mb-2 clear-btn" (click)="propClear()">Clear</button>
-                        </form>
-                    </div>
-
-
-
-                    <div class="table-responsive">
-                        <table class="table table-striped table-bordered table-hover" [mfData]="propertyApproval" #mf="mfDataTable"
-                            [mfRowsOnPage]="5">
-                            <thead>
-                                <tr>
-                                    <!-- <th>
-                                                <mfDefaultSorter by="index">S.No.</mfDefaultSorter>
-                                            </th> -->
-                                    <th >
-                                        <mfDefaultSorter by="propertyCode">Property Code</mfDefaultSorter>
-                                    </th>
-                                    <th>
-                                        <mfDefaultSorter by="propertyType">Property Type</mfDefaultSorter>
-                                    </th>
-                                    <th>
-                                        <mfDefaultSorter by="propertyHolderName">Property Holder Name</mfDefaultSorter>
-                                    </th>
-                                    <th>
-                                        <mfDefaultSorter by="relationship">Relationship</mfDefaultSorter>
-                                    </th>
-                                    <th>
-                                        <mfDefaultSorter by="state">State</mfDefaultSorter>
-                                    </th>
-
-                                    <th>
-                                        <mfDefaultSorter by="addedDate">Added Date</mfDefaultSorter>
-                                    </th>
-                                    <th>
-                                        <mfDefaultSorter by="status">Status</mfDefaultSorter>
-                                    </th>
-                                    <th class='text-center'>
-                                        Action
-                                    </th>
-                                </tr>
-                            </thead>
-
-                            <tbody>
-                                <tr *ngFor="let property of mf.data; let IndexId = index">
-                                    <!-- <td>{{IndexId+1}}</td> -->
-                                    <td>{{property.propertyCode}} </td>
-                                    <td>{{property.propertyType}}</td>
-                                    <td>{{property.propertyHolderName}}</td>
-                                    <td>{{property.relationship}}</td>
-                                    <td>{{property.state}}</td>
-
-
-                                    <td>{{property.addedDate | date :'dd/MM/yyyy'}} </td>
-                                    <td>
-                                        <span *ngIf="property.status==='P'">Pending Approval</span>
-                                        <span *ngIf="property.status==='A'"> Approved</span>
-                                    </td>
-                                    <td class="viewbtn text-center">
-                                        <!-- <i class="fa fa-eye" (click)="viewPropertyFun()"></i> -->
-                                        <i (click)="openModal('custom-modal-33', property)">
-
-                                            <img src="../../assets/images/view-data-img-1.png" width="30px;" class="action-icons-1" />
-                                                   
-                                            
-                                        </i>
-
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="7" style="border:0px !important;padding:0px;">
-                                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
-                                    </td>
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </div>
+                        <button type="submit" class="btn mb-2 clear-btn" (click)="custClear()">Clear</button>
+                    </form>
                 </div>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered" [mfData]="customers" #mf="mfDataTable"
+                        [mfRowsOnPage]="5">
 
-
-
-
-            </div>
-
-
-        </div>
-
-        <div *ngIf="!propertyTab && !alertsTab && transactionsTab && !profileTab && !feedbackTab && !corporateadminTab  && !corporateuserTab">
-            <app-agent-approval> </app-agent-approval>
-        </div>
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab && feedbackTab  && !corporateadminTab  && !corporateuserTab">
-            <app-admin-contactus> </app-admin-contactus>
-        </div>
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab  && corporateadminTab  && !corporateuserTab">
-            <app-corporateadmin></app-corporateadmin>
-        </div>
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab  && !corporateadminTab && corporateuserTab">
-            <app-corporateuser></app-corporateuser>
-        </div>
-
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && profileTab  && !feedbackTab  && !corporateadminTab  && !corporateuserTab">
-            <app-custom-packages></app-custom-packages>
-        </div>
-        <!--start Property Assignment  -->
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab && propertyAssignmentTab && !corporateadminTab  && !corporateuserTab">
-            <app-property-assignment></app-property-assignment>
-        </div>
-        <!--  End Property Assignment  -->
-        <div *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab && adminalertTab  && !feedbackTab && !corporateadminTab  && !corporateuserTab">
-
-            <div class="table-container-style table-th-styles table-responsive">
-                <div class="container-bg-style">
-                    <h5 class="tab-active-heading">Alerts</h5>
-                    <table class="table table-striped table-bordered table-hover" style="border:0px;" [mfData]="adminalerts"
-                        #mf="mfDataTable" [mfRowsOnPage]="5">
                         <thead>
                             <tr>
-
                                 <th>
-                                    <mfDefaultSorter by="subject">Subject</mfDefaultSorter>
+                                    <mfDefaultSorter by="role"> User Type</mfDefaultSorter>
                                 </th>
                                 <th>
-                                    <mfDefaultSorter by="description">Description</mfDefaultSorter>
+                                    <mfDefaultSorter by="firstName"> Name</mfDefaultSorter>
                                 </th>
                                 <th>
-                                    <mfDefaultSorter by="addedDate">Date</mfDefaultSorter>
+                                    <mfDefaultSorter by="email">Email</mfDefaultSorter>
                                 </th>
-
+                                <th>
+                                    <mfDefaultSorter by="mobileNo">Mobile Number</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="addedDate">Added Date</mfDefaultSorter>
+                                </th>
+                                <th class='text-center'>Action
+                                </th>
                             </tr>
                         </thead>
 
                         <tbody>
-                            <tr *ngFor="let user of mf.data; let index = index">
-                                <!-- <td>{{index + 1}}</td> -->
-                                <td>{{user.subject}}</td>
-                                <td>{{user.description}}</td>
-                                <td>{{user.addedDate| date :'dd/MM/yyyy'}}</td>
 
+                            <tr *ngFor="let customer of mf.data; let index = index">
+                                <td><span *ngIf="customer.role==='customer'">Personal</span>
+                                    <span *ngIf="customer.role!=='customer'">Corporate</span></td>
+                                <td>{{customer.firstName}} {{customer.lastName}}</td>
+                                <td>{{customer.email}}</td>
+                                <td>{{customer.mobileNo}}</td>
+                                <td>{{customer.addedDate| date:'dd/MM/yyyy'}}</td>
+                                <td style='text-align:center'>
+                                    <i (click)="custdetails(customer)">
+                                        <img src="../../assets/images/view-data-img-1.png" width="30px;"
+                                            class="action-icons-1" />
+
+                                    </i>
+                                </td>
                             </tr>
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan="4" style="border:0px !important;padding:0px;">
+                                <td colspan="6" style="border:0px !important;padding:0px;">
                                     <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
                                 </td>
                             </tr>
@@ -1248,10 +370,1198 @@
                     </table>
                 </div>
             </div>
+
+
         </div>
+
+        <!-- <app-property-approval [propertyData]="propertyApproval"></app-property-approval> -->
+
+        <modal id="custom-modal-33">
+            <div class="modal">
+
+                <div class="row justify-content-md-center no-gutters">
+                    <div class="modal-body col-md-12" style="padding:0px;">
+
+
+                        <div class='col modal-heading'>
+                            <p style="padding:10px 20px;margin:0px;">Property View:
+                            </p>
+                        </div>
+
+                        <div style='position:absolute;right:20px;top:10px;'>
+                            <i class="fa fa-times closeIcon-style" aria-hidden="true"
+                                (click)="closeModal('custom-modal-33');"></i>
+                        </div>
+
+
+                        <div style='padding: 10px 20px 20px 20px;'>
+                            <div class='row userdashboardTab'>
+                                <ul>
+                                    <li [ngClass]="{'active': propertytabModal}"
+                                        (click)="userdashTabs('PropertyDetailsTab')">Property
+                                        Details
+                                    </li>
+                                    <li [ngClass]="{'active': documentstabModal}"
+                                        (click)="userdashTabs('DocumentsTab')">Documents</li>
+                                    <li [ngClass]="{'active': commentstabModal}" (click)="userdashTabs('CommentsTab')">
+                                        Comments</li>
+                                </ul>
+                            </div>
+
+
+                            <div *ngIf="propertytabModal && !documentstabModal && !commentstabModal">
+
+                                <div class="property-tab-style">
+
+                                    <div class='col' align='center' style='padding-bottom:10px;'>
+                                        <div class="propertyheading" (click)="approve('A')"
+                                            *ngIf="propertystatus==='P'">
+                                            Approve
+                                        </div>
+                                        <div class="propertyheading" (click)="approve('P')"
+                                            *ngIf="propertystatus!=='P'">
+                                            Revert
+                                        </div>
+                                        <div class="propertyheading" (click)="profileeditFun()">
+                                            <i class="fa fa-edit" style="font-size:13px;font-weight: 200"></i>
+                                            Edit
+                                        </div>
+                                    </div>
+                                    <div class="alert alert-success" id="propertyDestination"
+                                        *ngIf="updateuserProfilestatus!=''">
+                                        <a href="#" class="close" data-dismiss="alert">&times;</a>
+                                        <strong>{{updateuserProfilestatus}}</strong>
+                                    </div>
+                                    <form [formGroup]="propertyForm1" (ngSubmit)="updatepropertyFun(propertyForm1)">
+                                        <div class="row">
+                                            <div class="col-md-3">
+
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect1">Type of Property
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" *ngIf="!isEditDisabled"
+                                                        [readonly]="!isEditDisabled" formControlName="propertyType"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.propertyType.errors }"
+                                                        id="propertyType">
+
+                                                    <select *ngIf="isEditDisabled" class="form-control"
+                                                        formControlName="propertyType" (ngModelChange)="getType($event)"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.propertyType.errors }">
+                                                        <option value="" [selected]="selected">Select any Property
+                                                        </option>
+                                                        <option value="Residential">Residential</option>
+                                                        <option value="Commercial">Commercial</option>
+                                                        <option value="Land">Land/Plots/Agricultural</option>
+                                                        <option value="Industrial">Industrial</option>
+                                                    </select>
+                                                    <div *ngIf="submitted && f.propertyType.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.propertyType.errors.required">Type of
+                                                            Property is required</div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="titleHolder">Title Holder
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="propertyHolderName" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.propertyHolderName.errors }"
+                                                        id="titleHolderFormControlInput"
+                                                        placeholder="Enter Title Holder" maxlength="50"
+                                                        (keypress)="isCharts($event)" />
+                                                    <div *ngIf="submitted && f.propertyHolderName.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.propertyHolderName.errors.required">Title
+                                                            Holder is required</div>
+                                                        <div *ngIf="f.propertyHolderName.errors.minlength">Please
+                                                            enter valid Title Holder with minimum of 2 and maximum
+                                                            50 characters</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="relationship">Relationship to customer
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" *ngIf="!isEditDisabled"
+                                                        [readonly]="!isEditDisabled" formControlName="relationship"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.relationship.errors }"
+                                                        id="relationship" placeholder="Enter Relationship to customer">
+
+                                                    <select *ngIf="isEditDisabled" class="form-control"
+                                                        formControlName="relationship" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.relationship.errors }">
+                                                        <option value="" [selected]="selected">Select Relationship
+                                                        </option>
+                                                        <option value="Self">Self</option>
+                                                        <option value="Spouse">Spouse</option>
+                                                        <option value="Parents">Parents</option>
+                                                        <option value="Children">Children</option>
+                                                    </select>
+                                                    <div *ngIf="submitted && f.relationship.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.relationship.errors.required">Relationship to
+                                                            customer is required</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="doorNo">Survey No/Dr No
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="doorNo" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.doorNo.errors }"
+                                                        id="doorNo" placeholder="Enter Survey No/Dr No" maxlength="150">
+                                                    <div *ngIf="submitted && f.doorNo.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.doorNo.errors.required">Survey No/Dr No is
+                                                            required</div>
+                                                        <div *ngIf="f.doorNo.errors.minlength">Please enter valid
+                                                            Survey No/Do NO with minimum 6 and maximum
+                                                            150characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="form-group">
+                                                    <label for="extentOfProperty">Extent of Property
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="extentOfProperty" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.extentOfProperty.errors }"
+                                                        id="extentOfProperty" placeholder="Enter Extent of Property"
+                                                        maxlength="150">
+                                                    <div *ngIf="submitted && f.extentOfProperty.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.extentOfProperty.errors.required">Extent of
+                                                            Property is required</div>
+                                                    </div>
+                                                </div>
+
+
+                                                <!-- <div class="form-group" style="margin-bottom:1px;">
+                                                            <label for="boundaries" style="margin-bottom:1px;">Boundaries
+                                                            </label>
+                                                        </div> -->
+                                                <div class="form-group">
+                                                    <label for="documentno">Document No.
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="documentNo" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.documentNo.errors }"
+                                                        id="documentNoFormControlInput" placeholder="Enter document no."
+                                                        maxlength="30">
+                                                    <div *ngIf="submitted && f.documentNo.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.documentNo.errors.required">Document No. is
+                                                            required</div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+
+
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="subRegisterOffice">Sub Register Office
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="subRegisterOffice" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.subRegisterOffice.errors }"
+                                                        id="subRegisterOfficeFormControlInput"
+                                                        placeholder="Enter Sub Register Office" minlength="6"
+                                                        maxlength="150">
+                                                    <div *ngIf="submitted && f.subRegisterOffice.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.subRegisterOffice.errors.required">Sub
+                                                            Register Office is required
+                                                        </div>
+                                                        <div *ngIf="f.subRegisterOffice.errors.minlength">
+                                                            Please enter valid Sub Register Office with minimum 6
+                                                            and maximum 150 characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="boundaries">Boundaries - North
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="boundariesNorth" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.boundariesNorth.errors }"
+                                                        id="boundariesNorth" placeholder="Enter North" maxlength="50">
+                                                    <div *ngIf="submitted && f.boundariesNorth.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.boundariesNorth.errors.required">Boundaries
+                                                            is required</div>
+                                                        <div *ngIf="f.boundariesNorth.errors.minlength">
+                                                            Please enter valid Boundaries - North with minimum 3
+                                                            and maximum 50 characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="boundaries">Boundaries - South
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="boundariesSouth" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.boundariesSouth.errors }"
+                                                        id="boundariesSouth" placeholder="Enter South" maxlength="50">
+                                                    <div *ngIf="submitted && f.boundariesSouth.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.boundariesSouth.errors.required">Boundaries
+                                                            is required</div>
+                                                        <div *ngIf="f.boundariesNorth.errors.minlength">
+                                                            Please enter valid Boundaries - South with minimum 3
+                                                            and maximum 50 characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="boundaries">Boundaries - East
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="boundariesEast" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.boundariesEast.errors }"
+                                                        id="boundariesEast" placeholder="Enter East" maxlength="50">
+                                                    <div *ngIf="submitted && f.boundariesEast.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.boundariesEast.errors.required">Boundaries is
+                                                            required</div>
+                                                        <div *ngIf="f.boundariesNorth.errors.minlength">
+                                                            Please enter valid Boundaries - East with minimum 3 and
+                                                            maximum 50 characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="boundaries">Boundaries - West
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="boundariesWest" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.boundariesWest.errors }"
+                                                        id="boundariesWest" placeholder="Enter West" maxlength="50">
+                                                    <div *ngIf="submitted && f.boundariesWest.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.boundariesWest.errors.required">Boundaries is
+                                                            required</div>
+                                                        <div *ngIf="f.boundariesNorth.errors.minlength">
+                                                            Please enter valid Boundaries - West with minimum 3 and
+                                                            maximum 50 characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
+
+
+                                            </div>
+
+
+
+
+                                            <div class="col-md-3">
+
+                                                <div class="form-group">
+                                                    <label for="address1">Address 1
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="address1" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.address1.errors }"
+                                                        id="address1FormControlInput" placeholder="Enter Address 1"
+                                                        maxlength="150">
+                                                    <div *ngIf="submitted && f.address1.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.address1.errors.required">Address 1 is
+                                                            required
+                                                        </div>
+                                                        <div *ngIf="f.address1.errors.minlength">Please enter valid
+                                                            address1 with minimum of 6 and maximum 150
+                                                            characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="address2">Address 2
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="address2" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.address2.errors }"
+                                                        id="address1FormControlInput" placeholder="Enter Address 2"
+                                                        maxlength="150">
+                                                    <div *ngIf="submitted && f.address2.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.address2.errors.required">Address 2 is
+                                                            required
+                                                        </div>
+                                                        <div *ngIf="f.address2.errors.minlength">Please enter valid
+                                                            address2 with minimum of 6 and maximum 150
+                                                            characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="state">State
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+
+                                                    <input type="text" *ngIf="!isEditDisabled"
+                                                        [readonly]="!isEditDisabled" formControlName="state"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.state.errors }"
+                                                        id="stateFormControlInput" placeholder="Enter State">
+
+                                                    <select *ngIf="isEditDisabled" class="form-control"
+                                                        formControlName="state" (ngModelChange)="getstate($event)"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.state.errors }">
+                                                        <option value="" [selected]="selected">Select State</option>
+                                                        <option value="AndhraPradesh">Andhrapradesh</option>
+                                                        <option value="Karnataka">Karnataka</option>
+                                                        <option value="Telangana">Telangana</option>
+                                                    </select>
+
+                                                    <div *ngIf="submitted && f.state.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.state.errors.required">State is required
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="district">District
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+
+                                                    <input type="text" *ngIf="!isEditDisabled"
+                                                        [readonly]="!isEditDisabled" formControlName="district"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.district.errors }"
+                                                        id="districtFormControlInput" placeholder="Enter District">
+
+                                                    <select *ngIf="isEditDisabled" class="form-control"
+                                                        formControlName="district" (ngModelChange)="getdistrict($event)"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.district.errors }">
+                                                        <option value="" [selected]="selected">Select District</option>
+                                                        <option value="{{dist.district}}"
+                                                            *ngFor="let dist of districts">{{dist.district}}</option>
+                                                    </select>
+                                                    <div *ngIf="submitted && f.district.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.district.errors.required">District is
+                                                            required
+                                                        </div>
+                                                    </div>
+
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="mandal">Mandal
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+
+                                                    <input *ngIf="!isEditDisabled" type="text"
+                                                        [readonly]="!isEditDisabled" formControlName="mandal"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.mandal.errors }"
+                                                        id="mandalFormControlInput" placeholder="Enter Mandal">
+
+                                                    <select *ngIf="isEditDisabled" class="form-control"
+                                                        formControlName="mandal" (ngModelChange)="getmandal($event)"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.mandal.errors }">
+                                                        <option value="" [selected]="selected">Select Mandal</option>
+                                                        <option value="{{dist.mandal}}" *ngFor="let dist of mandals">
+                                                            {{dist.mandal}}</option>
+                                                    </select>
+                                                    <div *ngIf="submitted && f.mandal.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.mandal.errors.required">Mandal is required
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="city">Village/City
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input *ngIf="!isEditDisabled" type="text"
+                                                        [readonly]="!isEditDisabled" formControlName="city"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.city.errors }"
+                                                        id="city" placeholder="Enter City">
+
+                                                    <select *ngIf="isEditDisabled" class="form-control"
+                                                        formControlName="city" (ngModelChange)="getvillage($event)"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.city.errors }">
+                                                        <option value="" [selected]="selected">Select Village</option>
+                                                        <option value="{{dist.village}}" *ngFor="let dist of villages">
+                                                            {{dist.village}}</option>
+                                                    </select>
+                                                    <div *ngIf="submitted && f.city.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.city.errors.required">Village/City is
+                                                            required
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+
+
+                                                <div class="form-group">
+                                                    <label for="zip">zip Code
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="zip" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.zip.errors }"
+                                                        id="zipFormControlInput" placeholder="Enter zipCode"
+                                                        maxlength="10">
+                                                    <div *ngIf="submitted && f.zip.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.zip.errors.required">zipCode is required
+                                                        </div>
+                                                        <div *ngIf="f.zip.errors.minlength">Please enter a valid
+                                                            zip code with a minimum of 4 and maximum
+                                                            10 alphanumeric</div>
+
+                                                    </div>
+                                                </div>
+
+
+
+
+                                            </div>
+
+
+                                            <!-- corporate details-->
+                                            <div class="col-md-3" *ngIf="iscorporate">
+
+                                                <div class="form-group">
+                                                    <label for="address1">Case/Ref No
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" [readonly]="!isEditDisabled"
+                                                        formControlName="caseno" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.caseno.errors }"
+                                                        id="casenoFormControlInput"
+                                                        placeholder="Please Enter Case / Ref No" maxlength="50">
+                                                    <div *ngIf="submitted && f.caseno.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.caseno.errors.required">Case/Ref No is required
+                                                        </div>
+                                                        <div *ngIf="f.caseno.errors.minlength">Please enter valid Case
+                                                            No with minimum 3
+                                                            and maximum 50 characters
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="address2">FIR Date
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" formControlName="fir"
+                                                        [readonly]="!isEditDisabled" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.fir.errors }"
+                                                        placeholder="Please Enter FIR Date" maxlength="50">
+                                                    <div *ngIf="submitted && f.fir.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.fir.errors.required">FIR Date is required</div>
+                                                        <div *ngIf="f.fir.errors.minlength">Please enter valid FIR with
+                                                            minimum 3 and
+                                                            maximum 50 characters</div>
+
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="state">PAO No and Date
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" formControlName="pao"
+                                                        [readonly]="!isEditDisabled" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.pao.errors }"
+                                                        id="boundariesFormControlInput"
+                                                        placeholder="Please Enter PAO no and Date" maxlength="50">
+                                                    <div *ngIf="submitted && f.pao.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.pao.errors.required">PAO No and Date is required
+                                                        </div>
+                                                        <div *ngIf="f.pao.errors.minlength">Please enter valid PAO No
+                                                            and Date with
+                                                            minimum 3 and maximum 50 characters</div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="district">IO Name
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" formControlName="ioname"
+                                                        [readonly]="!isEditDisabled" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.ioname.errors }"
+                                                        id="boundariesFormControlInput"
+                                                        placeholder="Please Enter IO Name" maxlength="50">
+                                                    <div *ngIf="submitted && f.ioname.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.ioname.errors.required">IO Name is required</div>
+                                                        <div *ngIf="f.ioname.errors.minlength">Please enter valid IO
+                                                            Name with minimum 3
+                                                            and maximum 50 characters</div>
+
+                                                    </div>
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="mandal">Zonal Head Name
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" formControlName="zheadname"
+                                                        [readonly]="!isEditDisabled" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.zheadname.errors }"
+                                                        id="boundariesFormControlInput"
+                                                        placeholder="Please Enter Zonal Head Name" maxlength="50">
+                                                    <div *ngIf="submitted && f.zheadname.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.zheadname.errors.required">Zonal Head Name is
+                                                            required</div>
+                                                        <div *ngIf="f.zheadname.errors.minlength">Please enter valid
+                                                            Zonal Head Name
+                                                            with minimum 3 and maximum 50 characters</div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="city">Regional Head Name
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+                                                    <input type="text" formControlName="rheadname"
+                                                        [readonly]="!isEditDisabled" class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.rheadname.errors }"
+                                                        id="boundariesFormControlInput"
+                                                        placeholder="Please Enter Regional Head Name" maxlength="50">
+                                                    <div *ngIf="submitted && f.rheadname.errors"
+                                                        class="invalid-feedback">
+                                                        <div *ngIf="f.rheadname.errors.required">Regional Head Name is
+                                                            required</div>
+                                                        <div *ngIf="f.rheadname.errors.minlength">Please enter valid
+                                                            Regional Head Name
+                                                            with minimum 3 and maximum 50 characters</div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="state">Zone
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+
+                                                    <input type="text" *ngIf="!isEditDisabled"
+                                                        [readonly]="!isEditDisabled" formControlName="zone"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.zone.errors }"
+                                                        id="stateFormControlInput">
+
+                                                    <select class="form-control" *ngIf="isEditDisabled"
+                                                        formControlName="zone" (ngModelChange)="getZone($event)"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.zone.errors }">
+                                                        <option value="" [selected]="selected">Select Zone</option>
+                                                        <option value="Zone1">Zone1</option>
+                                                        <option value="Zone2">Zone2</option>
+                                                        <option value="Zone3">Zone3</option>
+                                                    </select>
+                                                    <div *ngIf="submitted && f.zone.errors" class="invalid-feedback">
+                                                        <div *ngIf="f.zone.errors.required">Zone is required</div>
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="state">Company
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+
+                                                    <input type="text" *ngIf="!isEditDisabled"
+                                                        [readonly]="!isEditDisabled" formControlName="cmpName"
+                                                        class="form-control" 
+                                                        id="stateFormControlInput" placeholder="Enter Company">
+
+                                                     <select type="text"  *ngIf="isEditDisabled" formControlName="company" class="form-control"
+                                                    (ngModelChange)="getCompanyUser($event)" placeholder="Company Name"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.company.errors }">
+                                                    <option value="">Select Company</option>
+                                                    <option value={{cm.code}}$${{cm.name}} *ngFor="let cm of companies">{{cm.name}}</option>
+                                                </select>
+                                                <div *ngIf="submitted && f.company.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.company.errors.required">Company is required</div>
+                                                </div>
+
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="state">Company User
+                                                        <span class="mandatory">*</span>
+                                                    </label>
+
+                                                    <input type="text" *ngIf="!isEditDisabled"
+                                                        [readonly]="!isEditDisabled" formControlName="cmpUserEmail"
+                                                        class="form-control"
+                                                        [ngClass]="{ 'is-invalid': submitted && f.companyuser.errors }"
+                                                        id="stateFormControlInput" placeholder="Enter Compnay User">
+
+                                                    <select type="text" *ngIf="isEditDisabled"  formControlName="companyuser" class="form-control"
+                                                    placeholder="Company Name"
+                                                    [ngClass]="{ 'is-invalid': submitted && f.companyuser.errors }">
+                                                    <option value="">Select Company User</option>
+                                                    <option value={{cm.id}}$${{cm.email}} *ngFor="let cm of companyusers">
+                                                        {{cm.email}}</option>
+                                                </select>
+                                                <div *ngIf="submitted && f.companyuser.errors" class="invalid-feedback">
+                                                    <div *ngIf="f.companyuser.errors.required">Company User is required</div>
+                                                </div>
+
+                                                </div>
+
+
+                                            </div>
+                                            <!-- corporate details end-->
+                                        </div>
+
+                                        <div class='col' align='center'>
+                                            <label>
+                                                <!-- <button type="submit" class="btn btn-primary" [disabled]="!userloginForm.valid" >Submit</button> -->
+                                                <button type="submit" class="submit-btn"
+                                                    [class.disabled-btn]="!isEditDisabled">Update</button>
+                                            </label>
+
+                                            <label>
+                                                <button class="submit-btn"
+                                                    (click)="closeModal('custom-modal-33');">Close</button>
+                                            </label>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
+
+
+
+
+                            <div *ngIf="!propertytabModal && documentstabModal && !commentstabModal">
+                                <div class="property-tab-style table-container-style">
+
+                                    <div>
+
+                                        <table *ngIf="propertydocs.length>0" class="table table-striped table-bordered"
+                                            [mfData]="propertydocs" #mf="mfDataTable" [mfRowsOnPage]="5">
+
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <mfDefaultSorter by="documentName">Document Name
+                                                        </mfDefaultSorter>
+                                                    </th>
+                                                    <th>
+                                                        <mfDefaultSorter by="addedDate">Uploaded Date</mfDefaultSorter>
+                                                    </th>
+                                                    <th>Remove
+                                                    </th>
+                                                    <th>Download
+                                                    </th>
+                                                    <th>View
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody>
+
+                                                <tr *ngFor="let doc of mf.data; let index = index">
+                                                    <td>{{doc.documentName}}</td>
+                                                    <td>{{doc.addedDate}}</td>
+
+                                                    <td style='text-align:center'>
+
+                                                        <i style="cursor: pointer"
+                                                            (click)="modalDeleteDocument('confirm-delete-document', doc.id)"
+                                                            class="fa fa-trash" aria-hidden="true"></i>
+                                                    </td>
+
+                                                    <td style='text-align:center'>
+
+                                                        <i style="cursor: pointer" (click)="getDownloadUrl(doc.id)"
+                                                            class="fa fa-download" aria-hidden="true"></i>
+
+                                                    </td>
+                                                    <td style='text-align:center'>
+                                                        <a style="cursor: pointer;color: black" target="new"
+                                                            href={{viewur}}{{doc.id}}>
+                                                            <i class="fa fa-eye" aria-hidden="true"> </i></a>
+
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="4" style="border:0px !important;padding:0px;">
+                                                        <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]">
+                                                        </mfBootstrapPaginator>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <div class='col upload-container-style' *ngIf="propertydocs.length <= 15">
+
+                                        <form [formGroup]="documentGrp">
+                                            <div class="row">
+                                                <label for="Upload your documents">Upload Property Documents:
+                                                </label>
+                                            </div>
+
+                                            <div class="form-inline" style="margin-bottom:4px;">
+                                                <div class="form-group uploadfile-style">
+                                                    <input type="file" name="file" formControlName="file"
+                                                        title="Browse Document" class="form-control-file"
+                                                        (change)="importfile($event)">
+                                                </div>
+                                                <button type="button" class="upload-btn"
+                                                    (click)="fileSelectionEvent()">Upload</button>
+
+                                            </div>
+
+
+
+                                        </form>
+
+                                    </div>
+
+                                </div>
+
+
+                            </div>
+                            <div *ngIf="!propertytabModal && !documentstabModal && commentstabModal">
+
+                                <div class="col property-tab-style">
+                                    <form [formGroup]="commentForm" (ngSubmit)="commentFun(commentForm)">
+                                        <!-- enctype="multipart/form-data" -->
+
+
+                                        <h6>Add Comment</h6>
+                                        <div class="form-group row">
+
+                                            <label for="exampleFormControlSelect1"
+                                                class="col-sm-2 col-form-label">Current
+                                                Status
+                                                <span class="mandatory">*</span>
+                                            </label>
+                                            <div class="col-sm-5">
+                                                <select class="form-control" formControlName="typeofProperty"
+                                                    (ngModelChange)="getType($event)" class="form-control">
+
+                                                    <option value="nochanges">No Changes</option>
+                                                    <option value="roadexpansion">Road Expansion</option>
+
+                                                    <option value="Encroachment">Encroachment</option>
+                                                    <option value="Illegalcontract">Illegal contract</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="form-group row">
+                                            <label for="exampleFormControlTextarea1"
+                                                class="col-sm-2 col-form-label">Comments
+                                                <span class="mandatory">*</span>
+                                            </label>
+                                            <div class="col-sm-5">
+                                                <textarea class="form-control" style="resize:none;text-align:left;"
+                                                    id="exampleFormControlTextarea1" rows="3"
+                                                    formControlName="commentfield" class="form-control"
+                                                    [ngClass]="{ 'is-invalid': submitted && c.commentfield.errors }"
+                                                    maxlength="500">
+                                                        </textarea>
+
+
+                                                <div *ngIf="submitted && c.commentfield.errors"
+                                                    class="invalid-feedback">
+                                                    <div *ngIf="c.commentfield.errors.required">Comment is required
+                                                    </div>
+                                                    <div *ngIf="c.commentfield.errors.minlength">Please enter
+                                                        comments with minimum 3 and maximum 500 characters
+                                                    </div>
+
+                                                    <div
+                                                        style="position:absolute;right:15px;bottom:0px;font-size: 14px;color:#ccc">{{c.commentfield.value
+                                                            ? c.commentfield.value.length : 0}}/500</div>
+
+                                                </div>
+
+                                                <div *ngIf="c.commentfield.errors===null || !submitted"
+                                                    style="position:absolute;right:15px;bottom:-25px;font-size: 14px;color:#ccc">{{c.commentfield.value
+                                                        ? c.commentfield.value.length : 0}}/500</div>
+
+
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row">
+
+                                            <label for="exampleFormControlSelect1"
+                                                class="col-sm-2 col-form-label">Upload
+                                                Document
+
+                                            </label>
+                                            <div class="col-sm-4">
+                                                <div class="form-group uploadfile-style">
+                                                    <input type="file" name="commentfile" formControlName="commentfile"
+                                                        title="Browse Document" class="form-control-file"
+                                                        (change)="fileSelectionEventcomments($event)">
+                                                    <!-- multiple="multiple" -->
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+
+                                        <div class="col" align="center" style="margin-top:20px;">
+                                            <button type="submit" class="submit-btn">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <div class="col comment-heading">
+                                    <h6>Property Comments</h6>
+                                </div>
+                                <div class='col comments-style scrolling-comment'>
+                                    <table class="col-sm-12" [mfData]="comments" #mf="mfDataTable" [mfRowsOnPage]="5">
+                                        <tbody>
+                                            <tr *ngFor="let comment of mf.data;let IndexId = index">
+                                                <td>
+                                                    <div class="commentbox-style-1">
+                                                        <p class="comment-role">By {{comment.role}},</p>
+                                                        <p class="comment-description" *ngIf="comment.severity!=='' ">
+                                                            <b>Property Status</b> :
+                                                            <span *ngIf="comment.severity==='nochanges' ">No Changes
+                                                            </span>
+                                                            <span *ngIf="comment.severity==='roadexpansion' ">Road
+                                                                Expansion</span>
+                                                            <span
+                                                                *ngIf="comment.severity==='Encroachment' ">Encroachment</span>
+                                                            <span *ngIf="comment.severity==='Illegalcontract' ">Illegal
+                                                                contract</span>
+                                                            <span *ngIf="comment.severity==='Others' ">Others</span>
+                                                        </p>
+                                                        <p class="comment-description"><b>Comment</b>
+                                                            :{{comment.description}}</p>
+                                                        <span class="comment-reply-btn"
+                                                            *ngIf="comment.documentName!=null">
+                                                            <a style="cursor: pointer;color: #f9a069" target="new"
+                                                                href={{viewcommentur}}{{comment.id}}>
+                                                                <i class="fa fa-eye" aria-hidden="true"> </i></a>
+
+                                                        </span>
+                                                        <span class="comment-reply-btn">
+                                                            <i style="cursor: pointer"
+                                                                *ngIf="comment.documentName!==null"
+                                                                (click)="getporpertyCommentdocDownloadUrl(comment.id)"
+                                                                class="fa fa-download" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="comment-hrs">On {{comment.addedDate | date:
+                                                                'dd/MM/yyyy HH:mm:ss a'}}</span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <td colspan="1" style="border:0px !important;padding:0px;">
+                                                    <mfBootstrapPaginator></mfBootstrapPaginator>
+                                                </td>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-background"></div>
+            <app-loading-div-component1 *ngIf="isLoaderdiv"></app-loading-div-component1>
+        </modal>
+
+        <div
+            *ngIf="!propertyTab && alertsTab && !transactionsTab && !profileTab  && !feedbackTab && !corporateadminTab  && !corporateuserTab && !corporatepropertyTab">
+
+
+            <!-- confirm modal for delete action-->
+            <modal id="confirm-delete-document">
+                <div class="modal confirmDocumentDelete">
+                    <div class="row justify-content-md-center justify-content-sm-center no-gutters">
+                        <div class="modal-body col-md-5 col-sm-8" style="padding:0px;">
+
+                            <div class='col modal-heading'>
+                                <p class="padding-heading-modal">Confirm?
+                                </p>
+                            </div>
+                            <!-- <app-loading-div *ngIf="isLoading"></app-loading-div> -->
+
+                            <div class="close-icon-style">
+                                <i class="fa fa-times closeIcon-style" aria-hidden="true"
+                                    (click)="closeModal('confirm-delete-document');"></i>
+                            </div>
+                            <div>
+                                <div class="col content-style">
+                                    <p>
+                                        Are you sure to delete this Document?
+                                    </p>
+                                </div>
+                                <div class='col btn-bottom-style'>
+                                    <button class="submit-btn-delete" (click)="deldocFun();">Delete</button>
+                                    <button class="submit-btn"
+                                        (click)="closeModal('confirm-delete-document');">Cancel</button>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-background"></div>
+                <app-loading-div-component1 *ngIf="isLoading"></app-loading-div-component1>
+            </modal>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="table-container-style table-th-styles">
+                <h5 class="tab-active-heading">Propert Approval</h5>
+                <div class="col-sm-12 seach-box">
+
+                    <form class="form-inline" [formGroup]="searchGrp">
+                        <div class="form-group mb-2">
+                            <select class="form-control" formControlName="searchType" name="searchType"
+                                (ngModelChange)="getSearchType1($event)">
+                                <option value="propertyHolderName">Name</option>
+                                <option value="state">State</option>
+                                <option value="city">City</option>
+                                <option value="documentNo">Document No</option>
+                                <option value="district">District</option>
+                                <option value="daterange">Date Range</option>
+                                <option value="propertycode">Property Code</option>
+                            </select>
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2" *ngIf="!daterange">
+                            <input type="text" class="form-control" formControlName="searchText" id="searchText"
+                                placeholder="Search..">
+                        </div>
+                        <div class="form-group mx-sm-3 mb-2" *ngIf="daterange">
+                            <input type="date" class="form-control" formControlName="searchTextdate1"
+                                id="searchTextdate1" placeholder="Search.."> &nbsp;&nbsp;
+                            <input type="date" class="form-control" formControlName="searchTextdate2"
+                                id="searchTextdate2" placeholder="Search..">
+                        </div>
+                        <button type="submit" class="btn mb-2 search-btn" (click)="filterItem()">Search</button>
+
+                        <button type="submit" class="btn mb-2 clear-btn" (click)="propClear()">Clear</button>
+                    </form>
+                </div>
+
+
+
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" [mfData]="propertyApproval"
+                        #mf="mfDataTable" [mfRowsOnPage]="5">
+                        <thead>
+                            <tr>
+                                <!-- <th>
+                                                <mfDefaultSorter by="index">S.No.</mfDefaultSorter>
+                                            </th> -->
+                                <th>
+                                    <mfDefaultSorter by="propertyCode">Property Code</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="propertyType">Property Type</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="propertyHolderName">Property Holder Name</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="relationship">Relationship</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="state">State</mfDefaultSorter>
+                                </th>
+
+                                <th>
+                                    <mfDefaultSorter by="addedDate">Added Date</mfDefaultSorter>
+                                </th>
+                                <th>
+                                    <mfDefaultSorter by="status">Status</mfDefaultSorter>
+                                </th>
+                                <th class='text-center'>
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr *ngFor="let property of mf.data; let IndexId = index">
+                                <!-- <td>{{IndexId+1}}</td> -->
+                                <td>{{property.propertyCode}} </td>
+                                <td>{{property.propertyType}}</td>
+                                <td>{{property.propertyHolderName}}</td>
+                                <td>{{property.relationship}}</td>
+                                <td>{{property.state}}</td>
+
+
+                                <td>{{property.addedDate | date :'dd/MM/yyyy'}} </td>
+                                <td>
+                                    <span *ngIf="property.status==='P'">Pending Approval</span>
+                                    <span *ngIf="property.status==='A'"> Approved</span>
+                                </td>
+                                <td class="viewbtn text-center">
+                                    <!-- <i class="fa fa-eye" (click)="viewPropertyFun()"></i> -->
+                                    <i (click)="openModal('custom-modal-33', property)">
+
+                                        <img src="../../assets/images/view-data-img-1.png" width="30px;"
+                                            class="action-icons-1" />
+
+
+                                    </i>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="7" style="border:0px !important;padding:0px;">
+                                    <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
 
     </div>
 
+    <div
+        *ngIf="!propertyTab && !alertsTab && transactionsTab && !profileTab && !feedbackTab && !corporateadminTab  && !corporateuserTab && !corporatepropertyTab">
+        <app-agent-approval> </app-agent-approval>
+    </div>
+    <div
+        *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab && feedbackTab  && !corporateadminTab  && !corporateuserTab && !corporatepropertyTab">
+        <app-admin-contactus> </app-admin-contactus>
+    </div>
+    <div
+        *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab  && corporateadminTab  && !corporateuserTab && !corporatepropertyTab">
+        <app-corporateadmin></app-corporateadmin>
+    </div>
+    <div
+        *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab  && !corporateadminTab && corporateuserTab && !corporatepropertyTab">
+        <app-corporateuser></app-corporateuser>
+    </div>
+    <div
+        *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab  && !corporateadminTab && !corporateuserTab && corporatepropertyTab">
+        <app-corporateproperty></app-corporateproperty>
+    </div>
+
+    <div
+        *ngIf="!propertyTab && !alertsTab && !transactionsTab && profileTab  && !feedbackTab  && !corporateadminTab  && !corporateuserTab && !corporatepropertyTab">
+        <app-custom-packages></app-custom-packages>
+    </div>
+    <!--start Property Assignment  -->
+    <div
+        *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab  && !feedbackTab && propertyAssignmentTab && !corporateadminTab  && !corporateuserTab && !corporatepropertyTab">
+        <app-property-assignment></app-property-assignment>
+    </div>
+    <!--  End Property Assignment  -->
+    <div
+        *ngIf="!propertyTab && !alertsTab && !transactionsTab && !profileTab && adminalertTab  && !feedbackTab && !corporateadminTab  && !corporateuserTab && !corporatepropertyTab">
+
+        <div class="table-container-style table-th-styles table-responsive">
+            <div class="container-bg-style">
+                <h5 class="tab-active-heading">Alerts</h5>
+                <table class="table table-striped table-bordered table-hover" style="border:0px;" [mfData]="adminalerts"
+                    #mf="mfDataTable" [mfRowsOnPage]="5">
+                    <thead>
+                        <tr>
+
+                            <th>
+                                <mfDefaultSorter by="subject">Subject</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="description">Description</mfDefaultSorter>
+                            </th>
+                            <th>
+                                <mfDefaultSorter by="addedDate">Date</mfDefaultSorter>
+                            </th>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let user of mf.data; let index = index">
+                            <!-- <td>{{index + 1}}</td> -->
+                            <td>{{user.subject}}</td>
+                            <td>{{user.description}}</td>
+                            <td>{{user.addedDate| date :'dd/MM/yyyy'}}</td>
+
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" style="border:0px !important;padding:0px;">
+                                <mfBootstrapPaginator [rowsOnPageSet]="[5,10,25]"></mfBootstrapPaginator>
+                            </td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
-    <app-loading-div-component1 *ngIf="isLoading"></app-loading-div-component1>
+
+<app-loading-div-component1 *ngIf="isLoading"></app-loading-div-component1>

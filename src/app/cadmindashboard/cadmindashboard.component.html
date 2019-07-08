@@ -1,45 +1,53 @@
 <!-- row justify-content-md-center no-gutters -->
 <div class="row no-gutters container-top-padding">
 
-  <div class="col-md-2" style="background-color:#022a39;padding:0px;margin-top: -6PX;">
+    <div class="col-md-2" style="background-color:#022a39;padding:0px;margin-top: -6PX;">
 
-      <div class="leftside-menu">
-          <div class="registeruserName">
-              <div>
-                  <img src="../../assets/images/user_profile_pic.png" class="profile-img">
-              </div>
+        <div class="leftside-menu">
+            <div class="registeruserName">
+                <div>
+                    <img src="../../assets/images/user_profile_pic.png" class="profile-img">
+                </div>
 
-              <div>{{user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)}} {{user.lastName.charAt(0).toUpperCase()
+                <div>{{user.firstName.charAt(0).toUpperCase() + user.firstName.slice(1)}} {{user.lastName.charAt(0).toUpperCase()
                   + user.lastName.slice(1)}}</div>
-              <!-- <span>Last Login : 2 Hours Ago</span> -->
-          </div>
+                <!-- <span>Last Login : 2 Hours Ago</span> -->
+            </div>
 
-          <ul>
-              <li title="Add or View Properties" [ngClass]="{'activeTabdash': reportsTab}" (click)="userdashTabs('reports')">
+            <ul>
+                <li title="Add or View Properties" [ngClass]="{'activeTabdash': reportsTab}"
+                    (click)="userdashTabs('reports')">
 
-                  <i class="fa fa-home icon-padding-right"></i> Reports
+                    <i class="fa fa-home icon-padding-right"></i> Reports
+                </li>
+                <li title="System Generated Alerts" [ngClass]="{'activeTabdash': userTab}"
+                    (click)="userdashTabs('corporateuser')">
+
+                    <i class="fa fa-bell icon-padding-right"></i> User Creation
+                </li>
+                <li title='Portal feedback' [ngClass]="{'activeTabdash': corporatepropertyTab}" (click)="userdashTabs('corporateproperty')">
+                    <i class="fa fa-user"></i> Corporate Property Assignment
               </li>
-              <li title="System Generated Alerts" [ngClass]="{'activeTabdash': userTab}" (click)="userdashTabs('corporateuser')">
-
-                  <i class="fa fa-bell icon-padding-right"></i> User Creation
-              </li>
-             
-              <!-- <li title="Profile View" [ngClass]="{'activeTabdash': profileTab}" (click)="userdashTabs('Profile')">
+                <!-- <li title="Profile View" [ngClass]="{'activeTabdash': profileTab}" (click)="userdashTabs('Profile')">
                   <i class="fa fa-user"></i> Profile
               </li> -->
 
-          </ul>
-      </div>
+            </ul>
+        </div>
 
-  </div>
+    </div>
 
-  <div class="col-md-10 right-content-bg" style="padding:15px;">
+    <div class="col-md-10 right-content-bg" style="padding:15px;">
 
-    <div *ngIf="reportsTab && !userTab">
-Reports
-      </div>
-      <div *ngIf="!reportsTab && userTab">
-          User creation
-          <app-corporateuser></app-corporateuser>
-                </div>
+        <div *ngIf="reportsTab && !userTab && !corporatepropertyTab">
+            Reports
+        </div>
+        <div *ngIf="!reportsTab && userTab && !corporatepropertyTab">
+            
+            <app-corporateuser></app-corporateuser>
+        </div>
+        <div *ngIf="!reportsTab && !userTab && corporatepropertyTab">
+           
+            <app-corporateproperty></app-corporateproperty>
+        </div>
     </div>

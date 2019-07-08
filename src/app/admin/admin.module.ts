@@ -23,6 +23,7 @@ import { CorporateadminComponent } from './corporateadmin/corporateadmin.compone
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { Ng2TelInputModule } from 'ng2-tel-input';
 import { CorporateuserComponent } from './corporateuser/corporateuser.component';
+import { CorporatepropertyComponent } from './corporateproperty/corporateproperty.component';
 
 
 const appRoutes: Routes = [
@@ -41,9 +42,9 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes, { enableTracing: true }),DataTableModule,NgxCaptchaModule,Ng2TelInputModule
 
   ],
-  declarations: [LoginComponent, AdmindashboardComponent, ModalComponent, PropertyApprovalComponent, AgentApprovalComponent, PaymentApprovalComponent, CustomPackagesComponent, PropertyCommentsComponent, PortalFeedbackComponent, LoadingDivComponent1Component, AdminContactusComponent, PropertyAssignmentComponent, CorporateadminComponent, CorporateuserComponent],
+  declarations: [LoginComponent, AdmindashboardComponent, ModalComponent, PropertyApprovalComponent, AgentApprovalComponent, PaymentApprovalComponent, CustomPackagesComponent, PropertyCommentsComponent, PortalFeedbackComponent, LoadingDivComponent1Component, AdminContactusComponent, PropertyAssignmentComponent, CorporateadminComponent, CorporateuserComponent, CorporatepropertyComponent],
   providers: [ModalService,RoleGuard],
-  exports:[CorporateuserComponent]
+  exports:[CorporateuserComponent,CorporatepropertyComponent]
 
 })
 export class AdminModule { }

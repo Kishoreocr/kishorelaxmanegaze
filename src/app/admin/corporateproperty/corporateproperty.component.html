@@ -1,0 +1,631 @@
+<div class="container-fluid no-gutters no-paddings container-bg inner-page-bg">
+    <div class="container">
+
+        <div class="table-container-style">
+            <div class="alert alert-success" id="propertyDestination"
+                *ngIf="propertyStatus && propertyStatus.length > 0">
+                <a href="#" class="close" data-dismiss="alert">&times;</a>
+                <strong>{{propertyStatus}}</strong>
+            </div>
+
+            <div class="row verticalTab" style='margin:0px'>
+                <div class="col-md-6">
+                    <h5 class="tab-active-heading">Add Property Details</h5>
+                </div>
+                <!-- <ul>
+                <li [ngClass]="{'deactive': !propertyDetails}" (click)="userdashTabs('propertyDetailsTab')">Add Property Details
+                </li>
+                <li [ngClass]="{'deactive': !propertyDocuments}" (click)="userdashTabs('propertyDocumentsTab')">Documents</li> 
+            </ul> -->
+
+
+                <div ailgn="right" class="col-md-6" style="padding-right: 0px !important;">
+                    <!-- <div class="propertyheading" style="float:right;margin-bottom: 10px;" (click)="propertyFunView()">
+                    <i class="fa fa-eye" style="font-size:13px;font-weight: 200;"></i> View Properties
+                </div> -->
+                </div>
+
+            </div>
+
+            <div class="col" style='background-color: #fbfbfb !important;
+        padding: 20px;'>
+                <form [formGroup]="propertyForm" (ngSubmit)="addPropertyFun(propertyForm)">
+
+                    <div class="row">
+
+
+
+                        <div *ngIf="firstFormStep" class="col-md-8 no-padding" style="font-size: 13px;">
+
+
+                            <div class="form-group row">
+                                <label class="col-sm-4 col-form-label" for="exampleFormControlSelect1">Type of Property
+                                    <span class="mandatory">*</span>
+                                </label>
+
+                                <div class="col-sm-8">
+                                    <select class="form-control" formControlName="typeofProperty"
+                                        (ngModelChange)="getType($event)" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.typeofProperty.errors }">
+                                        <option value="" [selected]="selected">Select any Property</option>
+                                        <option value="Residential">Residential</option>
+                                        <option value="Commercial">Commercial</option>
+                                        <option value="Land">Land/Plots/Agricultural</option>
+                                        <option value="Industrial">Industrial</option>
+                                    </select>
+                                    <div *ngIf="psubmitted && f.typeofProperty.errors" class="invalid-feedback">
+                                        <div *ngIf="f.typeofProperty.errors.required">Type of Property is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="titleHolder" class="col-sm-4 col-form-label">Title Holder
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="titleHolder" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.titleHolder.errors }"
+                                        id="titleHolderFormControlInput" placeholder="Please Enter Title Holder"
+                                        minlength="2" maxlength="30" (keypress)="isCharts($event)" />
+                                    <div *ngIf="psubmitted && f.titleHolder.errors" class="invalid-feedback">
+                                        <div *ngIf="f.titleHolder.errors.required">Title Holder is required</div>
+                                        <div *ngIf="f.titleHolder.errors.minlength">Title Holder should be minimum 2
+                                            characters</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="RelationshipTocustomer" class="col-sm-4 col-form-label">Relationship to
+                                    customer
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" formControlName="relationshipTocustomer"
+                                        (ngModelChange)="getreltionType($event)" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.relationshipTocustomer.errors }">
+                                        <option value="" [selected]="selected">Select Relationship</option>
+                                        <option value="Self">Self</option>
+                                        <option value="Spouse">Spouse</option>
+                                        <option value="Parents">Parents</option>
+                                        <option value="Children">Children</option>
+                                    </select>
+
+                                    <div *ngIf="psubmitted && f.relationshipTocustomer.errors" class="invalid-feedback">
+                                        <div *ngIf="f.relationshipTocustomer.errors.required">Relationship to customer
+                                            is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="surveyNo/DrNo" class="col-sm-4 col-form-label">Survey No/Dr No
+                                    <span class="mandatory">*</span>
+                                </label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="surveyNoDrNo" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.surveyNoDrNo.errors }"
+                                        id="surveyNo/DrNoFormControlInput" placeholder="Please Enter Survey No/Dr No"
+                                        minlength="6" maxlength="150">
+                                    <div *ngIf="psubmitted && f.surveyNoDrNo.errors" class="invalid-feedback">
+                                        <div *ngIf="f.surveyNoDrNo.errors.required">Survey No/Dr No is required</div>
+                                        <div *ngIf="f.surveyNoDrNo.errors.minlength">Please enter valid Survey No/Do NO
+                                            with minimum 6 and maximum 150characters</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="extentofProperty" class="col-sm-4 col-form-label">Extent of Property
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="extentofProperty" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.extentofProperty.errors }"
+                                        id="extentofPropertyFormControlInput"
+                                        placeholder="Please Enter Extent Of Property" maxlength="150">
+                                    <div *ngIf="psubmitted && f.extentofProperty.errors" class="invalid-feedback">
+                                        <div *ngIf="f.extentofProperty.errors.required">Extent of Property is required
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="documentno" class="col-sm-4 col-form-label">Document No.
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="documentNo" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.documentNo.errors }"
+                                        id="documentNoFormControlInput" placeholder="Please Enter Document No."
+                                        maxlength="30">
+                                    <div *ngIf="psubmitted && f.documentNo.errors" class="invalid-feedback">
+                                        <div *ngIf="f.documentNo.errors.required">Document No. is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-group row">
+                                <label for="documentno" class="col-sm-4 col-form-label"></label>
+
+
+                                <div class="col-sm-8">
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                            <div class="col-md-10 offset-md-2"
+                                style='padding-top: 20px;padding-right: 0px !important;padding-bottom:20px;'
+                                align="right">
+                                <!-- <button type="submit" class="btn btn-primary" [disabled]="!userloginForm.valid" >Submit</button> -->
+                                <button type="submit" class="submit-btn">Continue</button>
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div *ngIf="secondFormStep" class="col-md-7">
+                            <div class="form-group row">
+                                <label for="subRegisterOffice" class="col-sm-4 col-form-label">Sub Register Office
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="subRegisterOffice" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.subRegisterOffice.errors }"
+                                        id="subRegisterOfficeFormControlInput"
+                                        placeholder="Please Enter Sub Register Office" maxlength="150">
+                                    <div *ngIf="psubmitted && f.subRegisterOffice.errors" class="invalid-feedback">
+                                        <!-- <div *ngIf="f.subRegisterOffice.errors.required">Sub Register Office is required
+                                            </div> -->
+                                        <div *ngIf="f.subRegisterOffice.errors.minlength">Please enter valid Sub
+                                            Register Office with minimum 6 and maximum 150 characters
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="boundaries" class="col-sm-4 col-form-label">Boundaries - North
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="boundariesNorth" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.boundariesNorth.errors }"
+                                        id="boundariesFormControlInput" placeholder="Please Enter North" maxlength="50">
+                                    <div *ngIf="psubmitted && f.boundariesNorth.errors" class="invalid-feedback">
+                                        <!-- <div *ngIf="f.boundariesNorth.errors.required">Boundaries is required</div> -->
+                                        <div *ngIf="f.boundariesNorth.errors.minlength">Please enter valid Boundaries -
+                                            North with minimum 3 and maximum 50 characters</div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="boundaries" class="col-sm-4 col-form-label">Boundaries - South
+                                </label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="boundariesSouth" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.boundariesSouth.errors }"
+                                        id="boundariesFormControlInput" placeholder="Please Enter South" maxlength="50">
+                                    <div *ngIf="psubmitted && f.boundariesSouth.errors" class="invalid-feedback">
+                                        <!-- <div *ngIf="f.boundariesSouth.errors.required">Boundaries is required</div> -->
+                                        <div *ngIf="f.boundariesSouth.errors.minlength">Please enter valid Boundaries -
+                                            South with minimum 3 and maximum 50 characters</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="boundaries" class="col-sm-4 col-form-label">Boundaries - East
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="boundariesEast" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.boundariesEast.errors }"
+                                        id="boundariesFormControlInput" placeholder="Please Enter East" maxlength="30">
+                                    <div *ngIf="psubmitted && f.boundariesEast.errors" class="invalid-feedback">
+                                        <!-- <div *ngIf="f.boundariesEast.errors.required">Boundaries is required</div> -->
+                                        <div *ngIf="f.boundariesEast.errors.minlength">Please enter valid Boundaries -
+                                            South with minimum 3 and maximum 50 characters</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="boundaries" class="col-sm-4 col-form-label">Boundaries - West
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="boundariesWest" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.boundariesWest.errors }"
+                                        id="boundariesFormControlInput" placeholder="Please Enter West" maxlength="50">
+                                    <div *ngIf="psubmitted && f.boundariesWest.errors" class="invalid-feedback">
+                                        <!-- <div *ngIf="f.boundariesWest.errors.required">Boundaries is required</div> -->
+                                        <div *ngIf="f.boundariesWest.errors.minlength">Please enter valid Boundaries -
+                                            South with minimum 3 and maximum 50 characters</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-12 offset-md-2" style='padding-top: 20px;padding-bottom:20px;'>
+                                <!-- <button type="submit" class="btn btn-primary" [disabled]="!userloginForm.valid" >Submit</button> -->
+                                <button type="btn" class="submit-btn"
+                                    (click)="PreviousForm('FirstForm')">Previous</button>
+                                <button type="submit" class="submit-btn">Continue</button>
+                            </div>
+                        </div>
+
+
+
+
+
+
+                        <div *ngIf="thirdFormStep" class='col-md-7'>
+
+                            <div class="form-group row form-group-1">
+                                <label for="address1" class="col-sm-4 col-form-label">Address 1
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="address1" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.address1.errors }"
+                                        id="address1FormControlInput" placeholder="Please Enter Address 1"
+                                        maxlength="150">
+                                    <div *ngIf="psubmitted && f.address1.errors" class="invalid-feedback">
+                                        <div *ngIf="f.address1.errors.required">Address 1 is required</div>
+                                        <div *ngIf="f.address1.errors.minlength">Please enter valid address1 with
+                                            minimum of 6 and maximum 150 characters</div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row form-group-1">
+                                <label for="address2" class="col-sm-4 col-form-label">Address 2
+                                    <!-- <span class="mandatory">*</span> -->
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="address2" class="form-control"
+                                        id="address2FormControlInput" placeholder="Please Enter Address 2"
+                                        maxlength="150">
+                                    <!-- <div *ngIf="psubmitted && f.address2.errors" class="invalid-feedback">
+                                    <div *ngIf="f.address2.errors.required">Address 2 is required</div>
+                                    <div *ngIf="f.address2.errors.minlength">Please enter valid address2
+                                        with minimum of 6 and maximum 150 characters</div>
+
+                                </div> -->
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-group-1">
+                                <label for="state" class="col-sm-4 col-form-label">State
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <select class="form-control" formControlName="state"
+                                        (ngModelChange)="getstate($event)" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.state.errors }">
+                                        <option value="" [selected]="selected">Select State</option>
+                                        <option value="AndhraPradesh">Andhrapradesh</option>
+                                        <option value="Karnataka">Karnataka</option>
+                                        <option value="Telangana">Telangana</option>
+                                    </select>
+                                    <div *ngIf="psubmitted && f.state.errors" class="invalid-feedback">
+                                        <div *ngIf="f.state.errors.required">State is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row form-group-1">
+                                <label for="district" class="col-sm-4 col-form-label">District
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" formControlName="district" class="form-control" [ngClass]="{ 'is-invalid': psubmitted && f.district.errors }"
+                                        id="districtFormControlInput" placeholder="Please Enter District" maxlength="30">
+                                     -->
+                                    <select class="form-control" formControlName="district"
+                                        (ngModelChange)="getdistrict($event)" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.district.errors }">
+                                        <option value="" [selected]="selected">Select District</option>
+                                        <option value="{{dist.district}}" *ngFor="let dist of districts">
+                                            {{dist.district}}</option>
+                                    </select>
+                                    <div *ngIf="psubmitted && f.district.errors" class="invalid-feedback">
+                                        <div *ngIf="f.district.errors.required">District is required</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-group row form-group-1">
+                                <label for="mandal" class="col-sm-4 col-form-label">Mandal
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" formControlName="mandal" class="form-control" [ngClass]="{ 'is-invalid': psubmitted && f.mandal.errors }"
+                                        id="mandalFormControlInput" placeholder="Please Enter Mandal" maxlength="30">
+                                    -->
+                                    <select class="form-control" formControlName="mandal"
+                                        (ngModelChange)="getmandal($event)" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.mandal.errors }">
+                                        <option value="" [selected]="selected">Select Mandal</option>
+                                        <option value="{{dist.mandal}}" *ngFor="let dist of mandals">{{dist.mandal}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="psubmitted && f.mandal.errors" class="invalid-feedback">
+
+                                        <div *ngIf="f.mandal.errors.required">Mandal is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row form-group-1">
+                                <label for="village/City" class="col-sm-4 col-form-label">Village/City
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" formControlName="villageCity" class="form-control" [ngClass]="{ 'is-invalid': psubmitted && f.villageCity.errors }"
+                                        id="villageCityFormControlInput" placeholder="Please Enter Village/City" maxlength="30">
+                                     -->
+                                    <select class="form-control" formControlName="villageCity"
+                                        (ngModelChange)="getvillage($event)" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.villageCity.errors }">
+                                        <option value="" [selected]="selected">Select Village</option>
+                                        <option value="{{dist.village}}" *ngFor="let dist of villages">{{dist.village}}
+                                        </option>
+                                    </select>
+                                    <div *ngIf="psubmitted && f.villageCity.errors" class="invalid-feedback">
+                                        <div *ngIf="f.villageCity.errors.required">Village/City is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-group-1">
+                                <label for="zip" class="col-sm-4 col-form-label">Zip Code
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="zip" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.zip.errors }"
+                                        id="zipFormControlInput" placeholder="Please Enter zip Code" maxlength="10">
+                                    <div *ngIf="psubmitted && f.zip.errors" class="invalid-feedback">
+                                        <div *ngIf="f.zip.errors.required">zip Code is required</div>
+                                        <div *ngIf="f.zip.errors.minlength">Please enter a valid zip code with a minimum
+                                            of 4 and maximum 10 alphanumeric</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12 offset-md-2" style='padding-top: 20px;padding-bottom:20px;'>
+                                <!-- <button type="submit" class="btn btn-primary" [disabled]="!userloginForm.valid" >Submit</button> -->
+                                <button type="btn" class="submit-btn"
+                                    (click)="PreviousForm('SecondForm')">Previous</button>
+                                <button type="submit" class="submit-btn">Continue</button>
+
+                            </div>
+                        </div>
+
+
+                        <div *ngIf="fourthFormStep" class="col-md-7">
+                            <div class="form-group row">
+                                <label for="subRegisterOffice" class="col-sm-4 col-form-label">Case/Ref No
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="caseno" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.caseno.errors }"
+                                        id="casenoFormControlInput" placeholder="Please Enter Case / Ref No"
+                                        maxlength="50">
+                                    <div *ngIf="psubmitted && f.caseno.errors" class="invalid-feedback">
+                                        <div *ngIf="f.caseno.errors.required">Case/Ref No is required
+                                        </div>
+                                        <div *ngIf="f.caseno.errors.minlength">Please enter valid Case No with minimum 3
+                                            and maximum 50 characters
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="boundaries" class="col-sm-4 col-form-label">FIR Date
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="fir" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.fir.errors }"
+                                        placeholder="Please Enter FIR Date" maxlength="50">
+                                    <div *ngIf="psubmitted && f.fir.errors" class="invalid-feedback">
+                                        <div *ngIf="f.fir.errors.required">FIR Date is required</div>
+                                        <div *ngIf="f.fir.errors.minlength">Please enter valid FIR with minimum 3 and
+                                            maximum 50 characters</div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="boundaries" class="col-sm-4 col-form-label">PAO No and Date
+                                    <span class="mandatory">*</span>
+                                </label>
+
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="pao" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.pao.errors }"
+                                        id="boundariesFormControlInput" placeholder="Please Enter PAO no and Date"
+                                        maxlength="50">
+                                    <div *ngIf="psubmitted && f.pao.errors" class="invalid-feedback">
+                                        <div *ngIf="f.pao.errors.required">PAO No and Date is required</div>
+                                        <div *ngIf="f.pao.errors.minlength">Please enter valid PAO No and Date with
+                                            minimum 3 and maximum 50 characters</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="boundaries" class="col-sm-4 col-form-label">IO Name
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="ioname" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.ioname.errors }"
+                                        id="boundariesFormControlInput" placeholder="Please Enter IO Name"
+                                        maxlength="50">
+                                    <div *ngIf="psubmitted && f.ioname.errors" class="invalid-feedback">
+                                        <div *ngIf="f.ioname.errors.required">IO Name is required</div>
+                                        <div *ngIf="f.ioname.errors.minlength">Please enter valid IO Name with minimum 3
+                                            and maximum 50 characters</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="boundaries" class="col-sm-4 col-form-label">Zonal Head Name
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="zheadname" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.zheadname.errors }"
+                                        id="boundariesFormControlInput" placeholder="Please Enter Zonal Head Name"
+                                        maxlength="50">
+                                    <div *ngIf="psubmitted && f.zheadname.errors" class="invalid-feedback">
+                                        <div *ngIf="f.zheadname.errors.required">Zonal Head Name is required</div>
+                                        <div *ngIf="f.zheadname.errors.minlength">Please enter valid Zonal Head Name
+                                            with minimum 3 and maximum 50 characters</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="boundaries" class="col-sm-4 col-form-label">Regional Head Name
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <input type="text" formControlName="rheadname" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.rheadname.errors }"
+                                        id="boundariesFormControlInput" placeholder="Please Enter Regional Head Name"
+                                        maxlength="50">
+                                    <div *ngIf="psubmitted && f.rheadname.errors" class="invalid-feedback">
+                                        <div *ngIf="f.rheadname.errors.required">Regional Head Name is required</div>
+                                        <div *ngIf="f.rheadname.errors.minlength">Please enter valid Regional Head Name
+                                            with minimum 3 and maximum 50 characters</div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-group-1">
+                                <label for="village/City" class="col-sm-4 col-form-label">Zone
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" formControlName="villageCity" class="form-control" [ngClass]="{ 'is-invalid': psubmitted && f.villageCity.errors }"
+                                        id="villageCityFormControlInput" placeholder="Please Enter Village/City" maxlength="30">
+                                     -->
+                                    <select class="form-control" formControlName="zone"
+                                        (ngModelChange)="getZone($event)" class="form-control"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.zone.errors }">
+                                        <option value="" [selected]="selected">Select Zone</option>
+                                        <option value="Zone1">Zone1</option>
+                                        <option value="Zone2">Zone2</option>
+                                        <option value="Zone3">Zone3</option>
+                                    </select>
+                                    <div *ngIf="psubmitted && f.zone.errors" class="invalid-feedback">
+                                        <div *ngIf="f.zone.errors.required">Zone is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row form-group-1" *ngIf="user.role==='admin'">
+                                <label for="village/City" class="col-sm-4 col-form-label">Select Company
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" formControlName="villageCity" class="form-control" [ngClass]="{ 'is-invalid': psubmitted && f.villageCity.errors }"
+                                            id="villageCityFormControlInput" placeholder="Please Enter Village/City" maxlength="30">
+                                         -->
+
+                                    <select type="text" formControlName="company" class="form-control"
+                                        (ngModelChange)="getCompanyUser($event)" placeholder="Company Name"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.company.errors }">
+                                        <option value="">Select Company</option>
+                                        <option value={{cm.code}}$${{cm.name}} *ngFor="let cm of companies">{{cm.name}}</option>
+                                    </select>
+                                    <div *ngIf="psubmitted && f.company.errors" class="invalid-feedback">
+                                        <div *ngIf="f.company.errors.required">Company is required</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row form-group-1" *ngIf="user.role==='corporateadmin'">
+                                <label for="village/City" class="col-sm-4 col-form-label"> Company
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    {{user.company}}
+                                </div>
+                            </div>
+
+                            <div class="form-group row form-group-1">
+                                <label for="village/City" class="col-sm-4 col-form-label">Select Company User
+                                    <span class="mandatory">*</span>
+                                </label>
+                                <div class="col-sm-8">
+                                    <!-- <input type="text" formControlName="villageCity" class="form-control" [ngClass]="{ 'is-invalid': psubmitted && f.villageCity.errors }"
+                                                id="villageCityFormControlInput" placeholder="Please Enter Village/City" maxlength="30">
+                                             -->
+
+                                    <select type="text" formControlName="companyuser" class="form-control"
+                                        (ngModelChange)="getCompanyUseremail($event)" placeholder="Company Name"
+                                        [ngClass]="{ 'is-invalid': psubmitted && f.companyuser.errors }">
+                                        <option value="">Select Company User</option>
+                                        <option value={{cm.id}}$${{cm.email}} *ngFor="let cm of companyusers">
+                                            {{cm.email}}</option>
+                                    </select>
+                                    <div *ngIf="psubmitted && f.companyuser.errors" class="invalid-feedback">
+                                        <div *ngIf="f.companyuser.errors.required">Company User is required</div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-12 offset-md-2" style='padding-top: 20px;padding-bottom:20px;'>
+                                <!-- <button type="submit" class="btn btn-primary" [disabled]="!userloginForm.valid" >Submit</button> -->
+                                <button type="btn" class="submit-btn"
+                                    (click)="PreviousForm('ThirdForm')">Previous</button>
+                                <button type="submit" class="submit-btn">Submit</button>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-4" style="padding-right: 0px !important;">
+                            <img src="../../assets/images/add_property.jpg" class="img-fluid"
+                                style="height:94% !important" />
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <app-loading-div-component1 *ngIf="isLoaderdiv"></app-loading-div-component1>

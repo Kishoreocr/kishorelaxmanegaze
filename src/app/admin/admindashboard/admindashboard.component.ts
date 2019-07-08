@@ -76,6 +76,7 @@ export class AdmindashboardComponent implements OnInit {
   feedbackTab = false;
   corporateadminTab=false;
   corporateuserTab=false;
+  corporatepropertyTab=false;
   propertyAssignmentTab = false;
   searchGrp: FormGroup;
   searchGrpcust: FormGroup;
@@ -104,29 +105,7 @@ export class AdmindashboardComponent implements OnInit {
 
     this.propertytabModal = true;
     this.propertyDetails = true;
-
-    this.propertyForm1 = this.formBuilder.group({
-      propertyType: ['', Validators.required],
-      propertyHolderName: ['', [Validators.required, Validators.minLength(2)]],
-      relationship: ['', Validators.required],
-      doorNo: ['', [Validators.required, Validators.minLength(6)]],
-      documentNo: ['', Validators.required],
-      boundariesEast: ['', [Validators.minLength(3)]],
-      boundariesWest: ['', [Validators.minLength(3)]],
-      boundariesNorth: ['', [Validators.minLength(3)]],
-      boundariesSouth: ['', [Validators.minLength(3)]],
-      mandal: ['', Validators.required],
-      district: ['', Validators.required],
-      subRegisterOffice: ['', [Validators.minLength(6)]],
-      extentOfProperty: ['', Validators.required],
-      address1: ['', [Validators.required, Validators.minLength(6)]],
-      address2: ['', [Validators.required, Validators.minLength(6)]],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      zip: ['', [Validators.required, Validators.minLength(4)]]
-      // country: ['', Validators.required]
-    });
-
+this.pform();
     this.commentForm = this.formBuilder.group({
       commentfield: ['', [Validators.required, Validators.minLength(3)]],
       typeofProperty: ['', Validators.required],
@@ -179,6 +158,7 @@ export class AdmindashboardComponent implements OnInit {
         this.feedbackTab = false;
         this.corporateadminTab=false;
         this.corporateuserTab=false;
+        this.corporatepropertyTab=false;
         this.propertyAssignmentTab = false;
         this.searchGrp.controls['searchType'].setValue("propertyHolderName");
         this.searchGrp.controls['searchText'].setValue("");
@@ -195,6 +175,7 @@ export class AdmindashboardComponent implements OnInit {
         this.feedbackTab = false;
         this.corporateadminTab=false;
         this.corporateuserTab=false;
+        this.corporatepropertyTab=false;
         this.propertyAssignmentTab = false;
         this.searchGrpcust.controls['searchTypecust'].setValue("firstName");
         this.searchGrpcust.controls['searchTextcust'].setValue("");
@@ -211,6 +192,7 @@ export class AdmindashboardComponent implements OnInit {
         this.feedbackTab = false;
         this.corporateadminTab=false;
         this.corporateuserTab=false;
+        this.corporatepropertyTab=false;
         this.propertyAssignmentTab = false;
         this.custlist = true;
         this.custdetailstabs = false;
@@ -226,6 +208,7 @@ export class AdmindashboardComponent implements OnInit {
         this.feedbackTab = false;
         this.corporateadminTab=false;
         this.corporateuserTab=false;
+        this.corporatepropertyTab=false;
         this.propertyAssignmentTab = false;
         this.custlist = true;
         this.custdetailstabs = false;
@@ -239,6 +222,7 @@ export class AdmindashboardComponent implements OnInit {
         this.feedbackTab = false;
         this.corporateadminTab=false;
         this.corporateuserTab=false;
+        this.corporatepropertyTab=false;
         this.propertyAssignmentTab = false;
         this.getAlerts();
         this.custlist = true;
@@ -253,6 +237,7 @@ export class AdmindashboardComponent implements OnInit {
         this.feedbackTab = true;
         this.corporateadminTab=false;
         this.corporateuserTab=false;
+        this.corporatepropertyTab=false;
         this.propertyAssignmentTab = false;
         this.custlist = true;
         this.custdetailstabs = false;
@@ -270,6 +255,7 @@ export class AdmindashboardComponent implements OnInit {
         this.custdetailstabs = false;
         this.corporateadminTab=true;
         this.corporateuserTab=false;
+        this.corporatepropertyTab=false;
         //this.getAlerts();
         break;
       case 'corporateuser':
@@ -284,8 +270,24 @@ export class AdmindashboardComponent implements OnInit {
         this.custdetailstabs = false;
         this.corporateadminTab=false;
         this.corporateuserTab=true;
+        this.corporatepropertyTab=false;
         //this.getAlerts();
         break;
+      case 'corporateproperty':
+          this.propertyTab = false;
+          this.alertsTab = false;
+          this.transactionsTab = false;
+          this.adminalertTab = false;
+          this.profileTab = false;
+          this.feedbackTab = false;
+          this.propertyAssignmentTab = false;
+          this.custlist = true;
+          this.custdetailstabs = false;
+          this.corporateadminTab=false;
+          this.corporateuserTab=false;
+          this.corporatepropertyTab=true;
+          //this.getAlerts();
+          break;  
       case 'propertyAssignment':
         this.propertyTab = false;
         this.alertsTab = false;
@@ -353,7 +355,11 @@ export class AdmindashboardComponent implements OnInit {
     this.custdetailstabs = true;
     this.customer = cust;
   }
+  companies:any=[];
+  companyusers:any=[];
+  iscorporate:boolean=false;
   openModal(id: string, cust) {
+    
     this.submitted = false;
     this.propertytabModal = true;
     this.documentstabModal = false;
@@ -361,7 +367,13 @@ export class AdmindashboardComponent implements OnInit {
     this.updateuserProfilestatus = '';
     // this.customer = cust;
     this.property = cust;
-
+    //alert(this.property.company!==null && this.property.company!=='')
+    if(this.property.company!==null && this.property.company!==''){
+      this.iscorporate=true;
+    }else{
+      this.iscorporate=false;
+    }
+    this.pform();
     this.modalService1.open(id);
     this.isEditDisabled = false;
     this.loginId = this.property.loginId;
@@ -370,6 +382,15 @@ export class AdmindashboardComponent implements OnInit {
     this.getDistricts(this.property.state);
     this.getMandals(this.property.state, this.property.district);
     this.getVillages(this.property.state, this.property.district, this.property.mandal);
+    this.EgazeService.getCompanies().subscribe(result => {
+      this.companies = [];
+      this.companies = result;
+    });
+     
+     this.getCompanyUsers(this.property.company)
+   // alert(JSON.stringify(this.property))
+   if(this.property.company!==null && this.property.company!==''){
+     //this.iscorporate=true;
     this.propertyForm1.setValue({
       propertyType: this.property.propertyType,
       propertyHolderName: this.property.propertyHolderName,
@@ -389,12 +410,48 @@ export class AdmindashboardComponent implements OnInit {
       address2: this.property.address2,
       city: this.property.city,
       state: this.property.state,
-      zip: this.property.zip
+      zip: this.property.zip,
+      caseno: this.property.caseNo,
+      fir: this.property.fir,
+      pao: this.property.pao,
+      ioname: this.property.ioName,
+      zheadname: this.property.zHeadName,
+      rheadname: this.property.rHeadName,
+      zone: this.property.zone,
+      company: this.property.company+'$$'+this.property.cmpName,
+      companyuser:this.property.companyUser+'$$'+this.property.cmpUserEmail,
+      cmpName:this.property.cmpName,
+      cmpUserEmail:this.property.cmpUserEmail
       //  country: this.property.country
       // status: this.property.status
 
     });
 
+   }
+else{
+  this.propertyForm1.setValue({
+    propertyType: this.property.propertyType,
+    propertyHolderName: this.property.propertyHolderName,
+    relationship: this.property.relationship,
+    doorNo: this.property.doorNo,
+    documentNo: this.property.documentNo,
+    // boundaries: "boundaries",
+    boundariesEast: this.property.boundariesEast,
+    boundariesWest: this.property.boundariesWest,
+    boundariesNorth: this.property.boundariesNorth,
+    boundariesSouth: this.property.boundariesSouth,
+    mandal: this.property.mandal,
+    district: this.property.district,
+    subRegisterOffice: this.property.subRegisterOffice,
+    extentOfProperty: this.property.extentOfProperty,
+    address1: this.property.address1,
+    address2: this.property.address2,
+    city: this.property.city,
+    state: this.property.state,
+    zip: this.property.zip
+  });
+
+}    
 
   }
 
@@ -402,7 +459,7 @@ export class AdmindashboardComponent implements OnInit {
     this.modalService1.close(id);
   }
   getCustomerDetails() {
-    this.EgazeService.getCustomerDetails().subscribe(result => {
+    this.EgazeService.getAllUsers().subscribe(result => {
       //debugger;
       this.customers = result;
       this.customersbkp = result;
@@ -455,10 +512,11 @@ export class AdmindashboardComponent implements OnInit {
     }
 
     this.errorMsg = '';
-    //alert(this.propertyForm1.valid)
+    //alert(JSON.stringify(this.propertyForm1.value))
     if (this.propertyForm1.valid) {
       this.isLoading = true;
       //alert("dsdd")
+      
       this.EgazeService.updatePropertybyAdmin(propertyForm1.value, this.loginId, this.propertyId, this.property.status).subscribe(result => {
         this.isLoading = false;
         //alert("dsdd="+result)
@@ -587,6 +645,7 @@ export class AdmindashboardComponent implements OnInit {
     this.feedbackTab = false;
     this.corporateadminTab=false;
     this.corporateuserTab=false;
+    this.corporatepropertyTab=false;
     this.propertyAssignmentTab = false;
     this.customerdetailstabModal = true;
     this.customerpackagestabModal = false;
@@ -915,7 +974,36 @@ export class AdmindashboardComponent implements OnInit {
   getvillage(event) {
     this.propertyForm1.value.villageCity = "" + event;
   }
-
+  getZone(event) {
+    this.propertyForm1.value.zone = "" + event;
+  }
+  getCompanyUser(evnt) {
+    //alert(evnt)
+    if(""+evnt===''){
+      this.companyusers = [];
+    }else{
+      let mob = "" + evnt;
+      let mobi = mob.split("$$");
+    // this.propertyForm.value.companyuser = "" + event;
+    this.getCompanyUsers("" + mobi[0]);
+    }
+    
+  }
+  getCompanyUsers(code) {
+    this.EgazeService.getCompanyUsers(code).subscribe(result => {
+      this.companyusers = [];
+      this.companyusers = result;
+    });
+  }
+ // companyuseremail:any;
+  // getCompanyUseremail(evnt) {
+  //   let ema = "" + evnt;
+  //   let emai = ema.split("$$");
+  //   this.propertyForm1.value.companyuser = emai[0];
+  //   this.propertyForm1.value.cmpUserEmail = emai[1];
+  //   //this.companyuseremail = emai[1];
+  //   //alert(this.companyuseremail +" --- "+this.propertyForm.value.companyuser)
+  // }
   districts: any = [];
   getDistricts(stateCode) {
     this.EgazeService.getDistricts(stateCode).subscribe(result => {
@@ -951,5 +1039,65 @@ export class AdmindashboardComponent implements OnInit {
   viewur:any=this.EgazeService.getPropertyDocViewURL();
 
   viewcommentur:any=this.EgazeService.getPropertyCommentDocViewURL();
-
+pform(){
+  if(this.iscorporate){
+    this.propertyForm1 = this.formBuilder.group({
+      propertyType: ['', Validators.required],
+      propertyHolderName: ['', [Validators.required, Validators.minLength(2)]],
+      relationship: ['', Validators.required],
+      doorNo: ['', [Validators.required, Validators.minLength(6)]],
+      documentNo: ['', Validators.required],
+      boundariesEast: ['', [Validators.minLength(3)]],
+      boundariesWest: ['', [Validators.minLength(3)]],
+      boundariesNorth: ['', [Validators.minLength(3)]],
+      boundariesSouth: ['', [Validators.minLength(3)]],
+      mandal: ['', Validators.required],
+      district: ['', Validators.required],
+      subRegisterOffice: ['', [Validators.minLength(6)]],
+      extentOfProperty: ['', Validators.required],
+      address1: ['', [Validators.required, Validators.minLength(6)]],
+      address2: ['', [Validators.required, Validators.minLength(6)]],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      zip: ['', [Validators.required, Validators.minLength(4)]],
+      caseno: ['', [Validators.required, Validators.minLength(3)]],
+      fir: ['', [Validators.required, Validators.minLength(3)]],
+      pao: ['', [Validators.required, Validators.minLength(3)]],
+      ioname: ['', [Validators.required, Validators.minLength(3)]],
+      zheadname: ['', [Validators.required, Validators.minLength(3)]],
+      rheadname: ['', [Validators.required, Validators.minLength(3)]],
+      zone: ['', [Validators.required, Validators.minLength(3)]],
+      company: ['', Validators.required],
+      companyuser: ['', Validators.required],
+      cmpName: [null],
+      cmpUserEmail: [null]
+      // country: ['', Validators.required]
+    });
+  
+  }else{
+    this.propertyForm1 = this.formBuilder.group({
+      propertyType: ['', Validators.required],
+      propertyHolderName: ['', [Validators.required, Validators.minLength(2)]],
+      relationship: ['', Validators.required],
+      doorNo: ['', [Validators.required, Validators.minLength(6)]],
+      documentNo: ['', Validators.required],
+      boundariesEast: ['', [Validators.minLength(3)]],
+      boundariesWest: ['', [Validators.minLength(3)]],
+      boundariesNorth: ['', [Validators.minLength(3)]],
+      boundariesSouth: ['', [Validators.minLength(3)]],
+      mandal: ['', Validators.required],
+      district: ['', Validators.required],
+      subRegisterOffice: ['', [Validators.minLength(6)]],
+      extentOfProperty: ['', Validators.required],
+      address1: ['', [Validators.required, Validators.minLength(6)]],
+      address2: ['', [Validators.required, Validators.minLength(6)]],
+      city: ['', Validators.required],
+      state: ['', Validators.required],
+      zip: ['', [Validators.required, Validators.minLength(4)]]
+      // country: ['', Validators.required]
+    });
+  
+  }
+  
+}
 }

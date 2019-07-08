@@ -4,15 +4,15 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class EgazeService {
-  private baseUrl: string = '';
+  //private baseUrl: string = '';
   //DEV
- //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
+  //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
   //PROD
-   //private baseUrl: string = 'https://egaze.in/egaze-api/';
- //private baseUrl: string = 'http://localhost:8080/egaze-api/';
+  //private baseUrl: string = 'https://egaze.in/egaze-api/';
+  private baseUrl: string = 'http://localhost:8080/egaze-api/';
   constructor(private http: HttpClient) {
-  this.baseUrl=document.location.href.substr(0,document.location.href.lastIndexOf("/"))+"/egaze-api/";
-   }
+    //this.baseUrl=document.location.href.substr(0,document.location.href.lastIndexOf("/"))+"/egaze-api/";
+  }
 
   loginFun(loginForm) {
     debugger;
@@ -28,8 +28,8 @@ export class EgazeService {
     return this.http.get(requestURL, { responseType: 'text' });
   }
 
-  getOTP(emialId, mobi,code) {
-    let requestURL = this.baseUrl + 'otp/reg/' + emialId + '/' + mobi+'/'+code;
+  getOTP(emialId, mobi, code) {
+    let requestURL = this.baseUrl + 'otp/reg/' + emialId + '/' + mobi + '/' + code;
     return this.http.get(requestURL, { responseType: 'text' });
   }
 
@@ -41,7 +41,7 @@ export class EgazeService {
         "lastName": userObject.lastName,
         "email": userObject.email,
         "mobile": userObject.mobileNumber,
-        "zip": "" ,
+        "zip": "",
         "role": userObject.registerType,
         "password": userObject.password,
         "country": userObject.country,
@@ -57,7 +57,7 @@ export class EgazeService {
         "lastName": userObject.lastName,
         "email": userObject.email,
         "mobile": userObject.mobileNumber,
-        "zip": "" ,
+        "zip": "",
         "role": userObject.registerType,
         "password": userObject.password,
         "country": userObject.country,
@@ -65,10 +65,10 @@ export class EgazeService {
         "mCode": userObject.mCode,
         "type": "",
         "description": "",
-        "company":userObject.companyName
+        "company": userObject.companyName
       };
 
-    }else {
+    } else {
       payloadRequestData = {
         "firstName": userObject.firstName,
         "lastName": userObject.lastName,
@@ -84,7 +84,7 @@ export class EgazeService {
       };
 
     }
-   // alert(JSON.stringify(payloadRequestData))
+    // alert(JSON.stringify(payloadRequestData))
     return this.http.post(this.baseUrl + 'signup', payloadRequestData);
   }
 
@@ -133,7 +133,7 @@ export class EgazeService {
     return this.http.get(this.baseUrl + 'customerpackages/' + id);
   }
   getPackages() {
-   // alert(this.baseUrl)
+    // alert(this.baseUrl)
     return this.http.get(this.baseUrl + 'packages');
   }
 
@@ -166,6 +166,51 @@ export class EgazeService {
     return this.http.post(this.baseUrl + 'add/property', propertyDetails);
 
   }
+  addPropertycorporate(objProperty, userId, email, custLoginId) {
+    let cm = "" + objProperty.company;
+    let cmp = cm.split("$$");
+
+    let propertyDetails = {
+      "loginId": custLoginId,
+      "email": email,
+      "propertyType": objProperty.typeofProperty,
+      "propertyHolderName": objProperty.titleHolder,
+      "relationship": objProperty.relationshipTocustomer,
+      "doorNo": objProperty.surveyNoDrNo,
+      "documentNo": objProperty.documentNo,
+      "boundaries": '',
+      "boundariesEast": objProperty.boundariesEast,
+      "boundariesNorth": objProperty.boundariesNorth,
+      "boundariesWest": objProperty.boundariesWest,
+      "boundariesSouth": objProperty.boundariesSouth,
+      "mandal": objProperty.mandal,
+      "district": objProperty.district,
+      "subRegisterOffice": objProperty.subRegisterOffice,
+      "extentOfProperty": objProperty.extentofProperty,
+      "address1": objProperty.address1,
+      "address2": objProperty.address2,
+      "city": objProperty.villageCity,
+      "state": objProperty.state,
+      "zip": objProperty.zip,
+      "country": " ",
+      "caseNo": objProperty.caseno,
+      "fir": objProperty.fir,
+      "pao": objProperty.pao,
+      "ioName": objProperty.ioname,
+      "zHeadName": objProperty.zheadname,
+      "rHeadName": objProperty.rheadname,
+      "zone": objProperty.zone,
+      "company": cmp[0],
+      "companyUser": objProperty.companyuser,
+      "adminLoginId": userId,
+      "cmpName": objProperty.cmpName,
+      "cmpUserEmail": objProperty.cmpUserEmail
+    };
+    //alert(JSON.stringify(propertyDetails));
+    return this.http.post(this.baseUrl + 'add/property', propertyDetails);
+
+  }
+
 
   getAllproperties(userId) {
     return this.http.get(this.baseUrl + 'properties/' + userId);
@@ -211,8 +256,8 @@ export class EgazeService {
     return this.baseUrl + 'downloadFile/propertydocs/agent/' + id;
 
   }
-  getPropertyCommentDocViewURL(){
-    return this.baseUrl + 'viewFile/propertydocs/agent/' ;
+  getPropertyCommentDocViewURL() {
+    return this.baseUrl + 'viewFile/propertydocs/agent/';
 
   }
   savePropertyComments(propetyId, userId, agentId, role, description, status, file): Observable<any> {
@@ -239,7 +284,7 @@ export class EgazeService {
     formdata.append('role', role);
 
     formdata.append('description', description);
-//alert(formdata)
+    //alert(formdata)
     return this.http.post(this.baseUrl + "uploadFile/propertydocs/agent", formdata);
 
   }
@@ -249,35 +294,93 @@ export class EgazeService {
     return this.http.get(this.baseUrl + "all/properties");
 
   }
-
+req:any;
+cuser:any;
+cemail:any;
   updatePropertybyAdmin(objProperty, userId, propertyId, sts) {
     debugger;
-    let requestData = {
-      'propertyId': propertyId,
-      "loginId": userId,
-      "propertyType": objProperty.propertyType,
-      "propertyHolderName": objProperty.propertyHolderName,
-      "relationship": objProperty.relationship,
-      "doorNo": objProperty.doorNo,
-      "documentNo": objProperty.documentNo,
-      "boundaries": 'boundaries',
-      "boundariesEast": objProperty.boundariesEast,
-      "boundariesNorth": objProperty.boundariesNorth,
-      "boundariesWest": objProperty.boundariesWest,
-      "boundariesSouth": objProperty.boundariesSouth,
-      "mandal": objProperty.mandal,
-      "district": objProperty.district,
-      "subRegisterOffice": objProperty.subRegisterOffice,
-      "extentOfProperty": objProperty.extentOfProperty,
-      "address1": objProperty.address1,
-      "address2": objProperty.address2,
-      "city": objProperty.city,
-      "state": objProperty.state,
-      "zip": objProperty.zip,
-      "country": " ",
-      "status": sts
-    };
-    return this.http.post(this.baseUrl + 'update/property', requestData);
+    
+    if(objProperty.company!=undefined && objProperty.company!==null && objProperty.company!==''){
+      let cm = "" + objProperty.company;
+      let cmp = cm.split("$$");
+      if(objProperty.companyuser.search("$$")!==-1){
+       
+        let cm1 = "" + objProperty.companyuser;
+        let cmp1 = cm1.split("$$");
+        this.cuser=cmp1[0];
+        this.cemail=cmp1[1];
+       //alert(objProperty.companyuser)
+      }else{
+        this.cuser=objProperty.companyUser;
+        this.cemail=objProperty.cmpUserEmail
+      }
+       this.req = {
+        'propertyId': propertyId,
+        "loginId": this.cuser,
+        "propertyType": objProperty.propertyType,
+        "propertyHolderName": objProperty.propertyHolderName,
+        "relationship": objProperty.relationship,
+        "doorNo": objProperty.doorNo,
+        "documentNo": objProperty.documentNo,
+        "boundaries": 'boundaries',
+        "boundariesEast": objProperty.boundariesEast,
+        "boundariesNorth": objProperty.boundariesNorth,
+        "boundariesWest": objProperty.boundariesWest,
+        "boundariesSouth": objProperty.boundariesSouth,
+        "mandal": objProperty.mandal,
+        "district": objProperty.district,
+        "subRegisterOffice": objProperty.subRegisterOffice,
+        "extentOfProperty": objProperty.extentOfProperty,
+        "address1": objProperty.address1,
+        "address2": objProperty.address2,
+        "city": objProperty.city,
+        "state": objProperty.state,
+        "zip": objProperty.zip,
+        "country": " ",
+        "status": sts,
+        "caseNo": objProperty.caseno,
+        "fir": objProperty.fir,
+        "pao": objProperty.pao,
+        "ioName": objProperty.ioname,
+        "zHeadName": objProperty.zheadname,
+        "rHeadName": objProperty.rheadname,
+        "zone": objProperty.zone,
+        "company": cmp[0],
+        "companyUser": this.cuser,
+        "adminLoginId": userId,
+        "cmpName": objProperty.cmpName,
+        "cmpUserEmail": this.cemail
+      };
+    }else{
+      this.req= {
+        'propertyId': propertyId,
+        "loginId": userId,
+        "propertyType": objProperty.propertyType,
+        "propertyHolderName": objProperty.propertyHolderName,
+        "relationship": objProperty.relationship,
+        "doorNo": objProperty.doorNo,
+        "documentNo": objProperty.documentNo,
+        "boundaries": 'boundaries',
+        "boundariesEast": objProperty.boundariesEast,
+        "boundariesNorth": objProperty.boundariesNorth,
+        "boundariesWest": objProperty.boundariesWest,
+        "boundariesSouth": objProperty.boundariesSouth,
+        "mandal": objProperty.mandal,
+        "district": objProperty.district,
+        "subRegisterOffice": objProperty.subRegisterOffice,
+        "extentOfProperty": objProperty.extentOfProperty,
+        "address1": objProperty.address1,
+        "address2": objProperty.address2,
+        "city": objProperty.city,
+        "state": objProperty.state,
+        "zip": objProperty.zip,
+        "country": " ",
+        "status": sts
+      };
+
+    }
+    
+    return this.http.post(this.baseUrl + 'update/property', this.req);
 
   }
   customerpackage(requestData) {
@@ -330,7 +433,7 @@ export class EgazeService {
     return this.http.get(this.baseUrl + "customplan/user/details")
 
   }
-  createCustomPackage(requestData,adminid) {
+  createCustomPackage(requestData, adminid) {
     let c = requestData.customerCustom;
     let cc = c.split('##');
     var data = {
@@ -340,7 +443,7 @@ export class EgazeService {
       "propertyLimit": requestData.packageLimit,
       "propertyPeriod": requestData.packagePeriod,
       "description": requestData.descriptionCustom,
-      "adminId":adminid
+      "adminId": adminid
 
     }
     //alert(JSON.stringify(data));
@@ -353,14 +456,14 @@ export class EgazeService {
   getAllContactUsRequests() {
     return this.http.get(this.baseUrl + "getall/contactus")
   }
-  updatecontactus(requestData, freq,email,adminId) {
+  updatecontactus(requestData, freq, email, adminId) {
     var data = {
       "id": freq.id,
       "status": requestData.status,
       "description": requestData.description,
       "type": freq.type,
-      "email":email,
-      "adminId":adminId
+      "email": email,
+      "adminId": adminId
     }
     //alert(JSON.stringify(data));
 
@@ -386,6 +489,7 @@ export class EgazeService {
     return this.http.get(this.baseUrl + 'agent/details');
 
   }
+
   getPropertyUpdates(userId) {
     return this.http.get(this.baseUrl + "updatedproperties/" + userId)
   }
@@ -403,8 +507,8 @@ export class EgazeService {
     }
     return this.http.post(this.baseUrl + 'update/user/status ', data, { responseType: 'text' });
   }
-  getSigninOTP(emialId, mobi,code) {
-    let requestURL = this.baseUrl + 'otp/signin/' + emialId + '/' + mobi+'/'+code;
+  getSigninOTP(emialId, mobi, code) {
+    let requestURL = this.baseUrl + 'otp/signin/' + emialId + '/' + mobi + '/' + code;
     return this.http.get(requestURL);
   }
 
@@ -452,7 +556,7 @@ export class EgazeService {
     return this.http.post(this.baseUrl + 'update/assigned/property/status', data);
   }
   getAgentProperentties(agentId) {
-    return this.http.get(this.baseUrl + 'assigned/properties/'+agentId);
+    return this.http.get(this.baseUrl + 'assigned/properties/' + agentId);
   }
   corporateUserRequest(requestData) {
     var data = {
@@ -468,4 +572,12 @@ export class EgazeService {
   getCompanies() {
     return this.http.get(this.baseUrl + "companies");
   }
+  getCompanyUsers(code) {
+    return this.http.get(this.baseUrl + "company/user/" + code);
+  }
+  getAllUsers() {
+    return this.http.get(this.baseUrl + 'allusers/details');
+
+  }
+
 }
