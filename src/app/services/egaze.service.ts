@@ -270,13 +270,13 @@ export class EgazeService {
     // }
     formdata.append('file', file);
     // if admin then user id is zero.
-    if (role === 'Admin') {
+    if (role === 'Admin' || role==='Corporate Admin') {
       formdata.append('userId', "0");
     } else {
       formdata.append('userId', userId);
     }
 
-    if (role === 'Customer') {
+    if (role === 'Customer' || role==='Corporate User') {
       formdata.append('agentId', "0");
     } else {
       formdata.append('agentId', agentId);
@@ -579,5 +579,7 @@ cemail:any;
     return this.http.get(this.baseUrl + 'allusers/details');
 
   }
-
+  getCorporateProperties(code) {
+    return this.http.get(this.baseUrl + 'corporate/properties/' + code);
+  }
 }
