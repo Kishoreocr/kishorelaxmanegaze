@@ -23,7 +23,7 @@ export class CadmindashboardComponent implements OnInit {
   propertydocs: any;
   commentForm: FormGroup;
   commentsmsg: any;
-
+  searchForm: FormGroup;
 
   constructor(private ModalPropertyService: ModalPropertyService, private formBuilder: FormBuilder, private sessionstorageService: SessionstorageService, private EgazeService: EgazeService, private modalService1: ModalService) {
     this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
@@ -76,7 +76,27 @@ export class CadmindashboardComponent implements OnInit {
       file: [null, Validators.required]
 
     });
+    this.searchForm = this.formBuilder.group({
+      state: [''],
+      district: [''],
+      mandal: [''],
+      city: [''],
+      zone:[''],
+      caseno:['']
 
+    });
+   this.searchClear();
+  }
+  searchClear(){
+    this.searchForm.controls['zone'].setValue("");
+    this.searchForm.controls['state'].setValue("");
+    this.searchForm.controls['district'].setValue("");
+    this.searchForm.controls['mandal'].setValue("");
+    this.searchForm.controls['city'].setValue("");
+    this.searchForm.controls['caseno'].setValue("");
+  }
+  get f1() {
+    return this.searchForm.controls;
   }
   get c() {
     return this.commentForm.controls;
@@ -111,24 +131,24 @@ export class CadmindashboardComponent implements OnInit {
 
   }
   custproperties() {
-if(this.user.role==='corporateadmin'){
-  this.EgazeService.getCorporateProperties(this.user.companyCode).subscribe(
-    result => {
-      //debugger;
-      this.userproperties = result;
-    },
-    error => { }
-  );
-}else{
-  this.EgazeService.getAllproperties(this.user.loginId).subscribe(
-    result => {
-      //debugger;
-      this.userproperties = result;
-    },
-    error => { }
-  );
-}
-    
+    if (this.user.role === 'corporateadmin') {
+      this.EgazeService.getCorporateProperties(this.user.companyCode).subscribe(
+        result => {
+          //debugger;
+          this.userproperties = result;
+        },
+        error => { }
+      );
+    } else {
+      this.EgazeService.getAllproperties(this.user.loginId).subscribe(
+        result => {
+          //debugger;
+          this.userproperties = result;
+        },
+        error => { }
+      );
+    }
+
 
   }
   propertytabModal: boolean = false;
@@ -167,7 +187,7 @@ if(this.user.role==='corporateadmin'){
         this.documentstabModal = false;
         this.commentstabModal = true;
         this.isEditDisabled = false;
-         this.getPrpopertyComments();
+        this.getPrpopertyComments();
         break;
       default:
         this.commentstabModal = false;
@@ -370,7 +390,19 @@ if(this.user.role==='corporateadmin'){
     }
   }
 
+  searchFun(searchForm) {
+    //alert(JSON.stringify(this.searchForm.value))
+    
+    this.EgazeService.searchCorporatePropeties(searchForm.value).subscribe(result => {
+      this.isLoading = false;
+      this.userproperties = [];
+      this.userproperties = result;
+    }, error => {
+      this.isLoading = false;
+      this.errorMsg = 'Server error has been occurred. Please try later.';
+    });
 
+  }
 
 
   /*file*/
@@ -501,16 +533,16 @@ if(this.user.role==='corporateadmin'){
     }
   }
   usr: any;
-  usrid:any;
+  usrid: any;
   commentFun(description) {
     this.submitted = true;
     //alert(this.propertyId)
     if (this.user.role === 'corporateadmin') {
       this.usr = 'Corporate Admin';
-      this.usrid="0";
+      this.usrid = "0";
     } else {
       this.usr = 'Corporate User';
-      this.usrid=this.user.loginId;
+      this.usrid = this.user.loginId;
     }
     if (this.commentForm.valid) {
       this.isLoading = true;

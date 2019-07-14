@@ -43,6 +43,141 @@
             
             <div class="property-tab-style table-container-style">
                 <h5 class="tab-active-heading">Corporate Properties</h5>
+                <form [formGroup]="searchForm" (ngSubmit)="searchFun(searchForm)">
+                <div class="col-md-6" >
+                    <div class="form-group" >
+                        <label for="state">Zone
+                            <!-- <span class="mandatory">*</span> -->
+                        </label>
+                        <select class="form-control"
+                            formControlName="zone" 
+                            class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f1.zone.errors }">
+                            <option value="" [selected]="selected">Select Zone</option>
+                            <option value="Zone1">Zone1</option>
+                            <option value="Zone2">Zone2</option>
+                            <option value="Zone3">Zone3</option>
+                        </select>
+
+                        <div *ngIf="submitted && f1.state.errors" class="invalid-feedback">
+                            <div *ngIf="f1.state.errors.required">State is required
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group" >
+                        <label for="state">State
+                            <!-- <span class="mandatory">*</span> -->
+                        </label>
+                        <select class="form-control"
+                            formControlName="state" (ngModelChange)="getstate($event)"
+                            class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f1.state.errors }">
+                            <option value="" [selected]="selected">Select State</option>
+                            <option value="AndhraPradesh">Andhrapradesh</option>
+                            <option value="Karnataka">Karnataka</option>
+                            <option value="Telangana">Telangana</option>
+                        </select>
+
+                        <div *ngIf="submitted && f1.state.errors" class="invalid-feedback">
+                            <div *ngIf="f1.state.errors.required">State is required
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="district">District
+                            <!-- <span class="mandatory">*</span> -->
+                        </label>
+
+                      
+
+                        <select  class="form-control"
+                            formControlName="district" (ngModelChange)="getdistrict($event)"
+                            class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f1.district.errors }">
+                            <option value="" [selected]="selected">Select District</option>
+                            <option value="{{dist.district}}"
+                                *ngFor="let dist of districts">{{dist.district}}</option>
+                        </select>
+                        <div *ngIf="submitted && f1.district.errors"
+                            class="invalid-feedback">
+                            <div *ngIf="f1.district.errors.required">District is
+                                required
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="form-group">
+                        <label for="mandal">Mandal
+                            <!-- <span class="mandatory">*</span> -->
+                        </label>
+
+                        
+
+                        <select class="form-control"
+                            formControlName="mandal" (ngModelChange)="getmandal($event)"
+                            class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f1.mandal.errors }">
+                            <option value="" [selected]="selected">Select Mandal</option>
+                            <option value="{{dist.mandal}}" *ngFor="let dist of mandals">
+                                {{dist.mandal}}</option>
+                        </select>
+                        <div *ngIf="submitted && f1.mandal.errors" class="invalid-feedback">
+                            <div *ngIf="f1.mandal.errors.required">Mandal is required
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">Village/City
+                            <!-- <span class="mandatory">*</span> -->
+                        </label>
+                    
+
+                        <select class="form-control"
+                            formControlName="city" (ngModelChange)="getvillage($event)"
+                            class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f1.city.errors }">
+                            <option value="" [selected]="selected">Select Village</option>
+                            <option value="{{dist.village}}" *ngFor="let dist of villages">
+                                {{dist.village}}</option>
+                        </select>
+                        <div *ngIf="submitted && f1.city.errors" class="invalid-feedback">
+                            <div *ngIf="f1.city.errors.required">Village/City is
+                                required
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="titleHolder">Case/Ref No
+                            <!-- <span class="mandatory">*</span> -->
+                        </label>
+                        <input type="text" 
+                            formControlName="caseno" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f1.caseno.errors }"
+                            id="titleHolderFormControlInput"
+                            placeholder="Enter Case / Ref No" maxlength="50"
+                            (keypress)="isCharts($event)" />
+                       
+                    </div>
+
+                  
+                    </div>
+                    <div class='col' >
+                        <label >
+                            <!-- <button type="submit" class="btn btn-primary" [disabled]="!userloginForm.valid" >Submit</button> -->
+                            <button type="submit" class="submit-btn" >Search</button>
+                        </label>
+
+                        <label>
+                            <button class="submit-btn" (click)="searchClear()">Clear</button>
+                        </label>
+                    </div>
+</form>
+
+
                 <div class="mainAlertcontainer  table-responsive ">
                     <div *ngIf='userproperties.length == 0'>No Properties.</div>
 
