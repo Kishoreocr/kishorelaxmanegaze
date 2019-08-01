@@ -6,10 +6,10 @@ import { Observable } from 'rxjs/Observable';
 export class EgazeService {
   //private baseUrl: string = '';
   //DEV
-  private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
+  //private baseUrl: string = 'http://202.153.46.90:8080/egaze-api/';
   //PROD
   //private baseUrl: string = 'https://egaze.in/egaze-api/';
-  //private baseUrl: string = 'http://localhost:8080/egaze-api/';
+  private baseUrl: string = 'http://localhost:8080/egaze-api/';
   constructor(private http: HttpClient) {
     //this.baseUrl=document.location.href.substr(0,document.location.href.lastIndexOf("/"))+"/egaze-api/";
   }
@@ -582,7 +582,7 @@ cemail:any;
   getCorporateProperties(code) {
     return this.http.get(this.baseUrl + 'corporate/properties/' + code);
   }
-  searchCorporatePropeties(objData) {
+  searchCorporatePropeties(objData,cmpCode) {
     let requestData = {
       "caseNo": objData.caseno,
       "zone": objData.zone,
@@ -590,10 +590,15 @@ cemail:any;
       "district": objData.district,
       "mandal": objData.mandal,
       "city": objData.city,
+      "company":cmpCode
     }
     //alert(requestData)
     return this.http.post(this.baseUrl + 'search/corporate/properties', requestData);
 
   }
+  getCorporatePropertiesDownload(code) {
+    return this.baseUrl + 'downloadFile/corporate/properties/' + code;
 
+  }
+ 
 }

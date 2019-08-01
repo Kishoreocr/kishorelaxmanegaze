@@ -337,6 +337,24 @@ color: #fff !important;
   box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
   margin:10px 0px;
 }
+
+.login-heading {
+  background-color: #028fd9;
+    background-image: linear-gradient(#028fd9, #30b6fa);
+    color: #fff;
+    border-radius: 16px;
+    /* padding: 2px 70px; */
+    padding: 3px 0px;
+    font-size: 18px;
+    font-weight: 500;
+    border: 0px;
+    position: relative;
+    top: -15px;
+    text-align: center;
+    /* left: 25%; */    
+    margin: -12% auto 20px auto;
+}
+
 .link-style a{
 color:#2ab1f6;
 font-size:14px;
@@ -345,7 +363,7 @@ font-size:14px;
   background-color: #f6f5f5;
 }
 
-.login-heading{
+/*.login-heading{
   background-color: #028fd9;
   background-image: linear-gradient(#028fd9, #30b6fa);
   color: #fff;
@@ -356,10 +374,10 @@ font-size:14px;
   border: 0px;
   position: absolute;
   top: -15px;
-  /* width: 100px; */
+  width: 100px; 
   text-align: center;
   left: 25%;
-}
+}*/
 
 
 .form-control {

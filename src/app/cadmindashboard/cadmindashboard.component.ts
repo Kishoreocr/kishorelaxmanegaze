@@ -24,6 +24,7 @@ export class CadmindashboardComponent implements OnInit {
   commentForm: FormGroup;
   commentsmsg: any;
   searchForm: FormGroup;
+  
 
   constructor(private ModalPropertyService: ModalPropertyService, private formBuilder: FormBuilder, private sessionstorageService: SessionstorageService, private EgazeService: EgazeService, private modalService1: ModalService) {
     this.user = JSON.parse(this.sessionstorageService.getUserDetails() + "");
@@ -87,6 +88,8 @@ export class CadmindashboardComponent implements OnInit {
     });
    this.searchClear();
   }
+   
+
   searchClear(){
     this.searchForm.controls['zone'].setValue("");
     this.searchForm.controls['state'].setValue("");
@@ -94,6 +97,7 @@ export class CadmindashboardComponent implements OnInit {
     this.searchForm.controls['mandal'].setValue("");
     this.searchForm.controls['city'].setValue("");
     this.searchForm.controls['caseno'].setValue("");
+    this.custproperties();
   }
   get f1() {
     return this.searchForm.controls;
@@ -393,7 +397,7 @@ export class CadmindashboardComponent implements OnInit {
   searchFun(searchForm) {
     //alert(JSON.stringify(this.searchForm.value))
     
-    this.EgazeService.searchCorporatePropeties(searchForm.value).subscribe(result => {
+    this.EgazeService.searchCorporatePropeties(searchForm.value,this.user.companyCode).subscribe(result => {
       this.isLoading = false;
       this.userproperties = [];
       this.userproperties = result;
@@ -566,5 +570,7 @@ export class CadmindashboardComponent implements OnInit {
   getporpertyCommentdocDownloadUrl(id) {
     window.location.href = this.EgazeService.getPropertyCommentDocURL(id);
   }
-
+  getCorporatePropertiesDownload(code){
+    window.location.href = this.EgazeService.getCorporatePropertiesDownload(code);
+  }
 }

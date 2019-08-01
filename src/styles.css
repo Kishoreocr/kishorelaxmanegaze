@@ -175,6 +175,8 @@ li.nav-item{
 }
 .modal-header > .modal-title{
     font-size: 16px !important;
+    color: #fff;
+    font-weight: bold;
 }
 .modal-header > .modal-title > button.close{
     padding-top: 0.2em;

@@ -52,6 +52,7 @@ import { FooterComponent } from './footer/footer.component';
 import { Home1Component } from './home1/home1.component';
 import { RoleAuthenticationService as RoleGuard } from './services/role-authentication';
 import { AgentdashboardComponent } from './agentdashboard/agentdashboard.component';
+import { ExportAsModule } from 'ngx-export-as';
 
 import { AgentModule } from './agent/agent.module';
 import { PaymentComponent } from './payment/payment.component';
@@ -205,7 +206,7 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
     ModalDialogModule.forRoot(), AdminModule, AgentModule, DataTableModule, Ng2TelInputModule,
-    BrowserAnimationsModule,NgxPayPalModule,NgxCaptchaModule
+    BrowserAnimationsModule,NgxPayPalModule,NgxCaptchaModule,ExportAsModule
   ],
   exports: [
     LoadingDivComponent,CorporateuserComponent,CorporatepropertyComponent
