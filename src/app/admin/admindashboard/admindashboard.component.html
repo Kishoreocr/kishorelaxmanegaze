@@ -81,16 +81,24 @@
                     style="background-color: #fff;padding: 15px;border-radius: 6px;">
 
                     <button type="button" class="btn mb-2 clear-btn" (click)="custback()">
-                        << Back</button> <div class='row userdashboardTab'>
+                        << Back</button> <div class='display-modal-tab-vertical userdashboardTab'>
                             <ul>
                                 <li [ngClass]="{'active': customerdetailstabModal}"
-                                    (click)="userdashTabs('CustomerDetailsTab')">Customer
-                                    Details
+                                    (click)="userdashTabs('CustomerDetailsTab')">
+                                    <img  class="tab-modal" src="../../assets/images/customer-details.png" width="45">
                                 </li>
                                 <li [ngClass]="{'active': customerpackagestabModal}"
-                                    (click)="userdashTabs('CustomerPackagesTab')">Packages</li>
+                                    (click)="userdashTabs('CustomerPackagesTab')">
+                                    <img  class="tab-modal" src="../../assets/images/packages.png" width="45">
+                                </li>
                                 <li [ngClass]="{'active': customerpropertiestabModal}"
-                                    (click)="userdashTabs('CustomerPropertiesTab')">Properties</li>
+                                    (click)="userdashTabs('CustomerPropertiesTab')">
+                                    <img class="tab-modal" src="../../assets/images/inner_home_icon.png" width="45">
+                                </li>
+                                <!-- <li [ngClass]="{'active': customerpropertiestabModal}"
+                                (click)="userdashTabs('CustomerPropertiesTab')">
+                                <img class="tab-modal" src="../../assets/images/pin.png" width="45">
+                            </li> -->
                             </ul>
                 </div>
 
@@ -398,13 +406,16 @@
                             <div class='row userdashboardTab'>
                                 <ul>
                                     <li [ngClass]="{'active': propertytabModal}"
-                                        (click)="userdashTabs('PropertyDetailsTab')">Property
-                                        Details
+                                        (click)="userdashTabs('PropertyDetailsTab')">
+                                        <img _ngcontent-c3="" class="tab-modal" src="../../assets/images/property_details_img.png">
                                     </li>
                                     <li [ngClass]="{'active': documentstabModal}"
-                                        (click)="userdashTabs('DocumentsTab')">Documents</li>
+                                        (click)="userdashTabs('DocumentsTab')">
+                                        <img _ngcontent-c3="" class="tab-modal" src="../../assets/images/document_img.png">
+                                    </li>
                                     <li [ngClass]="{'active': commentstabModal}" (click)="userdashTabs('CommentsTab')">
-                                        Comments</li>
+                                            <img _ngcontent-c3="" class="tab-modal" src="../../assets/images/comment_img.png">
+                                    </li>
                                 </ul>
                             </div>
 
@@ -1367,7 +1378,7 @@
 
 
             <div class="table-container-style table-th-styles">
-                <h5 class="tab-active-heading">Propert Approval</h5>
+                <h5 class="tab-active-heading">Property Approval</h5>
                 <div class="col-sm-12 seach-box">
 
                     <form class="form-inline" [formGroup]="searchGrp">

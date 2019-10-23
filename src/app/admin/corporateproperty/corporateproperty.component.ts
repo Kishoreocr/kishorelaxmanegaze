@@ -51,7 +51,6 @@ export class CorporatepropertyComponent implements OnInit {
       zip: ['', [Validators.required, Validators.minLength(4)]],
       state: ['', Validators.required],
       caseno: ['', [Validators.required, Validators.minLength(3)]],
-      fir: ['', [Validators.required, Validators.minLength(3)]],
       pao: ['', [Validators.required, Validators.minLength(3)]],
       ioname: ['', [Validators.required, Validators.minLength(3)]],
       zheadname: ['', [Validators.required, Validators.minLength(3)]],

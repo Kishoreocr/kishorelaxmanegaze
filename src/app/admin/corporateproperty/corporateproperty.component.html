@@ -443,23 +443,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="boundaries" class="col-sm-4 col-form-label">FIR Date
-                                    <span class="mandatory">*</span>
-                                </label>
-                                <div class="col-sm-8">
-                                    <input type="text" formControlName="fir" class="form-control"
-                                        [ngClass]="{ 'is-invalid': psubmitted && f.fir.errors }"
-                                        placeholder="Please Enter FIR Date" maxlength="50">
-                                    <div *ngIf="psubmitted && f.fir.errors" class="invalid-feedback">
-                                        <div *ngIf="f.fir.errors.required">FIR Date is required</div>
-                                        <div *ngIf="f.fir.errors.minlength">Please enter valid FIR with minimum 3 and
-                                            maximum 50 characters</div>
-
-
-                                    </div>
-                                </div>
-                            </div>
+                         
 
                             <div class="form-group row">
                                 <label for="boundaries" class="col-sm-4 col-form-label">PAO No and Date

@@ -302,8 +302,8 @@ body.modal-open {
     color:#000;
     padding:6px 15px;
     cursor: pointer;
-    background-color:#e0dede;
-    border-top-left-radius: 13px;
+    /*background-color:#e0dede;
+    border-top-left-radius: 13px;*/
     border-top-right-radius: 13px;
     transition: all 0.5s ease;
     margin-right:-1.5px;
@@ -312,7 +312,7 @@ body.modal-open {
 .userdashboardTab ul li.active{
     background-color:#1275af !important;
     color:#fff;
-    box-shadow: 0px -2px 4px #808080;
+    /*box-shadow: 0px -2px 4px #808080;*/
 }
 
 .propertyheading{background-color:#fff;text-align:center;padding:5px 15px;color:#1275af;font-size:16px;
@@ -592,3 +592,84 @@ modal .modal.confirmDocumentDelete{
           min-height: 140px !important;
       }
       }
+
+      .userdashboardTab {
+        margin: 0px;
+        padding: 0px;
+        /*padding-top: 90px;*/
+        width: 10%;
+        vertical-align: top;
+        display: inline-block;
+        margin-top: 140px;
+        float: right !important; 
+    }
+
+    .display-modal-tab-vertical {
+        display: inline-block;
+    }
+
+    @media (min-width: 1101px){
+.display-modal-tab-vertical{
+    display: inline-block;
+}
+    }
+
+    .userdashboardTab  ul li.active  {
+        background-color: #f1f5f8 !important;
+        border-top-right-radius: 30px;
+        border-bottom-right-radius: 30px;
+        color: #fff;
+    }
+
+    .userdashboardTab ul li {
+        list-style: none;
+        display: inline-block;
+        font-size: 16px;
+        color: #000;
+        padding: 6px 15px;
+        cursor: pointer;
+        border-top-right-radius: 13px;
+        transition: all 0.5s ease;
+        margin-right: -1.5px;
+    }
+
+    .userdashboardTab ul li.active > img.tab-modal {
+        background-color: #27aff4;
+    }
+
+    img.tab-modal {
+        border-radius: 50px;
+        background-color: #d1d1d1;
+        padding: 3px;
+        border: 2px solid #fff;
+        width: 55px;
+        box-sizing: border-box;
+        box-shadow: 0px 0px 20px rgba(0,0,0,0.2);
+    }
+
+    .property-tab-style {
+        background-color: #f6f6f6;
+        padding: 20px;
+        width: 87%;
+        border-radius: 25px;
+        margin: 25px;
+        vertical-align: top;
+        display: inline-block;
+        margin-right: 0px;
+        min-height: 350px;
+    }
+
+    .userdashboardTab ul li {
+        list-style: none;
+        display: inline-block;
+        font-size: 16px;
+        color: #000;
+        padding: 6px 15px;
+        cursor: pointer;
+        /*background-color: #e0dede;*/
+        /*border-top-left-radius: 13px;*/
+        border-top-right-radius: 13px;
+        transition: all 0.5s ease;
+        margin-right: -1.5px;
+        margin-bottom: 10px;
+    }

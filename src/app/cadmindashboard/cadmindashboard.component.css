@@ -804,6 +804,7 @@ img.tab-modal{
     margin: 0px;
     padding: 0px;
     border-bottom: 1px solid #f5f5f5;
+    margin-left: -12% !important;
 }
 .userdashboardTab ul li{
     list-style: none;
@@ -812,17 +813,39 @@ img.tab-modal{
     color:#000;
     padding:6px 15px;
     cursor: pointer;
-    background-color:#e0dede;
-    border-top-left-radius: 13px;
+    /*background-color:#e0dede;
+    /*border-top-left-radius: 13px;*/
     border-top-right-radius: 13px;
     transition: all 0.5s ease;
     margin-right:-1.5px;
 }
 
+.userdashboardTab {
+    margin: 0px;
+    padding: 0px;
+    padding-top: 20px;
+    /*width: 80px;*/
+    width: 10%;
+    vertical-align: top;
+    display: inline-block;
+    margin-top: 50px;
+    float: right;
+}
+@media (min-width: 1101px){
+.display-modal-tab-vertical {
+     display: inline-block; 
+}
+}
+.display-modal-tab-vertical{
+     display: inline-block; 
+}
+
 .userdashboardTab ul li.active{
-    background-color:#1275af !important;
+    background-color:#f1f5f8 !important;
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
     color:#fff;
-    box-shadow: 0px -2px 4px #808080;
+    /*box-shadow: 0px -2px 4px #808080;*/
 }
 
 .propertyheading{background-color:#fff;text-align:center;padding:5px 15px;color:#1275af;font-size:16px;
@@ -891,17 +914,17 @@ img.tab-modal{
     }
     .comment-role{
         color:#1275af;font-size:16px;
-        font-weight: 500;
+        font-weight: 600;
         margin:0px;
     }
     .comment-description{
-        color:#666;font-size:14px;line-height: 18px;
+        color:#404040;font-size:13px;line-height: 18px;
     }
     .comment-reply-btn{
         cursor:pointer;color:#f9a069;font-size:16px;padding:5px 20px 5px 0px;
     }
     .comment-hrs{
-        color:#ccc;font-size:12px;padding:5px 20px 5px 0px;
+        color:#b1afaf;font-size:12px;padding:5px 20px 5px 0px;
     }
     
     .upload-container-style{
@@ -927,19 +950,19 @@ img.tab-modal{
     
     .modal-heading{
         border-bottom: 1px solid #f5f5f5;
-        padding: 0px;
+        /*padding: 0px;*/
     }
     .modal-heading p{
-        margin-bottom: 10px;font-size:16px;font-weight:400;color:#000;
+        margin-bottom: 10px;font-size:18px;font-weight:600;color:#000;
     }
     .commentbox-style{
         background-color: #fbfbfb !important;padding:20px;
     }
     .comments-style{
-        background-color: #fff !important;
+        background-color: #f6f6f6 !important;
     }
     .comments-style .commentbox-style-1{
-        background-color: #fbfbfb !important;
+        background-color: #e8e8e8 !important;
         padding: 10px;
         margin: 5px 0px;
         border-radius: 6px;
@@ -948,7 +971,7 @@ img.tab-modal{
 
 
     .property-tab-style{
-        background-color: #fbfbfb !important;padding:20px 18px;
+        background-color: #f6f6f6 !important;padding:20px 18px;
         margin-bottom:20px;
     }
     .col-form-label{
@@ -1105,4 +1128,20 @@ modal .modal.confirmDocumentDelete{
     .sc-buttons label:nth-child(2){
         margin-right:-15px;
         margin-left: 15px;
+    }
+
+    @media (max-width:968px){
+        .userdashboardTab {
+            float: none;
+            display:inline !important;
+        }
+
+        .userdashboardTab ul {
+            margin-left: 0 !important;
+            text-align:center;
+        }
+        .userdashboardTab ul li.active {
+            background: transparent !important;
+            border-radius: 0 !important;
+        }
     }

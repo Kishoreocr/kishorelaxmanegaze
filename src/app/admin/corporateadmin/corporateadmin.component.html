@@ -88,28 +88,6 @@
                       </div>
                   </div>
 
-                  <div class="form-group">
-                      <!-- <label>Password
-                      <span class="mandatory">*</span>
-                  </label> -->
-                      <div class="passwordInput">
-                          <input [type]="showText ? 'text' : 'password' " formControlName="password" class="form-control" placeholder="Password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
-                              minlength="4" maxlength="20" />
-
-                          <div class="showHideText" (click)="showTextPwd(registerForm)">
-                              <i class="fa fa-eye-slash" *ngIf="hideIconEye"></i>
-                              <i class="fa fa-eye" *ngIf="showIconEye" (mouseleave)="mouseoverpwd()"></i>
-                          </div>
-
-
-
-                          <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                              <div *ngIf="f.password.errors.required">Password is required</div>
-                              <div *ngIf="f.password.errors.minlength">Password must be at least 4 characters</div>
-                              <div *ngIf="f.password.errors.pwdstrong">Password should have At least one letter, one capital letter and one number</div>
-                          </div>
-                      </div>
-                  </div>
 
                   
                   <div class="form-group" style="margin: 0px auto; width: 303px;padding-bottom:10px;">

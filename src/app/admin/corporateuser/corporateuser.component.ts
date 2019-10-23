@@ -139,7 +139,7 @@ handleLoad() {
       email: ['', [Validators.required, Validators.pattern(emailPattern)]],
       mobileNumber: ['', Validators.required],
       //zipCode: ['', Validators.compose([Validators.required, Validators.minLength(4), Validators.maxLength(10)])],
-      password: ['', [Validators.required, Validators.minLength(4),this.pswdstrong]],
+     // password: ['', [Validators.required, Validators.minLength(4),this.pswdstrong]],
      // confirmPassword: ['', [Validators.required, Validators.minLength(4), this.passwordConfirming,this.pswdstrong,]],
       //termsChecked: [false, Validators.required],
       country: [null],

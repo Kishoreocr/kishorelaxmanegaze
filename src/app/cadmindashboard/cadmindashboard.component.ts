@@ -53,7 +53,6 @@ export class CadmindashboardComponent implements OnInit {
       state: ['', Validators.required],
       zip: ['', [Validators.required, Validators.minLength(4)]],
       caseno: ['', [Validators.required, Validators.minLength(3)]],
-      fir: ['', [Validators.required, Validators.minLength(3)]],
       pao: ['', [Validators.required, Validators.minLength(3)]],
       ioname: ['', [Validators.required, Validators.minLength(3)]],
       zheadname: ['', [Validators.required, Validators.minLength(3)]],
@@ -98,6 +97,9 @@ export class CadmindashboardComponent implements OnInit {
     this.searchForm.controls['city'].setValue("");
     this.searchForm.controls['caseno'].setValue("");
     this.custproperties();
+  }
+  get f() {
+    return this.propertyForm1.controls;
   }
   get f1() {
     return this.searchForm.controls;
@@ -254,7 +256,6 @@ export class CadmindashboardComponent implements OnInit {
       state: this.property.state,
       zip: this.property.zip,
       caseno: this.property.caseNo,
-      fir: this.property.fir,
       pao: this.property.pao,
       ioname: this.property.ioName,
       zheadname: this.property.zHeadName,
